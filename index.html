@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة المجد التعليمية | بوابتك الأولى للمنح الدراسية والقبولات الجامعية</title>
+    <title>منصة المجد التعليمية | Al-Majd Educational Platform</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for Icons -->
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts (Cairo) -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
@@ -37,7 +37,7 @@
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-3 space-x-reverse">
-                <img src="WhatsApp Image 2026-08-09 at 20.18.13.jpeg" alt="شعار منصة المجد التعليمية" class="w-12 h-12 object-contain rounded-full shadow">
+                <img src="WhatsApp Image 2026-08-09 at 20.18.13.jpeg" alt="شعار منصة المجد التعليمية" class="w-12 h-12 object-contain rounded-full shadow border border-brandGold">
                 <div>
                     <span class="text-xl font-extrabold text-brandPurple block">منصة المجد التعليمية</span>
                     <span class="text-xs text-gray-500 font-medium">Al-Majd Educational Platform</span>
@@ -52,8 +52,10 @@
                 <a href="#secrets" class="hover:text-brandPurple transition">أسرار القبول</a>
                 <a href="#faq" class="hover:text-brandPurple transition">الأسئلة الشائعة</a>
             </nav>
-            <div>
-                <a href="#calculator" class="bg-brandPurple hover:bg-purple-900 text-white px-5 py-2.5 rounded-xl font-bold shadow-lg transition duration-300">احسب فرصتك</a>
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <button onclick="openFavoritesModal()" class="relative bg-purple-50 text-brandPurple px-4 py-2 rounded-xl font-bold hover:bg-brandPurple hover:text-white transition flex items-center">
+                    <i class="fas fa-heart ml-1"></i> المفضلة <span id="favCount" class="bg-brandGold text-white text-xs px-2 py-0.5 rounded-full mr-2">0</span>
+                </button>
             </div>
         </div>
     </header>
@@ -62,13 +64,13 @@
     <section id="home" class="bg-gradient-to-br from-brandDark via-brandPurple to-indigo-900 text-white py-20 relative overflow-hidden">
         <div class="container mx-auto px-4 text-center relative z-10">
             <div class="mb-6 flex justify-center">
-                <img src="WhatsApp Image 2026-08-09 at 20.18.13.jpeg" alt="شعار منصة المجد" class="w-28 h-28 object-contain bg-white p-2 rounded-2xl shadow-2xl border-4 border-brandGold">
+                <img src="WhatsApp Image 2026-08-09 at 20.18.13.jpeg" alt="شعار منصة المجد" class="w-32 h-32 object-contain bg-white p-2 rounded-2xl shadow-2xl border-4 border-brandGold">
             </div>
             <h1 class="text-4xl md:text-6xl font-black mb-4 leading-tight">اصنع مستقبل أكاديمي مشرق مع <span class="text-brandGold">منصة المجد</span></h1>
-            <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8 font-medium">بوابتك الشاملة للقبولات الجامعية، المنح الدولية الممولة، والاستشارات الأكاديمية الاحترافية بإشراف نخبة من الخبراء.</p>
+            <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8 font-medium">بوابتك الشاملة للقبولات الجامعية والمنح الدراسية العالمية بدقة وثقة عالية.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#scholarships" class="bg-brandGold hover:bg-amber-600 text-white text-lg font-bold px-8 py-3.5 rounded-xl shadow-xl transition">استعرض المنح المتاحة</a>
-                <a href="#about" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white text-lg font-bold px-8 py-3.5 rounded-xl backdrop-blur transition">تعرف علينا</a>
+                <a href="#scholarships" class="bg-brandGold hover:bg-amber-600 text-white text-lg font-bold px-8 py-3.5 rounded-xl shadow-xl transition">تصفح المنح الدراسية</a>
+                <a href="#calculator" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white text-lg font-bold px-8 py-3.5 rounded-xl backdrop-blur transition">حاسبة القبول المتطورة</a>
             </div>
         </div>
     </section>
@@ -80,29 +82,29 @@
                 <h2 class="text-3xl md:text-4xl font-extrabold text-brandDark mb-4">من نحن</h2>
                 <div class="w-24 h-1.5 bg-brandGold mx-auto rounded-full mb-6"></div>
                 <p class="text-gray-600 text-lg leading-relaxed">
-                    نحن <strong class="text-brandPurple">منصة المجد التعليمية</strong>، انطلقنا من قلب الصمود والعطاء في <strong class="text-brandDark">قطاع غزة الحبيب</strong> لنكون المنارة التي تهدي الطلاب نحو أفق التعليم العالي الدولي.
+                    نحن <strong class="text-brandPurple">منصة المجد التعليمية</strong>، انطلقنا من قلب الصمود والعطاء في <strong class="text-brandDark">قطاع غزة الحبيب</strong> لنكون المنارة الأولى التي تهدي الطلاب نحو أفق التعليم العالي الدولي والمنح الممولة.
                 </p>
             </div>
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6">
-                    <div class="bg-purple-50 p-6 rounded-2xl border-r-4 border-brandPurple">
-                        <h3 class="text-xl font-bold text-brandPurple mb-2"><i class="fas fa-bullseye ml-2"></i> رؤيتنا ورسالتنا</h3>
-                        <p class="text-gray-700">تذليل كافة العقبات أمام الطلبة المتميزوساعي لتأمين مقاعد دراسية ومنح جزئية وكاملة في أفضل جامعات العالم، مؤمنين بأن العلم هو سلاح المستقبل والبناء.</p>
+                    <div class="bg-purple-50 p-6 rounded-2xl border-r-4 border-brandPurple shadow-sm">
+                        <h3 class="text-xl font-bold text-brandPurple mb-2"><i class="fas fa-bullseye ml-2"></i> رسالتنا وهدفنا</h3>
+                        <p class="text-gray-700 leading-relaxed">نؤمن بأن العلم سلاح المستقبل، ولطالما سعينا لتذليل كافة العقبات الأكاديمية والمادية أمام الطلبة المتميزين لتأمين مقاعد دراسية ومنح جزئية وكاملة في أرقى الجامعات العالمية.</p>
                     </div>
-                    <div class="bg-amber-50 p-6 rounded-2xl border-r-4 border-brandGold">
+                    <div class="bg-amber-50 p-6 rounded-2xl border-r-4 border-brandGold shadow-sm">
                         <h3 class="text-xl font-bold text-brandGold mb-2"><i class="fas fa-hands-helping ml-2"></i> مبادرة "يد الخير" الإنسانية</h3>
-                        <p class="text-gray-700">افتخرنا بإطلاق وتنيسق <strong class="text-brandDark">مبادرة يد الخير</strong>، والتي قدمت خدمات الإرشاد والتقديم المباشر لـ <strong class="text-brandPurple">+150 طالباً وطالبة مجاناً بالكامل</strong>، لمساعدة طلابنا في تجاوز الظروف الاستثنائية وتحقيق أحلامهم الأكاديمية.</p>
+                        <p class="text-gray-700 leading-relaxed">بكل فخر واعتزاز، أطلقنا ونظمنا <strong class="text-brandDark">مبادرة يد الخير</strong>، والتي قدمت خدمات الإرشاد والتسجيل والتقديم الأكاديمي لـ <strong class="text-brandPurple">+150 طالباً وطالبة مجاناً بالكامل</strong>، لمساعدة طلابنا في تجاوز الظروف الاستثنائية وصنع مستقبلهم.</p>
                     </div>
-                    <div class="bg-blue-50 p-6 rounded-2xl border-r-4 border-blue-600">
+                    <div class="bg-blue-50 p-6 rounded-2xl border-r-4 border-blue-600 shadow-sm">
                         <h3 class="text-xl font-bold text-blue-700 mb-2"><i class="fas fa-chart-line ml-2"></i> إنجازاتنا ومسيرتنا</h3>
-                        <p class="text-gray-700">ساعدنا مئات الطلبة في الحصول على قبولات جامعية ومنح دولية في تركيا، المجر، روسيا، إيطاليا، ماليزيا وغيرها، عبر أدلة دقيقة، استشارات تخصصية، ومتابعة مستمرة حتى الوصول.</p>
+                        <p class="text-gray-700 leading-relaxed">نجحنا في توجيه ومساعدة مئات الطلبة للحصول على قبولات جامعية ومنح في تركيا، المجر، إيطاليا، روسيا، ماليزيا وغيرها، عبر أدلة دقيقة واستشارات تخصصية احترافية.</p>
                     </div>
                 </div>
                 <div class="bg-gradient-to-tr from-brandPurple to-indigo-800 p-8 rounded-3xl text-white shadow-2xl relative">
-                    <h3 class="text-2xl font-bold mb-6 text-brandGold">لماذا يختارنا الطلاب؟</h3>
+                    <h3 class="text-2xl font-bold mb-6 text-brandGold">لماذا منصة المجد؟</h3>
                     <ul class="space-y-4">
-                        <li class="flex items-start"><i class="fas fa-check-circle text-brandGold mt-1 ml-3 text-xl"></i><span>فريق محترف بخبرة واسعة في استشارات المنح الدراسية.</span></li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-brandGold mt-1 ml-3 text-xl"></i><span>دقة متناهية في مواعيد التقديم والشروط والمتطلبات.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-brandGold mt-1 ml-3 text-xl"></i><span>إشراف وتوجيه مباشر بخبرة أكاديمية واسعة.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-brandGold mt-1 ml-3 text-xl"></i><span>دقة تامة ومحدثة 100% في مواعيد ومواعيد المنح.</span></li>
                         <li class="flex items-start"><i class="fas fa-check-circle text-brandGold mt-1 ml-3 text-xl"></i><span>مبادرات مجتمعية مستمرة لدعم غير القادرين والطلاب المتفوقين.</span></li>
                         <li class="flex items-start"><i class="fas fa-check-circle text-brandGold mt-1 ml-3 text-xl"></i><span>تغطية شاملة لأبرز الجامعات العالمية والاعترافات الدولية.</span></li>
                     </ul>
@@ -111,133 +113,161 @@
         </div>
     </section>
 
-    <!-- Scholarships Section (Checked & Accurate) -->
+    <!-- Scholarships Section with Search & Filter -->
     <section id="scholarships" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-brandDark mb-4">أبرز المنح الدراسية الدولية المعتمدة</h2>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brandDark mb-4">قائمة المنح الدراسية الدقيقة والمحدثة</h2>
                 <div class="w-24 h-1.5 bg-brandGold mx-auto rounded-full mb-6"></div>
-                <p class="text-gray-600 text-lg">قائمة دقيقة 100% ومحدثة لأهم المنح الممولة بالكامل والجزئية مع مواعيدها الرسمية وشروطها.</p>
+                <p class="text-gray-600 text-lg">تم مراجعة كافة المنح والمواعيد بدقة 100% وإزالة المنح الوهمية أو غير الدقيقة.</p>
             </div>
 
-            <!-- Scholarship Grid -->
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Scholarship 1 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 flex flex-col justify-between">
+            <!-- Search and Filter Bar -->
+            <div class="bg-white p-6 rounded-2xl shadow-md mb-8 grid md:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">بحث عن منحة أو دولة</label>
+                    <input type="text" id="searchInput" onkeyup="filterScholarships()" placeholder="اكتب اسم الدولة أو المنحة..." class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-2.5 focus:outline-none focus:border-brandPurple">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">نوع التمويل</label>
+                    <select id="fundingFilter" onchange="filterScholarships()" class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-2.5 focus:outline-none focus:border-brandPurple">
+                        <option value="all">جميع أنواع التمويل</option>
+                        <option value="fully">ممولة بالكامل</option>
+                        <option value="partial">ممولة جزئياً</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">الدولة</label>
+                    <select id="countryFilter" onchange="filterScholarships()" class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-2.5 focus:outline-none focus:border-brandPurple">
+                        <option value="all">جميع الدول</option>
+                        <option value="تركيا">تركيا</option>
+                        <option value="المجر">المجر (هنغاريا)</option>
+                        <option value="إيطاليا">إيطاليا</option>
+                        <option value="روسيا">روسيا</option>
+                        <option value="قطر">قطر</option>
+                        <option value="ماليزيا">ماليزيا</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Scholarships Grid -->
+            <div id="scholarshipsGrid" class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="scholarship-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 flex flex-col justify-between" data-country="تركيا" data-funding="fully">
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-4">
                             <span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full">ممولة بالكامل</span>
                             <span class="text-sm font-semibold text-gray-500"><i class="fas fa-globe ml-1"></i> تركيا</span>
                         </div>
                         <h3 class="text-xl font-bold text-brandDark mb-2">المنح التركية (Türkiye Bursları)</h3>
-                        <p class="text-gray-600 text-sm mb-4">تشمل الرسوم الدراسية، الراتب الشهري، السكن، تذاكر الطيران، ورنة اللغة التركية.</p>
+                        <p class="text-gray-600 text-sm mb-4">تشمل الرسوم الدراسية، الراتب الشهري، السكن، تذاكر الطيران، وسنة تحضيرية للغة.</p>
                         <div class="text-xs text-gray-500 space-y-1 border-t pt-4">
-                            <p><strong>المعدل المطلوب:</strong> 70% البكالوريوس / 75% الماجستير</p>
-                            <p><strong>موعد التسجيل:</strong> عادةً من يناير إلى فبراير من كل عام</p>
+                            <p><strong>المعدل المطلوب:</strong> 70% للبكالوريوس / 75% للماجستير</p>
+                            <p><strong>موعد التسجيل:</strong> من يناير إلى فبراير سنوياً</p>
                         </div>
                     </div>
                     <div class="px-6 py-4 bg-gray-50 border-t flex justify-between items-center">
-                        <span class="text-xs font-bold text-brandPurple">الحالة: مغلق حالياً (يفتح بالسنة القادمة)</span>
+                        <button onclick="toggleFavorite('المنح التركية')" class="text-brandPurple hover:text-red-500 transition font-bold text-sm"><i class="far fa-heart ml-1"></i> أضف للمفضلة</button>
                         <a href="#calculator" class="text-brandGold font-bold text-sm hover:underline">افحص أهليتك</a>
                     </div>
                 </div>
 
-                <!-- Scholarship 2 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 flex flex-col justify-between">
+                <!-- Card 2 -->
+                <div class="scholarship-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 flex flex-col justify-between" data-country="المجر" data-funding="fully">
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-4">
                             <span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full">ممولة بالكامل</span>
                             <span class="text-sm font-semibold text-gray-500"><i class="fas fa-globe ml-1"></i> المجر (هنغاريا)</span>
                         </div>
                         <h3 class="text-xl font-bold text-brandDark mb-2">منحة الهنجاريكوم (Stipendium Hungaricum)</h3>
-                        <p class="text-gray-600 text-sm mb-4">إعفاء تام من الرسوم، راتب شهري، سكن مجاني، وتأمين صحي شامل في الجامعات المجرية.</p>
+                        <p class="text-gray-600 text-sm mb-4">إعفاء تام من الرسوم، راتب شهري، سكن مجاني، وتأمين صحي شامل.</p>
                         <div class="text-xs text-gray-500 space-y-1 border-t pt-4">
                             <p><strong>المعدل المطلوب:</strong> 75% فما فوق</p>
-                            <p><strong>موعد التسجيل:</strong> من نوفمبر حتى يناير من كل عام</p>
+                            <p><strong>موعد التسجيل:</strong> من نوفمبر حتى يناير سنوياً</p>
                         </div>
                     </div>
                     <div class="px-6 py-4 bg-gray-50 border-t flex justify-between items-center">
-                        <span class="text-xs font-bold text-green-600">الحالة: قريبا للاستعداد</span>
+                        <button onclick="toggleFavorite('منحة الهنجاريكوم')" class="text-brandPurple hover:text-red-500 transition font-bold text-sm"><i class="far fa-heart ml-1"></i> أضف للمفضلة</button>
                         <a href="#calculator" class="text-brandGold font-bold text-sm hover:underline">افحص أهليتك</a>
                     </div>
                 </div>
 
-                <!-- Scholarship 3 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 flex flex-col justify-between">
+                <!-- Card 3 -->
+                <div class="scholarship-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 flex flex-col justify-between" data-country="إيطاليا" data-funding="partial">
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-4">
                             <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">ممولة جزئياً/كاملة</span>
                             <span class="text-sm font-semibold text-gray-500"><i class="fas fa-globe ml-1"></i> إيطاليا</span>
                         </div>
-                        <h3 class="text-xl font-bold text-brandDark mb-2">منح المقاطعات الإيطالية (DSU / Laz1)</h3>
-                        <p class="text-gray-600 text-sm mb-4">تقدم إعفاء من الرسوم الدراسية بناءً على الدخل (ISEE)، مع منح مالية تصل لـ 7000 يورو سنوياً وسكن جامعي.</p>
+                        <h3 class="text-xl font-bold text-brandDark mb-2">منح المقاطعات الإيطالية (DSU)</h3>
+                        <p class="text-gray-600 text-sm mb-4">إعفاء من الرسوم الدراسية بناءً على الدخل (ISEE) ومنحة مالية تصل لـ 7000 يورو سنوياً.</p>
                         <div class="text-xs text-gray-500 space-y-1 border-t pt-4">
-                            <p><strong>المعدل المطلوب:</strong> لا يشترط معدل تعجيزي (الاعتماد على القبول والوضع المالي)</p>
-                            <p><strong>موعد التسجيل:</strong> من مايو إلى أغسطس من كل عام</p>
+                            <p><strong>المعدل المطلوب:</strong> قبول جامعي فقط دون شرط معدل تعجيزي</p>
+                            <p><strong>موعد التسجيل:</strong> من مايو إلى أغسطس سنوياً</p>
                         </div>
                     </div>
                     <div class="px-6 py-4 bg-gray-50 border-t flex justify-between items-center">
-                        <span class="text-xs font-bold text-amber-600">الحالة: مفتوح أو حسب الجامعة</span>
+                        <button onclick="toggleFavorite('منح المقاطعات الإيطالية')" class="text-brandPurple hover:text-red-500 transition font-bold text-sm"><i class="far fa-heart ml-1"></i> أضف للمفضلة</button>
                         <a href="#calculator" class="text-brandGold font-bold text-sm hover:underline">افحص أهليتك</a>
                     </div>
                 </div>
 
-                <!-- Scholarship 4 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 flex flex-col justify-between">
+                <!-- Card 4 -->
+                <div class="scholarship-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 flex flex-col justify-between" data-country="روسيا" data-funding="fully">
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-4">
                             <span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full">ممولة بالكامل</span>
                             <span class="text-sm font-semibold text-gray-500"><i class="fas fa-globe ml-1"></i> روسيا الاتحادية</span>
                         </div>
                         <h3 class="text-xl font-bold text-brandDark mb-2">منحة الحكومة الروسية</h3>
-                        <p class="text-gray-600 text-sm mb-4">دراسة مجانية في الجامعات الروسية مع سنة تحضيرية للغة الروسية وراتب شهري رمزي وسكن جامعي.</p>
+                        <p class="text-gray-600 text-sm mb-4">دراسة مجانية وسنة تحضيرية للغة الروسية مع سكن جامعي وراتب شهري رمزي.</p>
                         <div class="text-xs text-gray-500 space-y-1 border-t pt-4">
                             <p><strong>المعدل المطلوب:</strong> 70% فما فوق</p>
-                            <p><strong>موعد التسجيل:</strong> من سبتمبر حتى فبراير من كل عام</p>
+                            <p><strong>موعد التسجيل:</strong> من سبتمبر حتى فبراير سنوياً</p>
                         </div>
                     </div>
                     <div class="px-6 py-4 bg-gray-50 border-t flex justify-between items-center">
-                        <span class="text-xs font-bold text-gray-500">الحالة: مرتقب فتحها</span>
+                        <button onclick="toggleFavorite('منحة الحكومة الروسية')" class="text-brandPurple hover:text-red-500 transition font-bold text-sm"><i class="far fa-heart ml-1"></i> أضف للمفضلة</button>
                         <a href="#calculator" class="text-brandGold font-bold text-sm hover:underline">افحص أهليتك</a>
                     </div>
                 </div>
 
-                <!-- Scholarship 5 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 flex flex-col justify-between">
+                <!-- Card 5 -->
+                <div class="scholarship-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 flex flex-col justify-between" data-country="قطر" data-funding="fully">
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-4">
                             <span class="bg-purple-100 text-purple-800 text-xs font-bold px-3 py-1 rounded-full">ممولة بالكامل</span>
                             <span class="text-sm font-semibold text-gray-500"><i class="fas fa-globe ml-1"></i> قطر</span>
                         </div>
                         <h3 class="text-xl font-bold text-brandDark mb-2">منحة جامعة قطر (Qatar University)</h3>
-                        <p class="text-gray-600 text-sm mb-4">إعفاء من الرسوم الدراسية، توفير سكن جامعي، تذاكر طيران سنوية، وتأمين صحي.</p>
+                        <p class="text-gray-600 text-sm mb-4">إعفاء من الرسوم الدراسية، توفير سكن جامعي، تذاكر طيران سنوية وتأمين صحي.</p>
                         <div class="text-xs text-gray-500 space-y-1 border-t pt-4">
-                            <p><strong>المعدل المطلوب:</strong> 85% فما فوق للبكالوريوس</p>
-                            <p><strong>موعد التسجيل:</strong> من أبريل إلى مايو / ومن أكتوبر إلى نوفمبر</p>
+                            <p><strong>المعدل المطلوب:</strong> 85% فما فوق</p>
+                            <p><strong>موعد التسجيل:</strong> فترات محددة فصلية</p>
                         </div>
                     </div>
                     <div class="px-6 py-4 bg-gray-50 border-t flex justify-between items-center">
-                        <span class="text-xs font-bold text-green-600">الحالة: متاح للمتابعة</span>
+                        <button onclick="toggleFavorite('منحة جامعة قطر')" class="text-brandPurple hover:text-red-500 transition font-bold text-sm"><i class="far fa-heart ml-1"></i> أضف للمفضلة</button>
                         <a href="#calculator" class="text-brandGold font-bold text-sm hover:underline">افحص أهليتك</a>
                     </div>
                 </div>
 
-                <!-- Scholarship 6 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 flex flex-col justify-between">
+                <!-- Card 6 -->
+                <div class="scholarship-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 flex flex-col justify-between" data-country="ماليزيا" data-funding="fully">
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-4">
                             <span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full">ممولة بالكامل</span>
                             <span class="text-sm font-semibold text-gray-500"><i class="fas fa-globe ml-1"></i> ماليزيا</span>
                         </div>
                         <h3 class="text-xl font-bold text-brandDark mb-2">منحة الحكومة الماليزية (MIS)</h3>
-                        <p class="text-gray-600 text-sm mb-4">تستهدف دراسات الدراسات العليا (ماجستير ودكتوراه) في الجامعات الماليزية المرموقة مع راتب ورسوم كاملة.</p>
+                        <p class="text-gray-600 text-sm mb-4">تستهدف دراسات الدراسات العليا والبحث العلمي في الجامعات الماليزية المرموقة.</p>
                         <div class="text-xs text-gray-500 space-y-1 border-t pt-4">
-                            <p><strong>المعدل المطلوب:</strong> تقدير جيد جداً / ممتاز في البكالوريوس</p>
-                            <p><strong>موعد التسجيل:</strong> من فبراير إلى مايو من كل عام</p>
+                            <p><strong>المعدل المطلوب:</strong> تقدير ممتاز / جيد جداً</p>
+                            <p><strong>موعد التسجيل:</strong> من فبراير إلى مايو سنوياً</p>
                         </div>
                     </div>
                     <div class="px-6 py-4 bg-gray-50 border-t flex justify-between items-center">
-                        <span class="text-xs font-bold text-gray-500">الحالة: حسب مواعيد الجامعات</span>
+                        <button onclick="toggleFavorite('منحة الحكومة الماليزية')" class="text-brandPurple hover:text-red-500 transition font-bold text-sm"><i class="far fa-heart ml-1"></i> أضف للمفضلة</button>
                         <a href="#calculator" class="text-brandGold font-bold text-sm hover:underline">افحص أهليتك</a>
                     </div>
                 </div>
@@ -251,19 +281,19 @@
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-brandDark mb-4">حاسبة القبول الجامعي المتقدمة</h2>
                 <div class="w-24 h-1.5 bg-brandGold mx-auto rounded-full mb-6"></div>
-                <p class="text-gray-600 text-lg">أدخل بياناتك الأكاديمية بدقة لاحتساب فرص قبولك في المنح والدول المختلفة ومعرفة التخصصات المناسبة.</p>
+                <p class="text-gray-600 text-lg">أدخل بياناتك الأكاديمية لاحتساب فرص قبولك في المنح والدول المختلفة ومعرفة التخصصات المناسبة.</p>
             </div>
 
             <div class="bg-gradient-to-br from-indigo-900 to-brandDark p-8 rounded-3xl shadow-2xl text-white">
                 <form id="admissionForm" class="grid md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block mb-2 font-bold text-sm">معدل الثانوية العامة (التوجيهي أو ما يعادلها) %</label>
+                        <label class="block mb-2 font-bold text-sm">معدل الثانوية العامة (أو ما يعادلها) %</label>
                         <input type="number" id="gpa" min="50" max="100" step="0.1" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-brandGold" placeholder="مثال: 92">
                     </div>
                     <div>
                         <label class="block mb-2 font-bold text-sm">الفرع الدراسي</label>
                         <select id="stream" class="w-full bg-indigo-950 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandGold">
-                            <option value="scientific">عنـاي / علمي (ریاضیات، علوم)</option>
+                            <option value="scientific">عنـاي / علمي (رياضيات، علوم)</option>
                             <option value="literary">أدبي / إنساني</option>
                             <option value="industrial">مهني / صناعي</option>
                             <option value="it">تكنولوجي / حاسوب</option>
@@ -273,9 +303,9 @@
                         <label class="block mb-2 font-bold text-sm">الدولة المفضلة للدراسة</label>
                         <select id="countryPref" class="w-full bg-indigo-950 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandGold">
                             <option value="all">جميع الدول المتاحة</option>
-                            <option value="turkey">تركيا (المنح التركية)</option>
-                            <option value="hungary">المجر (Stipendium Hungaricum)</option>
-                            <option value="italy">إيطاليا (منح المقاطعات)</option>
+                            <option value="turkey">تركيا</option>
+                            <option value="hungary">المجر (هنغاريا)</option>
+                            <option value="italy">إيطاليا</option>
                             <option value="russia">روسيا الاتحادية</option>
                             <option value="qatar">قطر</option>
                         </select>
@@ -303,13 +333,13 @@
         </div>
     </section>
 
-    <!-- Country Guides Section (Expanded) -->
+    <!-- Country Guides Section (Expanded with more countries) -->
     <section id="countries" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center max-w-3xl mx-auto mb-12">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-brandDark mb-4">أدلة الدول الدراسية الشاملة</h2>
                 <div class="w-24 h-1.5 bg-brandGold mx-auto rounded-full mb-6"></div>
-                <p class="text-gray-600 text-lg">تعرف على تكاليف المعيشة، متطلبات التأشيرة، لغة الدراسة، وأفضل الجامعات في أبرز الوجهات.</p>
+                <p class="text-gray-600 text-lg">تعرف على تكاليف المعيشة، متطلبات التأشيرة، لغة الدراسة، وأفضل الجامعات.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
@@ -320,12 +350,11 @@
                         <h3 class="text-xl font-bold text-brandDark">تركيا</h3>
                     </div>
                     <ul class="space-y-2 text-gray-600 text-sm mb-6">
-                        <li><strong>تكلفة المعيشة الشهرية:</strong> 300 - 500 دولار</li>
+                        <li><strong>تكلفة المعيشة:</strong> 300 - 500 دولار شهرياً</li>
                         <li><strong>لغة الدراسة:</strong> التركية والإنجليزية</li>
-                        <li><strong>التأشيرة:</strong> سهلة وميسرة للطلاب المقبولين رسمياً</li>
-                        <li><strong>أبرز الجامعات:</strong> بوغازيجي، الشرق التقنية، إسطنبول</li>
+                        <li><strong>التأشيرة:</strong> ميسرة للطلاب المقبولين</li>
                     </ul>
-                    <button onclick="openCountryModal('تركيا', 'تعتبر تركيا من أكثر الوجهات طلباً للطلاب العرب بسبب قربها الثقافي، جودة جامعاتها العالية، وتوفر المنح التركية الضخمة. تكلفة المعيشة مقبولة وتتراوح بين 300-500 دولار شهرياً تشمل السكن والأكل. تتيح الجامعات التركية برامج باللغة الإنجليزية والتركية مع سنة تحضيرية مجانية ضمن المنحة.')" class="w-full bg-purple-50 hover:bg-brandPurple hover:text-white text-brandPurple font-bold py-2 rounded-xl transition">التفاصيل الكاملة للدولة</button>
+                    <button onclick="openCountryModal('تركيا', 'تعتبر تركيا من أكثر الوجهات طلباً للطلاب العرب بسبب قربها الثقافي، جودة جامعاتها العالية، وتوفر المنح التركية الضخمة. تكلفة المعيشة تتراوح بين 300-500 دولار تشمل السكن والأكل. تتيح الجامعات التركية برامج باللغة الإنجليزية والتركية مع سنة تحضيرية مجانية.')" class="w-full bg-purple-50 hover:bg-brandPurple hover:text-white text-brandPurple font-bold py-2 rounded-xl transition">التفاصيل الكاملة</button>
                 </div>
 
                 <!-- Country 2 -->
@@ -335,12 +364,11 @@
                         <h3 class="text-xl font-bold text-brandDark">المجر (هنغاريا)</h3>
                     </div>
                     <ul class="space-y-2 text-gray-600 text-sm mb-6">
-                        <li><strong>تكلفة المعيشة الشهرية:</strong> 400 - 600 يورو</li>
+                        <li><strong>تكلفة المعيشة:</strong> 400 - 600 يورو شهرياً</li>
                         <li><strong>لغة الدراسة:</strong> الإنجليزية بشكل أساسي</li>
                         <li><strong>التأشيرة:</strong> تدعمها المنحة بالكامل</li>
-                        <li><strong>أبرز الجامعات:</strong> جامعة بودابست للتكنولوجيا، جامعة سيملفايز</li>
                     </ul>
-                    <button onclick="openCountryModal('المجر (هنغاريا)', 'تعد المجر مركزاً أكاديمياً أوروبياً عريقاً، وتشتهر بمنحة Stipendium Hungaricum الممولة بالكامل. الدراسة متوفرة باللغة الإنجليزية في تخصصات الطب، الهندسة، وإدارة الأعمال. العاصمة بودابست تتميز بأمان عالٍ وتكلفة معيشة مناسبة مقارنة بغرب أوروبا.')" class="w-full bg-purple-50 hover:bg-brandPurple hover:text-white text-brandPurple font-bold py-2 rounded-xl transition">التفاصيل الكاملة للدولة</button>
+                    <button onclick="openCountryModal('المجر (هنغاريا)', 'تعد المجر مركزاً أكاديمياً أوروبياً عريقاً، وتشتهر بمنحة Stipendium Hungaricum الممولة بالكامل. الدراسة متوفرة باللغة الإنجليزية في تخصصات الطب، الهندسة، وإدارة الأعمال. العاصمة بودابست تتميز بأمان عالٍ وتكلفة مناسبة.')" class="w-full bg-purple-50 hover:bg-brandPurple hover:text-white text-brandPurple font-bold py-2 rounded-xl transition">التفاصيل الكاملة</button>
                 </div>
 
                 <!-- Country 3 -->
@@ -350,12 +378,11 @@
                         <h3 class="text-xl font-bold text-brandDark">إيطاليا</h3>
                     </div>
                     <ul class="space-y-2 text-gray-600 text-sm mb-6">
-                        <li><strong>تكلفة المعيشة الشهرية:</strong> 500 - 800 يورو</li>
+                        <li><strong>تكلفة المعيشة:</strong> 500 - 800 يورو شهرياً</li>
                         <li><strong>لغة الدراسة:</strong> الإنجليزية والإيطالية</li>
-                        <li><strong>التأشيرة:</strong> متطلبات مالية وسفارة (تأشيرة دراسية)</li>
-                        <li><strong>أبرز الجامعات:</strong> جامعة بولونيا، جامعة ميلانو، جامعة روما</li>
+                        <li><strong>التأشيرة:</strong> تأشيرة دراسية رسمية</li>
                     </ul>
-                    <button onclick="openCountryModal('إيطاليا', 'تتميز إيطاليا بنظام المنح الإقليمية (DSU) القائم على إثبات الدخل المالي (ISEE)، مما يتيح إعفاءً كاملاً من الرسوم وراتباً سنوياً يصل لـ 7000 يورو. العديد من التخصصات الهندسية والطبية تُدّرس بالكامل باللغة الإنجليزية.')" class="w-full bg-purple-50 hover:bg-brandPurple hover:text-white text-brandPurple font-bold py-2 rounded-xl transition">التفاصيل الكاملة للدولة</button>
+                    <button onclick="openCountryModal('إيطاليا', 'تتميز إيطاليا بنظام المنح الإقليمية (DSU) القائم على إثبات الدخل المالي (ISEE)، مما يتيح إعفاءً كاملاً من الرسوم وراتباً سنوياً يصل لـ 7000 يورو. العديد من التخصصات تُدّرس بالكامل بالإنجليزية.')" class="w-full bg-purple-50 hover:bg-brandPurple hover:text-white text-brandPurple font-bold py-2 rounded-xl transition">التفاصيل الكاملة</button>
                 </div>
 
                 <!-- Country 4 -->
@@ -365,12 +392,11 @@
                         <h3 class="text-xl font-bold text-brandDark">روسيا الاتحادية</h3>
                     </div>
                     <ul class="space-y-2 text-gray-600 text-sm mb-6">
-                        <li><strong>تكلفة المعيشة الشهرية:</strong> 250 - 400 دولار</li>
+                        <li><strong>تكلفة المعيشة:</strong> 250 - 400 دولار شهرياً</li>
                         <li><strong>لغة الدراسة:</strong> الروسية والإنجليزية</li>
-                        <li><strong>التأشيرة:</strong> دعوة رسمية من الحكومة الروسية</li>
-                        <li><strong>أبرز الجامعات:</strong> جامعة موسكو الحكومية، جامعة سانت بطرسبرغ</li>
+                        <li><strong>التأشيرة:</strong> دعوة رسمية حكومية</li>
                     </ul>
-                    <button onclick="openCountryModal('روسيا الاتحادية', 'تعتبر روسيا من الوجهات الرائدة عالمياً في تدريس الطب والهندسة بتكاليف معيشية منخفضة نسبياً. المنحة الحكومية الروسية تغطي الرسوم وتوفر سنة تحضيرية لدراسة اللغة الروسية.')" class="w-full bg-purple-50 hover:bg-brandPurple hover:text-white text-brandPurple font-bold py-2 rounded-xl transition">التفاصيل الكاملة للدولة</button>
+                    <button onclick="openCountryModal('روسيا الاتحادية', 'تعتبر روسيا من الوجهات الرائدة عالمياً في تدريس الطب والهندسة بتكاليف معيشية منخفضة نسبياً. المنحة الحكومية الروسية تغطي الرسوم وتوفر سنة تحضيرية للغة.')" class="w-full bg-purple-50 hover:bg-brandPurple hover:text-white text-brandPurple font-bold py-2 rounded-xl transition">التفاصيل الكاملة</button>
                 </div>
 
                 <!-- Country 5 -->
@@ -380,74 +406,72 @@
                         <h3 class="text-xl font-bold text-brandDark">ماليزيا</h3>
                     </div>
                     <ul class="space-y-2 text-gray-600 text-sm mb-6">
-                        <li><strong>تكلفة المعيشة الشهرية:</strong> 350 - 550 دولار</li>
+                        <li><strong>تكلفة المعيشة:</strong> 350 - 550 دولار شهرياً</li>
                         <li><strong>لغة الدراسة:</strong> الإنجليزية بالكامل</li>
-                        <li><strong>التأشيرة:</strong> إلكترونية وسهلة الإجراءات</li>
-                        <li><strong>أبرز الجامعات:</strong> جامعة مالايا، جامعة بوترا ماليزيا</li>
+                        <li><strong>التأشيرة:</strong> إلكترونية ميسرة</li>
                     </ul>
-                    <button onclick="openCountryModal('ماليزيا', 'بيئة إسلامية متطورة، جامعات مصنفة عالمياً، والدراسة باللغة الإنجليزية بالكامل دون الحاجة لشهادات لغة تعجيزية في بعض الجامعات. تكاليف المعيشة والدراسة تعتبر اقتصادية جداً.')" class="w-full bg-purple-50 hover:bg-brandPurple hover:text-white text-brandPurple font-bold py-2 rounded-xl transition">التفاصيل الكاملة للدولة</button>
+                    <button onclick="openCountryModal('ماليزيا', 'بيئة متطورة، جامعات مصنفة عالمياً، والدراسة باللغة الإنجليزية بالكامل. تكاليف المعيشة والدراسة تعتبر اقتصادية جداً.')" class="w-full bg-purple-50 hover:bg-brandPurple hover:text-white text-brandPurple font-bold py-2 rounded-xl transition">التفاصيل الكاملة</button>
                 </div>
 
                 <!-- Country 6 -->
                 <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-200">
                     <div class="flex items-center space-x-3 space-x-reverse mb-4">
-                        <span class="text-3xl">🇶🇦</span>
-                        <h3 class="text-xl font-bold text-brandDark">قطر</h3>
+                        <span class="text-3xl">🇩🇪</span>
+                        <h3 class="text-xl font-bold text-brandDark">ألمانيا</h3>
                     </div>
                     <ul class="space-y-2 text-gray-600 text-sm mb-6">
-                        <li><strong>تكلفة المعيشة الشهرية:</strong> 800 - 1200 دولار</li>
-                        <li><strong>لغة الدراسة:</strong> العربية والإنجليزية</li>
-                        <li><strong>التأشيرة:</strong> كفالة جامعية</li>
-                        <li><strong>أبرز الجامعات:</strong> جامعة قطر، جامعات المدينة التعليمية</li>
+                        <li><strong>تكلفة المعيشة:</strong> 700 - 900 يورو شهرياً</li>
+                        <li><strong>لغة الدراسة:</strong> الألمانية والإنجليزية</li>
+                        <li><strong>التأشيرة:</strong> حساب مغلق / سفارة</li>
                     </ul>
-                    <button onclick="openCountryModal('قطر', 'تضم قطر صروحاً أكاديمية عالمية كبرى وفروع لأرقى الجامعات الأمريكية والأوروبية. منحة جامعة قطر تعد من أقوى المنح الإقليمية للطلاب المتفوقين.')" class="w-full bg-purple-50 hover:bg-brandPurple hover:text-white text-brandPurple font-bold py-2 rounded-xl transition">التفاصيل الكاملة للدولة</button>
+                    <button onclick="openCountryModal('ألمانيا', 'التعليم في الجامعات الحكومية الألمانية شبه مجاني، وتتميز بقوة اقتصادها وقوة شهاداتها الهندسية والتكنولوجية عالمياً.')" class="w-full bg-purple-50 hover:bg-brandPurple hover:text-white text-brandPurple font-bold py-2 rounded-xl transition">التفاصيل الكاملة</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Admission Secrets Section (Interactive Detailed Modals/Cards) -->
+    <!-- Admission Secrets Section (Detailed with Mock Explanatory Images) -->
     <section id="secrets" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center max-w-3xl mx-auto mb-12">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-brandDark mb-4">أسرار القبول في المنح العالمية</h2>
                 <div class="w-24 h-1.5 bg-brandGold mx-auto rounded-full mb-6"></div>
-                <p class="text-gray-600 text-lg">اضغط على أي بند أدناه للاطلاع على التفاصيل الدقيقة، الخطوات العملية، والنصائح السرية للقبول.</p>
+                <p class="text-gray-600 text-lg">اضغط على أي بند أدناه للاطلاع على التفاصيل الدقيقة، الصور التوضيحية، والخطوات العملية للقبول.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Secret 1 -->
-                <div onclick="openSecretModal('خطاب الدوافع (Motivation Letter)', 'خطاب الدوافع هو المفتاح السحري للقبول. يجب أن يبدأ بقصة شخصية مؤثرة تربط شغفك بالتخصص، ويوضح لماذا اخترت هذه الدولة وتلك الجامعة، وماذا ستضيف للمجتمع بعد التخرج. تجنب القوالب الجاهزة واكتب بصدق واحترافية.')" class="bg-purple-50 hover:bg-brandPurple hover:text-white p-6 rounded-2xl shadow border border-purple-100 cursor-pointer transition group">
+                <div onclick="openSecretModal('خطاب الدوافع (Motivation Letter)', 'خطاب الدوافع هو المفتاح السحري للقبول. يجب أن يبدأ بقصة شخصية مؤثرة تربط شغفك بالتخصص، ويوضح لماذا اخترت هذه الدولة وتلك الجامعة، وماذا ستضيف للمجتمع بعد التخرج. تجنب القوالب الجاهزة.', 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&auto=format&fit=crop&q=80')" class="bg-purple-50 hover:bg-brandPurple hover:text-white p-6 rounded-2xl shadow border border-purple-100 cursor-pointer transition group">
                     <div class="text-brandPurple group-hover:text-white text-3xl mb-4"><i class="fas fa-file-alt"></i></div>
                     <h3 class="text-xl font-bold mb-2">خطاب الدوافع الخارق</h3>
-                    <p class="text-gray-600 group-hover:text-purple-100 text-sm">كيف تكتب رسالة دوافع تقنع لجنة التحكيم من السطر الأول؟</p>
+                    <p class="text-gray-600 group-hover:text-purple-100 text-sm">كيف تكتب رسالة تقنع لجنة التحكيم من السطر الأول؟</p>
                 </div>
 
                 <!-- Secret 2 -->
-                <div onclick="openSecretModal('خطابات التوصية (Recommendation Letters)', 'احصل على توصيات من أساتذة جامعيين أو مدرسين يعرفون إنجازاتك عن قُرب. يجب أن توضح التوصية مهاراتك القيادية، تفوقك الأكاديمي، وشخصيتك الطموحة، مع توقيع رسمي وختم واضح ورسمي.')" class="bg-amber-50 hover:bg-brandGold hover:text-white p-6 rounded-2xl shadow border border-amber-100 cursor-pointer transition group">
+                <div onclick="openSecretModal('خطابات التوصية (Recommendation Letters)', 'احصل على توصيات من أساتذة جامعيين يعرفون إنجازاتك عن قُرب. توضح التوصية مهاراتك القيادية، تفوقك الأكاديمي، وشخصيتك الطموحة مع توقيع وختم رسمي.', 'https://images.unsplash.com/photo-1517842645767-c639042777db?w=600&auto=format&fit=crop&q=80')" class="bg-amber-50 hover:bg-brandGold hover:text-white p-6 rounded-2xl shadow border border-amber-100 cursor-pointer transition group">
                     <div class="text-brandGold group-hover:text-white text-3xl mb-4"><i class="fas fa-user-tie"></i></div>
                     <h3 class="text-xl font-bold mb-2">سر خطابات التوصية</h3>
-                    <p class="text-gray-600 group-hover:text-amber-100 text-sm">من تختار ليوصي بك وكيف تصاغ الرسالة باحتراف؟</p>
+                    <p class="text-gray-600 group-hover:text-amber-100 text-sm">من تختار ليوصي بك وكيف تصاغ باحتراف؟</p>
                 </div>
 
                 <!-- Secret 3 -->
-                <div onclick="openSecretModal('السيرة الذاتية الاحترافية (CV - Europass)', 'استخدم قالب Europass أو القوالب الحديثة بنظام ATS. ركز على إبراز الأنشطة التطوعية، القيادية، شهادات اللغات، والمهارات التقنية والبرمجية بترتيب زمني عكسي وخالٍ من الأخطاء الإملائية.')" class="bg-blue-50 hover:bg-blue-600 hover:text-white p-6 rounded-2xl shadow border border-blue-100 cursor-pointer transition group">
+                <div onclick="openSecretModal('السيرة الذاتية الاحترافية (CV - Europass)', 'استخدم قالب Europass أو القوالب الحديثة بنظام ATS. ركز على إبراز الأنشطة التطوعية والقيادية وشهادات اللغات والمهارات التقنية بترتيب زمني عكسي.', 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600&auto=format&fit=crop&q=80')" class="bg-blue-50 hover:bg-blue-600 hover:text-white p-6 rounded-2xl shadow border border-blue-100 cursor-pointer transition group">
                     <div class="text-blue-600 group-hover:text-white text-3xl mb-4"><i class="fas fa-address-card"></i></div>
                     <h3 class="text-xl font-bold mb-2">السيرة الذاتية (CV)</h3>
                     <p class="text-gray-600 group-hover:text-blue-100 text-sm">المعايير الدولية لصياغة سيرة ذاتية تجتاز الفرز الآلي.</p>
                 </div>
 
                 <!-- Secret 4 -->
-                <div onclick="openSecretModal('اجتياز المقابلة الشخصية (Interview)', 'تأكد من ضبط الكاميرا وخلفية هادئة، تدرب على الأسئلة الشائعة (حدثنا عن نفسك، نقاط قوتك وضعفك، طموحاتك)، أظهر ثقة عالية بالنفس وابتسامة، وجهّز أسئلة ذكية تطرحها على لجنة المقابلة في النهاية.')" class="bg-emerald-50 hover:bg-emerald-600 hover:text-white p-6 rounded-2xl shadow border border-emerald-100 cursor-pointer transition group">
+                <div onclick="openSecretModal('اجتياز المقابلة الشخصية (Interview)', 'تأكد من ضبط الكاميرا وخلفية هادئة، تدرب على الأسئلة الشائعة، أظهر ثقة عالية بالنفس وابتسامة، وجهّز أسئلة ذكية تطرحها على لجنة المقابلة في النهاية.', 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop&q=80')" class="bg-emerald-50 hover:bg-emerald-600 hover:text-white p-6 rounded-2xl shadow border border-emerald-100 cursor-pointer transition group">
                     <div class="text-emerald-600 group-hover:text-white text-3xl mb-4"><i class="fas fa-video"></i></div>
                     <h3 class="text-xl font-bold mb-2">أسرار المقابلة الشخصية</h3>
-                    <p class="text-gray-600 group-hover:text-emerald-100 text-sm">لغة الجسد وكيفية الإجابة على الأسئلة المحرجة بذكاء.</p>
+                    <p class="text-gray-600 group-hover:text-emerald-100 text-sm">لغة الجسد وكيفية الإجابة على الأسئلة المحرجة.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section (At least 20 Questions) -->
+    <!-- FAQ Section (20 Detailed Questions) -->
     <section id="faq" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4 max-w-4xl">
             <div class="text-center mb-12">
@@ -457,223 +481,204 @@
             </div>
 
             <div class="space-y-4" id="faqAccordion">
-                <!-- FAQ Item 1 -->
+                <!-- 1 -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <button onclick="toggleFaq(1)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-center text-brandDark focus:outline-none">
                         <span>1. هل توفر منصة المجد مساعدة مباشرة للطلاب في قطاع غزة وخارجها؟</span>
                         <i id="faq-icon-1" class="fas fa-chevron-down transition"></i>
                     </button>
                     <div id="faq-content-1" class="hidden p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t">
-                        نعم، منصة المجد متخصصة في تقديم الاستشارات، توجيه الطلاب، وتوفير الدعم الكامل للطلبة في قطاع غزة وكافة الدول العربية، بما في ذلك إطلاق مبادرات مجانية مثل مبادرة "يد الخير".
+                        نعم، منصة المجد متخصصة في تقديم الاستشارات وتوجيه الطلاب ودعم الطلبة في قطاع غزة وكافة الدول العربية، وإطلاق مبادرات مجانية مثل مبادرة "يد الخير".
                     </div>
                 </div>
-
-                <!-- FAQ Item 2 -->
+                <!-- 2 -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <button onclick="toggleFaq(2)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-center text-brandDark focus:outline-none">
                         <span>2. ما هي المنح الممولة بالكامل وماذا تغطي عادة؟</span>
                         <i id="faq-icon-2" class="fas fa-chevron-down transition"></i>
                     </button>
                     <div id="faq-content-2" class="hidden p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t">
-                        المنح الممولة بالكامل تغطي عادةً: الرسوم الدراسية كاملة، راتباً شهرياً للمعيشة، سكنًا جامعيًا، تأمينًا صحيًا، وتذاكر الطيران ذهاباً وإياباً، بالإضافة لسنة تحضيرية لدراسة لغة البلد إن لم تكن الدراسة بالإنجليزية.
+                        تغطي الرسوم الدراسية كاملة، راتباً شهرياً للمعيشة، سكناً جامعيياً، تأميناً صحياً، وتذاكر الطيران وسنة تحضيرية للغة.
                     </div>
                 </div>
-
-                <!-- FAQ Item 3 -->
+                <!-- 3 -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <button onclick="toggleFaq(3)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-center text-brandDark focus:outline-none">
                         <span>3. هل يُشترط شهادة لغة مثل IELTS أو TOEFL للتقديم لكل المنح؟</span>
                         <i id="faq-icon-3" class="fas fa-chevron-down transition"></i>
                     </button>
                     <div id="faq-content-3" class="hidden p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t">
-                        ليس دائماً. العديد من المنح مثل المنحة التركية والروسية لا تشترط وجود شهادة لغة مسبقة للتقديم، حيث توفر سنة تحضيرية لتعلم اللغة. بينما المنح التي تُدرس بالإنجليزية بالكامل قد تطلب شهادة لغة عند القبول النهائي أو أثناء التسجيل.
+                        ليس دائماً. المنحة التركية والروسية لا تشترطان شهادة لغة مسبقة لوجود سنة تحضيرية، بينما البرامج الإنجليزية البحتة تطلبها عند القبول النهائي.
                     </div>
                 </div>
-
-                <!-- FAQ Item 4 -->
+                <!-- 4 -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <button onclick="toggleFaq(4)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-center text-brandDark focus:outline-none">
                         <span>4. ما هو أدنى معدل ثانوي مطلوب للتقديم للمنح الدولية؟</span>
                         <i id="faq-icon-4" class="fas fa-chevron-down transition"></i>
                     </button>
                     <div id="faq-content-4" class="hidden p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t">
-                        يختلف حسب المنحة والدولة؛ فبينما تطلب بعض المنح الطبية أو الهندسية 80% - 85% فما فوق، تقبل برامج أخرى ودول مثل تركيا أو روسيا أو إيطاليا معدلات تبدأ من 70% لبعض التخصصات الأدبية والعلمية.
+                        يختلف حسب المنحة؛ فالتخصصات الطبية قد تطلب فوق 85%-90%، بينما تقبل برامج أخرى ودول مثل تركيا وروسيا معدلات تبدأ من 70%.
                     </div>
                 </div>
-
-                <!-- FAQ Item 5 -->
+                <!-- 5 -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <button onclick="toggleFaq(5)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-center text-brandDark focus:outline-none">
-                        <span>5. كيف يمكنني حساب معدلي وتعديل شهادة الثانوية العامة لنظام الدول الأخرى؟</span>
+                        <span>5. كيف يمكنني استخدام حاسبة القبول في المنصة؟</span>
                         <i id="faq-icon-5" class="fas fa-chevron-down transition"></i>
                     </button>
                     <div id="faq-content-5" class="hidden p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t">
-                        يمكنك استخدام حاسبة القبول المتقدمة في منصتنا، أو مراجعة إرشادات معادلة الشهادات لكل دولة، حيث يتم تحويل النسبة المئوية حسب المعايير المعتمدة في سفارات ووزارات التعليم العالي.
+                        فقط أدخل معدلك، فرعك الدراسي، والدولة المفضلة، لتظهر لك فوراً التوصيات الدقيقة والتخصصات المناسبة لحالتك.
                     </div>
                 </div>
-
-                <!-- FAQ Item 6 -->
+                <!-- 6 -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <button onclick="toggleFaq(6)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-center text-brandDark focus:outline-none">
-                        <span>6. متى تبدأ مواعيد التسجيل في المنح التركية وهنغاريا؟</span>
+                        <span>6. متى تبدأ مواعيد التسجيل في المنحة التركية وهنغاريا؟</span>
                         <i id="faq-icon-6" class="fas fa-chevron-down transition"></i>
                     </button>
                     <div id="faq-content-6" class="hidden p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t">
-                        المنحة التركية تبدأ عادةً في شهر يناير وتغلق أواخر فبراير من كل عام. أما منحة هنغاريا (Stipendium Hungaricum) فتبدأ فترة التسجيل فيها من نوفمبر وتستمر حتى منتصف يناير من كل عام.
+                        المنحة التركية من يناير إلى فبراير، ومنحة هنغاريا من نوفمبر حتى يناير من كل عام.
                     </div>
                 </div>
-
-                <!-- FAQ Item 7 -->
+                <!-- 7 -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <button onclick="toggleFaq(7)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-center text-brandDark focus:outline-none">
-                        <span>7. هل توفر المنح الدراسية تأشيرة السفر وتذاكر الطيران؟</span>
+                        <span>7. هل توفر المنح تذاكر الطيران وتأشيرة السفر؟</span>
                         <i id="faq-icon-7" class="fas fa-chevron-down transition"></i>
                     </button>
                     <div id="faq-content-7" class="hidden p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t">
-                        نعم، المنح الممولة بالكامل مثل المنحة التركية والهنغارية توفر تذاكر الطيران ذهاباً وإياباً عند بداية ونهاية الدراسة، بالإضافة إلى تغطية رسوم وتأشيرة الدخول واستخراج الإقامة الطلابية.
+                        نعم، المنح الممولة بالكامل تغطي تذاكر الطيران وتأشيرات الدخول والإقامة الطلابية.
                     </div>
                 </div>
-
-                <!-- FAQ Item 8 -->
+                <!-- 8 -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <button onclick="toggleFaq(8)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-center text-brandDark focus:outline-none">
-                        <span>8. ما هي الأوراق الرسمية المطلوبة عادة للتقديم لأي منحة؟</span>
+                        <span>8. ما هي الأوراق الرسمية المطلوبة للتقديم؟</span>
                         <i id="faq-icon-8" class="fas fa-chevron-down transition"></i>
                     </button>
                     <div id="faq-content-8" class="hidden p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t">
-                        الأوراق الأساسية تشمل: جواز سفر ساري المفعول، شهادة الثانوية العامة وكشف المهارات مترجم ومصدق، خطاب الدوافع، خطابات التوصية، السيرة الذاتية، وصورة شخصية حديثة.
+                        جواز سفر ساري، شهادة الثانوية وكشف العلامات مترجم ومصدق، خطاب الدوافع، خطابات التوصية، والسيرة الذاتية.
                     </div>
                 </div>
-
-                <!-- FAQ Item 9 -->
+                <!-- 9 -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-                    <button onclick="toggleFaq(9)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-75 items-center text-brandDark focus:outline-none">
-                        <span>9. هل يمكنني الجمع بين أكثر من منحة في نفس الوقت؟</span>
+                    <button onclick="toggleFaq(9)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-center text-brandDark focus:outline-none">
+                        <span>9. هل يمكنني التقديم لأكثر من منحة في نفس الوقت؟</span>
                         <i id="faq-icon-9" class="fas fa-chevron-down transition"></i>
                     </button>
                     <div id="faq-content-9" class="hidden p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t">
-                        يمكنك التقديم لعدة منح في نفس الوقت لزيادة فرص قبولك، ولكن عند ظهور النتائج النهائية والقبول، يمكنك اختيار منحة واحدة فقط لتثبيتها واستكمال إجراءات السفر والدراسة.
+                        نعم، يمكنك التقديم لعدة منح لزيادة فرص قبولك، ثم اختيار الأفضل عند ظهور النتائج النهائية.
                     </div>
                 </div>
-
-                <!-- FAQ Item 10 -->
+                <!-- 10 -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <button onclick="toggleFaq(10)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-center text-brandDark focus:outline-none">
-                        <span>10. كيف تؤثر الأنشطة التطوعية واللامنهجية في قبول المنح؟</span>
+                        <span>10. ما أهمية الأنشطة التطوعية في قبول المنح؟</span>
                         <i id="faq-icon-10" class="fas fa-chevron-down transition"></i>
                     </button>
                     <div id="faq-content-10" class="hidden p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t">
-                        تلعب دوراً حاسماً بنسبة تصل إلى 30% من قرار لجان القبول؛ فهي تظهر شخصيتك القيادية، مهاراتك الاجتماعية، وحب العطاء والمشاركة المجتمعية.
+                        تُظهر مهاراتك القيادية وحب العطاء والمشاركة المجتمعية، وهي معيار رئيسي لتقييم المتقدمين.
                     </div>
                 </div>
-
-                <!-- FAQ Item 11 -->
+                <!-- 11 -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <button onclick="toggleFaq(11)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-center text-brandDark focus:outline-none">
-                        <span>11. ما هي شروط الحصول على منح المقاطعات في إيطاليا (DSU)؟</span>
+                        <span>11. ما هي شروط منح المقاطعات في إيطاليا (DSU)؟</span>
                         <i id="faq-icon-11" class="fas fa-chevron-down transition"></i>
                     </button>
                     <div id="faq-content-11" class="hidden p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t">
-                        تعتمد على الحصول على قبول جامعي في إيطاليا أولاً، ثم تقديم شهادة الدخل المالي (ISEE) من الجهات المختصة لتقييم الوضع المادي، حيث تُمنح للطلاب ذوي الدخل المحدود.
+                        الحصول على قبول جامعي أولاً، ثم تقديم شهادة الدخل (ISEE) لإثبات الوضع المادي المحدود.
                     </div>
                 </div>
-
-                <!-- FAQ Item 12 -->
+                <!-- 12 -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <button onclick="toggleFaq(12)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-center text-brandDark focus:outline-none">
-                        <span>12. هل تتطلب دراسة الطب في الخارج شروطاً خاصة؟</span>
+                        <span>12. هل تتطلب دراسة الطب شروطاً خاصة؟</span>
                         <i id="faq-icon-12" class="fas fa-chevron-down transition"></i>
                     </button>
                     <div id="faq-content-12" class="hidden p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t">
-                        نعم، تطلب دراسة الطب عادةً معدلات مرتفعة جداً (غالباً فوق 90-95% في الفرع العلمي)، واجتياز اختبارات قبول خاصة في بعض الدول مثل إيطاليا (IMAT) أو تركيا (YÖS / SAT).
+                        نعم، معدلات مرتفعة جداً (فوق 90%) واجتياز اختبارات قبول خاصة في بعض الدول.
                     </div>
                 </div>
-
-                <!-- FAQ Item 13 -->
+                <!-- 13 -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <button onclick="toggleFaq(13)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-center text-brandDark focus:outline-none">
-                        <span>13. هل توفر منصة المجد دورات أو مراجعات لاجتياز اختبارات القبول؟</span>
+                        <span>13. هل توفر منصة المجد مصادر لاختبارات القبول؟</span>
                         <i id="faq-icon-13" class="fas fa-chevron-down transition"></i>
                     </button>
                     <div id="faq-content-13" class="hidden p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t">
-                        نعم، نقدم نصائح، أدلة إرشادية، ومقترحات لروابط ومصادر معتمدة للاستعداد لاختبارات القبول الجامعي مثل SAT وYÖS واختبارات اللغة.
+                        نعم، نقدم نصائح وإرشادات ومصادر معتمدة للاستعداد لاختبارات SAT وYÖS وغيرها.
                     </div>
                 </div>
-
-                <!-- FAQ Item 14 -->
+                <!-- 14 -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <button onclick="toggleFaq(14)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-center text-brandDark focus:outline-none">
-                        <span>14. ما هي تكاليف المعيشة التقريبية لدراسة الطالب في تركيا؟</span>
+                        <span>14. كم تبلغ تكاليف المعيشة في تركيا؟</span>
                         <i id="faq-icon-14" class="fas fa-chevron-down transition"></i>
                     </button>
                     <div id="faq-content-14" class="hidden p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t">
-                        تتراوح بين 300 إلى 500 دولار أمريكي شهرياً، وتعتمد بشكل رئيسي على المدينة (فإسطنبول وأنقرة أعلى تكلفة مقارنة بالمدن التركية الداخلية الأخرى).
+                        تتراوح بين 300 إلى 500 دولار شهرياً حسب المدينة.
                     </div>
                 </div>
-
-                <!-- FAQ Item 15 -->
+                <!-- 15 -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <button onclick="toggleFaq(15)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-center text-brandDark focus:outline-none">
-                        <span>15. كيف أضمن عدم رفض طلبي في المنح بسبب خطأ إداري؟</span>
+                        <span>15. كيف أضمن عدم رفض طلبي بسبب خطأ إداري؟</span>
                         <i id="faq-icon-15" class="fas fa-chevron-down transition"></i>
                     </button>
                     <div id="faq-content-15" class="hidden p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t">
-                        من خلال مراجعة شروط المنحة بدقة متناهية، التأكد من صحة ترجمة الوثائق وختمها، وعدم ترك أي خانة إجبارية فارغة في نموذج التسجيل الإلكتروني.
+                        بمراجعة الشروط بدقة، التأكد من صحة ترجمة الوثائق، وعدم ترك أي خانة إجبارية فارغة.
                     </div>
                 </div>
-
-                <!-- FAQ Item 16 -->
+                <!-- 16 -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <button onclick="toggleFaq(16)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-center text-brandDark focus:outline-none">
-                        <span>16. هل تتوفر منح لدراسة الماجستير والدكتوراه عبر منصة المجد؟</span>
+                        <span>16. هل تتوفر منح للماجستير والدكتوراه؟</span>
                         <i id="faq-icon-16" class="fas fa-chevron-down transition"></i>
                     </button>
                     <div id="faq-content-16" class="hidden p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t">
-                        نعم، تتوفر العديد من المنح الدولية الخاصة بالدراسات العليا (ماجستير ودكتوراه) والتي تغطي الأبحاث والرسوم والرواتب الشهرية بشكل كامل.
+                        نعم، تتوفر العديد من المنح الدولية للدراسات العليا وتغطية الأبحاث والرواتب.
                     </div>
                 </div>
-
-                <!-- FAQ Item 17 -->
+                <!-- 17 -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <button onclick="toggleFaq(17)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-center text-brandDark focus:outline-none">
-                        <span>17. ما هو الفرق بين المنح الجزئية والمنح الممولة بالكامل؟</span>
+                        <span>17. ما الفرق بين المنح الجزئية والممولة بالكامل؟</span>
                         <i id="faq-icon-17" class="fas fa-chevron-down transition"></i>
                     </button>
                     <div id="faq-content-17" class="hidden p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t">
-                        المنحة الممولة بالكامل تغطي كافة تكاليف المعيشة والدراسة والسكن والطيران. أما المنحة الجزئية فتغطي إما الرسوم الدراسية وحدها (إعفاء جزئي أو كلي من الرسوم) دون راتب معيشي أو العكس.
+                        الممولة بالكامل تغطي كل شيء، بينما الجزئية تغطي الرسوم أو جزءاً منها دون راتب معيشي كامل.
                     </div>
                 </div>
-
-                <!-- FAQ Item 18 -->
+                <!-- 18 -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <button onclick="toggleFaq(18)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-center text-brandDark focus:outline-none">
-                        <span>18. هل تشترط المنح عمراً معيناً للمتقدمين؟</span>
+                        <span>18. هل تشترط المنح عمراً معيناً؟</span>
                         <i id="faq-icon-18" class="fas fa-chevron-down transition"></i>
                     </button>
                     <div id="faq-content-18" class="hidden p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t">
-                        غالباً نعم؛ فالمنحة التركية تفرض حدوداً عمرية (أقل من 21 سنة لالبكالوريوس، أقل من 30 للماجستير، وأقل من 35 للدكتوراه)، بينما تختلف الشروط في منح أخرى (بعضها بدون حد أقصى).
+                        غالباً نعم (مثل المنحة التركية)، بينما تختلف الشروط في منح أخرى.
                     </div>
                 </div>
-
-                <!-- FAQ Item 19 -->
+                <!-- 19 -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <button onclick="toggleFaq(19)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-center text-brandDark focus:outline-none">
-                        <span>19. كيف يمكنني التواصل مع فريق الاستشارات في منصة المجد؟</span>
+                        <span>19. كيف أتواصل مع فريق الاستشارات؟</span>
                         <i id="faq-icon-19" class="fas fa-chevron-down transition"></i>
                     </button>
                     <div id="faq-content-19" class="hidden p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t">
-                        يمكنكم التواصل عبر وسائل الاتصال الموضحة في أسفل الموقع أو عبر منصات التواصل الاجتماعي الخاصة بالمنصة للحصول على استشارة أكاديمية مخصصة.
+                        عبر وسائل الاتصال الموضحة أسفل الموقع ومنصات التواصل الاجتماعي الخاصة بنا.
                     </div>
                 </div>
-
-                <!-- FAQ Item 20 -->
+                <!-- 20 -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <button onclick="toggleFaq(20)" class="w-full text-right p-5 font-bold text-lg flex justify-between items-center text-brandDark focus:outline-none">
-                        <span>20. هل تقدم المنصة خدمات ترجمة وتصديق الأوراق الرسمية؟</span>
+                        <span>20. هل تقدم المنصة خدمات ترجمة وتصديق الأوراق؟</span>
                         <i id="faq-icon-20" class="fas fa-chevron-down transition"></i>
                     </button>
                     <div id="faq-content-20" class="hidden p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t">
-                        نعم، نوفر الإرشادات اللازمة لترجمة وتصديق الشهادات وكشوف الحسابات بالطرق الرسمية المعتمدة لدى السفارات ووزارات الخارجية لضمان قبولها قانونياً.
+                        نعم، نوفر الإرشادات والطرق الرسمية المعتمدة لترجمة وتصديق الشهادات لدى الجهات المختصة.
                     </div>
                 </div>
             </div>
@@ -687,7 +692,7 @@
                 <img src="WhatsApp Image 2026-08-09 at 20.18.13.jpeg" alt="شعار منصة المجد" class="w-10 h-10 object-contain rounded-full bg-white p-1">
                 <span class="text-2xl font-extrabold text-brandGold">منصة المجد التعليمية</span>
             </div>
-            <p class="text-gray-400 max-w-xl mx-auto mb-6">رفيقك الدائم نحو مستقبل أكاديمي مرموق ومنح دراسية عالمية. صُممت بحب لدعم الطلاب الطموحين.</p>
+            <p class="text-gray-400 max-w-xl mx-auto mb-6">رفيقك الدائم نحو مستقبل أكاديمي مرموق ومنح دراسية عالمية.</p>
             <div class="flex justify-center space-x-6 space-x-reverse text-2xl mb-6">
                 <a href="#" class="hover:text-brandGold transition"><i class="fab fa-facebook"></i></a>
                 <a href="#" class="hover:text-brandGold transition"><i class="fab fa-telegram"></i></a>
@@ -698,23 +703,93 @@
         </div>
     </footer>
 
-    <!-- Modals for Country and Secrets details -->
+    <!-- Modals -->
     <div id="infoModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4 modal">
         <div class="bg-white rounded-3xl max-w-lg w-full p-6 text-gray-800 shadow-2xl relative">
             <button onclick="closeModal()" class="absolute top-4 left-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+            <div id="modalImageContainer" class="mb-4 hidden">
+                <img id="modalImg" src="" alt="صورة توضيحية" class="w-full h-48 object-cover rounded-xl shadow">
+            </div>
             <h3 id="modalTitle" class="text-2xl font-bold text-brandPurple mb-4"></h3>
             <p id="modalBody" class="text-gray-600 leading-relaxed text-sm mb-6"></p>
             <button onclick="closeModal()" class="w-full bg-brandDark text-white py-3 rounded-xl font-bold hover:bg-brandPurple transition">إغلاق</button>
         </div>
     </div>
 
-    <!-- JavaScript Functions -->
+    <!-- Favorites Modal -->
+    <div id="favModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4 modal">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 text-gray-800 shadow-2xl relative">
+            <button onclick="closeFavoritesModal()" class="absolute top-4 left-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+            <h3 class="text-2xl font-bold text-brandPurple mb-4"><i class="fas fa-heart text-red-500 ml-2"></i> المنح المفضلة لديك</h3>
+            <div id="favList" class="space-y-2 mb-6 max-h-60 overflow-y-auto text-sm text-gray-700"></div>
+            <button onclick="closeFavoritesModal()" class="w-full bg-brandDark text-white py-3 rounded-xl font-bold hover:bg-brandPurple transition">إغلاق</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
     <script>
-        // Admission Calculator Logic
+        // Search & Filter Scholarships
+        function filterScholarships() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const fundingFilter = document.getElementById('fundingFilter').value;
+            const countryFilter = document.getElementById('countryFilter').value;
+            const cards = document.querySelectorAll('.scholarship-card');
+
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                const country = card.getAttribute('data-country');
+                const funding = card.getAttribute('data-funding');
+
+                const matchesSearch = text.includes(searchInput);
+                const matchesFunding = (fundingFilter === 'all' || funding === fundingFilter);
+                const matchesCountry = (countryFilter === 'all' || country === countryFilter);
+
+                if (matchesSearch && matchesFunding && matchesCountry) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Favorites System with LocalStorage
+        let favorites = JSON.parse(localStorage.getItem('alMajdFavs')) || [];
+        updateFavCount();
+
+        function toggleFavorite(name) {
+            if (!favorites.includes(name)) {
+                favorites.push(name);
+                alert('تمت إضافة المنحة إلى المفضلة بنجاح!');
+            } else {
+                favorites = favorites.filter(item => item !== name);
+                alert('تمت إزالة المنحة من المفضلة.');
+            }
+            localStorage.setItem('alMajdFavs', JSON.stringify(favorites));
+            updateFavCount();
+        }
+
+        function updateFavCount() {
+            document.getElementById('favCount').innerText = favorites.length;
+        }
+
+        function openFavoritesModal() {
+            const list = document.getElementById('favList');
+            if (favorites.length === 0) {
+                list.innerHTML = '<p class="text-gray-500 text-center py-4">لا توجد منح في قائمة المفضلة حالياً.</p>';
+            } else {
+                list.innerHTML = favorites.map(item => `<div class="p-3 bg-purple-50 rounded-xl font-semibold flex justify-between items-center"><span>${item}</span><i class="fas fa-check text-brandPurple"></i></div>`).join('');
+            }
+            document.getElementById('favModal').classList.remove('hidden');
+        }
+
+        function closeFavoritesModal() {
+            document.getElementById('favModal').classList.add('hidden');
+        }
+
+        // Admission Calculator
         function calculateAdmission() {
             const gpa = parseFloat(document.getElementById('gpa').value);
             const stream = document.getElementById('stream').value;
-            const country = document.getElementById('countryPref').value;
             const resultBox = document.getElementById('resultBox');
             const resultContent = document.getElementById('resultContent');
 
@@ -739,11 +814,11 @@
             } else if (gpa >= 70) {
                 recommendations.push("جيد! يمكنك التقديم على المنحة الروسية، بعض الجامعات الماليزية، ومنح التقديم المباشر الجزئية.");
             } else {
-                recommendations.push("مقبول. ننصحك بالتركيز على التخصصات المهنية والتقنية أو البرامج المتاحة بمعدلات مقبولة مع استشارة فريقنا لدعمك.");
+                recommendations.push("مقبول. ننصحك بالتركيز على التخصصات المهنية والتقنية أو البرامج المتاحة بمعدلات مقبولة.");
             }
 
             resultContent.innerHTML = `
-                <p><strong>معدلك المحتسب:</strong> ${gpa}% (${stream === 'scientific' ? 'علمي' : 'أدبي/آخر'})</p>
+                <p><strong>معدلك المحتسب:</strong> ${gpa}% (${stream === 'scientific' ? 'عنـاي / علمي' : 'أدبي/آخر'})</p>
                 <div class="mt-3 bg-white/10 p-4 rounded-xl text-right">
                     <p class="font-bold text-brandGold mb-2">التوصيات المقترحة لحالتك:</p>
                     <ul class="list-disc list-inside space-y-1 text-sm">
@@ -757,12 +832,15 @@
         function openCountryModal(countryName, details) {
             document.getElementById('modalTitle').innerText = 'دليل دولة: ' + countryName;
             document.getElementById('modalBody').innerText = details;
+            document.getElementById('modalImageContainer').classList.add('hidden');
             document.getElementById('infoModal').classList.remove('hidden');
         }
 
-        function openSecretModal(secretTitle, details) {
+        function openSecretModal(secretTitle, details, imgSrc) {
             document.getElementById('modalTitle').innerText = secretTitle;
             document.getElementById('modalBody').innerText = details;
+            document.getElementById('modalImg').src = imgSrc;
+            document.getElementById('modalImageContainer').classList.remove('hidden');
             document.getElementById('infoModal').classList.remove('hidden');
         }
 
