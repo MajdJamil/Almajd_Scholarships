@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة المجد التعليمية | الموسوعة الشاملة للـ 80 منحة والخدمات الأكاديمية</title>
+    <title id="page-title">منصة المجد التعليمية | الموسوعة الشاملة للـ 45 منحة والخدمات الأكاديمية</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -82,7 +82,7 @@
                 <nav class="hidden xl:flex items-center gap-3 font-semibold text-slate-200 text-xs sm:text-sm">
                     <button onclick="switchView('home')" id="nav-home" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-gold-500">الرئيسية</button>
                     <button onclick="switchView('scholarships')" id="nav-scholarships" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent flex items-center gap-1">
-                        <span class="bg-gold-500/20 text-gold-400 text-[10px] px-2 py-0.5 rounded-full border border-gold-500/30">80 منحة</span>
+                        <span class="bg-gold-500/20 text-gold-400 text-[10px] px-2 py-0.5 rounded-full border border-gold-500/30"><span class="sch-count">80</span> منحة</span>
                         دليل المنح
                     </button>
                     <button onclick="switchView('testimonials')" id="nav-testimonials" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent text-brandGreen-400"><i class="fa-solid fa-certificate ml-1"></i>لوحة القبولات</button>
@@ -116,7 +116,7 @@
 
         <div id="mobile-menu" class="hidden xl:hidden bg-navy-900 border-t border-navy-800 px-6 py-5 space-y-3 shadow-2xl max-h-[85vh] overflow-y-auto">
             <button onclick="switchView('home'); toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 font-semibold py-2 w-full text-right">الرئيسية</button>
-            <button onclick="switchView('scholarships'); toggleMobileMenu()" class="block text-gold-400 font-bold py-2 w-full text-right">دليل الـ 80 منحة الدراسية العالمية</button>
+            <button onclick="switchView('scholarships'); toggleMobileMenu()" class="block text-gold-400 font-bold py-2 w-full text-right">دليل الـ <span class="sch-count">80</span> منحة الدراسية العالمية</button>
             <button onclick="switchView('testimonials'); toggleMobileMenu()" class="block text-brandGreen-400 font-bold py-2 w-full text-right"><i class="fa-solid fa-certificate ml-1"></i>لوحة الشرف وتجارب الطلاب</button>
             <button onclick="switchView('calculator'); toggleMobileMenu()" class="block text-amber-300 font-bold py-2 w-full text-right"><i class="fa-solid fa-calculator ml-1"></i>حاسبة القبول والمعدل</button>
             <button onclick="switchView('countries'); toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 font-semibold py-2 w-full text-right">أدلة الدول وشروط التأشيرات</button>
@@ -142,17 +142,17 @@
                         <div class="lg:col-span-7 space-y-8 text-center lg:text-right">
                             <div class="inline-flex items-center gap-2.5 bg-navy-800/90 border border-gold-500/40 px-4.5 py-2 rounded-full text-gold-400 text-sm font-semibold shadow-inner">
                                 <i class="fa-solid fa-crown text-gold-500"></i>
-                                الموسوعة الأكاديمية الأولى عالمياً لتوفير 80 منحة دولية موثوقة بروابط رسمية 100%
+                                الموسوعة الأكاديمية الأولى عالمياً لتوفير <span class="sch-count">80</span> منحة دولية موثوقة بروابط رسمية 100%
                             </div>
                             <h1 class="text-4xl sm:text-6xl font-black leading-tight tracking-tight">
                                 من غزة إلى <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-500">أعرق جامعات العالم</span>... رحلتك تبدأ من هنا
                             </h1>
                             <p class="text-lg sm:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                                نضع بين يديك الدليل الأضخم والأدق لـ 80 منحة دراسية عالمية ممولة بالكامل في أرقى الجامعات، مع أدوات تفاعلية متقدمة، ومولد رسائل دوافع احترافي مطور، بإشراف هندسي وأكاديمي رفيع من م. مجد جميل عبد الهادي.
+                                نضع بين يديك الدليل الأضخم والأدق لـ <span class="sch-count">80</span> منحة دراسية عالمية ممولة بالكامل في أرقى الجامعات، مع أدوات تفاعلية متقدمة، ومولد رسائل دوافع احترافي مطور، بإشراف هندسي وأكاديمي رفيع من م. مجد جميل عبد الهادي.
                             </p>
                             <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                                 <button onclick="switchView('scholarships')" class="w-full sm:w-auto bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold px-8 py-4 rounded-xl shadow-xl hover:gold-glow transition-all duration-300 text-center text-base">
-                                    <i class="fa-solid fa-graduation-cap ml-2"></i> استعرض دليل الـ 80 منحة الرسمية
+                                    <i class="fa-solid fa-graduation-cap ml-2"></i> استعرض دليل الـ <span class="sch-count">80</span> منحة الرسمية
                                 </button>
                                 <button onclick="switchView('tools')" class="w-full sm:w-auto bg-navy-800/90 hover:bg-navy-800 text-gold-300 border border-gold-500/40 font-bold px-8 py-4 rounded-xl transition-all duration-300 text-center text-base shadow-md">
                                     <i class="fa-solid fa-file-pen ml-2"></i> نموذج رسالة الدوافع المطور
@@ -178,7 +178,7 @@
                                     <p class="text-sm text-slate-300 leading-relaxed">المرجع الأكاديمي الرقمي الأول للطلبة العرب الراغبين بالدراسة في الخارج عبر روابط تقديم أصلية ومباشرة.</p>
                                     <div class="grid grid-cols-2 gap-3 pt-2">
                                         <div class="bg-navy-900/80 p-3 rounded-2xl border border-gold-500/20 text-center">
-                                            <span class="block text-2xl font-black text-gold-400">80</span>
+                                            <span class="block text-2xl font-black text-gold-400 sch-count">80</span>
                                             <span class="text-xs text-slate-300">منحة دولية رسمية</span>
                                         </div>
                                         <div class="bg-navy-900/80 p-3 rounded-2xl border border-gold-500/20 text-center">
@@ -243,7 +243,7 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                         <div class="space-y-2">
-                            <div class="text-3xl sm:text-5xl font-black text-gold-400">80+</div>
+                            <div class="text-3xl sm:text-5xl font-black text-gold-400"><span class="sch-count">80</span></div>
                             <div class="text-slate-300 font-medium text-sm sm:text-base">منحة دولية موثقة بروابط رسمية</div>
                         </div>
                         <div class="space-y-2">
@@ -427,8 +427,8 @@
         <section id="view-scholarships" class="view-section py-16 bg-slateLight">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
-                    <span class="bg-navy-900/10 text-navy-900 font-bold px-4 py-1.5 rounded-full text-sm border border-navy-900/20">الدليل الشامل للـ 80 منحة رسمية</span>
-                    <h2 class="text-3xl sm:text-5xl font-black text-navy-900">موسوعة الـ 80 منحة دراسية الدولية</h2>
+                    <span class="bg-navy-900/10 text-navy-900 font-bold px-4 py-1.5 rounded-full text-sm border border-navy-900/20">الدليل الشامل للـ <span class="sch-count">80</span> منحة رسمية</span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-navy-900">موسوعة الـ <span class="sch-count">80</span> منحة دراسية الدولية</h2>
                     <p class="text-slate-600 text-base sm:text-lg">جميع المنح أدناه تحتوي على تفاصيل دقيقة، شروط، ومصادر وروابط تقديم رسمية 100%. استخدم الفلاتر للبحث الدقيق.</p>
                     
                     <div class="bg-white p-4 sm:p-6 rounded-3xl shadow-lg border border-slate-200 grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
@@ -462,7 +462,7 @@
                 <div class="text-center max-w-2xl mx-auto mb-12 space-y-4">
                     <span class="bg-amber-500/20 text-amber-800 font-bold px-4 py-1.5 rounded-full text-sm border border-amber-500/30">أداة تفاعلية متقدمة</span>
                     <h2 class="text-3xl sm:text-4xl font-black text-navy-900">حاسبة القبول وتطابق المنح الدراسية</h2>
-                    <p class="text-slate-600 text-base">أدخل معدلك والدرجة المطلوبة لنقوم بمطابقتك فوراً مع المنح المناسبة لك من قائمة الـ 80 منحة.</p>
+                    <p class="text-slate-600 text-base">أدخل معدلك والدرجة المطلوبة لنقوم بمطابقتك فوراً مع المنح المناسبة لك من قائمة الـ <span class="sch-count">80</span> منحة.</p>
                 </div>
                 
                 <div class="bg-navy-900 text-white p-8 sm:p-10 rounded-3xl shadow-2xl border border-gold-500/30 space-y-6">
@@ -764,7 +764,7 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 max-w-3xl mx-auto">
                     <div class="bg-white border border-gold-500/30 rounded-2xl p-5 text-center shadow-sm">
-                        <div class="text-2xl sm:text-3xl font-black text-gold-500">45+</div>
+                        <div class="text-2xl sm:text-3xl font-black text-gold-500 sch-count">45</div>
                         <div class="text-xs text-slate-500 font-bold mt-1">منحة موثقة</div>
                     </div>
                     <div class="bg-white border border-gold-500/30 rounded-2xl p-5 text-center shadow-sm">
@@ -900,10 +900,10 @@
                             <div class="absolute top-4 right-4 w-14 h-14 bg-navy-900/90 text-gold-400 rounded-2xl flex items-center justify-center text-2xl shadow-md border border-gold-500/30">
                                 <i class="fa-solid fa-globe"></i>
                             </div>
-                            <h3 class="absolute bottom-4 right-4 left-4 text-xl font-bold text-white drop-shadow-lg">المنح الدراسية الدولية (45+ منحة)</h3>
+                            <h3 class="absolute bottom-4 right-4 left-4 text-xl font-bold text-white drop-shadow-lg">المنح الدراسية الدولية (<span class="sch-count">45</span> منحة)</h3>
                         </div>
                         <div class="p-8">
-                            <p class="text-slate-600 text-sm leading-relaxed mb-4">دليل حي لأكثر من 45 منحة دولية موثقة، نراجعها دورياً للتأكد من دقة شروطها ومواعيدها، مع مطابقة ذكية بين ملفك الأكاديمي وأنسب المنح المتاحة لك حسب تخصصك ومعدلك ووجهتك المفضلة.</p>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">دليل حي لـ <span class="sch-count">45</span> منحة دولية موثقة، نراجعها دورياً للتأكد من دقة شروطها ومواعيدها، مع مطابقة ذكية بين ملفك الأكاديمي وأنسب المنح المتاحة لك حسب تخصصك ومعدلك ووجهتك المفضلة.</p>
                             <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
                                 <li><i class="fa-solid fa-check text-gold-500 ml-1"></i>روابط تقديم رسمية مباشرة فقط</li>
                                 <li><i class="fa-solid fa-check text-gold-500 ml-1"></i>تحديث دوري للمواعيد والشروط</li>
@@ -985,7 +985,7 @@
                 <!-- شريط الأرقام -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
                     <div class="bg-white border border-gold-500/30 rounded-2xl p-5 text-center shadow-sm">
-                        <div class="text-2xl sm:text-3xl font-black text-gold-500">45+</div>
+                        <div class="text-2xl sm:text-3xl font-black text-gold-500 sch-count">45</div>
                         <div class="text-xs text-slate-500 font-bold mt-1">منحة موثقة</div>
                     </div>
                     <div class="bg-white border border-gold-500/30 rounded-2xl p-5 text-center shadow-sm">
@@ -1022,7 +1022,7 @@
                             <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> نؤسس ملفك الأكاديمي بالكامل من الصفر: من تحديد التخصص والدولة الأنسب، لحد آخر توصية بالملف</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> مستشار أكاديمي مخصص يرافقك طوال فترة التقديم، لا فريق عام يتغيّر بكل مرة</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> متابعة دورية فعلية لحالة ملفك بكل مرحلة، مو بس رد على استفسارات متفرقة</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> أدلة إرشادية شاملة وحصرية (مثل دليل أكثر من <span id="almadj360-scholarship-count">80</span> منحة رسمية موثقة)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> أدلة إرشادية شاملة وحصرية (مثل دليل <span class="sch-count">80</span> منحة رسمية موثقة)</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> شراكات مع مؤسسات ومراكز دولية معتمدة</li>
                         </ul>
                     </div>
@@ -1199,7 +1199,7 @@
                                     <label class="block text-sm font-semibold text-slate-300 mb-2">الخدمة المطلوبة</label>
                                     <select id="service-type" class="w-full bg-navy-800 border border-slate-700 rounded-2xl px-4 py-3.5 text-white focus:outline-none focus:border-gold-500 font-medium">
                                         <option value="نظام المجد 360">نظام المجد 360</option>
-                                        <option value="منحة دراسية من الدليل">منحة دراسية من الدليل (80 منحة رسمية)</option>
+                                        <option value="منحة دراسية من الدليل" id="scholarship-count-option">منحة دراسية من الدليل (80 منحة رسمية)</option>
                                         <option value="قبول جامعي مباشر">قبول جامعي مباشر</option>
                                     </select>
                                 </div>
@@ -1629,50 +1629,180 @@
             },
             {
                 id: 30,
-                title: "منحة المجد العالمية الخاصة الحصرية",
-                country: "عالمية",
+                title: "برنامج الفاخورة (Al Fakhoora - Education Above All)",
+                country: "قطر",
                 degree: "بكالوريوس، ماجستير",
                 coverage: "ممولة بالكامل",
-                deadline: "مفتوحة طوال العام",
-                description: "منحة خاصة بتنسيق من منصة المجد بإشراف م. مجد جميل صبحي عبد الهادي لتوفير مقاعد مميزة وإعفاءات.",
-                requirements: ["التسجيل عبر نموذج المجد 360", "معدل أكاديمي مقبول فما فوق"],
-                link: "https://wa.me/970567892330?text=مرحباً،%20أرغب%20بحجز%20استشارة%20أكاديمية%20مع%20منصة%20المجد"
+                deadline: "دورات تسجيل تُعلن دورياً بحسب الشراكات الجديدة",
+                description: "برنامج دعم خاص لطلبة غزة وفلسطين تحت مظلة مؤسسة التعليم فوق الجميع القطرية، يوفر منحاً دراسية كاملة بالتعاون مع جامعات وشركاء دوليين للطلبة المتأثرين بالنزاعات.",
+                requirements: ["إثبات الانتماء لفئة الطلبة المتأثرين بالنزاع بغزة أو فلسطين", "استيفاء شروط القبول الأكاديمي للجامعة أو البرنامج الشريك", "متابعة إعلانات الشراكات الجديدة دورياً عبر الموقع الرسمي"],
+                link: "https://www.educationaboveall.org/our-programmes/al-fakhoora"
             },
-            ...Array.from({ length: 50 }, (_, i) => {
-                const id = 31 + i;
-                const countries = ["سويسرا", "هولندا", "إيطاليا", "إسبانيا", "السويد", "النرويج", "فنلندا", "الدنمارك", "بلجيكا", "النمسا", "البرازيل", "المكسيك", "الأرجنتين", "جنوب إفريقيا", "الهند", "كوريا الجنوبية", "اليابان", "سنغافورة", "ماليزيا", "إندونيسيا", "الإمارات", "قطر", "السعودية", "سلطنة عمان", "الكويت"];
-                const degrees = ["بكالوريوس", "ماجستير", "دكتوراه"];
-                const coverages = ["ممولة بالكامل", "ممولة جزئياً"];
-                const titles = [
-                    "منحة التميز الأكاديمي الدولي", "منحة قادة المستقبل العالمية", "منحة الابتكار والذكاء الاصطناعي",
-                    "منحة البحث العلمي المتقدم", "منحة التنمية المستدامة", "منحة التميز التكنولوجي والهندسي",
-                    "منحة الرؤية العالمية للتعليم العالي", "منحة النخبة الأكاديمية", "منحة التبادل الثقافي الدولي"
-                ];
-                const country = countries[i % countries.length];
-                const degree = degrees[i % degrees.length];
-                const coverage = coverages[i % coverages.length];
-                const title = `${titles[i % titles.length]} (${country} - #${id})`;
-                const links = [
-                    "https://www.ethz.ch", "https://www.uva.nl", "https://www.uniroma1.it", 
-                    "https://www.uam.es", "https://www.ki.se", "https://www.uio.no", 
-                    "https://www.helsinki.fi", "https://www.ku.dk", "https://www.kuleuven.be", "https://www.univie.ac.at"
-                ];
-                return {
-                    id: id,
-                    title: title,
-                    country: country,
-                    degree: degree,
-                    coverage: coverage,
-                    deadline: "30 يونيو 2026",
-                    description: `منحة دولية معتمدة في ${country} تتيح للطلاب المتميزين فرصة فريدة لمتابعة دراسة ${degree} ضمن بيئة أكاديمية متطورة وتحظى بدعم كامل من الشركاء الدوليين لمنصة المجد لضمان جودة التعليم والمستقبل المهني.`,
-                    requirements: [
-                        "الحصول على شهادة الثانوية أو البكالوريوس بمعدل لا يقل عن 75%",
-                        "تقديم شهادة إتقان اللغة الإنجليزية أو لغة الدولة المضيفة",
-                        "تقديم سير ذاتية واضحة وخطابات دوافع احترافية"
-                    ],
-                    link: links[i % links.length]
-                };
-            })
+            {
+                id: 31,
+                title: "منح الكومنولث البريطانية (Commonwealth Scholarships)",
+                country: "المملكة المتحدة",
+                degree: "ماجستير، دكتوراه",
+                coverage: "ممولة بالكامل",
+                deadline: "تُغلق عادة بين أكتوبر وديسمبر حسب المسار",
+                description: "برنامج منح حكومي بريطاني عريق يستهدف طلبة الدول الأعضاء بالكومنولث ودولاً نامية أخرى، يغطي الرسوم والمعيشة والسفر لدراسة الماجستير والدكتوراه في أرقى الجامعات البريطانية.",
+                requirements: ["الانتماء لدولة مؤهلة ضمن قائمة الكومنولث", "شهادة بكالوريوس بتقدير جيد جداً فأعلى", "خطة واضحة للمساهمة في التنمية بعد التخرج"],
+                link: "https://cscuk.fcdo.gov.uk"
+            },
+            {
+                id: 32,
+                title: "المنح الحكومية السويسرية للتميز (Swiss Government Excellence Scholarships)",
+                country: "سويسرا",
+                degree: "ماجستير، دكتوراه، أبحاث",
+                coverage: "ممولة بالكامل",
+                deadline: "تفتح في أغسطس وتُغلق حسب السفارة (غالباً نهاية العام)",
+                description: "منحة حكومية سويسرية مرموقة تدار عبر السفارات السويسرية حول العالم، تمول الدراسات العليا والأبحاث في الجامعات السويسرية الرائدة مع راتب شهري وتغطية تأمين صحي.",
+                requirements: ["شهادة ماجستير أو بكالوريوس بتقدير ممتاز حسب المسار", "خطاب دعوة أو قبول أولي من أستاذ مشرف بجامعة سويسرية", "تقديم الطلب عبر السفارة السويسرية في بلد الإقامة"],
+                link: "https://www.sbfi.admin.ch/en/swiss-government-excellence-scholarships"
+            },
+            {
+                id: 33,
+                title: "منحة مؤسسة الآغا خان الدولية (AKF International Scholarship Programme)",
+                country: "دولية حسب دول شبكة آغا خان",
+                degree: "ماجستير، دكتوراه",
+                coverage: "ممولة جزئياً (نصف منحة ونصف قرض ميسر)",
+                deadline: "31 مارس تقريباً من كل عام",
+                description: "برنامج دولي يقدم تمويلاً مناصفة بين منحة مباشرة وقرض دراسي ميسر بلا فوائد للطلبة المتفوقين من دول محددة دون سند مالي كافٍ لمتابعة الدراسات العليا حول العالم.",
+                requirements: ["تفوق أكاديمي واضح مع عدم توفر مصادر تمويل بديلة", "قبول مسبق أو تقديم لجامعة معترف بها", "الانتماء لإحدى الدول المؤهلة ضمن برنامج المؤسسة"],
+                link: "https://www.akdn.org"
+            },
+            {
+                id: 34,
+                title: "المنح الحكومية الإيطالية (MAECI)",
+                country: "إيطاليا",
+                degree: "ماجستير، دكتوراه، دورات لغة",
+                coverage: "ممولة بالكامل",
+                deadline: "أواخر مارس من كل عام تقريباً",
+                description: "منح تقدمها وزارة الخارجية الإيطالية للطلبة الأجانب لدراسة برامج الدراسات العليا ودورات اللغة الإيطالية في الجامعات والمعاهد الإيطالية المعتمدة.",
+                requirements: ["شهادة أكاديمية معادلة لمتطلبات القبول الإيطالية", "إجادة اللغة الإيطالية أو الإنجليزية حسب البرنامج", "التقديم عبر البوابة الرسمية لوزارة الخارجية الإيطالية"],
+                link: "https://studyinitaly.esteri.it"
+            },
+            {
+                id: 35,
+                title: "منحة ماليزيا الدولية (Malaysia International Scholarship - MIS)",
+                country: "ماليزيا",
+                degree: "ماجستير، دكتوراه",
+                coverage: "ممولة بالكامل",
+                deadline: "تُعلن سنوياً عبر بوابة وزارة التعليم العالي الماليزية",
+                description: "منحة حكومية ماليزية تستهدف الطلبة المتميزين من مختلف دول العالم لدراسة الماجستير والدكتوراه في الجامعات الماليزية العامة والخاصة المعتمدة.",
+                requirements: ["معدل تراكمي مرتفع بالشهادة الجامعية السابقة", "شهادة لغة إنجليزية معتمدة (IELTS/TOEFL)", "التقديم الإلكتروني عبر بوابة وزارة التعليم العالي الماليزية"],
+                link: "https://biasiswa.mohe.gov.my"
+            },
+            {
+                id: 36,
+                title: "جامعة محمد بن زايد للذكاء الاصطناعي (MBZUAI)",
+                country: "الإمارات",
+                degree: "ماجستير، دكتوراه",
+                coverage: "ممولة بالكامل لجميع المقبولين",
+                deadline: "دورتان سنوياً، يُنصح بالتقديم المبكر",
+                description: "أول جامعة بحثية متخصصة بالكامل في الذكاء الاصطناعي عالمياً، تمنح جميع طلابها المقبولين تمويلاً كاملاً يشمل الرسوم والسكن وراتباً شهرياً وتذاكر سفر.",
+                requirements: ["خلفية أكاديمية قوية في الحاسوب أو الرياضيات أو مجال ذي صلة", "شهادة لغة إنجليزية معتمدة", "خطابات توصية ومقترح بحثي أو رسالة دوافع"],
+                link: "https://mbzuai.ac.ae"
+            },
+            {
+                id: 37,
+                title: "منح جامعة زايد",
+                country: "الإمارات",
+                degree: "بكالوريوس، ماجستير",
+                coverage: "ممولة جزئياً وبالكامل حسب المعدل",
+                deadline: "فصلان دراسيان سنوياً",
+                description: "منح تقدمها جامعة زايد الحكومية الإماراتية للطلبة المتفوقين، بنسب تغطية تتفاوت بين الإعفاء الجزئي والكامل من الرسوم الدراسية حسب المعدل التراكمي.",
+                requirements: ["معدل أكاديمي مرتفع بالثانوية العامة أو الشهادة الجامعية السابقة", "استيفاء متطلبات القبول واختبار اللغة الإنجليزية", "التقديم ضمن مواعيد القبول الفصلية"],
+                link: "https://www.zu.ac.ae"
+            },
+            {
+                id: 38,
+                title: "المنح الدولية بجامعة قطر",
+                country: "قطر",
+                degree: "بكالوريوس، ماجستير",
+                coverage: "ممولة جزئياً وبالكامل حسب البرنامج",
+                deadline: "تُعلن دورياً مع بداية كل فصل",
+                description: "منح تقدمها جامعة قطر للطلبة الدوليين المتميزين أكاديمياً، تشمل إعفاءات جزئية أو كاملة من الرسوم الدراسية حسب البرنامج والتخصص المطلوب.",
+                requirements: ["معدل أكاديمي مرتفع يحدده كل برنامج على حدة", "استيفاء شروط القبول الجامعي العام", "التقديم عبر بوابة القبول الإلكترونية لجامعة قطر"],
+                link: "https://www.qu.edu.qa"
+            },
+            {
+                id: 39,
+                title: "منح جامعة الأزهر للطلبة الوافدين",
+                country: "مصر",
+                degree: "بكالوريوس، ماجستير، دكتوراه",
+                coverage: "ممولة جزئياً وبالكامل حسب المنحة",
+                deadline: "يُعلن سنوياً مع بداية القبول الصيفي",
+                description: "منح تقدمها جامعة الأزهر العريقة للطلبة الوافدين من مختلف الجنسيات، تشمل إعفاءات دراسية وأحياناً سكناً داخلياً حسب نوع المنحة والتخصص.",
+                requirements: ["الشهادة الثانوية أو الجامعية معادلة ومصدقة", "استيفاء شروط القبول الخاصة بالوافدين", "التقديم عبر إدارة الوافدين بالجامعة ضمن مواعيد القبول الصيفي"],
+                link: "https://azhar.eg"
+            },
+            {
+                id: 40,
+                title: "المساعدات المالية بالجامعة الأمريكية في بيروت (AUB)",
+                country: "لبنان",
+                degree: "بكالوريوس، ماجستير",
+                coverage: "منح جزئية حسب الحاجة والتفوق",
+                deadline: "يرتبط بموعد التقديم الجامعي (فبراير عادة)",
+                description: "برنامج مساعدات مالية تقدمه الجامعة الأمريكية في بيروت المرموقة للطلبة المتفوقين أو ذوي الحاجة المالية، بنسب تغطية متفاوتة من الرسوم الدراسية حسب تقييم كل حالة.",
+                requirements: ["قبول أكاديمي مسبق بالجامعة الأمريكية في بيروت", "تقديم ملف الحاجة المالية أو إثبات التفوق الأكاديمي", "التقديم ضمن موعد التقديم الجامعي (فبراير عادة)"],
+                link: "https://www.aub.edu.lb"
+            },
+            {
+                id: 41,
+                title: "زمالة روتاري للسلام (Rotary Peace Fellowship)",
+                country: "دولية عبر مراكز روتاري",
+                degree: "ماجستير أو دبلوم متخصص",
+                coverage: "ممولة بالكامل",
+                deadline: "منتصف مايو تقريباً من كل عام",
+                description: "زمالة دولية ممولة بالكامل عبر مراكز روتاري للسلام حول العالم، تؤهل قادة ومتخصصين في مجالات السلام وحل النزاعات عبر برنامج ماجستير أو دبلوم متخصص.",
+                requirements: ["خبرة عملية ذات صلة بمجال السلام أو التنمية أو حل النزاعات", "إتقان اللغة الإنجليزية أو لغة برنامج المركز المستهدف", "ترشيح أو تقديم مباشر عبر أحد مراكز روتاري للسلام المعتمدة"],
+                link: "https://www.rotary.org/en/our-programs/peace-fellowships"
+            },
+            {
+                id: 42,
+                title: "منحة هولندا (Holland Scholarship)",
+                country: "هولندا",
+                degree: "بكالوريوس، ماجستير",
+                coverage: "ممولة جزئياً",
+                deadline: "غالباً حتى 1 مايو لبرامج سبتمبر",
+                description: "منحة تشجيعية تقدمها الحكومة الهولندية بالتعاون مع الجامعات الهولندية المشاركة للطلبة الدوليين من خارج الاتحاد الأوروبي، تغطي جزءاً من الرسوم الدراسية في السنة الأولى.",
+                requirements: ["قبول أكاديمي بإحدى الجامعات الهولندية المشاركة بالبرنامج", "الانتماء لدولة من خارج الاتحاد الأوروبي أو المنطقة الاقتصادية الأوروبية", "التقديم عبر الجامعة المضيفة ضمن مواعيدها المحددة"],
+                link: "https://www.studyinnl.org"
+            },
+            {
+                id: 43,
+                title: "زمالة المستشار الألماني (German Chancellor Fellowship - Humboldt)",
+                country: "ألمانيا",
+                degree: "قادة شباب من حملة البكالوريوس فما فوق",
+                coverage: "ممولة بالكامل",
+                deadline: "منتصف سبتمبر تقريباً من كل عام",
+                description: "زمالة مرموقة تقدمها مؤسسة هومبولت الألمانية لقادة الشباب الواعدين من مختلف المجالات، تتيح تنفيذ مشروع خاص لمدة سنة في ألمانيا برفقة مشرف مضيف وشبكة دعم مهنية.",
+                requirements: ["شهادة بكالوريوس فأعلى مع سجل قيادي وإنجازات واضحة", "اقتراح مشروع عمل واضح يُنفذ خلال فترة الزمالة بألمانيا", "عمر لا يتجاوز الحد الأقصى المحدد من المؤسسة عادة"],
+                link: "https://www.humboldt-foundation.de"
+            },
+            {
+                id: 44,
+                title: "منحة اليابان والبنك الدولي المشتركة (JJWBGSP)",
+                country: "دولية عبر جامعات شريكة",
+                degree: "ماجستير",
+                coverage: "ممولة بالكامل",
+                deadline: "يُعلن سنوياً عبر كل جامعة شريكة على حدة",
+                description: "برنامج منح مشترك بين اليابان والبنك الدولي يستهدف الكوادر المهنية من الدول النامية لدراسة الماجستير في مجالات التنمية بجامعات شريكة حول العالم، بتمويل كامل يشمل الرسوم والمعيشة.",
+                requirements: ["خبرة عملية بمجال التنمية أو مجال ذي صلة بالوظيفة الحالية", "قبول أكاديمي بإحدى الجامعات الشريكة بالبرنامج", "الالتزام بالعودة للمساهمة بالتنمية في بلد المنشأ بعد التخرج"],
+                link: "https://www.worldbank.org/en/programs/scholarships"
+            },
+            {
+                id: 45,
+                title: "أولمبياد الأبواب المفتوحة الروسي (Open Doors: Russian Scholarship Project)",
+                country: "روسيا",
+                degree: "بكالوريوس، ماجستير، دكتوراه، ما بعد الدكتوراه",
+                coverage: "ممولة بالكامل",
+                deadline: "التسجيل يفتح غالباً 20 أغسطس ويُغلق منتصف نوفمبر من كل عام",
+                description: "مسابقة أولمبياد حكومية روسية (وليست تقديماً مباشراً)، يتنافس فيها آلاف الطلاب عبر ملف إنجازات واختبار قبول، والفائزون يحصلون على قبول مباشر برسوم كاملة في إحدى أكثر من 500 جامعة روسية، مع راتب شهري أحياناً وسنة لغة روسية تحضيرية مجانية.",
+                requirements: ["تقديم بورتفوليو إنجازات ورسالة دوافع", "اجتياز اختبار القبول الإلكتروني", "التسجيل قبل إغلاق المرحلة الأولى"],
+                link: "https://od.globaluni.ru"
+            }
         ];
 
         // Favorites Storage Logic
@@ -2031,7 +2161,7 @@
                 let reply = "مرحباً! فريق منصة المجد يرحب بك. يرجى ترك رسالتك بالكامل أو حجز استشارة عبر نموذج التواصل وسيقوم م. مجد جميل أو أحد المستشارين بالرد عليك بأقرب وقت لضمان تقديم أفضل خدمة لك.";
                 
                 if(message.includes("منحة") || message.includes("تركيا")) {
-                    reply = "لدينا في الدليل أكثر من 80 منحة رسمية، والمنحة التركية من أبرزها. هل قمت بتجربة 'حاسبة القبول' لمعرفة فرصك التقريبية؟";
+                    reply = `لدينا في الدليل ${scholarshipsData.length} منحة رسمية معتمدة، والمنحة التركية من أبرزها. هل قمت بتجربة 'حاسبة القبول' لمعرفة فرصك التقريبية؟`;
                 } else if(message.includes("معدل") || message.includes("نسبة")) {
                     reply = "المعدل مهم، لكن الأهم هو كيفية إبراز نقاط قوتك في 'رسالة الدوافع'. منصة المجد 360 توفر لك تقييماً شاملاً لملفك. أنصحك بحجز استشارة.";
                 }
@@ -2057,7 +2187,7 @@
         ];
 
         const faqsData = [
-            { category: "general", question: "س: هل جميع الـ 80 منحة ممولة بالكامل؟", answer: "ج: تشمل القائمة منحاً ممولة بالكامل (تغطي الرسوم، السكن، الراتب الشهري، وتذاكر السفر) ومنحاً جزئية أو إعفاءات رسوم دراسية، وكل منحة موضحة بالتفصيل في دليلنا." },
+            { category: "general", question: `س: هل جميع الـ ${scholarshipsData.length} منحة ممولة بالكامل؟`, answer: "ج: تشمل القائمة منحاً ممولة بالكامل (تغطي الرسوم، السكن، الراتب الشهري، وتذاكر السفر) ومنحاً جزئية أو إعفاءات رسوم دراسية، وكل منحة موضحة بالتفصيل في دليلنا." },
             { category: "general", question: "س: هل أحتاج لشهادة لغة إنجليزية (IELTS/TOEFL) إلزامي للتقديم؟", answer: "ج: يختلف ذلك حسب المنحة والجامعة؛ بعض المنح الكبرى (مثل المنحة التركية أو الرومانية أو الصينية) لا تشترط شهادة دولية للتقديم المبدئي ويمكن التعويض بسنة تحضيرية للغة، بينما تتطلب أخرى شهادة معتمدة فوراً." },
             { category: "general", question: "س: معدلي متوسط، هل في فرصة أصلاً؟", answer: "ج: أكيد. مو كل المنح بتشترط معدل مرتفع جداً؛ في منح ومسارات قبول مباشر تناسب معدلات متوسطة، وحاسبة القبول بالموقع بتساعدك تعرف خياراتك الواقعية فوراً." },
             { category: "general", question: "س: بدي أدرس تخصص مش متوفر ضمن المنح المذكورة، شو أعمل؟", answer: "ج: دليل المنح بالموقع نماذج من أبرز الفرص، مو كل الفرص المتاحة عالمياً. تواصل معنا وحدد تخصصك، وفريقنا بيدورلك على المنح والجامعات الأنسب لتخصصك تحديداً." },
@@ -2197,8 +2327,10 @@
             updateFavCounter();
             filterFaqs('all');
 
-            const almadj360Count = document.getElementById('almadj360-scholarship-count');
-            if(almadj360Count) almadj360Count.innerText = scholarshipsData.length;
+            document.querySelectorAll('.sch-count').forEach(el => el.textContent = scholarshipsData.length);
+            document.title = `منصة المجد التعليمية | الموسوعة الشاملة للـ ${scholarshipsData.length} منحة والخدمات الأكاديمية`;
+            const scholarshipCountOption = document.getElementById('scholarship-count-option');
+            if(scholarshipCountOption) scholarshipCountOption.textContent = `منحة دراسية من الدليل (${scholarshipsData.length} منحة رسمية)`;
 
             // إغلاق النوافذ عند النقر خارجها
             window.onclick = function(event) {
