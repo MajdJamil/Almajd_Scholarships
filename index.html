@@ -1001,8 +1001,8 @@
             <div class="w-16 h-16 bg-gold-500 text-navy-900 rounded-full flex items-center justify-center text-3xl mx-auto shadow-lg">
                 <i class="fa-solid fa-check"></i>
             </div>
-            <h3 class="text-2xl font-black text-white">تم إرسال طلبك بنجاح!</h3>
-            <p class="text-slate-300 text-sm leading-relaxed">شكراً لتواصلك مع منصة المجد التعليمية. سيتم تقييم ملفك والتواصل معك من قبل الفريق المختص عبر الواتساب في أقرب وقت.</p>
+            <h3 id="success-modal-title" class="text-2xl font-black text-white">تم إرسال طلبك بنجاح!</h3>
+            <p id="success-modal-text" class="text-slate-300 text-sm leading-relaxed">شكراً لتواصلك مع منصة المجد التعليمية. سيتم تقييم ملفك والتواصل معك من قبل الفريق المختص عبر الواتساب في أقرب وقت.</p>
             <button onclick="closeSuccessModal()" class="w-full py-3 bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-bold rounded-xl transition-all shadow-md">
                 حسناً، شكراً لكم
             </button>
@@ -1696,9 +1696,30 @@
         // معالجة نموذج التواصل
         function handleFormSubmit(event) {
             event.preventDefault();
-            // هنا يتم إرسال البيانات للباك-إند برمجياً، لكن سنظهر رسالة نجاح
+
+            const fullName = document.getElementById('full-name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const academicLevel = document.getElementById('academic-level').value;
+            const serviceType = document.getElementById('service-type').value;
+            const message = document.getElementById('message').value.trim();
+
+            if(!fullName || !phone) {
+                alert('الرجاء تعبئة الاسم الكامل ورقم الهاتف قبل إرسال الطلب.');
+                return;
+            }
+
+            const waMessage = `طلب استشارة جديد من موقع المجد
+الاسم: ${fullName}
+رقم الهاتف: ${phone}
+المرحلة الدراسية: ${academicLevel}
+الخدمة المطلوبة: ${serviceType}
+التفاصيل: ${message || 'لا يوجد'}`;
+
+            window.open(`https://wa.me/970567892330?text=${encodeURIComponent(waMessage)}`, '_blank');
+
+            document.getElementById('success-modal-title').innerText = 'خطوة أخيرة بسيطة!';
+            document.getElementById('success-modal-text').innerText = 'فتحنا لك واتساب مع كل بيانات طلبك جاهزة — بس أكّد الإرسال من هناك ليصلنا طلبك مباشرة.';
             document.getElementById('success-modal').classList.remove('hidden');
-            event.target.reset(); // تفريغ الحقول
         }
 
         function closeSuccessModal() {
