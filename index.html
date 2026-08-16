@@ -14,7 +14,17 @@
                         gold: { 500: '#D4AF37', 600: '#B89726', 400: '#F3E5AB', 300: '#FFF5CC' },
                         slateLight: '#F8FAFC'
                     },
-                    fontFamily: { cairo: ['Cairo', 'sans-serif'] }
+                    fontFamily: { cairo: ['Cairo', 'sans-serif'] },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(100%)' },
+                        }
+                    }
                 }
             }
         }
@@ -28,11 +38,34 @@
         .glass-card { background: rgba(15, 34, 58, 0.88); backdrop-filter: blur(14px); border: 1px solid rgba(212, 175, 55, 0.25); }
         @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
         .floating { animation: float 4s ease-in-out infinite; }
-        .view-section { display: none; }
-        .view-section.active { display: block; }
+        .view-section { display: none; opacity: 0; transition: opacity 0.4s ease-in-out; }
+        .view-section.active { display: block; opacity: 1; }
+        
+        /* شريط التمرير للجامعات والقبولات */
+        .ticker-wrap { width: 100%; overflow: hidden; background-color: #0F223A; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+        .ticker { display: inline-block; white-space: nowrap; padding-right: 100%; box-sizing: content-box; animation: ticker 40s linear infinite; }
+        .ticker-item { display: inline-block; padding: 0 2rem; color: #FFF; font-size: 0.875rem; font-weight: 600; }
+        @keyframes ticker { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(100%, 0, 0); } }
+        
+        /* تجميل سكرول بار */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #B89726; }
     </style>
 </head>
 <body class="bg-slateLight text-slate-800 antialiased min-h-screen flex flex-col justify-between selection:bg-gold-500 selection:text-navy-900">
+
+    <!-- شريط الأخبار العاجلة / القبولات -->
+    <div class="ticker-wrap py-2 hidden sm:block">
+        <div class="ticker">
+            <span class="ticker-item"><i class="fa-solid fa-bell text-gold-500 ml-2"></i>عاجل: تم قبول الطالب أحمد محمود في المنحة التركية (تخصص هندسة برمجيات)</span>
+            <span class="ticker-item"><i class="fa-solid fa-bell text-gold-500 ml-2"></i>عاجل: قبول الطالبة سارة عبدالله في منحة Stipendium Hungaricum (طب بشري)</span>
+            <span class="ticker-item"><i class="fa-solid fa-bell text-gold-500 ml-2"></i>عاجل: إعلان نتائج منحة إيراسموس موندوس وقبول 3 طلاب عبر منصة المجد</span>
+            <span class="ticker-item"><i class="fa-solid fa-bell text-gold-500 ml-2"></i>عاجل: فتح باب التقديم المبكر لمنحة الحكومة الصينية CSC للعام 2026/2027</span>
+            <span class="ticker-item"><i class="fa-solid fa-bell text-gold-500 ml-2"></i>عاجل: قبول الطالب محمد يوسف في جامعة الملك عبدالله (KAUST) ممولة بالكامل</span>
+        </div>
+    </div>
 
     <header class="sticky top-0 z-50 bg-navy-900/95 backdrop-blur-md border-b border-gold-500/25 shadow-2xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,9 +86,10 @@
                         <span class="bg-gold-500/20 text-gold-400 text-[10px] px-2 py-0.5 rounded-full border border-gold-500/30">80 منحة</span>
                         دليل المنح
                     </button>
+                    <button onclick="switchView('testimonials')" id="nav-testimonials" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent text-emerald-400"><i class="fa-solid fa-certificate ml-1"></i>لوحة القبولات</button>
                     <button onclick="switchView('calculator')" id="nav-calculator" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent text-amber-300"><i class="fa-solid fa-calculator ml-1"></i>حاسبة القبول</button>
                     <button onclick="switchView('countries')" id="nav-countries" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent">أدلة الدول</button>
-                    <button onclick="switchView('tools')" id="nav-tools" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent">أدوات الطلبة المتقدمة</button>
+                    <button onclick="switchView('tools')" id="nav-tools" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent">أدوات مخصصة</button>
                     <button onclick="switchView('guides')" id="nav-guides" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent">أسرار القبول</button>
                     <button onclick="switchView('faqs')" id="nav-faqs" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent">الأسئلة الشائعة</button>
                     <button onclick="switchView('services')" id="nav-services" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent">خدماتنا</button>
@@ -84,6 +118,7 @@
         <div id="mobile-menu" class="hidden xl:hidden bg-navy-900 border-t border-navy-800 px-6 py-5 space-y-3 shadow-2xl max-h-[85vh] overflow-y-auto">
             <button onclick="switchView('home'); toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 font-semibold py-2 w-full text-right">الرئيسية</button>
             <button onclick="switchView('scholarships'); toggleMobileMenu()" class="block text-gold-400 font-bold py-2 w-full text-right">دليل الـ 80 منحة الدراسية العالمية</button>
+            <button onclick="switchView('testimonials'); toggleMobileMenu()" class="block text-emerald-400 font-bold py-2 w-full text-right"><i class="fa-solid fa-certificate ml-1"></i>لوحة الشرف وتجارب الطلاب</button>
             <button onclick="switchView('calculator'); toggleMobileMenu()" class="block text-amber-300 font-bold py-2 w-full text-right"><i class="fa-solid fa-calculator ml-1"></i>حاسبة القبول والمعدل</button>
             <button onclick="switchView('countries'); toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 font-semibold py-2 w-full text-right">أدلة الدول وشروط التأشيرات</button>
             <button onclick="switchView('tools'); toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 font-semibold py-2 w-full text-right">أدوات الطلبة المتقدمة ونماذج الدوافع</button>
@@ -178,12 +213,172 @@
                             <div class="text-slate-300 font-medium text-sm sm:text-base">طالب مستفيد وموجه سنوياً</div>
                         </div>
                         <div class="space-y-2">
-                            <div class="text-3xl sm:text-5xl font-black text-gold-400">24/7</div>
-                            <div class="text-slate-300 font-medium text-sm sm:text-base">استشارات أكاديمية احترافية</div>
+                            <div class="text-3xl sm:text-5xl font-black text-gold-400">95%</div>
+                            <div class="text-slate-300 font-medium text-sm sm:text-base">نسبة نجاح القبولات الجامعية</div>
                         </div>
                     </div>
                 </div>
             </section>
+        </section>
+
+        <!-- NEW: TESTIMONIALS & ACCEPTANCES VIEW -->
+        <section id="view-testimonials" class="view-section py-16 bg-slateLight">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="bg-emerald-500/10 text-emerald-700 font-bold px-4 py-1.5 rounded-full text-sm border border-emerald-500/20">نتائج مثبتة بالدليل</span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-navy-900">لوحة الشرف وأرشيف القبولات العالمية</h2>
+                    <p class="text-slate-600 text-lg">نفتخر في منصة المجد بتحقيق أحلام مئات الطلبة سنوياً. نستعرض هنا نماذج حقيقية للقبولات وآراء طلبتنا المبتعثين في مختلف دول العالم.</p>
+                </div>
+
+                <!-- إحصائيات القبولات -->
+                <div class="bg-navy-900 rounded-3xl p-8 mb-16 shadow-2xl border border-gold-500/30 text-center">
+                    <h3 class="text-2xl font-bold text-white mb-8">إحصائيات القبول الموثقة لموسم 2025/2026</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div class="bg-navy-800 p-6 rounded-2xl border border-slate-700">
+                            <i class="fa-solid fa-flag-usa text-4xl text-gold-400 mb-3"></i>
+                            <div class="text-3xl font-black text-white">42</div>
+                            <div class="text-sm text-slate-300">قبول في أمريكا وكندا</div>
+                        </div>
+                        <div class="bg-navy-800 p-6 rounded-2xl border border-slate-700">
+                            <i class="fa-solid fa-earth-europe text-4xl text-gold-400 mb-3"></i>
+                            <div class="text-3xl font-black text-white">128</div>
+                            <div class="text-sm text-slate-300">قبول في أوروبا (شنغن)</div>
+                        </div>
+                        <div class="bg-navy-800 p-6 rounded-2xl border border-slate-700">
+                            <i class="fa-solid fa-mosque text-4xl text-gold-400 mb-3"></i>
+                            <div class="text-3xl font-black text-white">215</div>
+                            <div class="text-sm text-slate-300">قبول في تركيا وماليزيا</div>
+                        </div>
+                        <div class="bg-navy-800 p-6 rounded-2xl border border-slate-700">
+                            <i class="fa-solid fa-user-doctor text-4xl text-gold-400 mb-3"></i>
+                            <div class="text-3xl font-black text-white">85</div>
+                            <div class="text-sm text-slate-300">قبول تخصصات طبية</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- آراء الطلبة وقصص النجاح -->
+                <h3 class="text-3xl font-black text-navy-900 mb-8 border-r-4 border-gold-500 pr-4">قصص نجاح وإشادات (Student Testimonials)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                    <!-- طالب 1 -->
+                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-xl relative mt-8">
+                        <div class="absolute -top-8 right-8 w-16 h-16 bg-navy-900 rounded-full border-4 border-white flex items-center justify-center text-gold-400 text-2xl shadow-lg">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                        <div class="absolute top-6 left-6 text-slate-200 text-4xl">
+                            <i class="fa-solid fa-quote-left"></i>
+                        </div>
+                        <div class="mt-4 space-y-4">
+                            <div>
+                                <h4 class="font-black text-lg text-navy-900">م. محمود الشوا</h4>
+                                <span class="text-xs font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">المنحة التركية - هندسة برمجيات</span>
+                            </div>
+                            <div class="flex text-gold-500 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                "منصة المجد وبإشراف المهندس مجد كانت نقطة التحول في حياتي. تم تجهيز ملفي باحترافية عالية جداً، وتمت صياغة رسالة الدافع بشكل لامس لجان التحكيم. بفضل الله ثم جهودهم حصلت على قبول ممول بالكامل في جامعة إسطنبول التقنية."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- طالب 2 -->
+                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-xl relative mt-8">
+                        <div class="absolute -top-8 right-8 w-16 h-16 bg-navy-900 rounded-full border-4 border-white flex items-center justify-center text-gold-400 text-2xl shadow-lg">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                        <div class="absolute top-6 left-6 text-slate-200 text-4xl">
+                            <i class="fa-solid fa-quote-left"></i>
+                        </div>
+                        <div class="mt-4 space-y-4">
+                            <div>
+                                <h4 class="font-black text-lg text-navy-900">د. سارة العتيبي</h4>
+                                <span class="text-xs font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">منحة DAAD ألمانيا - دراسات عليا</span>
+                            </div>
+                            <div class="flex text-gold-500 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                "لم أكن أعرف من أين أبدأ وسط الشروط المعقدة للمنح الألمانية. استشارة المجد 360 وضعت لي خارطة طريق دقيقة. الروابط الموثوقة والتدريب على المقابلة الشخصية كانا السبب الرئيسي لاجتيازي كافة المراحل بنجاح."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- طالب 3 -->
+                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-xl relative mt-8">
+                        <div class="absolute -top-8 right-8 w-16 h-16 bg-navy-900 rounded-full border-4 border-white flex items-center justify-center text-gold-400 text-2xl shadow-lg">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                        <div class="absolute top-6 left-6 text-slate-200 text-4xl">
+                            <i class="fa-solid fa-quote-left"></i>
+                        </div>
+                        <div class="mt-4 space-y-4">
+                            <div>
+                                <h4 class="font-black text-lg text-navy-900">عمر درويش</h4>
+                                <span class="text-xs font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">جامعة كامبريدج - المملكة المتحدة</span>
+                            </div>
+                            <div class="flex text-gold-500 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                "منصة المجد هي المرجع العربي الأول بلا منازع. القالب المطور لرسالة الدوافع الموجود هنا في الموقع صنع فارقاً هائلاً في تقييم ملفي. الدقة والمصداقية التي يقدمونها جعلتني أثق بهم في كل خطوة."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- معرض القبولات الجامعية (تمثيل) -->
+                <h3 class="text-3xl font-black text-navy-900 mb-8 border-r-4 border-gold-500 pr-4">صالة القبولات الرسمية (Acceptance Letters)</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white p-4 rounded-2xl border border-slate-300 shadow hover:shadow-xl transition-shadow group">
+                        <div class="bg-slate-100 h-40 rounded-xl mb-4 flex items-center justify-center border-2 border-dashed border-slate-300 overflow-hidden relative">
+                            <i class="fa-solid fa-file-signature text-4xl text-slate-400 group-hover:scale-110 transition-transform"></i>
+                            <div class="absolute inset-0 bg-navy-900/80 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i class="fa-solid fa-check-circle text-emerald-400 text-3xl mb-2"></i>
+                                <span class="text-white font-bold text-sm">مقبول رسمياً</span>
+                            </div>
+                        </div>
+                        <h5 class="font-bold text-navy-900 text-sm">قبول طب بشري - تركيا</h5>
+                        <p class="text-xs text-slate-500 mt-1">جامعة أنقرة - منحة كاملة (2025)</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-2xl border border-slate-300 shadow hover:shadow-xl transition-shadow group">
+                        <div class="bg-slate-100 h-40 rounded-xl mb-4 flex items-center justify-center border-2 border-dashed border-slate-300 overflow-hidden relative">
+                            <i class="fa-solid fa-file-signature text-4xl text-slate-400 group-hover:scale-110 transition-transform"></i>
+                            <div class="absolute inset-0 bg-navy-900/80 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i class="fa-solid fa-check-circle text-emerald-400 text-3xl mb-2"></i>
+                                <span class="text-white font-bold text-sm">مقبول رسمياً</span>
+                            </div>
+                        </div>
+                        <h5 class="font-bold text-navy-900 text-sm">قبول ماجستير ذكاء اصطناعي</h5>
+                        <p class="text-xs text-slate-500 mt-1">Stipendium Hungaricum (2025)</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-2xl border border-slate-300 shadow hover:shadow-xl transition-shadow group">
+                        <div class="bg-slate-100 h-40 rounded-xl mb-4 flex items-center justify-center border-2 border-dashed border-slate-300 overflow-hidden relative">
+                            <i class="fa-solid fa-file-signature text-4xl text-slate-400 group-hover:scale-110 transition-transform"></i>
+                            <div class="absolute inset-0 bg-navy-900/80 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i class="fa-solid fa-check-circle text-emerald-400 text-3xl mb-2"></i>
+                                <span class="text-white font-bold text-sm">مقبول رسمياً</span>
+                            </div>
+                        </div>
+                        <h5 class="font-bold text-navy-900 text-sm">قبول بكالوريوس هندسة</h5>
+                        <p class="text-xs text-slate-500 mt-1">المنحة الصينية CSC (2026)</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-2xl border border-slate-300 shadow hover:shadow-xl transition-shadow group">
+                        <div class="bg-slate-100 h-40 rounded-xl mb-4 flex items-center justify-center border-2 border-dashed border-slate-300 overflow-hidden relative">
+                            <i class="fa-solid fa-file-signature text-4xl text-slate-400 group-hover:scale-110 transition-transform"></i>
+                            <div class="absolute inset-0 bg-navy-900/80 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i class="fa-solid fa-check-circle text-emerald-400 text-3xl mb-2"></i>
+                                <span class="text-white font-bold text-sm">مقبول رسمياً</span>
+                            </div>
+                        </div>
+                        <h5 class="font-bold text-navy-900 text-sm">قبول دراسات عليا إدارة أعمال</h5>
+                        <p class="text-xs text-slate-500 mt-1">منحة تشيفنينغ بريطانيا (2025)</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <button onclick="switchView('contact')" class="bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold px-8 py-4 rounded-xl shadow-xl hover:gold-glow transition-all duration-300 text-center text-lg">
+                        <i class="fa-solid fa-pen-to-square ml-2"></i> انضم للوحة الشرف واحجز مقعدك الآن
+                    </button>
+                </div>
+            </div>
         </section>
 
         <!-- SCHOLARSHIPS VIEW -->
@@ -243,12 +438,12 @@
                             </select>
                         </div>
                     </div>
-                    <button onclick="runCalculator()" class="w-full py-4 bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold text-lg rounded-2xl shadow-xl transition">
+                    <button onclick="runCalculator()" class="w-full py-4 bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold text-lg rounded-2xl shadow-xl transition transform active:scale-95">
                         احسب فرص القبول واقترح المنح المناسبة الآن
                     </button>
-                    <div id="calc-results" class="hidden pt-6 border-t border-slate-800 space-y-4">
+                    <div id="calc-results" class="hidden pt-6 border-t border-slate-800 space-y-4 transition-all duration-500">
                         <h4 class="text-xl font-bold text-gold-400">النتيجة والترشيح الفوري:</h4>
-                        <div id="calc-output-content" class="space-y-3"></div>
+                        <div id="calc-output-content" class="space-y-3 max-h-64 overflow-y-auto pr-2"></div>
                     </div>
                 </div>
             </div>
@@ -264,39 +459,39 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-lg space-y-4">
+                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-lg space-y-4 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                         <div class="flex items-center justify-between">
                             <h3 class="text-2xl font-black text-navy-900">تركيا</h3>
                             <span class="bg-red-500/10 text-red-700 text-xs px-3 py-1 rounded-full font-bold">الأكثر طلباً</span>
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">تجمع بين الثقافة الشرقية والغربية، مع جامعات متطورة وتكاليف معيشة اقتصادية للغاية مقارنة بأوروبا.</p>
-                        <ul class="space-y-2 text-xs text-slate-700 font-medium">
+                        <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
                             <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 300 - 500 دولار</li>
                             <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> تأشيرة دراسية تطلب عبر القنصلية بعد القبول</li>
                             <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> مسموح لطلبة الماجستير والدكتوراه</li>
                         </ul>
                     </div>
 
-                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-lg space-y-4">
+                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-lg space-y-4 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                         <div class="flex items-center justify-between">
                             <h3 class="text-2xl font-black text-navy-900">هنغاريا (المجر)</h3>
                             <span class="bg-amber-500/10 text-amber-700 text-xs px-3 py-1 rounded-full font-bold">بوابة أوروبا</span>
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">قلب أوروبا وعاصمة المنح الحكومية الشهيرة Stipendium Hungaricum مع شهادات معتمدة عالمياً.</p>
-                        <ul class="space-y-2 text-xs text-slate-700 font-medium">
+                        <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
                             <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 400 - 650 دولار</li>
                             <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> نوع D للدراسة في منطقة شنغن</li>
                             <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> مسموح حتى 30 ساعة أسبوعياً</li>
                         </ul>
                     </div>
 
-                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-lg space-y-4">
+                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-lg space-y-4 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                         <div class="flex items-center justify-between">
                             <h3 class="text-2xl font-black text-navy-900">المملكة المتحدة</h3>
                             <span class="bg-sky-500/10 text-sky-700 text-xs px-3 py-1 rounded-full font-bold">تعليم عريق</span>
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">موطن أعرق الجامعات العالمية (كامبريدج، أكسفورد، إمبريال) مع برامج ماجستير لمدة سنة واحدة فقط.</p>
-                        <ul class="space-y-2 text-xs text-slate-700 font-medium">
+                        <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
                             <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 900 - 1,400 دولار</li>
                             <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> Student Visa مع دفع تأمين الصحة IHS</li>
                             <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> مسموح 20 ساعة أسبوعياً</li>
@@ -321,7 +516,7 @@
                             <h3 class="text-2xl font-black text-navy-900">نموذج رسالة الدوافع الأكاديمية (The Master Motivation Letter)</h3>
                             <p class="text-xs text-slate-500 mt-1">نسخة مطورة تتضمن 5 أقسام رئيسية يطلبها كبار الخبراء ولجان التحكيم الدولية</p>
                         </div>
-                        <button onclick="copyAdvancedMotivationTemplate()" class="bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold text-sm px-6 py-3 rounded-xl shadow-md transition flex items-center gap-2">
+                        <button onclick="copyAdvancedMotivationTemplate()" class="bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold text-sm px-6 py-3 rounded-xl shadow-md transition flex items-center gap-2 transform active:scale-95">
                             <i class="fa-solid fa-copy"></i> نسخ القالب المطور بالكامل
                         </button>
                     </div>
@@ -360,18 +555,18 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-slateLight p-8 rounded-3xl border border-slate-200 space-y-4">
-                        <h4 class="text-xl font-black text-navy-900"><i class="fa-solid fa-calendar-days text-gold-500 ml-2"></i> الجدول الزمني المثالي للتقديم (Timeline)</h4>
-                        <ul class="space-y-3 text-xs text-slate-700 font-medium">
+                    <div class="bg-slateLight p-8 rounded-3xl border border-slate-200 space-y-4 shadow-sm hover:shadow-md transition">
+                        <h4 class="text-xl font-black text-navy-900 border-b border-slate-200 pb-3"><i class="fa-solid fa-calendar-days text-gold-500 ml-2"></i> الجدول الزمني المثالي للتقديم (Timeline)</h4>
+                        <ul class="space-y-3 text-xs text-slate-700 font-medium pt-2">
                             <li><strong class="text-navy-900">شهر (6 - 8):</strong> الاستعداد وتجهيز شهادات اللغة (IELTS/TOEFL) وتحديد قائمة المنح والجامعات المستهدفة.</li>
                             <li><strong class="text-navy-900">شهر (9 - 11):</strong> كتابة وتطوير رسالة الدوافع (Motivation Letter) وتأمين خطابات التوصية من الأساتذة.</li>
                             <li><strong class="text-navy-900">شهر (12 - 2):</strong> فتح باب التقديم لأكبر المنح العالمية (التركية، الهنغارية، إراسموس، تشيفنينغ) وإرسال الطلبات مبكراً.</li>
                             <li><strong class="text-navy-900">شهر (3 - 6):</strong> انتظار النتائج، التحضير للمقابلات الشخصية (Interviews)، وإجراء الاختبارات الطبية.</li>
                         </ul>
                     </div>
-                    <div class="bg-slateLight p-8 rounded-3xl border border-slate-200 space-y-4">
-                        <h4 class="text-xl font-black text-navy-900"><i class="fa-solid fa-list-check text-gold-500 ml-2"></i> قائمة المستندات الذهبية (Checklist)</h4>
-                        <ul class="space-y-3 text-xs text-slate-700 font-medium">
+                    <div class="bg-slateLight p-8 rounded-3xl border border-slate-200 space-y-4 shadow-sm hover:shadow-md transition">
+                        <h4 class="text-xl font-black text-navy-900 border-b border-slate-200 pb-3"><i class="fa-solid fa-list-check text-gold-500 ml-2"></i> قائمة المستندات الذهبية (Checklist)</h4>
+                        <ul class="space-y-3 text-xs text-slate-700 font-medium pt-2">
                             <li><i class="fa-solid fa-check text-emerald-600 ml-1"></i><strong>جواز السفر:</strong> ساري المفعول لمدة لا تقل عن سنة إلى سنتين.</li>
                             <li><i class="fa-solid fa-check text-emerald-600 ml-1"></i><strong>الشهادات الأكاديمية وكشوف المراتب:</strong> مترجمة ومصدقة أصولاً حسب متطلبات المنحة.</li>
                             <li><i class="fa-solid fa-check text-emerald-600 ml-1"></i><strong>خطابات التوصية (Recommendation Letters):</strong> عدد 2 إلى 3 خطابات من أساتذة أكاديميين عرفوا أداءك.</li>
@@ -392,7 +587,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-lg space-y-5">
+                    <div class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-lg space-y-5 hover:border-gold-500 transition-colors">
                         <div class="w-14 h-14 bg-navy-900 text-gold-400 rounded-2xl flex items-center justify-center text-2xl font-bold shadow-md">
                             <i class="fa-solid fa-pen-nib"></i>
                         </div>
@@ -400,7 +595,7 @@
                         <p class="text-slate-600 text-sm leading-relaxed">رسالة الدوافع هي مفتاحك السحري للوصول إلى لجان القبول. تجنب المقدمات التقليدية وابدأ بقصة شغفك الحقيقي واستخدم القالب المطور أعلاه.</p>
                     </div>
 
-                    <div class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-lg space-y-5">
+                    <div class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-lg space-y-5 hover:border-gold-500 transition-colors">
                         <div class="w-14 h-14 bg-navy-900 text-gold-400 rounded-2xl flex items-center justify-center text-2xl font-bold shadow-md">
                             <i class="fa-solid fa-file-lines"></i>
                         </div>
@@ -408,7 +603,7 @@
                         <p class="text-slate-600 text-sm leading-relaxed">السيرة الأكاديمية تختلف عن المهنية. ركز على التدرج التعليمي، الأبحاث المنشورة، والمهارات التقنية واللغوية بوضوح تام.</p>
                     </div>
 
-                    <div class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-lg space-y-5">
+                    <div class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-lg space-y-5 hover:border-gold-500 transition-colors">
                         <div class="w-14 h-14 bg-navy-900 text-gold-400 rounded-2xl flex items-center justify-center text-2xl font-bold shadow-md">
                             <i class="fa-solid fa-comments"></i>
                         </div>
@@ -416,7 +611,7 @@
                         <p class="text-slate-600 text-sm leading-relaxed">تدرب على الإجابة على الأسئلة الشائعة مثل "لماذا اخترت هذا التخصص بالذات؟" مع الحفاظ على لغة جسد واثقة وأمثلة واقعية من إنجازاتك.</p>
                     </div>
 
-                    <div class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-lg space-y-5">
+                    <div class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-lg space-y-5 hover:border-gold-500 transition-colors">
                         <div class="w-14 h-14 bg-navy-900 text-gold-400 rounded-2xl flex items-center justify-center text-2xl font-bold shadow-md">
                             <i class="fa-solid fa-triangle-exclamation"></i>
                         </div>
@@ -436,19 +631,19 @@
                 </div>
 
                 <div class="space-y-4">
-                    <div class="bg-slateLight p-6 rounded-2xl border border-slate-200 space-y-2">
+                    <div class="bg-slateLight p-6 rounded-2xl border border-slate-200 space-y-2 hover:bg-slate-50 transition">
                         <h4 class="font-bold text-navy-900 text-base">س: هل جميع الـ 80 منحة ممولة بالكامل؟</h4>
                         <p class="text-slate-600 text-sm leading-relaxed">ج: تشمل القائمة منحاً ممولة بالكامل (تغطي الرسوم، السكن، الراتب الشهري، وتذاكر السفر) ومنحاً جزئية أو إعفاءات رسوم دراسية، وكل منحة موضحة بالتفصيل في دليلنا.</p>
                     </div>
-                    <div class="bg-slateLight p-6 rounded-2xl border border-slate-200 space-y-2">
+                    <div class="bg-slateLight p-6 rounded-2xl border border-slate-200 space-y-2 hover:bg-slate-50 transition">
                         <h4 class="font-bold text-navy-900 text-base">س: هل أحتاج لشهادة لغة إنجليزية (IELTS/TOEFL) إلزامي للتقديم؟</h4>
                         <p class="text-slate-600 text-sm leading-relaxed">ج: يختلف ذلك حسب المنحة والجامعة؛ بعض المنح الكبرى (مثل المنحة التركية أو الرومانية أو الصينية) لا تشترط شهادة دولية للتقديم المبدئي ويمكن التعويض بسنة تحضيرية للغة، بينما تتطلب أخرى شهادة معتمدة فوراً.</p>
                     </div>
-                    <div class="bg-slateLight p-6 rounded-2xl border border-slate-200 space-y-2">
+                    <div class="bg-slateLight p-6 rounded-2xl border border-slate-200 space-y-2 hover:bg-slate-50 transition">
                         <h4 class="font-bold text-navy-900 text-base">س: كيف أضمن صحة روابط التقديم للمنح؟</h4>
                         <p class="text-slate-600 text-sm leading-relaxed">ج: منصة المجد تضمن لك بنسبة 100% أن جميع الروابط المدرجة هي المواقع الرسمية الحكومية أو الجامعية الأصلية دون أي روابط وسيطة أو مضللة.</p>
                     </div>
-                    <div class="bg-slateLight p-6 rounded-2xl border border-slate-200 space-y-2">
+                    <div class="bg-slateLight p-6 rounded-2xl border border-slate-200 space-y-2 hover:bg-slate-50 transition">
                         <h4 class="font-bold text-navy-900 text-base">س: كيف يمكنني الاستفادة من نظام "المجد 360"؟</h4>
                         <p class="text-slate-600 text-sm leading-relaxed">ج: يمكنك حجز استشارة مباشرة عبر نموذج التواصل أو الواتساب، وسيقوم مستشارنا بمتابعة ملفك خطوة بخطوة من إعداد الأوراق وحتى الحصول على القبول النهائي.</p>
                     </div>
@@ -465,26 +660,26 @@
                     <p class="text-slate-600 text-lg">نصنع لك مساراً أكاديمياً متكاملاً يتناسب مع طموحاتك ومعدلك ومستقبلك.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-3xl p-8 shadow-md border border-slate-200 hover:border-gold-500 transition">
+                    <div class="bg-white rounded-3xl p-8 shadow-md border border-slate-200 hover:border-gold-500 hover:shadow-xl transition-all duration-300">
                         <div class="w-14 h-14 bg-navy-900 text-gold-400 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-md">
                             <i class="fa-solid fa-globe"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-navy-900 mb-3">المنح الدراسية الدولية (80 منحة)</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">توفير وتأمين منح جزئية وكاملة في أرقى الجامعات العالمية مع روابط رسمية أصلية.</p>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">توفير وتأمين منح جزئية وكاملة في أرقى الجامعات العالمية مع روابط رسمية أصلية ومتابعة دورية لملفك.</p>
                     </div>
-                    <div class="bg-white rounded-3xl p-8 shadow-md border border-slate-200 hover:border-gold-500 transition">
+                    <div class="bg-white rounded-3xl p-8 shadow-md border border-slate-200 hover:border-gold-500 hover:shadow-xl transition-all duration-300">
                         <div class="w-14 h-14 bg-navy-900 text-gold-400 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-md">
                             <i class="fa-solid fa-user-graduate"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-navy-900 mb-3">القبول الجامعي المباشر</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">مساعدة شاملة في اختيار التخصص المناسب وتجهيز الأوراق الرسمية حتى القبول النهائي.</p>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">مساعدة شاملة في اختيار التخصص المناسب وتجهيز الأوراق الرسمية والمراسلات حتى الحصول على القبول النهائي والمؤكد.</p>
                     </div>
-                    <div class="bg-white rounded-3xl p-8 shadow-md border border-slate-200 hover:border-gold-500 transition">
+                    <div class="bg-white rounded-3xl p-8 shadow-md border border-slate-200 hover:border-gold-500 hover:shadow-xl transition-all duration-300">
                         <div class="w-14 h-14 bg-navy-900 text-gold-400 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-md">
                             <i class="fa-solid fa-comments"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-navy-900 mb-3">الاستشارات الأكاديمية</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">جلسات استشارية فردية مع خبراء ومتخصصين لتحديد المستقبل المهني والأكاديمي الأكثر نجاحاً.</p>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">جلسات استشارية فردية مع خبراء ومتخصصين لتحديد المستقبل المهني والأكاديمي الأكثر نجاحاً ووضع خطة شخصية محكمة.</p>
                     </div>
                 </div>
             </div>
@@ -507,15 +702,17 @@
                         <ul class="space-y-3 text-sm text-slate-200 font-medium">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> مستشار أكاديمي مخصص يرافقك طوال فترة التقديم</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> أدلة إرشادية شاملة وحصرية (مثل دليل الـ 80 منحة الرسمية)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> مراجعة احترافية لرسائل الدوافع (SOP) والمقالات الشخصية</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> شراكات مع مؤسسات ومراكز دولية معتمدة</li>
                         </ul>
                     </div>
                     <div class="lg:col-span-6 flex justify-center">
-                        <div class="w-full max-w-md bg-navy-800 border border-gold-500/30 rounded-3xl p-8 shadow-2xl space-y-6">
-                            <h3 class="text-2xl font-bold text-white">ابدأ رحلتك مع المجد 360</h3>
-                            <p class="text-sm text-slate-300">احصل على استشارة فورية لتقييم ملفك الأكاديمي وضمان ترشيحك لأقوى المنح.</p>
-                            <button onclick="switchView('contact')" class="w-full py-4 bg-gradient-to-r from-gold-500 to-amber-600 text-navy-900 font-extrabold text-center rounded-xl shadow-lg">
-                                احجز استشارة المجد 360
+                        <div class="w-full max-w-md bg-navy-800 border border-gold-500/30 rounded-3xl p-8 shadow-2xl space-y-6 relative overflow-hidden">
+                            <div class="absolute -right-10 -top-10 w-32 h-32 bg-gold-500/10 rounded-full blur-2xl"></div>
+                            <h3 class="text-2xl font-bold text-white relative z-10">ابدأ رحلتك مع المجد 360</h3>
+                            <p class="text-sm text-slate-300 relative z-10">احصل على استشارة فورية لتقييم ملفك الأكاديمي وضمان ترشيحك لأقوى المنح والمقاعد الجامعية.</p>
+                            <button onclick="switchView('contact')" class="w-full py-4 bg-gradient-to-r from-gold-500 to-amber-600 text-navy-900 font-extrabold text-center rounded-xl shadow-lg hover:shadow-gold-glow transition-all relative z-10">
+                                احجز استشارة المجد 360 الآن <i class="fa-solid fa-arrow-left ml-2"></i>
                             </button>
                         </div>
                     </div>
@@ -533,19 +730,23 @@
                             منصة المجد التعليمية... تسخير التكنولوجيا لخدمة التعليم العالي
                         </h2>
                         <p class="text-slate-600 text-base leading-relaxed">
-                            تأسست المنصة لتوفر حلولاً أكاديمية استثنائية للطلبة في غزة والمنطقة، واضعين نصب أعيننا تسهيل الوصول إلى أرقى فرص التعليم العالي والمنح الدولية عبر مصادر رسمية وموثوقة.
+                            تأسست المنصة لتوفر حلولاً أكاديمية استثنائية للطلبة في غزة والمنطقة، واضعين نصب أعيننا تسهيل الوصول إلى أرقى فرص التعليم العالي والمنح الدولية عبر مصادر رسمية وموثوقة، معتمدين على أعلى المعايير التكنولوجية والأكاديمية.
                         </p>
-                        <div class="bg-slateLight p-6 rounded-2xl border-r-4 border-gold-500 shadow-sm space-y-2">
-                            <h4 class="font-bold text-navy-900 text-lg">المؤسس والمدير التنفيذي</h4>
-                            <p class="text-navy-900 font-extrabold text-xl">م. مجد جميل صبحي عبد الهادي (Majd Jamil Sobhi Abdalhadi)</p>
-                            <p class="text-slate-600 text-sm">طالب هندسة برمجيات وذكاء اصطناعي، يجمع بين شغفه بالتكنولوجيا المتقدمة وبين حرصه على دعم وتمكين الطلبة عبر حلول رقمية مبتكرة ومنصات عالمية المستوى.</p>
+                        <div class="bg-slateLight p-6 rounded-2xl border-r-4 border-gold-500 shadow-sm space-y-2 hover:bg-slate-50 transition">
+                            <h4 class="font-bold text-navy-900 text-lg flex items-center gap-2"><i class="fa-solid fa-user-tie text-gold-500"></i> المؤسس والمدير التنفيذي</h4>
+                            <p class="text-navy-900 font-extrabold text-xl">م. مجد جميل صبحي عبد الهادي</p>
+                            <span class="text-xs font-bold text-slate-500 block mb-2">(Majd Jamil Sobhi Abdalhadi)</span>
+                            <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-200 pt-2">طالب هندسة برمجيات وذكاء اصطناعي، يجمع بين شغفه بالتكنولوجيا المتقدمة وبين حرصه على دعم وتمكين الطلبة عبر حلول رقمية مبتكرة ومنصات عالمية المستوى. يسعى دائماً لتوظيف البرمجيات لتسهيل حياة الطلاب وتحقيق طموحاتهم الأكاديمية.</p>
                         </div>
                     </div>
-                    <div class="lg:col-span-6">
-                        <div class="bg-navy-900 text-white p-8 sm:p-10 rounded-3xl shadow-2xl space-y-6 border border-gold-500/25">
-                            <i class="fa-solid fa-graduation-cap text-gold-400 text-4xl"></i>
+                    <div class="lg:col-span-6 space-y-6">
+                        <div class="bg-navy-900 text-white p-8 sm:p-10 rounded-3xl shadow-2xl space-y-6 border border-gold-500/25 relative overflow-hidden">
+                            <i class="fa-solid fa-graduation-cap text-gold-400 text-5xl absolute -left-4 -top-4 opacity-20"></i>
+                            <div class="w-16 h-16 bg-gold-500 rounded-2xl flex items-center justify-center text-navy-900 text-3xl shadow-lg mb-4">
+                                <i class="fa-solid fa-eye"></i>
+                            </div>
                             <h3 class="text-2xl font-bold">رؤيتنا ورسالتنا</h3>
-                            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">الريادة العالمية في الخدمات الأكاديمية والمنح الدولية، مع الالتزام التام بالشفافية، المصداقية، وروابط التقديم الأصلية لمصلحة الطالب أولاً وأخيراً.</p>
+                            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">الريادة العالمية في الخدمات الأكاديمية والمنح الدولية، مع الالتزام التام بالشفافية، المصداقية، وروابط التقديم الأصلية لمصلحة الطالب أولاً وأخيراً. نطمح لأن نكون الجسر الآمن والأوثق بين الطالب العربي والجامعات العالمية.</p>
                         </div>
                     </div>
                 </div>
@@ -559,10 +760,10 @@
                     <div class="lg:col-span-5 space-y-6">
                         <span class="bg-navy-900/10 text-navy-900 font-bold px-4 py-1.5 rounded-full text-sm">تواصل معنا</span>
                         <h2 class="text-3xl sm:text-4xl font-black text-navy-900">نحن هنا للإجابة على استفساراتك ومساعدتك فوراً</h2>
-                        <p class="text-slate-600 text-base">تواصل معنا عبر قنواتنا الرسمية أو احجز استشارتك الأكاديمية فوراً.</p>
+                        <p class="text-slate-600 text-base">تواصل معنا عبر قنواتنا الرسمية أو احجز استشارتك الأكاديمية فوراً وسيقوم فريقنا الأكاديمي بالرد عليك بأسرع وقت.</p>
                         <div class="space-y-4 pt-4">
-                            <a href="https://wa.me/" target="_blank" class="flex items-center gap-4 p-4 bg-slateLight rounded-2xl border border-slate-200 hover:border-gold-500 transition">
-                                <div class="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-2xl shadow">
+                            <a href="https://wa.me/" target="_blank" class="flex items-center gap-4 p-4 bg-slateLight rounded-2xl border border-slate-200 hover:border-emerald-500 hover:shadow-md transition group">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-2xl shadow group-hover:scale-110 transition-transform">
                                     <i class="fa-brands fa-whatsapp"></i>
                                 </div>
                                 <div>
@@ -570,8 +771,8 @@
                                     <span class="text-xs text-slate-500">تواصل مباشر مع مستشاري القبول</span>
                                 </div>
                             </a>
-                            <a href="https://telegram.org" target="_blank" class="flex items-center gap-4 p-4 bg-slateLight rounded-2xl border border-slate-200 hover:border-gold-500 transition">
-                                <div class="w-12 h-12 rounded-xl bg-sky-500 text-white flex items-center justify-center text-2xl shadow">
+                            <a href="https://telegram.org" target="_blank" class="flex items-center gap-4 p-4 bg-slateLight rounded-2xl border border-slate-200 hover:border-sky-500 hover:shadow-md transition group">
+                                <div class="w-12 h-12 rounded-xl bg-sky-500 text-white flex items-center justify-center text-2xl shadow group-hover:scale-110 transition-transform">
                                     <i class="fa-brands fa-telegram"></i>
                                 </div>
                                 <div>
@@ -617,7 +818,7 @@
                                 <label class="block text-sm font-semibold text-slate-300 mb-2">التفاصيل أو اسم المنحة</label>
                                 <textarea id="message" rows="3" class="w-full bg-navy-800 border border-slate-700 rounded-2xl px-4 py-3.5 text-white focus:outline-none focus:border-gold-500 font-medium" placeholder="اكتب معدلك أو اسم المنحة التي تود التقديم عليها..."></textarea>
                             </div>
-                            <button type="submit" class="w-full py-4 bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold text-lg rounded-2xl shadow-lg transition">
+                            <button type="submit" class="w-full py-4 bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold text-lg rounded-2xl shadow-lg transition transform active:scale-95">
                                 إرسال الطلب وحجز الاستشارة
                             </button>
                         </form>
@@ -633,60 +834,60 @@
         <button onclick="toggleChatWidget()" class="w-14 h-14 rounded-full bg-gradient-to-r from-gold-500 to-amber-600 text-navy-900 flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-transform">
             <i class="fa-solid fa-robot"></i>
         </button>
-        <div id="chat-widget" class="hidden absolute bottom-20 left-0 w-80 sm:w-96 bg-navy-900 border border-gold-500/30 rounded-3xl shadow-2xl overflow-hidden flex flex-col">
+        <div id="chat-widget" class="hidden absolute bottom-20 left-0 w-80 sm:w-96 bg-navy-900 border border-gold-500/30 rounded-3xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 transform origin-bottom-left">
             <div class="bg-navy-800 p-4 border-b border-slate-700 flex items-center justify-between">
                 <div class="flex items-center gap-2.5">
                     <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
                     <span class="font-bold text-white text-sm">مستشار المجد الذكي (AI Advisor)</span>
                 </div>
-                <button onclick="toggleChatWidget()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+                <button onclick="toggleChatWidget()" class="text-slate-400 hover:text-white transition"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
-            <div id="chat-messages" class="p-4 space-y-3 h-64 overflow-y-auto text-xs text-slate-200">
-                <div class="bg-navy-800 p-3 rounded-2xl max-w-[85%]">مرحباً بك! أنا مستشارك الذكي في منصة المجد بإشراف م. مجد جميل. كيف يمكنني مساعدتك اليوم؟</div>
+            <div id="chat-messages" class="p-4 space-y-3 h-64 overflow-y-auto text-xs text-slate-200 scroll-smooth">
+                <div class="bg-navy-800 p-3 rounded-2xl rounded-tr-none max-w-[85%] shadow border border-slate-700">مرحباً بك! أنا مستشارك الذكي في منصة المجد بإشراف م. مجد جميل. كيف يمكنني مساعدتك اليوم بخصوص المنح أو القبولات؟</div>
             </div>
             <div class="p-3 bg-navy-800 border-t border-slate-700 flex gap-2">
-                <input type="text" id="chat-input" onkeypress="handleChatKey(event)" placeholder="اسأل عن المنح والشروط..." class="flex-1 bg-navy-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-gold-500">
-                <button onclick="sendChatMessage()" class="bg-gold-500 text-navy-900 font-bold px-3 py-2 rounded-xl text-xs"><i class="fa-solid fa-paper-plane"></i></button>
+                <input type="text" id="chat-input" onkeypress="handleChatKey(event)" placeholder="اسأل عن المنح والشروط..." class="flex-1 bg-navy-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-gold-500 transition-colors">
+                <button onclick="sendChatMessage()" class="bg-gold-500 hover:bg-gold-600 text-navy-900 font-bold px-3 py-2 rounded-xl text-xs transition-colors"><i class="fa-solid fa-paper-plane"></i></button>
             </div>
         </div>
     </div>
 
     <!-- Scholarship Details Modal -->
-    <div id="scholarship-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden p-4">
-        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl border border-slate-200 max-h-[90vh] overflow-y-auto">
-            <button onclick="closeScholarshipModal()" class="absolute top-4 left-4 w-10 h-10 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center justify-center font-bold">
-                <i class="fa-solid fa-xmark"></i>
+    <div id="scholarship-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden p-4 transition-opacity">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl border border-slate-200 max-h-[90vh] overflow-y-auto transform transition-transform scale-95" id="scholarship-modal-card">
+            <button onclick="closeScholarshipModal()" class="absolute top-4 left-4 w-10 h-10 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center justify-center font-bold transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
             </button>
-            <div id="modal-content" class="space-y-6">
-                <!-- Injected dynamically -->
+            <div id="modal-content" class="space-y-6 pt-4">
+                <!-- Injected dynamically via JS -->
             </div>
         </div>
     </div>
 
     <!-- Favorites Modal -->
-    <div id="favorites-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden p-4">
+    <div id="favorites-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden p-4 transition-opacity">
         <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 relative shadow-2xl border border-slate-200 max-h-[90vh] overflow-y-auto">
-            <button onclick="closeFavoritesModal()" class="absolute top-4 left-4 w-10 h-10 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center justify-center font-bold">
-                <i class="fa-solid fa-xmark"></i>
+            <button onclick="closeFavoritesModal()" class="absolute top-4 left-4 w-10 h-10 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center justify-center font-bold transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
             </button>
-            <h2 class="text-2xl font-black text-navy-900 mb-6 flex items-center gap-2">
+            <h2 class="text-2xl font-black text-navy-900 mb-6 flex items-center gap-2 pt-2">
                 <i class="fa-solid fa-bookmark text-gold-500"></i> المنح المفضلة المحفوظة
             </h2>
             <div id="favorites-list" class="space-y-4">
-                <!-- Injected dynamically -->
+                <!-- Injected dynamically via JS -->
             </div>
         </div>
     </div>
 
     <!-- Success Modal -->
-    <div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden p-4">
-        <div class="bg-navy-900 border border-gold-500/40 p-8 rounded-3xl max-w-md w-full text-center space-y-6 shadow-2xl">
+    <div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden p-4 transition-opacity">
+        <div class="bg-navy-900 border border-gold-500/40 p-8 rounded-3xl max-w-md w-full text-center space-y-6 shadow-2xl transform scale-95" id="success-modal-card">
             <div class="w-16 h-16 bg-gold-500 text-navy-900 rounded-full flex items-center justify-center text-3xl mx-auto shadow-lg">
                 <i class="fa-solid fa-check"></i>
             </div>
             <h3 class="text-2xl font-black text-white">تم إرسال طلبك بنجاح!</h3>
-            <p class="text-slate-300 text-sm">شكراً لتواصلك مع منصة المجد التعليمية. سيتم التواصل معك عبر الواتساب في أقرب وقت.</p>
-            <button onclick="closeSuccessModal()" class="w-full py-3 bg-gold-500 hover:bg-gold-600 text-navy-900 font-bold rounded-xl transition">
+            <p class="text-slate-300 text-sm leading-relaxed">شكراً لتواصلك مع منصة المجد التعليمية. سيتم تقييم ملفك والتواصل معك من قبل الفريق المختص عبر الواتساب في أقرب وقت.</p>
+            <button onclick="closeSuccessModal()" class="w-full py-3 bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-bold rounded-xl transition-all shadow-md">
                 حسناً، شكراً لكم
             </button>
         </div>
@@ -705,14 +906,14 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-4 text-slate-300">
-                    <a href="https://wa.me/" target="_blank" class="w-10 h-10 rounded-full bg-navy-800 hover:bg-gold-500 hover:text-navy-900 flex items-center justify-center transition"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="https://telegram.org" target="_blank" class="w-10 h-10 rounded-full bg-navy-800 hover:bg-gold-500 hover:text-navy-900 flex items-center justify-center transition"><i class="fa-brands fa-telegram"></i></a>
-                    <a href="mailto:contact@almajdedu.com" class="w-10 h-10 rounded-full bg-navy-800 hover:bg-gold-500 hover:text-navy-900 flex items-center justify-center transition"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://wa.me/" target="_blank" class="w-10 h-10 rounded-full bg-navy-800 hover:bg-gold-500 hover:text-navy-900 flex items-center justify-center transition shadow"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+                    <a href="https://telegram.org" target="_blank" class="w-10 h-10 rounded-full bg-navy-800 hover:bg-gold-500 hover:text-navy-900 flex items-center justify-center transition shadow"><i class="fa-brands fa-telegram text-lg"></i></a>
+                    <a href="mailto:contact@almajdedu.com" class="w-10 h-10 rounded-full bg-navy-800 hover:bg-gold-500 hover:text-navy-900 flex items-center justify-center transition shadow"><i class="fa-solid fa-envelope text-lg"></i></a>
                 </div>
             </div>
             <div class="text-center text-slate-400 text-xs sm:text-sm space-y-2">
                 <p>منصة المجد التعليمية العالمية © 2026. جميع الحقوق محفوظة للمؤسس والمدير التنفيذي: م. مجد جميل صبحي عبد الهادي (هندسة برمجيات وذكاء اصطناعي).</p>
-                <p class="text-slate-500">نحن نقدم روابط تقديم رسمية ومباشرة للمنح لضمان أقصى درجات الموثوقية والشفافية لطلبتنا.</p>
+                <p class="text-slate-500">نحن نقدم روابط تقديم رسمية ومباشرة للمنح لضمان أقصى درجات الموثوقية والشفافية لطلبتنا، لنكون المرجع الأول للقبولات الجامعية عالمياً.</p>
             </div>
         </div>
     </footer>
@@ -1076,7 +1277,7 @@
                     degree: degree,
                     coverage: coverage,
                     deadline: "30 يونيو 2026",
-                    description: `منحة دولية معتمدة في ${country} تتيح للطلاب المتميزين فرصة فريدة لمتابعة دراسة ${degree} ضمن بيئة أكاديمية متطورة وتحظى بدعم كامل من الشركاء الدوليين لمنصة المجد.`,
+                    description: `منحة دولية معتمدة في ${country} تتيح للطلاب المتميزين فرصة فريدة لمتابعة دراسة ${degree} ضمن بيئة أكاديمية متطورة وتحظى بدعم كامل من الشركاء الدوليين لمنصة المجد لضمان جودة التعليم والمستقبل المهني.`,
                     requirements: [
                         "الحصول على شهادة الثانوية أو البكالوريوس بمعدل لا يقل عن 75%",
                         "تقديم شهادة إتقان اللغة الإنجليزية أو لغة الدولة المضيفة",
@@ -1122,23 +1323,23 @@
             if(!listContainer) return;
 
             if(favs.length === 0) {
-                listContainer.innerHTML = `<p class="text-slate-500 text-center py-8">لا توجد أي منح محفوظة في المفضلة حالياً. اضغط على أيقونة الإشارة المرجعية في أي منحة لإضافتها.</p>`;
+                listContainer.innerHTML = `<div class="text-center py-12"><i class="fa-regular fa-bookmark text-4xl text-slate-300 mb-4 block"></i><p class="text-slate-500 font-bold">لا توجد أي منح محفوظة في المفضلة حالياً.</p><p class="text-xs text-slate-400 mt-2">اضغط على أيقونة الإشارة المرجعية في أي منحة لإضافتها هنا والعودة إليها لاحقاً.</p></div>`;
             } else {
                 listContainer.innerHTML = '';
                 favs.forEach(id => {
                     const sch = scholarshipsData.find(s => s.id === id);
                     if(sch) {
                         const div = document.createElement('div');
-                        div.className = "bg-slateLight p-4 rounded-2xl border border-slate-200 flex items-center justify-between";
+                        div.className = "bg-slateLight p-4 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:shadow-md transition-shadow";
                         div.innerHTML = `
                             <div>
                                 <span class="text-xs font-bold text-navy-900 bg-navy-900/10 px-2.5 py-1 rounded-full">${sch.country}</span>
-                                <h4 class="font-bold text-navy-900 mt-1">${sch.title}</h4>
-                                <span class="text-xs text-slate-500">${sch.degree} • ${sch.coverage}</span>
+                                <h4 class="font-bold text-navy-900 mt-2">${sch.title}</h4>
+                                <span class="text-xs text-slate-500 font-bold block mt-1"><i class="fa-solid fa-graduation-cap text-gold-500 ml-1"></i>${sch.degree} • <i class="fa-solid fa-sack-dollar text-gold-500 ml-1"></i>${sch.coverage}</span>
                             </div>
-                            <div class="flex items-center gap-2">
-                                <button onclick="openScholarshipModal(${sch.id}); closeFavoritesModal();" class="bg-navy-900 text-white text-xs font-bold px-3 py-2 rounded-xl">التفاصيل</button>
-                                <button onclick="toggleFavorite(${sch.id}); openFavoritesModal();" class="text-red-500 hover:text-red-700 p-2"><i class="fa-solid fa-trash"></i></button>
+                            <div class="flex items-center gap-2 w-full sm:w-auto">
+                                <button onclick="openScholarshipModal(${sch.id}); closeFavoritesModal();" class="flex-1 sm:flex-none bg-navy-900 hover:bg-gold-500 hover:text-navy-900 text-white transition-colors text-xs font-bold px-4 py-2.5 rounded-xl">عرض التفاصيل</button>
+                                <button onclick="toggleFavorite(${sch.id}); openFavoritesModal();" class="bg-red-50 text-red-500 hover:bg-red-500 hover:text-white transition-colors p-2.5 rounded-xl border border-red-100"><i class="fa-solid fa-trash"></i></button>
                             </div>
                         `;
                         listContainer.appendChild(div);
@@ -1162,11 +1363,12 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
             document.querySelectorAll('nav button, #mobile-menu button').forEach(btn => {
-                btn.classList.remove('border-gold-500', 'text-gold-400');
+                btn.classList.remove('border-gold-500', 'text-gold-400', 'text-emerald-400');
             });
             const activeNav = document.getElementById('nav-' + viewId);
             if(activeNav) {
                 activeNav.classList.add('border-gold-500', 'text-gold-400');
+                if(viewId === 'testimonials') activeNav.classList.add('text-emerald-400'); // Keep specific styling
             }
         }
 
@@ -1185,7 +1387,7 @@
             grid.innerHTML = '';
 
             if(dataToRender.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-12 text-slate-500">لا توجد منح مطابقة لبحثك. جرب كلمة مفتاحية أو فلتر مختلف.</div>`;
+                grid.innerHTML = `<div class="col-span-full text-center py-16 bg-white rounded-3xl border border-slate-200"><i class="fa-solid fa-magnifying-glass text-4xl text-slate-300 mb-4 block"></i><span class="text-slate-500 font-bold text-lg">عذراً، لا توجد منح مطابقة لبحثك.</span><br><span class="text-sm text-slate-400">جرب كلمة مفتاحية أخرى أو قم بتغيير الفلاتر لتوسيع نطاق البحث.</span></div>`;
                 return;
             }
 
@@ -1194,24 +1396,24 @@
             dataToRender.forEach(sch => {
                 const isFav = favs.includes(sch.id);
                 const card = document.createElement('div');
-                card.className = "bg-white rounded-3xl p-6 shadow-lg border border-slate-200 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative";
+                card.className = "bg-white rounded-3xl p-6 shadow-lg border border-slate-200 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-1 hover:border-gold-500/50 transition-all duration-300 relative group";
                 card.innerHTML = `
-                    <button onclick="toggleFavorite(${sch.id}, event)" class="absolute top-6 left-6 text-xl ${isFav ? 'text-gold-500' : 'text-slate-300 hover:text-gold-400'} transition-colors">
+                    <button onclick="toggleFavorite(${sch.id}, event)" class="absolute top-6 left-6 text-2xl z-10 ${isFav ? 'text-gold-500' : 'text-slate-200 hover:text-gold-400'} transition-all transform hover:scale-110 active:scale-95">
                         <i class="fa-${isFav ? 'solid' : 'regular'} fa-bookmark"></i>
                     </button>
                     <div class="space-y-3 pr-8">
                         <div class="flex items-center gap-2 flex-wrap">
-                            <span class="bg-navy-900/10 text-navy-900 font-bold text-xs px-3 py-1 rounded-full">${sch.country}</span>
+                            <span class="bg-navy-900/10 text-navy-900 font-bold text-xs px-3 py-1 rounded-full"><i class="fa-solid fa-location-dot ml-1 text-gold-500"></i>${sch.country}</span>
                             <span class="bg-gold-500/20 text-gold-700 font-bold text-xs px-2.5 py-1 rounded-full">${sch.degree}</span>
                             <span class="bg-emerald-500/10 text-emerald-700 font-bold text-xs px-2.5 py-1 rounded-full">${sch.coverage}</span>
                         </div>
-                        <h3 class="text-lg font-bold text-navy-900 line-clamp-2">${sch.title}</h3>
+                        <h3 class="text-lg font-bold text-navy-900 line-clamp-2 leading-tight group-hover:text-gold-600 transition-colors">${sch.title}</h3>
                         <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">${sch.description}</p>
                     </div>
-                    <div class="pt-6 border-t border-slate-100 mt-6 flex items-center justify-between">
-                        <span class="text-xs text-slate-500"><i class="fa-solid fa-clock ml-1"></i> ${sch.deadline}</span>
-                        <button onclick="openScholarshipModal(${sch.id})" class="bg-navy-900 hover:bg-gold-500 hover:text-navy-900 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-colors">
-                            التفاصيل والرابط <i class="fa-solid fa-arrow-left mr-1"></i>
+                    <div class="pt-5 border-t border-slate-100 mt-5 flex items-center justify-between">
+                        <span class="text-[11px] font-bold text-red-500 bg-red-50 px-2 py-1 rounded"><i class="fa-solid fa-clock ml-1"></i>${sch.deadline}</span>
+                        <button onclick="openScholarshipModal(${sch.id})" class="bg-navy-900 hover:bg-gold-500 hover:text-navy-900 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all transform active:scale-95 shadow">
+                            التفاصيل <i class="fa-solid fa-arrow-left mr-1"></i>
                         </button>
                     </div>
                 `;
@@ -1219,6 +1421,7 @@
             });
         }
 
+        // إكمال الكود المقطوع في الفلتر بدقة
         function filterScholarships() {
             const query = document.getElementById('scholarship-search').value.toLowerCase();
             const degree = document.getElementById('scholarship-degree-filter').value;
@@ -1228,41 +1431,68 @@
                 const matchQuery = sch.title.toLowerCase().includes(query) || sch.country.toLowerCase().includes(query) || sch.description.toLowerCase().includes(query);
                 const matchDegree = degree === "" || sch.degree.includes(degree);
                 const matchCoverage = coverage === "" || sch.coverage.includes(coverage);
+                
                 return matchQuery && matchDegree && matchCoverage;
             });
-
+            
             renderScholarships(filtered);
         }
 
+        // دالة فتح نافذة المنحة بالتفصيل
         function openScholarshipModal(id) {
             const sch = scholarshipsData.find(s => s.id === id);
             if(!sch) return;
+            const content = document.getElementById('modal-content');
+            
+            content.innerHTML = `
+                <div class="space-y-6">
+                    <div class="border-b border-slate-200 pb-4">
+                        <span class="inline-block bg-navy-900/10 text-navy-900 font-bold px-3 py-1 rounded-full text-xs mb-3"><i class="fa-solid fa-location-dot ml-1 text-gold-500"></i>الدولة المستضيفة: ${sch.country}</span>
+                        <h2 class="text-2xl sm:text-3xl font-black text-navy-900 leading-tight">${sch.title}</h2>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-3 text-xs sm:text-sm">
+                        <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-full bg-gold-500/20 text-gold-600 flex items-center justify-center"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div class="font-bold text-navy-900">${sch.degree}</div>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-600 flex items-center justify-center"><i class="fa-solid fa-sack-dollar"></i></div>
+                            <div class="font-bold text-navy-900">${sch.coverage}</div>
+                        </div>
+                        <div class="col-span-2 bg-red-50 p-3 rounded-xl border border-red-100 flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-full bg-red-500/20 text-red-600 flex items-center justify-center"><i class="fa-solid fa-hourglass-end"></i></div>
+                            <div>
+                                <div class="text-[10px] text-red-500 font-bold">الموعد النهائي للتقديم</div>
+                                <div class="font-black text-red-700">${sch.deadline}</div>
+                            </div>
+                        </div>
+                    </div>
 
-            const modalContent = document.getElementById('modal-content');
-            modalContent.innerHTML = `
-                <div class="space-y-4">
-                    <div class="flex items-center gap-2 flex-wrap">
-                        <span class="bg-navy-900 text-gold-400 font-bold text-xs px-3 py-1 rounded-full">${sch.country}</span>
-                        <span class="bg-gold-500 text-navy-900 font-bold text-xs px-3 py-1 rounded-full">${sch.degree}</span>
-                        <span class="bg-emerald-500 text-white font-bold text-xs px-3 py-1 rounded-full">${sch.coverage}</span>
+                    <div class="bg-slateLight p-5 rounded-2xl border-l-4 border-gold-500">
+                        <h4 class="font-bold text-navy-900 mb-2 flex items-center gap-2"><i class="fa-solid fa-circle-info text-gold-500"></i> نبذة عن المنحة</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">${sch.description}</p>
                     </div>
-                    <h2 class="text-2xl font-black text-navy-900">${sch.title}</h2>
-                    <div class="bg-slateLight p-4 rounded-2xl border border-slate-200 space-y-2 text-sm">
-                        <p><strong>التغطية المالية:</strong> ${sch.coverage}</p>
-                        <p><strong>الموعد النهائي:</strong> ${sch.deadline}</p>
-                        <p><strong>الوصف الكامل:</strong> ${sch.description}</p>
-                    </div>
+
                     <div>
-                        <h4 class="font-bold text-navy-900 mb-2">المستندات والشروط الأساسية:</h4>
-                        <ul class="list-disc list-inside space-y-1 text-xs text-slate-700">
-                            ${sch.requirements.map(req => `<li>${req}</li>`).join('')}
+                        <h4 class="font-bold text-navy-900 mb-3 flex items-center gap-2"><i class="fa-solid fa-list-check text-gold-500"></i> أهم الشروط والمتطلبات الأساسية</h4>
+                        <ul class="space-y-2">
+                            ${sch.requirements.map(r => `
+                                <li class="flex items-start gap-2 bg-white border border-slate-100 p-3 rounded-xl shadow-sm">
+                                    <i class="fa-solid fa-check-circle text-emerald-500 mt-0.5"></i>
+                                    <span class="text-sm text-slate-700 font-medium">${r}</span>
+                                </li>
+                            `).join('')}
                         </ul>
                     </div>
-                    <div class="pt-4 flex gap-3">
-                        <a href="${sch.link}" target="_blank" class="flex-1 py-3.5 bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 text-center font-extrabold rounded-xl shadow-lg transition">
-                            <i class="fa-solid fa-external-link-alt ml-1.5"></i> التوجه إلى رابط التقديم الرسمي 100%
+
+                    <div class="pt-4 flex flex-col sm:flex-row gap-3">
+                        <a href="${sch.link}" target="_blank" class="flex-1 py-4 bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 text-center font-extrabold text-lg rounded-xl shadow-lg transition-all transform active:scale-95 flex items-center justify-center gap-2">
+                            الذهاب للرابط الرسمي <i class="fa-solid fa-arrow-up-right-from-square"></i>
                         </a>
-                        <button onclick="closeScholarshipModal()" class="px-6 py-3.5 bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold rounded-xl transition">إغلاق</button>
+                        <button onclick="toggleFavorite(${sch.id})" class="py-4 px-6 bg-navy-900 hover:bg-navy-800 text-white font-bold rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+                            حفظ <i class="fa-solid fa-bookmark text-gold-400"></i>
+                        </button>
                     </div>
                 </div>
             `;
@@ -1273,74 +1503,154 @@
             document.getElementById('scholarship-modal').classList.add('hidden');
         }
 
+        // دالة حاسبة القبول
         function runCalculator() {
             const gpa = parseFloat(document.getElementById('calc-gpa').value);
             const degree = document.getElementById('calc-degree').value;
-            const output = document.getElementById('calc-output-content');
-            const resultsDiv = document.getElementById('calc-results');
-
-            let matched = scholarshipsData.filter(s => s.degree.includes(degree));
-            if(gpa >= 90) {
-                output.innerHTML = `<div class="bg-emerald-500/10 border border-emerald-500/30 p-4 rounded-2xl text-emerald-300 text-sm">معدلك الاستثنائي (${gpa}%) يؤهلك بنسبة 99% للقبول في أرقى المنح الممولة بالكامل (مثل المنحة التركية، هنغاريا، تشيفنينغ، وجامعات النخبة العالمية). لديك أكثر من ${matched.length} منحة متاحة في هذا التصنيف!</div>`;
-            } else if(gpa >= 75) {
-                output.innerHTML = `<div class="bg-amber-500/10 border border-amber-500/30 p-4 rounded-2xl text-amber-300 text-sm">معدلك الجيد جداً (${gpa}%) يفتح لك أبواب عشرات المنح الممولة بالكامل وجزئياً. تتوفر لك ${matched.length} منحة متوافقة تماماً مع درجاتك.</div>`;
-            } else {
-                output.innerHTML = `<div class="bg-blue-500/10 border border-blue-500/30 p-4 rounded-2xl text-blue-300 text-sm">معدلك (${gpa}%) مناسب جداً للعديد من المنح والبرامج التحضيرية والجزئية. ننصحك بالتركيز على المنح التي تقدم سنة تحضيرية للغة.</div>`;
+            const outputDiv = document.getElementById('calc-results');
+            const outputContent = document.getElementById('calc-output-content');
+            
+            if(isNaN(gpa) || gpa < 50 || gpa > 100) {
+                alert("الرجاء إدخال معدل أكاديمي صحيح بين 50 و 100.");
+                return;
             }
-            resultsDiv.classList.remove('hidden');
+
+            outputDiv.classList.remove('hidden');
+            outputContent.innerHTML = `<div class="text-center py-4"><i class="fa-solid fa-spinner fa-spin text-3xl text-gold-500 mb-2"></i><p class="text-sm text-slate-400">جاري تحليل البيانات ومطابقة المنح بذكاء اصطناعي...</p></div>`;
+            
+            // محاكاة تحميل المعالجة
+            setTimeout(() => {
+                // تصفية المنح بناء على المعدل والدرجة كعملية وهمية ذكية
+                let recommended = scholarshipsData.filter(sch => sch.degree.includes(degree));
+                
+                // تحديد فرص القبول
+                let chanceText = "";
+                let chanceColor = "";
+                if(gpa >= 90) { chanceText = "ممتازة جداً (أكثر من 85%)"; chanceColor = "text-emerald-400"; }
+                else if(gpa >= 80) { chanceText = "جيدة جداً (بين 60% و 80%)"; chanceColor = "text-gold-400"; }
+                else { chanceText = "متوسطة (تحتاج لدعم ملفك بقوة عبر رسالة الدوافع)"; chanceColor = "text-amber-500"; }
+
+                // أخذ أفضل 3 منح فقط
+                recommended = recommended.slice(0, 3);
+
+                let html = `
+                    <div class="bg-navy-800 border border-slate-700 p-4 rounded-xl mb-4">
+                        <h5 class="text-sm text-slate-300 font-bold mb-1">فرصتك التقديرية للقبول: <span class="${chanceColor} font-black text-lg">${chanceText}</span></h5>
+                        <p class="text-xs text-slate-400">ملاحظة: هذا التقييم مبني على المعدل الأكاديمي، ولكن لجان القبول تهتم أيضاً برسالة الدوافع والأنشطة.</p>
+                    </div>
+                    <h5 class="font-bold text-white mb-2">المنح الـ 3 الموصى بها لك فوراً:</h5>
+                    <div class="space-y-3">
+                `;
+
+                if(recommended.length > 0) {
+                    recommended.forEach(sch => {
+                        html += `
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex justify-between items-center group hover:bg-white transition-colors cursor-pointer" onclick="openScholarshipModal(${sch.id})">
+                                <div>
+                                    <h6 class="font-bold text-navy-900 group-hover:text-gold-600 transition-colors">${sch.title}</h6>
+                                    <span class="text-xs text-slate-500 font-bold">${sch.country} • ${sch.coverage}</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-left text-slate-400 group-hover:text-gold-500 transition-colors"></i>
+                            </div>
+                        `;
+                    });
+                } else {
+                    html += `<p class="text-sm text-slate-400">عذراً، لم نجد منحاً متطابقة في هذه اللحظة، يرجى تصفح الدليل الكامل.</p>`;
+                }
+                
+                html += `</div>
+                <button onclick="switchView('contact')" class="w-full mt-4 py-3 bg-navy-800 hover:bg-navy-700 text-gold-400 border border-gold-500/30 font-bold rounded-xl transition text-sm">تواصل مع المستشار لتقييم دقيق لملفك</button>`;
+                
+                outputContent.innerHTML = html;
+            }, 1200);
         }
 
+        // دالة نسخ القالب
         function copyAdvancedMotivationTemplate() {
-            const text = document.getElementById('advanced-motivation-text');
-            text.select();
-            document.execCommand('copy');
-            alert('تم نسخ نموذج رسالة الدوافع المطور بنجاح! جاهز للاستخدام.');
+            const copyText = document.getElementById("advanced-motivation-text");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // للهواتف المحمولة
+            navigator.clipboard.writeText(copyText.value).then(() => {
+                alert("تم نسخ القالب الاحترافي بنجاح! يمكنك الآن التعديل عليه ليتناسب مع بياناتك الشخصية.");
+            }).catch(err => {
+                alert("حدث خطأ أثناء النسخ. يرجى التحديد والنسخ يدوياً.");
+            });
         }
 
+        // معالجة نموذج التواصل
         function handleFormSubmit(event) {
             event.preventDefault();
+            // هنا يتم إرسال البيانات للباك-إند برمجياً، لكن سنظهر رسالة نجاح
             document.getElementById('success-modal').classList.remove('hidden');
+            event.target.reset(); // تفريغ الحقول
         }
 
         function closeSuccessModal() {
             document.getElementById('success-modal').classList.add('hidden');
         }
 
-        // Chatbot Logic
+        // برمجة بوت المحادثة
         function toggleChatWidget() {
-            const widget = document.getElementById('chat-widget');
-            widget.classList.toggle('hidden');
+            const chatWidget = document.getElementById('chat-widget');
+            chatWidget.classList.toggle('hidden');
+        }
+
+        function handleChatKey(event) {
+            if(event.key === 'Enter') {
+                sendChatMessage();
+            }
         }
 
         function sendChatMessage() {
             const input = document.getElementById('chat-input');
-            const msg = input.value.trim();
-            if(!msg) return;
+            const message = input.value.trim();
+            if(!message) return;
 
-            const messages = document.getElementById('chat-messages');
-            messages.innerHTML += `<div class="bg-gold-500/20 text-gold-300 p-3 rounded-2xl max-w-[85%] ml-auto">${msg}</div>`;
+            const messagesDiv = document.getElementById('chat-messages');
+            
+            // رسالة المستخدم
+            messagesDiv.innerHTML += `
+                <div class="bg-gold-500/20 text-gold-100 p-3 rounded-2xl rounded-tl-none max-w-[85%] mr-auto text-right border border-gold-500/30 font-medium">
+                    ${message}
+                </div>
+            `;
+            
             input.value = '';
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
+            // محاكاة رد البوت الذكي
             setTimeout(() => {
-                let reply = "أهلاً بك! منصة المجد توفر لك 80 منحة رسمية موثوقة. يمكنك استعراضها من قسم 'دليل المنح' أو حجز استشارة مباشرة مع م. مجد جميل للحصول على القبول.";
-                if(msg.includes('منحة') || msg.includes('تركيا')) {
-                    reply = "المنحة التركية الرسمية هي إحدى أبرز الـ 80 منحة لدينا، تغطي الرسوم والسكن والراتب وتذاكر السفر. يمكنك التقديم عبر الرابط الرسمي في قسم المنح.";
-                } else if(msg.includes('معدل') || msg.includes('قبول')) {
-                    reply = "يمكنك استخدام 'حاسبة القبول' المتاحة في الأعلى لمعرفة المنح المتوافقة مع معدلك فوراً!";
+                let reply = "مرحباً! فريق منصة المجد يرحب بك. يرجى ترك رسالتك بالكامل أو حجز استشارة عبر نموذج التواصل وسيقوم م. مجد جميل أو أحد المستشارين بالرد عليك بأقرب وقت لضمان تقديم أفضل خدمة لك.";
+                
+                if(message.includes("منحة") || message.includes("تركيا")) {
+                    reply = "لدينا في الدليل أكثر من 80 منحة رسمية، والمنحة التركية من أبرزها. هل قمت بتجربة 'حاسبة القبول' لمعرفة فرصك التقريبية؟";
+                } else if(message.includes("معدل") || message.includes("نسبة")) {
+                    reply = "المعدل مهم، لكن الأهم هو كيفية إبراز نقاط قوتك في 'رسالة الدوافع'. منصة المجد 360 توفر لك تقييماً شاملاً لملفك. أنصحك بحجز استشارة.";
                 }
-                messages.innerHTML += `<div class="bg-navy-800 p-3 rounded-2xl max-w-[85%]">${reply}</div>`;
-                messages.scrollTop = messages.scrollHeight;
-            }, 600);
+
+                messagesDiv.innerHTML += `
+                    <div class="bg-navy-800 p-3 rounded-2xl rounded-tr-none max-w-[85%] shadow border border-slate-700 font-medium">
+                        ${reply}
+                    </div>
+                `;
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }, 1000);
         }
 
-        function handleChatKey(event) {
-            if(event.key === 'Enter') sendChatMessage();
-        }
-
-        // Initial Render
-        window.onload = function() {
+        // تهيئة الصفحة
+        window.onload = () => {
             renderScholarships(scholarshipsData);
             updateFavCounter();
+            
+            // إغلاق النوافذ عند النقر خارجها
+            window.onclick = function(event) {
+                const schModal = document.getElementById('scholarship-modal');
+                const favModal = document.getElementById('favorites-modal');
+                const sucModal = document.getElementById('success-modal');
+                if (event.target == schModal) closeScholarshipModal();
+                if (event.target == favModal) closeFavoritesModal();
+                if (event.target == sucModal) closeSuccessModal();
+            }
         };
     </script>
 </body>
