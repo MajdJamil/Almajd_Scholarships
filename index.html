@@ -754,30 +754,16 @@
 
         <!-- FAQS VIEW -->
         <section id="view-faqs" class="view-section py-16 bg-white">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
                 <div class="text-center max-w-2xl mx-auto space-y-4">
                     <span class="bg-navy-900/10 text-navy-900 font-bold px-4 py-1.5 rounded-full text-sm">الأسئلة الشائعة الموسعة</span>
                     <h2 class="text-3xl sm:text-4xl font-black text-navy-900">كل ما ترغب بمعرفته حول المنح والقبولات</h2>
+                    <p class="text-slate-600 text-base">اختر التصنيف الذي يهمك، واضغط على أي سؤال لعرض إجابته التفصيلية.</p>
                 </div>
 
-                <div class="space-y-4">
-                    <div class="bg-slateLight p-6 rounded-2xl border border-slate-200 space-y-2 hover:bg-slate-50 transition">
-                        <h4 class="font-bold text-navy-900 text-base">س: هل جميع الـ 80 منحة ممولة بالكامل؟</h4>
-                        <p class="text-slate-600 text-sm leading-relaxed">ج: تشمل القائمة منحاً ممولة بالكامل (تغطي الرسوم، السكن، الراتب الشهري، وتذاكر السفر) ومنحاً جزئية أو إعفاءات رسوم دراسية، وكل منحة موضحة بالتفصيل في دليلنا.</p>
-                    </div>
-                    <div class="bg-slateLight p-6 rounded-2xl border border-slate-200 space-y-2 hover:bg-slate-50 transition">
-                        <h4 class="font-bold text-navy-900 text-base">س: هل أحتاج لشهادة لغة إنجليزية (IELTS/TOEFL) إلزامي للتقديم؟</h4>
-                        <p class="text-slate-600 text-sm leading-relaxed">ج: يختلف ذلك حسب المنحة والجامعة؛ بعض المنح الكبرى (مثل المنحة التركية أو الرومانية أو الصينية) لا تشترط شهادة دولية للتقديم المبدئي ويمكن التعويض بسنة تحضيرية للغة، بينما تتطلب أخرى شهادة معتمدة فوراً.</p>
-                    </div>
-                    <div class="bg-slateLight p-6 rounded-2xl border border-slate-200 space-y-2 hover:bg-slate-50 transition">
-                        <h4 class="font-bold text-navy-900 text-base">س: كيف أضمن صحة روابط التقديم للمنح؟</h4>
-                        <p class="text-slate-600 text-sm leading-relaxed">ج: منصة المجد تضمن لك بنسبة 100% أن جميع الروابط المدرجة هي المواقع الرسمية الحكومية أو الجامعية الأصلية دون أي روابط وسيطة أو مضللة.</p>
-                    </div>
-                    <div class="bg-slateLight p-6 rounded-2xl border border-slate-200 space-y-2 hover:bg-slate-50 transition">
-                        <h4 class="font-bold text-navy-900 text-base">س: كيف يمكنني الاستفادة من نظام "المجد 360"؟</h4>
-                        <p class="text-slate-600 text-sm leading-relaxed">ج: يمكنك حجز استشارة مباشرة عبر نموذج التواصل أو الواتساب، وسيقوم مستشارنا بمتابعة ملفك خطوة بخطوة من إعداد الأوراق وحتى الحصول على القبول النهائي.</p>
-                    </div>
-                </div>
+                <div id="faq-tabs" class="flex items-center gap-3 overflow-x-auto pb-2"></div>
+
+                <div id="faqs-list" class="space-y-4"></div>
             </div>
         </section>
 
@@ -1767,10 +1753,126 @@
             }, 1000);
         }
 
+        // FAQ System: Categories, Data, and Accordion Logic
+        const faqCategories = [
+            { key: "all", label: "الكل", icon: "fa-layer-group" },
+            { key: "general", label: "عام عن المنح", icon: "fa-circle-question" },
+            { key: "direct-admission", label: "القبول الجامعي المباشر", icon: "fa-user-graduate" },
+            { key: "documents", label: "المستندات والتقديم", icon: "fa-file-lines" },
+            { key: "costs", label: "التكاليف والدفع", icon: "fa-sack-dollar" },
+            { key: "almadj360", label: "نظام المجد 360", icon: "fa-compass" },
+            { key: "trust", label: "عن المنصة والثقة", icon: "fa-shield-halved" }
+        ];
+
+        const faqsData = [
+            { category: "general", question: "س: هل جميع الـ 80 منحة ممولة بالكامل؟", answer: "ج: تشمل القائمة منحاً ممولة بالكامل (تغطي الرسوم، السكن، الراتب الشهري، وتذاكر السفر) ومنحاً جزئية أو إعفاءات رسوم دراسية، وكل منحة موضحة بالتفصيل في دليلنا." },
+            { category: "general", question: "س: هل أحتاج لشهادة لغة إنجليزية (IELTS/TOEFL) إلزامي للتقديم؟", answer: "ج: يختلف ذلك حسب المنحة والجامعة؛ بعض المنح الكبرى (مثل المنحة التركية أو الرومانية أو الصينية) لا تشترط شهادة دولية للتقديم المبدئي ويمكن التعويض بسنة تحضيرية للغة، بينما تتطلب أخرى شهادة معتمدة فوراً." },
+            { category: "general", question: "س: معدلي متوسط، هل في فرصة أصلاً؟", answer: "ج: أكيد. مو كل المنح بتشترط معدل مرتفع جداً؛ في منح ومسارات قبول مباشر تناسب معدلات متوسطة، وحاسبة القبول بالموقع بتساعدك تعرف خياراتك الواقعية فوراً." },
+            { category: "general", question: "س: بدي أدرس تخصص مش متوفر ضمن المنح المذكورة، شو أعمل؟", answer: "ج: دليل المنح بالموقع نماذج من أبرز الفرص، مو كل الفرص المتاحة عالمياً. تواصل معنا وحدد تخصصك، وفريقنا بيدورلك على المنح والجامعات الأنسب لتخصصك تحديداً." },
+
+            { category: "direct-admission", question: "س: شو الفرق بين \"المنحة الدراسية\" و\"القبول الجامعي المباشر\"؟", answer: "ج: المنحة الدراسية تشمل تمويلاً جزئياً أو كاملاً من جهة مانحة (حكومة، مؤسسة، جامعة)، أما القبول الجامعي المباشر فهو التحاق بجامعة بتمويل ذاتي أو بمنحة جزئية تقدمها الجامعة نفسها، دون المرور بمسابقة منحة خارجية منفصلة." },
+            { category: "direct-admission", question: "س: هل أقدر أتقدم لمنحة وقبول مباشر بنفس الوقت؟", answer: "ج: نعم، وننصح فعلياً بهيك — قدّم لمنحة أو أكثر، وبالتوازي اطلب قبولاً مباشراً كخطة بديلة، هيك ما تضيع فرصة الدراسة حتى لو تأخرت نتيجة المنحة." },
+            { category: "direct-admission", question: "س: هل جامعات القبول المباشر المذكورة بالموقع هي الوحيدة المتاحة؟", answer: "ج: لأ، هي نماذج من جامعات معروفة باستقبال الطلبة العرب. فريق المجد 360 يقدر يساعدك تتقدم لأي جامعة حول العالم غير المذكورة، حسب تخصصك ووجهتك المفضّلة." },
+
+            { category: "documents", question: "س: شو أهم المستندات المطلوبة بمعظم المنح؟", answer: "ج: بشكل عام: جواز سفر ساري، الشهادات الأكاديمية وكشف العلامات مترجمة ومصدقة، خطابا توصية، رسالة دوافع، والسيرة الذاتية الأكاديمية. كل منحة قد تضيف مستندات إضافية موضحة ببطاقتها." },
+            { category: "documents", question: "س: هل لازم أترجم وثائقي بمكتب ترجمة معتمد؟", answer: "ج: غالباً نعم، خصوصاً للمنح الحكومية — الترجمة لازم تكون معتمدة (وأحياناً مصدقة من الخارجية أو السفارة). نوضحلك بالضبط المطلوب حسب المنحة أو الجامعة أثناء الاستشارة." },
+            { category: "documents", question: "س: كم مدة صلاحية الشهادات والمستندات المطلوبة للتقديم؟", answer: "ج: بيختلف حسب الجهة؛ بعض المنح بتطلب مستندات صادرة خلال آخر 6 أشهر، بينما الشهادات الأكاديمية عادة إلها صلاحية أطول. تأكد دائماً من التاريخ المطلوب بصفحة المنحة الرسمية." },
+            { category: "documents", question: "س: جهزت أوراقي بس مش عارف أرتبها، شو أعمل؟", answer: "ج: هاد بالضبط دور نظام المجد 360 — بيرافقك خطوة خطوة بترتيب وتجهيز كل مستند بالتسلسل الصحيح المطلوب من الجهة يلي بتقدم إلها." },
+
+            { category: "costs", question: "س: هل خدمات منصة المجد مجانية؟", answer: "ج: الاستشارة الأولية والتصفح الكامل لدليل المنح والجامعات مجاني بالكامل. تفاصيل أي خدمة مرافقة موسعة (مثل نظام المجد 360) بتنوضح مباشرة خلال جلستك الاستشارية." },
+            { category: "costs", question: "س: هل في رسوم للتقديم على المنح نفسها؟", answer: "ج: معظم المنح الحكومية والمؤسساتية المذكورة بالدليل ما إلها رسوم تقديم. بعض الجامعات الخاصة قد تطلب رسم تقديم رمزي، موضح دائماً بصفحتها الرسمية." },
+            { category: "costs", question: "س: هل تقدروا تساعدوني أدفع رسوم الجامعة أو المنحة؟", answer: "ج: منصة المجد جهة استشارية وإرشادية، ما بندفع نيابة عن الطالب أي رسوم مالية. دورنا نوجهك بالضبط لطرق الدفع الرسمية المعتمدة من الجامعة أو الجهة المانحة." },
+
+            { category: "almadj360", question: "س: كيف يمكنني الاستفادة من نظام \"المجد 360\"؟", answer: "ج: يمكنك حجز استشارة مباشرة عبر نموذج التواصل أو الواتساب، وسيقوم مستشارنا بمتابعة ملفك خطوة بخطوة من إعداد الأوراق وحتى الحصول على القبول النهائي." },
+            { category: "almadj360", question: "س: كم بتاخد مدة نظام المجد 360 من البداية للنهاية؟", answer: "ج: بيختلف حسب المنحة أو الجامعة المستهدفة وموعد فتح التقديم؛ بالعادة بين شهرين لستة أشهر من أول جلسة تقييمية لحد استلام نتيجة القبول." },
+            { category: "almadj360", question: "س: هل نظام المجد 360 بيضمنلي القبول؟", answer: "ج: ما في جهة استشارية بالعالم تقدر تضمن قبولاً 100%، لأن القرار النهائي دائماً بإيد الجامعة أو الجهة المانحة. اللي بنضمنه إحنا هو تجهيز ملف قوي واحترافي يرفع فرصك الحقيقية للقبول." },
+            { category: "almadj360", question: "س: شو بيصير بعد ما احصل على القبول؟ هل بتوقف متابعتكم؟", answer: "ج: لأ، هاد بالضبط اللي بيميز المجد 360 — المتابعة بتستمر بعد القبول لإجراءات التأشيرة، السكن، والاستقرار الأولي بالبلد المضيفة." },
+
+            { category: "trust", question: "س: كيف أضمن صحة روابط التقديم للمنح؟", answer: "ج: منصة المجد تضمن لك بنسبة 100% أن جميع الروابط المدرجة هي المواقع الرسمية الحكومية أو الجامعية الأصلية دون أي روابط وسيطة أو مضللة." },
+            { category: "trust", question: "س: مين اللي بيراجع ويحدّث بيانات المنح على الموقع؟", answer: "ج: فريق المجد بيراجع دورياً كل منحة (الشروط، المواعيد، الرابط الرسمي)، لكن مواعيد المنح ممكن تتغير من سنة لسنة من الجهة المانحة نفسها، فننصح دائماً تتأكد من الموعد النهائي عبر الرابط الرسمي قبل التقديم." },
+            { category: "trust", question: "س: هل منصة المجد جهة رسمية تابعة لجامعة أو حكومة؟", answer: "ج: لأ، منصة المجد جهة استشارية أكاديمية مستقلة، مش تابعة رسمياً لأي جامعة أو حكومة أو جهة مانحة مذكورة بالموقع. دورنا الإرشاد والمتابعة، والقرار النهائي دائماً بإيد الجهة المانحة نفسها." },
+            { category: "trust", question: "س: كيف بقدر أتواصل مباشرة مع فريق المجد؟", answer: "ج: من قسم \"تواصل معنا\" — عبر النموذج، أو مباشرة على واتساب أو تليجرام المجد للمنح." },
+            { category: "trust", question: "س: هل ممكن غيّر تخصصي بعد ما ابدأ التقديم؟", answer: "ج: قبل تقديم الطلب النهائي، إي، ممكن تعدل بالتنسيق مع مستشارك. بعد إرسال الطلب الرسمي للجهة المانحة، التعديل صعب أو غير ممكن غالباً، فمهم توضح تخصصك بدقة من البداية." },
+            { category: "trust", question: "س: بتقدروا تساعدوني اختار بين منحتين وصلتلي قبول فيهم؟", answer: "ج: أكيد، هاد بالضبط دور الاستشارة الأكاديمية — نقارن معك التمويل، سمعة البرنامج، وفرص ما بعد التخرج بكل منحة، وتاخد القرار الأنسب لأهدافك." }
+        ];
+
+        let activeFaqCategory = "all";
+
+        function getFaqCategoryIcon(key) {
+            const cat = faqCategories.find(c => c.key === key);
+            return cat ? cat.icon : "fa-circle-question";
+        }
+
+        function renderFaqTabs() {
+            const container = document.getElementById('faq-tabs');
+            if(!container) return;
+            container.innerHTML = faqCategories.map(cat => {
+                const isActive = activeFaqCategory === cat.key;
+                const activeClasses = "bg-gradient-to-r from-gold-500 to-amber-600 text-navy-900 border-transparent shadow-md";
+                const inactiveClasses = "bg-white text-navy-900 border-slate-200 hover:border-gold-500 hover:text-gold-600 shadow-sm";
+                return `
+                    <button onclick="filterFaqs('${cat.key}')" class="flex items-center gap-2 whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-bold border transition-all duration-300 ${isActive ? activeClasses : inactiveClasses}">
+                        <i class="fa-solid ${cat.icon}"></i> ${cat.label}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function renderFaqsList() {
+            const container = document.getElementById('faqs-list');
+            if(!container) return;
+            const list = activeFaqCategory === 'all' ? faqsData : faqsData.filter(f => f.category === activeFaqCategory);
+
+            if(list.length === 0) {
+                container.innerHTML = `<div class="text-center py-12 bg-slateLight rounded-2xl border border-slate-200"><span class="text-slate-500 font-bold">لا توجد أسئلة ضمن هذا التصنيف حالياً.</span></div>`;
+                return;
+            }
+
+            container.innerHTML = list.map((item, idx) => `
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                    <button onclick="toggleFaqItem(${idx})" class="w-full flex items-center justify-between gap-4 p-6 text-right">
+                        <span class="flex items-center gap-3">
+                            <span class="w-9 h-9 shrink-0 rounded-xl bg-navy-900/10 text-navy-900 flex items-center justify-center text-sm">
+                                <i class="fa-solid ${getFaqCategoryIcon(item.category)}"></i>
+                            </span>
+                            <span class="font-bold text-navy-900 text-base">${item.question}</span>
+                        </span>
+                        <i id="faq-icon-${idx}" class="fa-solid fa-chevron-down text-gold-500 shrink-0 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-content-${idx}" class="faq-content px-6 overflow-hidden transition-all duration-300 ease-in-out" style="max-height:0px;">
+                        <p class="text-slate-600 text-sm leading-relaxed pb-6 border-t border-slate-100 pt-4">${item.answer}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterFaqs(categoryKey) {
+            activeFaqCategory = categoryKey;
+            renderFaqTabs();
+            renderFaqsList();
+        }
+
+        function toggleFaqItem(idx) {
+            const content = document.getElementById(`faq-content-${idx}`);
+            const icon = document.getElementById(`faq-icon-${idx}`);
+            if(!content) return;
+            const isOpen = content.classList.contains('faq-open');
+            if(isOpen) {
+                content.style.maxHeight = '0px';
+                content.classList.remove('faq-open');
+                icon.classList.remove('rotate-180');
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                content.classList.add('faq-open');
+                icon.classList.add('rotate-180');
+            }
+        }
+
         // تهيئة الصفحة
         window.onload = () => {
             renderScholarships(scholarshipsData);
             updateFavCounter();
+            filterFaqs('all');
             
             // إغلاق النوافذ عند النقر خارجها
             window.onclick = function(event) {
