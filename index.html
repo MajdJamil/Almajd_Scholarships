@@ -10,8 +10,9 @@
             theme: {
                 extend: {
                     colors: {
-                        navy: { 900: '#07111E', 800: '#0F223A', 700: '#193455', 600: '#254A78' },
-                        gold: { 500: '#D4AF37', 600: '#B89726', 400: '#F3E5AB', 300: '#FFF5CC' },
+                        navy: { 900: '#150B33', 800: '#241454', 700: '#3A1E82', 600: '#4828B0' },
+                        gold: { 500: '#E0A808', 600: '#C08F06', 400: '#EDC04D', 300: '#F5D889' },
+                        brandGreen: { 500: '#00D078', 600: '#00A862', 400: '#33DB94', 100: '#D9FBEB' },
                         slateLight: '#F8FAFC'
                     },
                     fontFamily: { cairo: ['Cairo', 'sans-serif'] },
@@ -86,7 +87,7 @@
                         <span class="bg-gold-500/20 text-gold-400 text-[10px] px-2 py-0.5 rounded-full border border-gold-500/30">80 منحة</span>
                         دليل المنح
                     </button>
-                    <button onclick="switchView('testimonials')" id="nav-testimonials" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent text-emerald-400"><i class="fa-solid fa-certificate ml-1"></i>لوحة القبولات</button>
+                    <button onclick="switchView('testimonials')" id="nav-testimonials" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent text-brandGreen-400"><i class="fa-solid fa-certificate ml-1"></i>لوحة القبولات</button>
                     <button onclick="switchView('calculator')" id="nav-calculator" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent text-amber-300"><i class="fa-solid fa-calculator ml-1"></i>حاسبة القبول</button>
                     <button onclick="switchView('countries')" id="nav-countries" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent">أدلة الدول</button>
                     <button onclick="switchView('tools')" id="nav-tools" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent">أدوات مخصصة</button>
@@ -118,7 +119,7 @@
         <div id="mobile-menu" class="hidden xl:hidden bg-navy-900 border-t border-navy-800 px-6 py-5 space-y-3 shadow-2xl max-h-[85vh] overflow-y-auto">
             <button onclick="switchView('home'); toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 font-semibold py-2 w-full text-right">الرئيسية</button>
             <button onclick="switchView('scholarships'); toggleMobileMenu()" class="block text-gold-400 font-bold py-2 w-full text-right">دليل الـ 80 منحة الدراسية العالمية</button>
-            <button onclick="switchView('testimonials'); toggleMobileMenu()" class="block text-emerald-400 font-bold py-2 w-full text-right"><i class="fa-solid fa-certificate ml-1"></i>لوحة الشرف وتجارب الطلاب</button>
+            <button onclick="switchView('testimonials'); toggleMobileMenu()" class="block text-brandGreen-400 font-bold py-2 w-full text-right"><i class="fa-solid fa-certificate ml-1"></i>لوحة الشرف وتجارب الطلاب</button>
             <button onclick="switchView('calculator'); toggleMobileMenu()" class="block text-amber-300 font-bold py-2 w-full text-right"><i class="fa-solid fa-calculator ml-1"></i>حاسبة القبول والمعدل</button>
             <button onclick="switchView('countries'); toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 font-semibold py-2 w-full text-right">أدلة الدول وشروط التأشيرات</button>
             <button onclick="switchView('tools'); toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 font-semibold py-2 w-full text-right">أدوات الطلبة المتقدمة ونماذج الدوافع</button>
@@ -174,7 +175,7 @@
                                                 <span class="text-xs text-gold-400 font-semibold">بإشراف: م. مجد جميل عبد الهادي</span>
                                             </div>
                                         </div>
-                                        <span class="bg-emerald-500/20 text-emerald-400 text-xs px-3 py-1 rounded-full font-bold border border-emerald-500/30">معتمد 2026</span>
+                                        <span class="bg-brandGreen-500/20 text-brandGreen-400 text-xs px-3 py-1 rounded-full font-bold border border-brandGreen-500/30">معتمد 2026</span>
                                     </div>
                                     <p class="text-sm text-slate-300 leading-relaxed">المرجع الأكاديمي الرقمي الأول للطلبة العرب الراغبين بالدراسة في الخارج عبر روابط تقديم أصلية ومباشرة.</p>
                                     <div class="grid grid-cols-2 gap-3 pt-2">
@@ -268,7 +269,7 @@
         <section id="view-testimonials" class="view-section py-16 bg-slateLight">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                    <span class="bg-emerald-500/10 text-emerald-700 font-bold px-4 py-1.5 rounded-full text-sm border border-emerald-500/20">نتائج مثبتة بالدليل</span>
+                    <span class="bg-brandGreen-500/10 text-brandGreen-600 font-bold px-4 py-1.5 rounded-full text-sm border border-brandGreen-500/20">نتائج مثبتة بالدليل</span>
                     <h2 class="text-3xl sm:text-5xl font-black text-navy-900">لوحة الشرف وأرشيف القبولات العالمية</h2>
                     <p class="text-slate-600 text-lg">نفتخر في منصة المجد بتحقيق أحلام مئات الطلبة سنوياً. نستعرض هنا نماذج حقيقية للقبولات وآراء طلبتنا المبتعثين في مختلف دول العالم.</p>
                 </div>
@@ -314,7 +315,7 @@
                         <div class="mt-4 space-y-4">
                             <div>
                                 <h4 class="font-black text-lg text-navy-900">م. محمود الشوا</h4>
-                                <span class="text-xs font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">المنحة التركية - هندسة برمجيات</span>
+                                <span class="text-xs font-bold bg-brandGreen-100 text-brandGreen-600 px-2 py-1 rounded">المنحة التركية - هندسة برمجيات</span>
                             </div>
                             <div class="flex text-gold-500 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                             <p class="text-slate-600 text-sm leading-relaxed">
@@ -334,7 +335,7 @@
                         <div class="mt-4 space-y-4">
                             <div>
                                 <h4 class="font-black text-lg text-navy-900">د. سارة العتيبي</h4>
-                                <span class="text-xs font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">منحة DAAD ألمانيا - دراسات عليا</span>
+                                <span class="text-xs font-bold bg-brandGreen-100 text-brandGreen-600 px-2 py-1 rounded">منحة DAAD ألمانيا - دراسات عليا</span>
                             </div>
                             <div class="flex text-gold-500 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                             <p class="text-slate-600 text-sm leading-relaxed">
@@ -354,7 +355,7 @@
                         <div class="mt-4 space-y-4">
                             <div>
                                 <h4 class="font-black text-lg text-navy-900">عمر درويش</h4>
-                                <span class="text-xs font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">جامعة كامبريدج - المملكة المتحدة</span>
+                                <span class="text-xs font-bold bg-brandGreen-100 text-brandGreen-600 px-2 py-1 rounded">جامعة كامبريدج - المملكة المتحدة</span>
                             </div>
                             <div class="flex text-gold-500 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                             <p class="text-slate-600 text-sm leading-relaxed">
@@ -371,7 +372,7 @@
                         <div class="bg-slate-100 h-40 rounded-xl mb-4 flex items-center justify-center border-2 border-dashed border-slate-300 overflow-hidden relative">
                             <i class="fa-solid fa-file-signature text-4xl text-slate-400 group-hover:scale-110 transition-transform"></i>
                             <div class="absolute inset-0 bg-navy-900/80 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                <i class="fa-solid fa-check-circle text-emerald-400 text-3xl mb-2"></i>
+                                <i class="fa-solid fa-check-circle text-brandGreen-400 text-3xl mb-2"></i>
                                 <span class="text-white font-bold text-sm">مقبول رسمياً</span>
                             </div>
                         </div>
@@ -383,7 +384,7 @@
                         <div class="bg-slate-100 h-40 rounded-xl mb-4 flex items-center justify-center border-2 border-dashed border-slate-300 overflow-hidden relative">
                             <i class="fa-solid fa-file-signature text-4xl text-slate-400 group-hover:scale-110 transition-transform"></i>
                             <div class="absolute inset-0 bg-navy-900/80 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                <i class="fa-solid fa-check-circle text-emerald-400 text-3xl mb-2"></i>
+                                <i class="fa-solid fa-check-circle text-brandGreen-400 text-3xl mb-2"></i>
                                 <span class="text-white font-bold text-sm">مقبول رسمياً</span>
                             </div>
                         </div>
@@ -395,7 +396,7 @@
                         <div class="bg-slate-100 h-40 rounded-xl mb-4 flex items-center justify-center border-2 border-dashed border-slate-300 overflow-hidden relative">
                             <i class="fa-solid fa-file-signature text-4xl text-slate-400 group-hover:scale-110 transition-transform"></i>
                             <div class="absolute inset-0 bg-navy-900/80 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                <i class="fa-solid fa-check-circle text-emerald-400 text-3xl mb-2"></i>
+                                <i class="fa-solid fa-check-circle text-brandGreen-400 text-3xl mb-2"></i>
                                 <span class="text-white font-bold text-sm">مقبول رسمياً</span>
                             </div>
                         </div>
@@ -407,7 +408,7 @@
                         <div class="bg-slate-100 h-40 rounded-xl mb-4 flex items-center justify-center border-2 border-dashed border-slate-300 overflow-hidden relative">
                             <i class="fa-solid fa-file-signature text-4xl text-slate-400 group-hover:scale-110 transition-transform"></i>
                             <div class="absolute inset-0 bg-navy-900/80 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                <i class="fa-solid fa-check-circle text-emerald-400 text-3xl mb-2"></i>
+                                <i class="fa-solid fa-check-circle text-brandGreen-400 text-3xl mb-2"></i>
                                 <span class="text-white font-bold text-sm">مقبول رسمياً</span>
                             </div>
                         </div>
@@ -544,7 +545,7 @@
                     <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-lg space-y-4 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                         <div class="flex items-center justify-between">
                             <h3 class="text-2xl font-black text-navy-900">ألمانيا</h3>
-                            <span class="bg-emerald-500/10 text-emerald-700 text-xs px-3 py-1 rounded-full font-bold">بدون رسوم دراسية</span>
+                            <span class="bg-brandGreen-500/10 text-brandGreen-600 text-xs px-3 py-1 rounded-full font-bold">بدون رسوم دراسية</span>
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">الجامعات الحكومية الألمانية لا تفرض رسوماً دراسية على معظم البرامج، ومنحة DAAD الشهيرة تفتح أبواب أعرق الجامعات الأوروبية في الهندسة والتقنية.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
@@ -740,10 +741,10 @@
                     <div class="bg-slateLight p-8 rounded-3xl border border-slate-200 space-y-4 shadow-sm hover:shadow-md transition">
                         <h4 class="text-xl font-black text-navy-900 border-b border-slate-200 pb-3"><i class="fa-solid fa-list-check text-gold-500 ml-2"></i> قائمة المستندات الذهبية (Checklist)</h4>
                         <ul class="space-y-3 text-xs text-slate-700 font-medium pt-2">
-                            <li><i class="fa-solid fa-check text-emerald-600 ml-1"></i><strong>جواز السفر:</strong> ساري المفعول لمدة لا تقل عن سنة إلى سنتين.</li>
-                            <li><i class="fa-solid fa-check text-emerald-600 ml-1"></i><strong>الشهادات الأكاديمية وكشوف المراتب:</strong> مترجمة ومصدقة أصولاً حسب متطلبات المنحة.</li>
-                            <li><i class="fa-solid fa-check text-emerald-600 ml-1"></i><strong>خطابات التوصية (Recommendation Letters):</strong> عدد 2 إلى 3 خطابات من أساتذة أكاديميين عرفوا أداءك.</li>
-                            <li><i class="fa-solid fa-check text-emerald-600 ml-1"></i><strong>السيرة الذاتية الأكاديمية (Academic CV):</strong> بتصميم أنيق ومنظم.</li>
+                            <li><i class="fa-solid fa-check text-brandGreen-600 ml-1"></i><strong>جواز السفر:</strong> ساري المفعول لمدة لا تقل عن سنة إلى سنتين.</li>
+                            <li><i class="fa-solid fa-check text-brandGreen-600 ml-1"></i><strong>الشهادات الأكاديمية وكشوف المراتب:</strong> مترجمة ومصدقة أصولاً حسب متطلبات المنحة.</li>
+                            <li><i class="fa-solid fa-check text-brandGreen-600 ml-1"></i><strong>خطابات التوصية (Recommendation Letters):</strong> عدد 2 إلى 3 خطابات من أساتذة أكاديميين عرفوا أداءك.</li>
+                            <li><i class="fa-solid fa-check text-brandGreen-600 ml-1"></i><strong>السيرة الذاتية الأكاديمية (Academic CV):</strong> بتصميم أنيق ومنظم.</li>
                         </ul>
                     </div>
                 </div>
@@ -963,20 +964,20 @@
                         </div>
                     </div>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 relative z-10">
-                        <div class="bg-navy-800 border border-emerald-500/30 rounded-2xl p-5 text-center">
-                            <i class="fa-solid fa-circle-check text-emerald-400 text-2xl mb-2"></i>
+                        <div class="bg-navy-800 border border-brandGreen-500/30 rounded-2xl p-5 text-center">
+                            <i class="fa-solid fa-circle-check text-brandGreen-400 text-2xl mb-2"></i>
                             <div class="text-sm font-bold text-white">تم إعداد الملف</div>
                         </div>
-                        <div class="bg-navy-800 border border-emerald-500/30 rounded-2xl p-5 text-center">
-                            <i class="fa-solid fa-circle-check text-emerald-400 text-2xl mb-2"></i>
+                        <div class="bg-navy-800 border border-brandGreen-500/30 rounded-2xl p-5 text-center">
+                            <i class="fa-solid fa-circle-check text-brandGreen-400 text-2xl mb-2"></i>
                             <div class="text-sm font-bold text-white">تم إرسال الطلب</div>
                         </div>
                         <div class="bg-navy-800 border border-gold-500/30 rounded-2xl p-5 text-center">
                             <i class="fa-solid fa-hourglass-half text-gold-400 text-2xl mb-2"></i>
                             <div class="text-sm font-bold text-white">قيد المراجعة</div>
                         </div>
-                        <div class="bg-navy-800 border border-emerald-500/30 rounded-2xl p-5 text-center">
-                            <i class="fa-solid fa-circle-check text-emerald-400 text-2xl mb-2"></i>
+                        <div class="bg-navy-800 border border-brandGreen-500/30 rounded-2xl p-5 text-center">
+                            <i class="fa-solid fa-circle-check text-brandGreen-400 text-2xl mb-2"></i>
                             <div class="text-sm font-bold text-white">تم القبول</div>
                         </div>
                     </div>
@@ -1143,8 +1144,8 @@
                         <h2 class="text-3xl sm:text-4xl font-black text-navy-900">نحن هنا للإجابة على استفساراتك ومساعدتك فوراً</h2>
                         <p class="text-slate-600 text-base">تواصل معنا عبر قنواتنا الرسمية أو احجز استشارتك الأكاديمية فوراً وسيقوم فريقنا الأكاديمي بالرد عليك بأسرع وقت.</p>
                         <div class="space-y-4 pt-4">
-                            <a href="https://wa.me/970567892330?text=مرحباً،%20أرغب%20بحجز%20استشارة%20أكاديمية%20مع%20منصة%20المجد" target="_blank" class="flex items-center gap-4 p-4 bg-slateLight rounded-2xl border border-slate-200 hover:border-emerald-500 hover:shadow-md transition group">
-                                <div class="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-2xl shadow group-hover:scale-110 transition-transform">
+                            <a href="https://wa.me/970567892330?text=مرحباً،%20أرغب%20بحجز%20استشارة%20أكاديمية%20مع%20منصة%20المجد" target="_blank" class="flex items-center gap-4 p-4 bg-slateLight rounded-2xl border border-slate-200 hover:border-brandGreen-500 hover:shadow-md transition group">
+                                <div class="w-12 h-12 rounded-xl bg-brandGreen-500 text-white flex items-center justify-center text-2xl shadow group-hover:scale-110 transition-transform">
                                     <i class="fa-brands fa-whatsapp"></i>
                                 </div>
                                 <div>
@@ -1153,7 +1154,7 @@
                                 </div>
                             </a>
                             <a href="https://whatsapp.com/channel/0029VbC7yuLADTOBSM6x8L0I" target="_blank" class="flex items-center gap-4 p-4 bg-slateLight rounded-2xl border border-slate-200 hover:border-teal-600 hover:shadow-md transition group">
-                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-700 to-teal-900 text-white flex items-center justify-center text-2xl shadow group-hover:scale-110 transition-transform">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-brandGreen-600 to-teal-900 text-white flex items-center justify-center text-2xl shadow group-hover:scale-110 transition-transform">
                                     <i class="fa-brands fa-whatsapp"></i>
                                 </div>
                                 <div>
@@ -1227,7 +1228,7 @@
         <div id="chat-widget" class="hidden absolute bottom-20 left-0 w-80 sm:w-96 bg-navy-900 border border-gold-500/30 rounded-3xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 transform origin-bottom-left">
             <div class="bg-navy-800 p-4 border-b border-slate-700 flex items-center justify-between">
                 <div class="flex items-center gap-2.5">
-                    <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
+                    <div class="w-3 h-3 rounded-full bg-brandGreen-500 animate-pulse"></div>
                     <span class="font-bold text-white text-sm">مستشار المجد الذكي (AI Advisor)</span>
                 </div>
                 <button onclick="toggleChatWidget()" class="text-slate-400 hover:text-white transition"><i class="fa-solid fa-xmark text-lg"></i></button>
@@ -1753,12 +1754,12 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
             document.querySelectorAll('nav button, #mobile-menu button').forEach(btn => {
-                btn.classList.remove('border-gold-500', 'text-gold-400', 'text-emerald-400');
+                btn.classList.remove('border-gold-500', 'text-gold-400', 'text-brandGreen-400');
             });
             const activeNav = document.getElementById('nav-' + viewId);
             if(activeNav) {
                 activeNav.classList.add('border-gold-500', 'text-gold-400');
-                if(viewId === 'testimonials') activeNav.classList.add('text-emerald-400'); // Keep specific styling
+                if(viewId === 'testimonials') activeNav.classList.add('text-brandGreen-400'); // Keep specific styling
             }
         }
 
@@ -1795,7 +1796,7 @@
                         <div class="flex items-center gap-2 flex-wrap">
                             <span class="bg-navy-900/10 text-navy-900 font-bold text-xs px-3 py-1 rounded-full"><i class="fa-solid fa-location-dot ml-1 text-gold-500"></i>${sch.country}</span>
                             <span class="bg-gold-500/20 text-gold-700 font-bold text-xs px-2.5 py-1 rounded-full">${sch.degree}</span>
-                            <span class="bg-emerald-500/10 text-emerald-700 font-bold text-xs px-2.5 py-1 rounded-full">${sch.coverage}</span>
+                            <span class="bg-brandGreen-500/10 text-brandGreen-600 font-bold text-xs px-2.5 py-1 rounded-full">${sch.coverage}</span>
                         </div>
                         <h3 class="text-lg font-bold text-navy-900 line-clamp-2 leading-tight group-hover:text-gold-600 transition-colors">${sch.title}</h3>
                         <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">${sch.description}</p>
@@ -1847,7 +1848,7 @@
                             <div class="font-bold text-navy-900">${sch.degree}</div>
                         </div>
                         <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 flex items-center gap-2">
-                            <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-600 flex items-center justify-center"><i class="fa-solid fa-sack-dollar"></i></div>
+                            <div class="w-8 h-8 rounded-full bg-brandGreen-500/20 text-brandGreen-600 flex items-center justify-center"><i class="fa-solid fa-sack-dollar"></i></div>
                             <div class="font-bold text-navy-900">${sch.coverage}</div>
                         </div>
                         <div class="col-span-2 bg-red-50 p-3 rounded-xl border border-red-100 flex items-center gap-2">
@@ -1869,7 +1870,7 @@
                         <ul class="space-y-2">
                             ${sch.requirements.map(r => `
                                 <li class="flex items-start gap-2 bg-white border border-slate-100 p-3 rounded-xl shadow-sm">
-                                    <i class="fa-solid fa-check-circle text-emerald-500 mt-0.5"></i>
+                                    <i class="fa-solid fa-check-circle text-brandGreen-500 mt-0.5"></i>
                                     <span class="text-sm text-slate-700 font-medium">${r}</span>
                                 </li>
                             `).join('')}
@@ -1916,7 +1917,7 @@
                 // تحديد فرص القبول
                 let chanceText = "";
                 let chanceColor = "";
-                if(gpa >= 90) { chanceText = "ممتازة جداً (أكثر من 85%)"; chanceColor = "text-emerald-400"; }
+                if(gpa >= 90) { chanceText = "ممتازة جداً (أكثر من 85%)"; chanceColor = "text-brandGreen-400"; }
                 else if(gpa >= 80) { chanceText = "جيدة جداً (بين 60% و 80%)"; chanceColor = "text-gold-400"; }
                 else { chanceText = "متوسطة (تحتاج لدعم ملفك بقوة عبر رسالة الدوافع)"; chanceColor = "text-amber-500"; }
 
