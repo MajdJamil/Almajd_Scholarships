@@ -197,6 +197,49 @@
                 </div>
             </div>
 
+            <section id="opendoors-spotlight" class="hero-gradient text-white py-14 relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:28px_28px]"></div>
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="glass-card rounded-3xl p-8 sm:p-10 shadow-2xl">
+                        <span class="inline-flex items-center gap-1.5 bg-amber-500/20 text-amber-400 border border-amber-500/40 text-xs font-bold px-3 py-1.5 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.4)]">
+                            <i class="fa-solid fa-bolt"></i> فرصة قادمة
+                        </span>
+                        <div class="mt-6 space-y-3 text-center lg:text-right">
+                            <h2 class="text-2xl sm:text-4xl font-black text-white tracking-tight">Open Doors: Russian Scholarship Project</h2>
+                            <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">منحة حكومية روسية بنظام الأولمبياد — بكالوريوس، ماجستير، دكتوراه، دكتوراه ما بعد. تمويل كامل وقبول مباشر بأكثر من 500 جامعة روسية.</p>
+                        </div>
+
+                        <div class="flex items-center justify-center gap-3 sm:gap-4 mt-8">
+                            <div class="bg-navy-900/80 border border-gold-500/30 rounded-2xl w-16 sm:w-20 py-3 text-center shadow-inner">
+                                <span id="opendoors-days" class="block text-2xl sm:text-3xl font-black text-gold-400">00</span>
+                                <span class="text-[10px] sm:text-xs text-slate-400 font-bold">يوم</span>
+                            </div>
+                            <div class="bg-navy-900/80 border border-gold-500/30 rounded-2xl w-16 sm:w-20 py-3 text-center shadow-inner">
+                                <span id="opendoors-hours" class="block text-2xl sm:text-3xl font-black text-gold-400">00</span>
+                                <span class="text-[10px] sm:text-xs text-slate-400 font-bold">ساعة</span>
+                            </div>
+                            <div class="bg-navy-900/80 border border-gold-500/30 rounded-2xl w-16 sm:w-20 py-3 text-center shadow-inner">
+                                <span id="opendoors-minutes" class="block text-2xl sm:text-3xl font-black text-gold-400">00</span>
+                                <span class="text-[10px] sm:text-xs text-slate-400 font-bold">دقيقة</span>
+                            </div>
+                            <div class="bg-navy-900/80 border border-gold-500/30 rounded-2xl w-16 sm:w-20 py-3 text-center shadow-inner">
+                                <span id="opendoors-seconds" class="block text-2xl sm:text-3xl font-black text-gold-400">00</span>
+                                <span class="text-[10px] sm:text-xs text-slate-400 font-bold">ثانية</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+                            <a href="https://od.globaluni.ru" target="_blank" class="w-full sm:w-auto bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold px-8 py-3.5 rounded-xl shadow-xl hover:gold-glow transition-all duration-300 text-center text-sm sm:text-base">
+                                <i class="fa-solid fa-globe ml-2"></i> الموقع الرسمي
+                            </a>
+                            <a href="https://wa.me/970567892330?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A8%D8%AF%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D8%B0%D9%83%D9%8A%D8%B1%20%D9%84%D9%85%D8%A7%20%D8%AA%D9%81%D8%AA%D8%AD%20%D9%85%D9%86%D8%AD%D8%A9%20%D8%A7%D9%84%D8%A3%D9%88%D8%A8%D9%86%20%D8%AF%D9%88%D8%B1%D8%B2%20%D8%A7%D9%84%D8%B1%D9%88%D8%B3%D9%8A%D8%A9%20%28Open%20Doors%29%20%D8%A8%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%2020%2F8" target="_blank" class="w-full sm:w-auto bg-navy-800/90 hover:bg-navy-800 text-gold-300 border border-gold-500/40 font-bold px-8 py-3.5 rounded-xl transition-all duration-300 text-center text-sm sm:text-base shadow-md">
+                                <i class="fa-brands fa-whatsapp ml-2"></i> احجز تذكير عبر واتساب
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section class="bg-navy-900 text-white py-14 border-y border-gold-500/30 shadow-inner">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -1949,6 +1992,37 @@
                 icon.classList.add('rotate-180');
             }
         }
+
+        // عداد Open Doors التنازلي
+        function updateOpenDoorsCountdown() {
+            const targetDate = new Date('2026-08-20T00:00:00').getTime();
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+
+            const section = document.getElementById('opendoors-spotlight');
+            if(diff <= 0) {
+                if(section) section.style.display = 'none';
+                return;
+            }
+
+            const pad = n => String(n).padStart(2, '0');
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            const daysEl = document.getElementById('opendoors-days');
+            const hoursEl = document.getElementById('opendoors-hours');
+            const minutesEl = document.getElementById('opendoors-minutes');
+            const secondsEl = document.getElementById('opendoors-seconds');
+            if(daysEl) daysEl.innerText = pad(days);
+            if(hoursEl) hoursEl.innerText = pad(hours);
+            if(minutesEl) minutesEl.innerText = pad(minutes);
+            if(secondsEl) secondsEl.innerText = pad(seconds);
+        }
+
+        updateOpenDoorsCountdown();
+        setInterval(updateOpenDoorsCountdown, 1000);
 
         // تهيئة الصفحة
         window.onload = () => {
