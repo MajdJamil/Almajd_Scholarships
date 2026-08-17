@@ -466,7 +466,7 @@
                 </div>
                 
                 <div class="bg-navy-900 text-white p-8 sm:p-10 rounded-3xl shadow-2xl border border-gold-500/30 space-y-6">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                         <div>
                             <label class="block text-sm font-semibold text-slate-300 mb-2">معدلك الأكاديمي الحالي (%)</label>
                             <input type="number" id="calc-gpa" min="50" max="100" value="85" class="w-full bg-navy-800 border border-slate-700 rounded-2xl px-4 py-3.5 text-white focus:outline-none focus:border-gold-500 font-bold">
@@ -477,6 +477,15 @@
                                 <option value="بكالوريوس">بكالوريوس</option>
                                 <option value="ماجستير">ماجستير</option>
                                 <option value="دكتوراه">دكتوراه</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-300 mb-2">مستوى اللغة الإنجليزية</label>
+                            <select id="calc-english" class="w-full bg-navy-800 border border-slate-700 rounded-2xl px-4 py-3.5 text-white focus:outline-none focus:border-gold-500 font-bold">
+                                <option value="none">لا أملك شهادة لغة بعد</option>
+                                <option value="basic">أساسي (أقل من IELTS 5.5)</option>
+                                <option value="intermediate">متوسط (IELTS 5.5 إلى 6.5)</option>
+                                <option value="advanced">متقدم (IELTS 7 فأعلى أو TOEFL معادل)</option>
                             </select>
                         </div>
                     </div>
@@ -2021,12 +2030,28 @@
         }
 
         // دالة حاسبة القبول
+        // يحاول استنتاج مستوى اللغة المطلوب من نص متطلبات المنحة فقط، ويترك الشارة غائبة إن لم يوجد ذكر واضح
+        function getLanguageRequirementLabel(sch) {
+            const text = sch.requirements.join(' ');
+            const hasIELTS = /IELTS/i.test(text);
+            const hasTOEFL = /TOEFL/i.test(text);
+            if(hasIELTS && hasTOEFL) return 'IELTS/TOEFL';
+            if(hasIELTS) return 'IELTS';
+            if(hasTOEFL) return 'TOEFL';
+            if(/اللغة الإيطالية/.test(text)) return 'إيطالية أو إنجليزية حسب البرنامج';
+            if(/اللغة الألمانية|الألمانية/.test(text)) return 'إنجليزية أو ألمانية';
+            if(/اللغة الإنجليزية|لغة إنجليزية|للغة الإنجليزية/.test(text)) return 'إنجليزية (دون تحديد اختبار)';
+            if(/اختبار اللغة|متطلبات اللغة/.test(text)) return 'اختبار لغة (غير محدد بدقة)';
+            return null;
+        }
+
         function runCalculator() {
             const gpa = parseFloat(document.getElementById('calc-gpa').value);
             const degree = document.getElementById('calc-degree').value;
+            const english = document.getElementById('calc-english').value;
             const outputDiv = document.getElementById('calc-results');
             const outputContent = document.getElementById('calc-output-content');
-            
+
             if(isNaN(gpa) || gpa < 50 || gpa > 100) {
                 alert("الرجاء إدخال معدل أكاديمي صحيح بين 50 و 100.");
                 return;
@@ -2034,26 +2059,51 @@
 
             outputDiv.classList.remove('hidden');
             outputContent.innerHTML = `<div class="text-center py-4"><i class="fa-solid fa-spinner fa-spin text-3xl text-gold-500 mb-2"></i><p class="text-sm text-slate-400">جاري تحليل البيانات ومطابقة المنح بذكاء اصطناعي...</p></div>`;
-            
+
             // محاكاة تحميل المعالجة
             setTimeout(() => {
-                // تصفية المنح بناء على المعدل والدرجة كعملية وهمية ذكية
+                // تصفية المنح بناء على الدرجة العلمية المستهدفة
                 let recommended = scholarshipsData.filter(sch => sch.degree.includes(degree));
-                
-                // تحديد فرص القبول
-                let chanceText = "";
-                let chanceColor = "";
-                if(gpa >= 90) { chanceText = "ممتازة جداً (أكثر من 85%)"; chanceColor = "text-brandGreen-400"; }
-                else if(gpa >= 80) { chanceText = "جيدة جداً (بين 60% و 80%)"; chanceColor = "text-gold-400"; }
-                else { chanceText = "متوسطة (تحتاج لدعم ملفك بقوة عبر رسالة الدوافع)"; chanceColor = "text-amber-500"; }
+
+                // تحديد فئة قوة الملف بناء على المعدل ومستوى اللغة معاً
+                const englishAtLeastIntermediate = english === 'intermediate' || english === 'advanced';
+                let category, categoryColor, analysisText, majors;
+
+                if(gpa >= 90 && english === 'advanced') {
+                    category = "قوي جداً (تنافسي)";
+                    categoryColor = "text-brandGreen-400";
+                    analysisText = "ملفك الأكاديمي بمستوى تنافسي قوي جداً — هذا يفتح لك المجال للتقديم على أعرق المنح والجامعات العالمية، بما فيها المنح الأكثر تنافسية بقائمتنا.";
+                    majors = ["الطب البشري", "هندسة الحاسوب والذكاء الاصطناعي", "القانون الدولي", "إدارة الأعمال (MBA)"];
+                } else if(gpa >= 80 && englishAtLeastIntermediate) {
+                    category = "قوي";
+                    categoryColor = "text-gold-400";
+                    analysisText = "ملفك الأكاديمي جيد جداً ويؤهلك لعدد كبير من المنح بقائمتنا. لو رفعت مستوى اللغة درجة إضافية، بتفتح لك خيارات أوسع بالمنح الأكثر تنافسية.";
+                    majors = ["الهندسة (عام)", "الصيدلة", "علوم البيانات", "العلاقات الدولية"];
+                } else if(gpa >= 70) {
+                    category = "متوسط";
+                    categoryColor = "text-amber-400";
+                    analysisText = "ملفك يؤهلك لعدد جيد من فرص القبول المباشر والمنح ذات الشروط المرنة. ننصحك بالتواصل مع مستشار أكاديمي لوضع خطة تقوية للملف قبل التقديم على المنح الأعلى تنافسية.";
+                    majors = ["تكنولوجيا المعلومات", "العلوم الإدارية", "العلوم الصحية المساندة", "التعليم"];
+                } else {
+                    category = "يحتاج تطوير";
+                    categoryColor = "text-orange-400";
+                    analysisText = "معدلك الحالي يناسب أكثر مسارات القبول المباشر ذات الشروط المرنة أو برامج السنة التحضيرية (Foundation Year)، وهي خطوة ممتازة لرفع معدلك قبل الانتقال لبرنامج أقوى. تواصل معنا لخطة مخصصة.";
+                    majors = ["برنامج سنة تحضيرية (Foundation)", "دبلوم متقدم", "إدارة الأعمال العامة", "دراسات عامة (Undeclared)"];
+                }
 
                 // أخذ أفضل 3 منح فقط
                 recommended = recommended.slice(0, 3);
 
                 let html = `
                     <div class="bg-navy-800 border border-slate-700 p-4 rounded-xl mb-4">
-                        <h5 class="text-sm text-slate-300 font-bold mb-1">فرصتك التقديرية للقبول: <span class="${chanceColor} font-black text-lg">${chanceText}</span></h5>
-                        <p class="text-xs text-slate-400">ملاحظة: هذا التقييم مبني على المعدل الأكاديمي، ولكن لجان القبول تهتم أيضاً برسالة الدوافع والأنشطة.</p>
+                        <h5 class="text-sm text-slate-300 font-bold mb-2">فئة قوة ملفك: <span class="${categoryColor} font-black text-lg">${category}</span></h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">${analysisText}</p>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="text-sm font-bold text-slate-300 mb-2">تخصصات مقترحة لملفك:</h5>
+                        <div class="flex flex-wrap gap-2">
+                            ${majors.map(m => `<span class="bg-gold-500/15 text-gold-400 border border-gold-500/30 text-xs font-bold px-3 py-1.5 rounded-full">${m}</span>`).join('')}
+                        </div>
                     </div>
                     <h5 class="font-bold text-white mb-2">المنح الـ 3 الموصى بها لك فوراً:</h5>
                     <div class="space-y-3">
@@ -2061,11 +2111,13 @@
 
                 if(recommended.length > 0) {
                     recommended.forEach(sch => {
+                        const langLabel = getLanguageRequirementLabel(sch);
                         html += `
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex justify-between items-center group hover:bg-white transition-colors cursor-pointer" onclick="openScholarshipModal(${sch.id})">
                                 <div>
                                     <h6 class="font-bold text-navy-900 group-hover:text-gold-600 transition-colors">${sch.title}</h6>
                                     <span class="text-xs text-slate-500 font-bold">${sch.country} • ${sch.coverage}</span>
+                                    ${langLabel ? `<span class="block text-[11px] text-sky-700 bg-sky-50 border border-sky-200 px-2 py-0.5 rounded-full font-bold mt-1.5 w-fit">يتطلب عادة مستوى لغة: ${langLabel}</span>` : ''}
                                 </div>
                                 <i class="fa-solid fa-chevron-left text-slate-400 group-hover:text-gold-500 transition-colors"></i>
                             </div>
@@ -2074,10 +2126,10 @@
                 } else {
                     html += `<p class="text-sm text-slate-400">عذراً، لم نجد منحاً متطابقة في هذه اللحظة، يرجى تصفح الدليل الكامل.</p>`;
                 }
-                
+
                 html += `</div>
                 <button onclick="switchView('contact')" class="w-full mt-4 py-3 bg-navy-800 hover:bg-navy-700 text-gold-400 border border-gold-500/30 font-bold rounded-xl transition text-sm">تواصل مع المستشار لتقييم دقيق لملفك</button>`;
-                
+
                 outputContent.innerHTML = html;
             }, 1200);
         }
