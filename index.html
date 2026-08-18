@@ -5,6 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="page-title">منصة المجد التعليمية | الموسوعة الشاملة للـ 45 منحة والخدمات الأكاديمية</title>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBIFGsFztv5P3za54jo9vr9etHh5e_yhVg",
+            authDomain: "almajd-platform.firebaseapp.com",
+            projectId: "almajd-platform",
+            storageBucket: "almajd-platform.firebasestorage.app",
+            messagingSenderId: "732881644079",
+            appId: "1:732881644079:web:31ecc4445e6aa306d934da"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -107,6 +123,7 @@
                     <button onclick="switchView('contact')" class="bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold px-4.5 py-2.5 rounded-xl shadow-lg hover:gold-glow transition-all duration-300 text-sm">
                         <i class="fa-solid fa-calendar-check ml-1.5"></i>احجز استشارة
                     </button>
+                    <div id="auth-nav-container"></div>
                 </div>
 
                 <button id="menu-btn" class="xl:hidden text-white text-2xl p-2 focus:outline-none">
@@ -129,6 +146,7 @@
             <button onclick="switchView('about'); toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 font-semibold py-2 w-full text-right">من نحن (المؤسس)</button>
             <button onclick="openFavoritesModal(); toggleMobileMenu()" class="block text-gold-400 font-bold py-2 w-full text-right">المنح المفضلة</button>
             <button onclick="switchView('contact'); toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 font-semibold py-2 w-full text-right">تواصل معنا</button>
+            <div id="auth-nav-container-mobile" class="pt-3 border-t border-navy-800"></div>
         </div>
     </header>
 
@@ -1407,6 +1425,66 @@
             </div>
         </section>
 
+        <!-- DASHBOARD VIEW -->
+        <section id="view-dashboard" class="view-section py-16 bg-slateLight">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                <div class="text-center max-w-2xl mx-auto space-y-3">
+                    <span class="bg-navy-900/10 text-navy-900 font-bold px-4 py-1.5 rounded-full text-sm">لوحة تحكم الطالب</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-navy-900">أهلاً بك، <span id="dashboard-welcome-name" class="text-gold-600">طالبنا العزيز</span></h2>
+                    <p class="text-slate-600 text-base">تابع ملفك الأكاديمي، منحك المفضلة، وحالة طلبك من مكان واحد.</p>
+                </div>
+
+                <!-- ملفي الأكاديمي -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-lg space-y-5">
+                    <h3 class="text-xl font-black text-navy-900 flex items-center gap-2 border-b border-slate-100 pb-4"><i class="fa-solid fa-id-card text-gold-500"></i> ملفي الأكاديمي</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-600 mb-2">المعدل الأكاديمي (%)</label>
+                            <input type="number" id="dash-gpa" min="50" max="100" class="w-full bg-slateLight border border-slate-300 rounded-2xl px-4 py-3.5 text-slate-800 focus:outline-none focus:border-gold-500 font-bold">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-600 mb-2">الدرجة العلمية المستهدفة</label>
+                            <select id="dash-degree" class="w-full bg-slateLight border border-slate-300 rounded-2xl px-4 py-3.5 text-slate-800 focus:outline-none focus:border-gold-500 font-bold">
+                                <option value="بكالوريوس">بكالوريوس</option>
+                                <option value="ماجستير">ماجستير</option>
+                                <option value="دكتوراه">دكتوراه</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-600 mb-2">مستوى اللغة الإنجليزية</label>
+                            <select id="dash-english" class="w-full bg-slateLight border border-slate-300 rounded-2xl px-4 py-3.5 text-slate-800 focus:outline-none focus:border-gold-500 font-bold">
+                                <option value="none">لا أملك شهادة لغة بعد</option>
+                                <option value="basic">أساسي (أقل من IELTS 5.5)</option>
+                                <option value="intermediate">متوسط (IELTS 5.5 إلى 6.5)</option>
+                                <option value="advanced">متقدم (IELTS 7 فأعلى أو TOEFL معادل)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-600 mb-2">رقم الهاتف</label>
+                            <input type="tel" id="dash-phone" placeholder="+970xxxxxxxxx" class="w-full bg-slateLight border border-slate-300 rounded-2xl px-4 py-3.5 text-slate-800 focus:outline-none focus:border-gold-500 font-bold">
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 pt-2">
+                        <button onclick="saveAcademicProfile()" class="py-3.5 px-8 bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold rounded-xl shadow-lg transition">حفظ الملف</button>
+                        <p id="dash-save-msg" class="hidden text-brandGreen-600 text-sm font-bold"><i class="fa-solid fa-circle-check ml-1"></i>تم حفظ ملفك الأكاديمي بنجاح</p>
+                    </div>
+                </div>
+
+                <!-- منحي المفضلة -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-lg space-y-4">
+                    <h3 class="text-xl font-black text-navy-900 flex items-center gap-2 border-b border-slate-100 pb-4"><i class="fa-solid fa-bookmark text-gold-500"></i> منحي المفضلة</h3>
+                    <div id="dashboard-favorites-list" class="space-y-4"></div>
+                </div>
+
+                <!-- حالة طلبي -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-lg space-y-4">
+                    <h3 class="text-xl font-black text-navy-900 flex items-center gap-2 border-b border-slate-100 pb-4"><i class="fa-solid fa-file-circle-check text-gold-500"></i> حالة طلبي</h3>
+                    <div id="dashboard-status-card"></div>
+                    <p class="text-xs text-slate-400">* يتم تحديث حالة الطلب من فريق منصة المجد مباشرة بعد مراجعة ملفك، ولا يمكن تعديلها من هذه الصفحة.</p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- AI CHATBOT WIDGET -->
@@ -1470,6 +1548,58 @@
             <button onclick="closeSuccessModal()" class="w-full py-3 bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-bold rounded-xl transition-all shadow-md">
                 حسناً، شكراً لكم
             </button>
+        </div>
+    </div>
+
+    <!-- Auth Modal (Login / Sign Up) -->
+    <div id="auth-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden p-4 transition-opacity">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl border border-slate-200 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeAuthModal()" class="absolute top-4 left-4 w-10 h-10 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center justify-center font-bold transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="flex items-center gap-2.5 mb-6 pt-2">
+                <div class="w-11 h-11 rounded-2xl bg-navy-900 text-gold-400 flex items-center justify-center text-lg shadow-md">
+                    <i class="fa-solid fa-user-lock"></i>
+                </div>
+                <h2 class="text-xl font-black text-navy-900">حسابك بمنصة المجد</h2>
+            </div>
+
+            <div class="flex gap-2 mb-6 bg-slateLight p-1.5 rounded-2xl">
+                <button id="auth-tab-login" onclick="switchAuthTab('login')" class="flex-1 py-2.5 rounded-xl font-bold text-sm transition bg-navy-900 text-white shadow">تسجيل الدخول</button>
+                <button id="auth-tab-signup" onclick="switchAuthTab('signup')" class="flex-1 py-2.5 rounded-xl font-bold text-sm transition text-slate-500">إنشاء حساب جديد</button>
+            </div>
+
+            <div id="auth-error" class="hidden bg-red-50 border border-red-200 text-red-700 text-sm font-bold p-3 rounded-xl mb-4"></div>
+            <div id="auth-info" class="hidden bg-brandGreen-100 border border-brandGreen-400 text-brandGreen-600 text-sm font-bold p-3 rounded-xl mb-4"></div>
+
+            <form id="login-form" onsubmit="handleLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-600 mb-2">البريد الإلكتروني</label>
+                    <input type="email" id="login-email" required class="w-full bg-slateLight border border-slate-300 rounded-2xl px-4 py-3.5 text-slate-800 focus:outline-none focus:border-gold-500 font-medium">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-600 mb-2">كلمة المرور</label>
+                    <input type="password" id="login-password" required minlength="6" class="w-full bg-slateLight border border-slate-300 rounded-2xl px-4 py-3.5 text-slate-800 focus:outline-none focus:border-gold-500 font-medium">
+                </div>
+                <button type="button" onclick="handleForgotPassword()" class="text-xs text-gold-600 font-bold hover:underline">نسيت كلمة المرور؟</button>
+                <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold rounded-xl shadow-lg transition">تسجيل الدخول</button>
+            </form>
+
+            <form id="signup-form" onsubmit="handleSignup(event)" class="space-y-4 hidden">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-600 mb-2">الاسم الكامل</label>
+                    <input type="text" id="signup-name" required class="w-full bg-slateLight border border-slate-300 rounded-2xl px-4 py-3.5 text-slate-800 focus:outline-none focus:border-gold-500 font-medium">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-600 mb-2">البريد الإلكتروني</label>
+                    <input type="email" id="signup-email" required class="w-full bg-slateLight border border-slate-300 rounded-2xl px-4 py-3.5 text-slate-800 focus:outline-none focus:border-gold-500 font-medium">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-600 mb-2">كلمة المرور (6 خانات على الأقل)</label>
+                    <input type="password" id="signup-password" required minlength="6" class="w-full bg-slateLight border border-slate-300 rounded-2xl px-4 py-3.5 text-slate-800 focus:outline-none focus:border-gold-500 font-medium">
+                </div>
+                <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold rounded-xl shadow-lg transition">إنشاء الحساب</button>
+            </form>
         </div>
     </div>
 
@@ -1995,20 +2125,53 @@
             }
         ];
 
-        // Favorites Storage Logic
+        // ===== Auth State & User Data =====
+        let currentUser = null;
+        let currentUserData = null;
+
+        // Favorites Storage Logic (localStorage عند الزوار، Firestore عند تسجيل الدخول)
+        function readLocalFavoritesSafe() {
+            try {
+                const raw = localStorage.getItem('almadj_favorites');
+                return raw ? JSON.parse(raw) : [];
+            } catch(err) {
+                return [];
+            }
+        }
+
+        function writeLocalFavoritesSafe(favs) {
+            try {
+                localStorage.setItem('almadj_favorites', JSON.stringify(favs));
+            } catch(err) {
+                // بعض المتصفحات (كالتصفح الخاص) قد تمنع localStorage، نتجاهل الخطأ هنا بأمان
+            }
+        }
+
+        function clearLocalFavoritesSafe() {
+            try {
+                localStorage.removeItem('almadj_favorites');
+            } catch(err) {}
+        }
+
+        let cachedFavorites = readLocalFavoritesSafe();
+
         function getFavorites() {
-            const favs = localStorage.getItem('almadj_favorites');
-            return favs ? JSON.parse(favs) : [];
+            return cachedFavorites;
         }
 
         function saveFavorites(favs) {
-            localStorage.setItem('almadj_favorites', JSON.stringify(favs));
+            cachedFavorites = favs;
+            if(currentUser) {
+                db.collection('users').doc(currentUser.uid).update({ favorites: favs }).catch(err => console.error('تعذر حفظ المفضلة على Firestore:', err));
+            } else {
+                writeLocalFavoritesSafe(favs);
+            }
             updateFavCounter();
         }
 
         function toggleFavorite(id, event) {
             if(event) event.stopPropagation();
-            let favs = getFavorites();
+            let favs = getFavorites().slice();
             if(favs.includes(id)) {
                 favs = favs.filter(favId => favId !== id);
             } else {
@@ -2016,6 +2179,19 @@
             }
             saveFavorites(favs);
             filterScholarships();
+            if(document.getElementById('dashboard-favorites-list')) renderDashboardFavorites();
+        }
+
+        // نقل مفضلة الزائر المحلية إلى Firestore مرة واحدة فقط عند أول تسجيل دخول
+        async function migrateFavoritesToFirestore(uid) {
+            const localFavs = readLocalFavoritesSafe();
+            if(localFavs.length === 0) return;
+            const docRef = db.collection('users').doc(uid);
+            const doc = await docRef.get();
+            const cloudFavs = (doc.exists && Array.isArray(doc.data().favorites)) ? doc.data().favorites : [];
+            const merged = Array.from(new Set([...cloudFavs, ...localFavs]));
+            await docRef.update({ favorites: merged });
+            clearLocalFavoritesSafe();
         }
 
         function updateFavCounter() {
@@ -2061,6 +2237,10 @@
         }
 
         function switchView(viewId) {
+            if(viewId === 'dashboard' && !currentUser) {
+                openAuthModal('login');
+                return;
+            }
             document.querySelectorAll('.view-section').forEach(section => {
                 section.classList.remove('active');
             });
@@ -2077,6 +2257,7 @@
                 activeNav.classList.add('border-gold-500', 'text-gold-400');
                 if(viewId === 'testimonials') activeNav.classList.add('text-brandGreen-400'); // Keep specific styling
             }
+            if(viewId === 'dashboard') renderDashboard();
         }
 
         const menuBtn = document.getElementById('menu-btn');
@@ -2087,6 +2268,286 @@
         function toggleMobileMenu() {
             mobileMenu.classList.add('hidden');
         }
+
+        // ===== Auth Modal (تسجيل الدخول / إنشاء حساب) =====
+        function openAuthModal(tab) {
+            document.getElementById('auth-modal').classList.remove('hidden');
+            document.getElementById('auth-error').classList.add('hidden');
+            document.getElementById('auth-info').classList.add('hidden');
+            switchAuthTab(tab || 'login');
+        }
+
+        function closeAuthModal() {
+            document.getElementById('auth-modal').classList.add('hidden');
+        }
+
+        function switchAuthTab(tab) {
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            const loginTab = document.getElementById('auth-tab-login');
+            const signupTab = document.getElementById('auth-tab-signup');
+            document.getElementById('auth-error').classList.add('hidden');
+            document.getElementById('auth-info').classList.add('hidden');
+            if(tab === 'signup') {
+                signupForm.classList.remove('hidden');
+                loginForm.classList.add('hidden');
+                signupTab.className = 'flex-1 py-2.5 rounded-xl font-bold text-sm transition bg-navy-900 text-white shadow';
+                loginTab.className = 'flex-1 py-2.5 rounded-xl font-bold text-sm transition text-slate-500';
+            } else {
+                loginForm.classList.remove('hidden');
+                signupForm.classList.add('hidden');
+                loginTab.className = 'flex-1 py-2.5 rounded-xl font-bold text-sm transition bg-navy-900 text-white shadow';
+                signupTab.className = 'flex-1 py-2.5 rounded-xl font-bold text-sm transition text-slate-500';
+            }
+        }
+
+        function getFirebaseAuthErrorMessage(error) {
+            const map = {
+                'auth/email-already-in-use': 'هذا البريد الإلكتروني مستخدم مسبقاً بحساب آخر. جرب تسجيل الدخول بدلاً من ذلك.',
+                'auth/invalid-email': 'صيغة البريد الإلكتروني غير صحيحة.',
+                'auth/weak-password': 'كلمة المرور ضعيفة جداً، يجب ألا تقل عن 6 خانات.',
+                'auth/user-not-found': 'لا يوجد حساب مرتبط بهذا البريد الإلكتروني.',
+                'auth/wrong-password': 'كلمة المرور غير صحيحة.',
+                'auth/invalid-credential': 'البريد الإلكتروني أو كلمة المرور غير صحيحة.',
+                'auth/too-many-requests': 'محاولات كثيرة فاشلة، يرجى المحاولة لاحقاً.',
+                'auth/user-disabled': 'تم تعطيل هذا الحساب، يرجى التواصل معنا.',
+                'auth/network-request-failed': 'حدث خطأ بالاتصال بالشبكة، تحقق من اتصالك بالإنترنت.',
+                'auth/missing-email': 'الرجاء إدخال بريدك الإلكتروني.'
+            };
+            return map[error.code] || 'حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى.';
+        }
+
+        function showAuthError(message) {
+            const el = document.getElementById('auth-error');
+            document.getElementById('auth-info').classList.add('hidden');
+            el.innerText = message;
+            el.classList.remove('hidden');
+        }
+
+        function showAuthInfo(message) {
+            const el = document.getElementById('auth-info');
+            document.getElementById('auth-error').classList.add('hidden');
+            el.innerText = message;
+            el.classList.remove('hidden');
+        }
+
+        function handleSignup(event) {
+            event.preventDefault();
+            const name = document.getElementById('signup-name').value.trim();
+            const email = document.getElementById('signup-email').value.trim();
+            const password = document.getElementById('signup-password').value;
+
+            auth.createUserWithEmailAndPassword(email, password).then((cred) => {
+                return db.collection('users').doc(cred.user.uid).set({
+                    name: name,
+                    email: email,
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                    academicAverage: null,
+                    targetDegree: null,
+                    englishLevel: null,
+                    applicationStatus: "لم يقدم طلباً بعد",
+                    favorites: []
+                });
+            }).then(() => {
+                closeAuthModal();
+            }).catch((error) => {
+                showAuthError(getFirebaseAuthErrorMessage(error));
+            });
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
+
+            auth.signInWithEmailAndPassword(email, password).then(() => {
+                closeAuthModal();
+            }).catch((error) => {
+                showAuthError(getFirebaseAuthErrorMessage(error));
+            });
+        }
+
+        function handleForgotPassword() {
+            const email = document.getElementById('login-email').value.trim();
+            if(!email) {
+                showAuthError('الرجاء إدخال بريدك الإلكتروني بالحقل أعلاه أولاً، ثم اضغط "نسيت كلمة المرور" مرة أخرى.');
+                return;
+            }
+            auth.sendPasswordResetEmail(email).then(() => {
+                showAuthInfo('تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني.');
+            }).catch((error) => {
+                showAuthError(getFirebaseAuthErrorMessage(error));
+            });
+        }
+
+        function handleSignOut() {
+            closeUserDropdown();
+            auth.signOut().then(() => {
+                switchView('home');
+            });
+        }
+
+        // ===== حالة تسجيل الدخول بالـ Navbar =====
+        function toggleUserDropdown() {
+            const dd = document.getElementById('user-dropdown');
+            if(dd) dd.classList.toggle('hidden');
+        }
+
+        function closeUserDropdown() {
+            const dd = document.getElementById('user-dropdown');
+            if(dd) dd.classList.add('hidden');
+        }
+
+        function renderAuthNav() {
+            const desktopContainer = document.getElementById('auth-nav-container');
+            const mobileContainer = document.getElementById('auth-nav-container-mobile');
+            if(!desktopContainer || !mobileContainer) return;
+
+            if(currentUser) {
+                const firstName = ((currentUserData && currentUserData.name) ? currentUserData.name : currentUser.email).split(' ')[0];
+                desktopContainer.innerHTML = `
+                    <div class="relative">
+                        <button onclick="toggleUserDropdown()" class="flex items-center gap-2 bg-navy-800 hover:bg-navy-700 text-white px-3.5 py-2.5 rounded-xl text-sm font-bold transition">
+                            <i class="fa-solid fa-circle-user text-gold-400"></i>
+                            <span>${firstName}</span>
+                            <i class="fa-solid fa-chevron-down text-xs text-slate-400"></i>
+                        </button>
+                        <div id="user-dropdown" class="hidden absolute left-0 top-full mt-2 w-48 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden z-50">
+                            <button onclick="switchView('dashboard'); closeUserDropdown();" class="w-full text-right px-4 py-3 text-sm font-bold text-navy-900 hover:bg-slateLight transition flex items-center gap-2"><i class="fa-solid fa-gauge text-gold-500"></i> لوحتي</button>
+                            <button onclick="handleSignOut()" class="w-full text-right px-4 py-3 text-sm font-bold text-red-600 hover:bg-red-50 transition flex items-center gap-2"><i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج</button>
+                        </div>
+                    </div>
+                `;
+                mobileContainer.innerHTML = `
+                    <button onclick="switchView('dashboard'); toggleMobileMenu();" class="block text-gold-400 font-bold py-2 w-full text-right"><i class="fa-solid fa-gauge ml-1"></i> لوحتي (${firstName})</button>
+                    <button onclick="handleSignOut(); toggleMobileMenu();" class="block text-red-400 font-bold py-2 w-full text-right"><i class="fa-solid fa-right-from-bracket ml-1"></i> تسجيل الخروج</button>
+                `;
+            } else {
+                desktopContainer.innerHTML = `
+                    <button onclick="openAuthModal('login')" class="bg-navy-800 hover:bg-navy-700 text-gold-400 border border-gold-500/30 px-3.5 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 transition">
+                        <i class="fa-solid fa-user"></i>
+                        <span class="hidden md:inline">تسجيل الدخول / إنشاء حساب</span>
+                    </button>
+                `;
+                mobileContainer.innerHTML = `
+                    <button onclick="openAuthModal('login'); toggleMobileMenu();" class="block text-gold-400 font-bold py-2 w-full text-right"><i class="fa-solid fa-user ml-1"></i> تسجيل الدخول / إنشاء حساب</button>
+                `;
+            }
+        }
+
+        // ===== لوحة تحكم الطالب =====
+        function renderDashboard() {
+            if(!currentUser) return;
+            const welcomeName = document.getElementById('dashboard-welcome-name');
+            if(welcomeName) welcomeName.innerText = ((currentUserData && currentUserData.name) ? currentUserData.name : currentUser.email).split(' ')[0];
+
+            const gpaEl = document.getElementById('dash-gpa');
+            const degreeEl = document.getElementById('dash-degree');
+            const englishEl = document.getElementById('dash-english');
+            const phoneEl = document.getElementById('dash-phone');
+            if(gpaEl) gpaEl.value = (currentUserData && currentUserData.academicAverage != null) ? currentUserData.academicAverage : '';
+            if(degreeEl) degreeEl.value = (currentUserData && currentUserData.targetDegree) ? currentUserData.targetDegree : 'بكالوريوس';
+            if(englishEl) englishEl.value = (currentUserData && currentUserData.englishLevel) ? currentUserData.englishLevel : 'none';
+            if(phoneEl) phoneEl.value = (currentUserData && currentUserData.phone) ? currentUserData.phone : '';
+
+            renderDashboardFavorites();
+            renderApplicationStatus();
+        }
+
+        function saveAcademicProfile() {
+            if(!currentUser) return;
+            const gpaVal = document.getElementById('dash-gpa').value;
+            const data = {
+                academicAverage: gpaVal ? parseFloat(gpaVal) : null,
+                targetDegree: document.getElementById('dash-degree').value,
+                englishLevel: document.getElementById('dash-english').value,
+                phone: document.getElementById('dash-phone').value.trim()
+            };
+            db.collection('users').doc(currentUser.uid).update(data).then(() => {
+                currentUserData = Object.assign({}, currentUserData, data);
+                const msg = document.getElementById('dash-save-msg');
+                msg.classList.remove('hidden');
+                setTimeout(() => msg.classList.add('hidden'), 3000);
+            }).catch(() => {
+                alert('حدث خطأ أثناء حفظ الملف الأكاديمي، يرجى المحاولة مرة أخرى.');
+            });
+        }
+
+        function renderDashboardFavorites() {
+            const container = document.getElementById('dashboard-favorites-list');
+            if(!container) return;
+            const favs = getFavorites();
+            if(favs.length === 0) {
+                container.innerHTML = `<div class="text-center py-10"><i class="fa-regular fa-bookmark text-4xl text-slate-300 mb-3 block"></i><p class="text-slate-500 font-bold text-sm">لا توجد منح محفوظة بعد. تصفح دليل المنح وأضف ما يناسبك للمفضلة.</p></div>`;
+                return;
+            }
+            container.innerHTML = '';
+            favs.forEach(id => {
+                const sch = scholarshipsData.find(s => s.id === id);
+                if(!sch) return;
+                const div = document.createElement('div');
+                div.className = "bg-slateLight p-4 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:shadow-md transition-shadow";
+                div.innerHTML = `
+                    <div>
+                        <span class="text-xs font-bold text-navy-900 bg-navy-900/10 px-2.5 py-1 rounded-full">${sch.country}</span>
+                        <h4 class="font-bold text-navy-900 mt-2">${sch.title}</h4>
+                        <span class="text-xs text-slate-500 font-bold block mt-1"><i class="fa-solid fa-graduation-cap text-gold-500 ml-1"></i>${sch.degree} • <i class="fa-solid fa-sack-dollar text-gold-500 ml-1"></i>${sch.coverage}</span>
+                    </div>
+                    <div class="flex items-center gap-2 w-full sm:w-auto">
+                        <button onclick="openScholarshipModal(${sch.id})" class="flex-1 sm:flex-none bg-navy-900 hover:bg-gold-500 hover:text-navy-900 text-white transition-colors text-xs font-bold px-4 py-2.5 rounded-xl">عرض التفاصيل</button>
+                        <button onclick="toggleFavorite(${sch.id}); renderDashboardFavorites();" class="bg-red-50 text-red-500 hover:bg-red-500 hover:text-white transition-colors p-2.5 rounded-xl border border-red-100"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function renderApplicationStatus() {
+            const container = document.getElementById('dashboard-status-card');
+            if(!container) return;
+            const status = (currentUserData && currentUserData.applicationStatus) ? currentUserData.applicationStatus : "لم يقدم طلباً بعد";
+            const statusMap = {
+                "لم يقدم طلباً بعد": { icon: 'fa-circle-minus', badgeBg: 'bg-slate-500/15', badgeText: 'text-slate-600', cardBg: 'bg-slate-50', cardBorder: 'border-slate-200' },
+                "قيد المراجعة": { icon: 'fa-hourglass-half', badgeBg: 'bg-amber-500/15', badgeText: 'text-amber-600', cardBg: 'bg-amber-50', cardBorder: 'border-amber-200' },
+                "مقبول": { icon: 'fa-circle-check', badgeBg: 'bg-brandGreen-500/15', badgeText: 'text-brandGreen-600', cardBg: 'bg-brandGreen-100', cardBorder: 'border-brandGreen-400' },
+                "مرفوض": { icon: 'fa-circle-xmark', badgeBg: 'bg-red-500/15', badgeText: 'text-red-600', cardBg: 'bg-red-50', cardBorder: 'border-red-200' }
+            };
+            const info = statusMap[status] || statusMap["لم يقدم طلباً بعد"];
+            container.className = `rounded-2xl p-6 border flex items-center gap-4 ${info.cardBg} ${info.cardBorder}`;
+            container.innerHTML = `
+                <div class="w-14 h-14 rounded-full ${info.badgeBg} ${info.badgeText} flex items-center justify-center text-2xl flex-shrink-0"><i class="fa-solid ${info.icon}"></i></div>
+                <div>
+                    <span class="text-xs font-bold ${info.badgeText} ${info.badgeBg} px-2.5 py-1 rounded-full">الحالة الحالية</span>
+                    <h4 class="text-lg font-black text-navy-900 mt-1">${status}</h4>
+                </div>
+            `;
+        }
+
+        // مراقبة حالة تسجيل الدخول
+        auth.onAuthStateChanged(async (user) => {
+            currentUser = user;
+            if(user) {
+                try {
+                    await migrateFavoritesToFirestore(user.uid);
+                    const doc = await db.collection('users').doc(user.uid).get();
+                    currentUserData = doc.exists ? doc.data() : null;
+                    cachedFavorites = (currentUserData && Array.isArray(currentUserData.favorites)) ? currentUserData.favorites : [];
+                } catch(err) {
+                    console.error('تعذر تحميل بيانات المستخدم:', err);
+                }
+            } else {
+                currentUserData = null;
+                cachedFavorites = readLocalFavoritesSafe();
+            }
+            updateFavCounter();
+            renderAuthNav();
+            const scholarshipsView = document.getElementById('view-scholarships');
+            if(scholarshipsView && scholarshipsView.classList.contains('active') && typeof filterScholarships === 'function') filterScholarships();
+            const dashboardView = document.getElementById('view-dashboard');
+            if(dashboardView && dashboardView.classList.contains('active')) {
+                if(!currentUser) { switchView('home'); } else { renderDashboard(); }
+            }
+        });
 
         function renderScholarships(dataToRender) {
             const grid = document.getElementById('scholarships-grid');
@@ -2351,6 +2812,20 @@
 
             window.open(`https://wa.me/970567892330?text=${encodeURIComponent(waMessage)}`, '_blank');
 
+            if(currentUser) {
+                db.collection('users').doc(currentUser.uid).update({
+                    lastConsultationRequest: {
+                        fullName, phone, academicLevel, serviceType, message,
+                        submittedAt: firebase.firestore.FieldValue.serverTimestamp()
+                    },
+                    applicationStatus: "قيد المراجعة"
+                }).then(() => {
+                    currentUserData = Object.assign({}, currentUserData, { applicationStatus: "قيد المراجعة" });
+                    const dashboardView = document.getElementById('view-dashboard');
+                    if(dashboardView && dashboardView.classList.contains('active')) renderApplicationStatus();
+                }).catch(err => console.error('تعذر حفظ طلب الاستشارة على حسابك:', err));
+            }
+
             document.getElementById('success-modal-title').innerText = 'خطوة أخيرة بسيطة!';
             document.getElementById('success-modal-text').innerText = 'فتحنا لك واتساب مع كل بيانات طلبك جاهزة — بس أكّد الإرسال من هناك ليصلنا طلبك مباشرة.';
             document.getElementById('success-modal').classList.remove('hidden');
@@ -2565,14 +3040,24 @@
             const scholarshipCountOption = document.getElementById('scholarship-count-option');
             if(scholarshipCountOption) scholarshipCountOption.textContent = `منحة دراسية من الدليل (${scholarshipsData.length} منحة رسمية)`;
 
+            renderAuthNav();
+
             // إغلاق النوافذ عند النقر خارجها
             window.onclick = function(event) {
                 const schModal = document.getElementById('scholarship-modal');
                 const favModal = document.getElementById('favorites-modal');
                 const sucModal = document.getElementById('success-modal');
+                const authModal = document.getElementById('auth-modal');
                 if (event.target == schModal) closeScholarshipModal();
                 if (event.target == favModal) closeFavoritesModal();
                 if (event.target == sucModal) closeSuccessModal();
+                if (event.target == authModal) closeAuthModal();
+
+                const userDropdown = document.getElementById('user-dropdown');
+                if(userDropdown && !userDropdown.classList.contains('hidden')) {
+                    const authContainer = document.getElementById('auth-nav-container');
+                    if(authContainer && !authContainer.contains(event.target)) closeUserDropdown();
+                }
             }
         };
     </script>
