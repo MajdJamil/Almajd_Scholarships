@@ -451,7 +451,7 @@
                     <h2 class="text-3xl sm:text-5xl font-black text-navy-900">موسوعة الـ <span class="sch-count">80</span> منحة دراسية الدولية</h2>
                     <p class="text-slate-600 text-base sm:text-lg">جميع المنح أدناه تحتوي على تفاصيل دقيقة، شروط، ومصادر وروابط تقديم رسمية 100%. استخدم الفلاتر للبحث الدقيق.</p>
                     
-                    <div class="bg-white p-4 sm:p-6 rounded-3xl shadow-lg border border-slate-200 grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+                    <div class="bg-white p-4 sm:p-6 rounded-3xl shadow-lg border border-slate-200 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
                         <div class="relative">
                             <i class="fa-solid fa-search absolute right-4 top-4 text-slate-400"></i>
                             <input type="text" id="scholarship-search" oninput="filterScholarships()" placeholder="ابحث باسم المنحة، الدولة، أو التخصص..." class="w-full bg-slateLight border border-slate-300 rounded-2xl px-4 py-3.5 pr-11 text-slate-800 focus:outline-none focus:border-gold-500 font-medium">
@@ -466,6 +466,11 @@
                             <option value="">جميع أنواع التمويل</option>
                             <option value="ممولة بالكامل">ممولة بالكامل</option>
                             <option value="ممولة جزئياً">ممولة جزئياً</option>
+                        </select>
+                        <select id="scholarship-status-filter" onchange="filterScholarships()" class="bg-slateLight border border-slate-300 rounded-2xl px-4 py-3.5 text-slate-800 focus:outline-none focus:border-gold-500 font-medium">
+                            <option value="">جميع الحالات</option>
+                            <option value="open">مفتوحة الآن فقط</option>
+                            <option value="rolling">متاحة على مدار العام</option>
                         </select>
                     </div>
                 </div>
@@ -1761,6 +1766,8 @@
         const scholarshipsData = [
             {
                 id: 1,
+                openMonth: 1,
+                closeMonth: 2,
                 competitiveness: "تنافسية",
                 title: "المنحة التركية الرسمية (Türkiye Scholarships)",
                 country: "تركيا",
@@ -1773,6 +1780,8 @@
             },
             {
                 id: 2,
+                openMonth: 11,
+                closeMonth: 1,
                 competitiveness: "تنافسية",
                 title: "منحة الحكومة الهنغارية (Stipendium Hungaricum)",
                 country: "هنغاريا",
@@ -1785,6 +1794,8 @@
             },
             {
                 id: 3,
+                openMonth: 8,
+                closeMonth: 10,
                 competitiveness: "تنافسية جداً",
                 title: "منحة تشيفنينغ البريطانية (Chevening Scholarships)",
                 country: "المملكة المتحدة",
@@ -1797,6 +1808,8 @@
             },
             {
                 id: 4,
+                openMonth: 10,
+                closeMonth: 1,
                 competitiveness: "تنافسية جداً",
                 title: "منح إراسموس موندوس الأوروبية (Erasmus Mundus)",
                 country: "دول الاتحاد الأوروبي",
@@ -1809,6 +1822,8 @@
             },
             {
                 id: 5,
+                openMonth: 7,
+                closeMonth: 11,
                 competitiveness: "تنافسية",
                 title: "منحة الحكومة الألمانية DAAD",
                 country: "ألمانيا",
@@ -1821,6 +1836,8 @@
             },
             {
                 id: 6,
+                openMonth: 1,
+                closeMonth: 3,
                 competitiveness: "تنافسية",
                 title: "منحة الحكومة الرومانية",
                 country: "رومانيا",
@@ -1833,6 +1850,8 @@
             },
             {
                 id: 7,
+                openMonth: 2,
+                closeMonth: 4,
                 competitiveness: "تنافسية",
                 title: "منحة البنك الإسلامي للتنمية (IsDB)",
                 country: "دولية متعددة",
@@ -1845,6 +1864,8 @@
             },
             {
                 id: 8,
+                openMonth: 9,
+                closeMonth: 1,
                 competitiveness: "تنافسية جداً",
                 title: "منحة غيتس كامبريدج (Gates Cambridge)",
                 country: "المملكة المتحدة",
@@ -1857,6 +1878,8 @@
             },
             {
                 id: 9,
+                openMonth: 7,
+                closeMonth: 10,
                 competitiveness: "تنافسية جداً",
                 title: "منحة رودس العالمية (Rhodes Scholarship - Oxford)",
                 country: "المملكة المتحدة",
@@ -1869,6 +1892,8 @@
             },
             {
                 id: 10,
+                openMonth: 11,
+                closeMonth: 12,
                 competitiveness: "تنافسية",
                 title: "منحة سنغافورة الدولية للبحوث (SINGA)",
                 country: "سنغافورة",
@@ -1881,6 +1906,8 @@
             },
             {
                 id: 11,
+                openMonth: 2,
+                closeMonth: 4,
                 competitiveness: "تنافسية",
                 title: "منح أستراليا الدولية (Australia Awards)",
                 country: "أستراليا",
@@ -1893,6 +1920,8 @@
             },
             {
                 id: 12,
+                openMonth: 10,
+                closeMonth: 1,
                 competitiveness: "تنافسية",
                 title: "منحة إيفل الفرنسية للتميز (Eiffel)",
                 country: "فرنسا",
@@ -1905,6 +1934,8 @@
             },
             {
                 id: 13,
+                openMonth: 12,
+                closeMonth: 2,
                 competitiveness: "تنافسية",
                 title: "منح المراكز الإقليمية والجامعات الأوروبية",
                 country: "السويد",
@@ -1917,6 +1948,7 @@
             },
             {
                 id: 14,
+                statusType: "rolling",
                 competitiveness: "تنافسية جداً",
                 title: "برنامج فولبرايت الأمريكي (Fulbright)",
                 country: "الولايات المتحدة الأمريكية",
@@ -1929,6 +1961,7 @@
             },
             {
                 id: 15,
+                statusType: "rolling",
                 competitiveness: "معتدلة",
                 title: "منحة جامعة كاوست السعودية (KAUST)",
                 country: "المملكة العربية السعودية",
@@ -1941,6 +1974,7 @@
             },
             {
                 id: 16,
+                statusType: "rolling",
                 competitiveness: "معتدلة",
                 title: "منحة جامعة خليفة",
                 country: "الإمارات العربية المتحدة",
@@ -1953,6 +1987,7 @@
             },
             {
                 id: 17,
+                statusType: "rolling",
                 competitiveness: "معتدلة",
                 title: "منحة جامعة حمد بن خليفة (HBKU)",
                 country: "قطر",
@@ -1965,6 +2000,8 @@
             },
             {
                 id: 18,
+                openMonth: 3,
+                closeMonth: 9,
                 competitiveness: "تنافسية جداً",
                 title: "منحة شوارزمان للقيادة (Schwarzman)",
                 country: "الصين",
@@ -1977,6 +2014,8 @@
             },
             {
                 id: 19,
+                openMonth: 8,
+                closeMonth: 10,
                 competitiveness: "تنافسية جداً",
                 title: "منحة نايت هينيسي لجامعة ستانفورد",
                 country: "الولايات المتحدة الأمريكية",
@@ -1989,6 +2028,8 @@
             },
             {
                 id: 20,
+                openMonth: 1,
+                closeMonth: 4,
                 competitiveness: "تنافسية",
                 title: "منحة الحكومة الصينية الرسمية (CSC)",
                 country: "الصين",
@@ -2001,6 +2042,7 @@
             },
             {
                 id: 21,
+                statusType: "rolling",
                 competitiveness: "تنافسية جداً",
                 title: "منحة الحكومة اليابانية (MEXT)",
                 country: "اليابان",
@@ -2013,6 +2055,8 @@
             },
             {
                 id: 22,
+                openMonth: 8,
+                closeMonth: 10,
                 competitiveness: "تنافسية",
                 title: "منحة الحكومة الكورية الجنوبية (GKS)",
                 country: "كوريا الجنوبية",
@@ -2025,6 +2069,8 @@
             },
             {
                 id: 23,
+                openMonth: 2,
+                closeMonth: 3,
                 competitiveness: "تنافسية",
                 title: "منحة تايوان الدولية (Taiwan ICDF)",
                 country: "تايوان",
@@ -2037,6 +2083,8 @@
             },
             {
                 id: 24,
+                openMonth: 2,
+                closeMonth: 4,
                 competitiveness: "تنافسية",
                 title: "منحة حكومة نيوزيلندا (Manaaki)",
                 country: "نيوزيلندا",
@@ -2049,6 +2097,8 @@
             },
             {
                 id: 25,
+                openMonth: 9,
+                closeMonth: 11,
                 competitiveness: "تنافسية جداً",
                 title: "منح فانييه الكندية (Vanier Canada)",
                 country: "كندا",
@@ -2061,6 +2111,7 @@
             },
             {
                 id: 26,
+                statusType: "rolling",
                 competitiveness: "معتدلة",
                 title: "منحة جامعة بروناي دار السلام (UBD)",
                 country: "بروناي",
@@ -2073,6 +2124,7 @@
             },
             {
                 id: 27,
+                statusType: "rolling",
                 competitiveness: "معتدلة",
                 title: "منحة جامعة مالايا الماليزية (UM)",
                 country: "ماليزيا",
@@ -2085,6 +2137,7 @@
             },
             {
                 id: 28,
+                statusType: "rolling",
                 competitiveness: "تنافسية جداً",
                 title: "منحة جامعة هارفارد للاستحقاق",
                 country: "الولايات المتحدة الأمريكية",
@@ -2097,6 +2150,7 @@
             },
             {
                 id: 29,
+                statusType: "rolling",
                 competitiveness: "تنافسية جداً",
                 title: "منحة معهد ماساتشوستس للتقنية (MIT)",
                 country: "الولايات المتحدة الأمريكية",
@@ -2109,6 +2163,7 @@
             },
             {
                 id: 30,
+                statusType: "rolling",
                 competitiveness: "معتدلة",
                 title: "برنامج الفاخورة (Al Fakhoora - Education Above All)",
                 country: "قطر",
@@ -2121,6 +2176,8 @@
             },
             {
                 id: 31,
+                openMonth: 8,
+                closeMonth: 12,
                 competitiveness: "تنافسية جداً",
                 title: "منح الكومنولث البريطانية (Commonwealth Scholarships)",
                 country: "المملكة المتحدة",
@@ -2133,6 +2190,8 @@
             },
             {
                 id: 32,
+                openMonth: 8,
+                closeMonth: 12,
                 competitiveness: "تنافسية",
                 title: "المنح الحكومية السويسرية للتميز (Swiss Government Excellence Scholarships)",
                 country: "سويسرا",
@@ -2145,6 +2204,8 @@
             },
             {
                 id: 33,
+                openMonth: 1,
+                closeMonth: 3,
                 competitiveness: "تنافسية",
                 title: "منحة مؤسسة الآغا خان الدولية (AKF International Scholarship Programme)",
                 country: "دولية حسب دول شبكة آغا خان",
@@ -2157,6 +2218,8 @@
             },
             {
                 id: 34,
+                openMonth: 1,
+                closeMonth: 3,
                 competitiveness: "تنافسية",
                 title: "المنح الحكومية الإيطالية (MAECI)",
                 country: "إيطاليا",
@@ -2169,6 +2232,7 @@
             },
             {
                 id: 35,
+                statusType: "rolling",
                 competitiveness: "تنافسية",
                 title: "منحة ماليزيا الدولية (Malaysia International Scholarship - MIS)",
                 country: "ماليزيا",
@@ -2181,6 +2245,7 @@
             },
             {
                 id: 36,
+                statusType: "rolling",
                 competitiveness: "معتدلة",
                 title: "جامعة محمد بن زايد للذكاء الاصطناعي (MBZUAI)",
                 country: "الإمارات",
@@ -2193,6 +2258,7 @@
             },
             {
                 id: 37,
+                statusType: "rolling",
                 competitiveness: "معتدلة",
                 title: "منح جامعة زايد",
                 country: "الإمارات",
@@ -2205,6 +2271,7 @@
             },
             {
                 id: 38,
+                statusType: "rolling",
                 competitiveness: "معتدلة",
                 title: "المنح الدولية بجامعة قطر",
                 country: "قطر",
@@ -2217,6 +2284,8 @@
             },
             {
                 id: 39,
+                openMonth: 5,
+                closeMonth: 8,
                 competitiveness: "معتدلة",
                 title: "منح جامعة الأزهر للطلبة الوافدين",
                 country: "مصر",
@@ -2229,6 +2298,8 @@
             },
             {
                 id: 40,
+                openMonth: 11,
+                closeMonth: 2,
                 competitiveness: "معتدلة",
                 title: "المساعدات المالية بالجامعة الأمريكية في بيروت (AUB)",
                 country: "لبنان",
@@ -2241,6 +2312,8 @@
             },
             {
                 id: 41,
+                openMonth: 2,
+                closeMonth: 5,
                 competitiveness: "تنافسية جداً",
                 title: "زمالة روتاري للسلام (Rotary Peace Fellowship)",
                 country: "دولية عبر مراكز روتاري",
@@ -2253,6 +2326,8 @@
             },
             {
                 id: 42,
+                openMonth: 1,
+                closeMonth: 5,
                 competitiveness: "معتدلة",
                 title: "منحة هولندا (Holland Scholarship)",
                 country: "هولندا",
@@ -2265,6 +2340,8 @@
             },
             {
                 id: 43,
+                openMonth: 6,
+                closeMonth: 9,
                 competitiveness: "تنافسية جداً",
                 title: "زمالة المستشار الألماني (German Chancellor Fellowship - Humboldt)",
                 country: "ألمانيا",
@@ -2277,6 +2354,7 @@
             },
             {
                 id: 44,
+                statusType: "rolling",
                 competitiveness: "تنافسية",
                 title: "منحة اليابان والبنك الدولي المشتركة (JJWBGSP)",
                 country: "دولية عبر جامعات شريكة",
@@ -2289,6 +2367,8 @@
             },
             {
                 id: 45,
+                openMonth: 8,
+                closeMonth: 11,
                 competitiveness: "تنافسية",
                 title: "أولمبياد الأبواب المفتوحة الروسي (Open Doors: Russian Scholarship Project)",
                 country: "روسيا",
@@ -2725,6 +2805,28 @@
             }
         });
 
+        // ===== حالة المنحة (مفتوحة الآن / مغلقة حالياً / متاحة على مدار العام) =====
+        const ARABIC_MONTH_NAMES = ["", "يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"];
+
+        function getScholarshipStatus(sch) {
+            if(sch.statusType === 'rolling') {
+                return { type: 'rolling', label: 'متاحة على مدار العام', badgeClass: 'bg-sky-500/10 text-sky-700' };
+            }
+            const currentMonth = new Date().getMonth() + 1;
+            const { openMonth, closeMonth } = sch;
+            let isOpen;
+            if(openMonth <= closeMonth) {
+                isOpen = currentMonth >= openMonth && currentMonth <= closeMonth;
+            } else {
+                // فترة تمتد عبر نهاية السنة (مثال: نوفمبر إلى يناير)
+                isOpen = currentMonth >= openMonth || currentMonth <= closeMonth;
+            }
+            if(isOpen) {
+                return { type: 'open', label: '🟢 التسجيل مفتوح الآن', badgeClass: 'bg-brandGreen-500/10 text-brandGreen-600' };
+            }
+            return { type: 'closed', label: '🔴 مغلقة حالياً', badgeClass: 'bg-red-500/10 text-red-600', extraText: `تفتح عادة في ${ARABIC_MONTH_NAMES[openMonth]}` };
+        }
+
         function renderScholarships(dataToRender) {
             const grid = document.getElementById('scholarships-grid');
             if(!grid) return;
@@ -2739,6 +2841,7 @@
 
             dataToRender.forEach(sch => {
                 const isFav = favs.includes(sch.id);
+                const status = getScholarshipStatus(sch);
                 const card = document.createElement('div');
                 card.className = "bg-white rounded-3xl p-6 shadow-lg border border-slate-200 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-1 hover:border-gold-500/50 transition-all duration-300 relative group";
                 card.innerHTML = `
@@ -2747,10 +2850,12 @@
                     </button>
                     <div class="space-y-3 pr-8">
                         <div class="flex items-center gap-2 flex-wrap">
+                            <span class="${status.badgeClass} font-bold text-xs px-2.5 py-1 rounded-full">${status.label}</span>
                             <span class="bg-navy-900/10 text-navy-900 font-bold text-xs px-3 py-1 rounded-full"><i class="fa-solid fa-location-dot ml-1 text-gold-500"></i>${sch.country}</span>
                             <span class="bg-gold-500/20 text-gold-700 font-bold text-xs px-2.5 py-1 rounded-full">${sch.degree}</span>
                             <span class="bg-brandGreen-500/10 text-brandGreen-600 font-bold text-xs px-2.5 py-1 rounded-full">${sch.coverage}</span>
                         </div>
+                        ${status.type === 'closed' ? `<p class="text-[11px] text-slate-400 font-semibold">${status.extraText}</p>` : ''}
                         <h3 class="text-lg font-bold text-navy-900 line-clamp-2 leading-tight group-hover:text-gold-600 transition-colors">${sch.title}</h3>
                         <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">${sch.description}</p>
                     </div>
@@ -2770,15 +2875,17 @@
             const query = document.getElementById('scholarship-search').value.toLowerCase();
             const degree = document.getElementById('scholarship-degree-filter').value;
             const coverage = document.getElementById('scholarship-coverage-filter').value;
+            const statusFilter = document.getElementById('scholarship-status-filter').value;
 
             const filtered = scholarshipsData.filter(sch => {
                 const matchQuery = sch.title.toLowerCase().includes(query) || sch.country.toLowerCase().includes(query) || sch.description.toLowerCase().includes(query);
                 const matchDegree = degree === "" || sch.degree.includes(degree);
                 const matchCoverage = coverage === "" || sch.coverage.includes(coverage);
-                
-                return matchQuery && matchDegree && matchCoverage;
+                const matchStatus = statusFilter === "" || getScholarshipStatus(sch).type === statusFilter;
+
+                return matchQuery && matchDegree && matchCoverage && matchStatus;
             });
-            
+
             renderScholarships(filtered);
         }
 
