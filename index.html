@@ -463,11 +463,11 @@
         <section id="view-calculator" class="view-section py-16 bg-white">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-2xl mx-auto mb-12 space-y-4">
-                    <span class="bg-amber-500/20 text-amber-800 font-bold px-4 py-1.5 rounded-full text-sm border border-amber-500/30">أداة تفاعلية متقدمة</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-navy-900">حاسبة القبول وتطابق المنح الدراسية</h2>
-                    <p class="text-slate-600 text-base">أدخل معدلك والدرجة المطلوبة لنقوم بمطابقتك فوراً مع المنح المناسبة لك من قائمة الـ <span class="sch-count">80</span> منحة.</p>
+                    <span class="bg-amber-500/20 text-amber-800 font-bold px-4 py-1.5 rounded-full text-sm border border-amber-500/30">أداة تفاعلية</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-navy-900">أداة التوافق الأولي مع المنح</h2>
+                    <p class="text-slate-600 text-base">أدخل بياناتك لنقارنها فوراً بالشروط الموثقة لكل منحة من قائمة الـ <span class="sch-count">80</span> منحة، ونوضح لك أين تتوافق ملفياً وأين تحتاج تحققاً إضافياً.</p>
                 </div>
-                
+
                 <div class="bg-navy-900 text-white p-8 sm:p-10 rounded-3xl shadow-2xl border border-gold-500/30 space-y-6">
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                         <div>
@@ -483,7 +483,7 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-sm font-semibold text-slate-300 mb-2">مستوى اللغة الإنجليزية</label>
+                            <label class="block text-sm font-semibold text-slate-300 mb-2">مستوى/شهادة اللغة</label>
                             <select id="calc-english" class="w-full bg-navy-800 border border-slate-700 rounded-2xl px-4 py-3.5 text-white focus:outline-none focus:border-gold-500 font-bold">
                                 <option value="none">لا أملك شهادة لغة بعد</option>
                                 <option value="basic">أساسي (أقل من IELTS 5.5)</option>
@@ -491,13 +491,27 @@
                                 <option value="advanced">متقدم (IELTS 7 فأعلى أو TOEFL معادل)</option>
                             </select>
                         </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-300 mb-2">مجال الدراسة</label>
+                            <input type="text" id="calc-field" placeholder="مثال: هندسة حاسوب" class="w-full bg-navy-800 border border-slate-700 rounded-2xl px-4 py-3.5 text-white focus:outline-none focus:border-gold-500 font-bold">
+                            <span class="text-[11px] text-slate-500 block mt-1.5">معلومة إرشادية فقط، لا تُستخدم حالياً بالمطابقة الآلية لعدم توثيقها بشكل منفصل بكل منحة</span>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-300 mb-2">الجنسية</label>
+                            <input type="text" id="calc-nationality" placeholder="مثال: فلسطين" class="w-full bg-navy-800 border border-slate-700 rounded-2xl px-4 py-3.5 text-white focus:outline-none focus:border-gold-500 font-bold">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-300 mb-2">العمر</label>
+                            <input type="number" id="calc-age" min="15" max="70" placeholder="مثال: 23" class="w-full bg-navy-800 border border-slate-700 rounded-2xl px-4 py-3.5 text-white focus:outline-none focus:border-gold-500 font-bold">
+                        </div>
                     </div>
                     <button onclick="runCalculator()" class="w-full py-4 bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold text-lg rounded-2xl shadow-xl transition transform active:scale-95">
-                        احسب فرص القبول واقترح المنح المناسبة الآن
+                        احسب التوافق الأولي مع المنح الآن
                     </button>
                     <div id="calc-results" class="hidden pt-6 border-t border-slate-800 space-y-4 transition-all duration-500">
-                        <h4 class="text-xl font-bold text-gold-400">النتيجة والترشيح الفوري:</h4>
-                        <div id="calc-output-content" class="space-y-3 max-h-64 overflow-y-auto pr-2"></div>
+                        <h4 class="text-xl font-bold text-gold-400">نتيجة المطابقة الأولية:</h4>
+                        <div id="calc-output-content" class="space-y-3 max-h-[32rem] overflow-y-auto pr-2"></div>
+                        <p class="text-xs text-slate-400 border-t border-slate-800 pt-4">هذه مطابقة أولية مبنية على البيانات المتاحة، وليست قرار قبول أو ضماناً للأهلية. تحقّق دائماً من شروط الجهة الرسمية.</p>
                     </div>
                 </div>
             </div>
@@ -1730,6 +1744,9 @@
         const scholarshipsData = [
             {
                 id: 1,
+                eligibility: { minGPAUndergrad: 70, minGPAGraduate: 75 },
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/15590500/pexels-photo-15590500.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 1,
                 closeMonth: 2,
@@ -1745,6 +1762,9 @@
             },
             {
                 id: 2,
+                eligibility: { languageTest: "IELTS/TOEFL" },
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/37944372/pexels-photo-37944372.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 11,
                 closeMonth: 1,
@@ -1760,6 +1780,9 @@
             },
             {
                 id: 3,
+                eligibility: { minWorkExperienceYears: 2 },
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/10510957/pexels-photo-10510957.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 8,
                 closeMonth: 10,
@@ -1775,6 +1798,9 @@
             },
             {
                 id: 4,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/8500625/pexels-photo-8500625.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 10,
                 closeMonth: 1,
@@ -1790,6 +1816,9 @@
             },
             {
                 id: 5,
+                eligibility: { minWorkExperienceYears: 2 },
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/22799861/pexels-photo-22799861.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 7,
                 closeMonth: 11,
@@ -1805,6 +1834,9 @@
             },
             {
                 id: 6,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/28898470/pexels-photo-28898470.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 1,
                 closeMonth: 3,
@@ -1820,6 +1852,9 @@
             },
             {
                 id: 7,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/4727408/pexels-photo-4727408.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 2,
                 closeMonth: 4,
@@ -1835,6 +1870,9 @@
             },
             {
                 id: 8,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/10519596/pexels-photo-10519596.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 9,
                 closeMonth: 1,
@@ -1850,6 +1888,9 @@
             },
             {
                 id: 9,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/21077452/pexels-photo-21077452.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 7,
                 closeMonth: 10,
@@ -1865,6 +1906,9 @@
             },
             {
                 id: 10,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/32020754/pexels-photo-32020754.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 11,
                 closeMonth: 12,
@@ -1880,6 +1924,9 @@
             },
             {
                 id: 11,
+                eligibility: { languageTest: "IELTS" },
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/31606882/pexels-photo-31606882.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 2,
                 closeMonth: 4,
@@ -1895,6 +1942,9 @@
             },
             {
                 id: 12,
+                eligibility: { maxAgeMaster: 25, maxAgeDoctorate: 30 },
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/16626962/pexels-photo-16626962.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 10,
                 closeMonth: 1,
@@ -1910,6 +1960,9 @@
             },
             {
                 id: 13,
+                eligibility: { minWorkExperienceHours: 3000 },
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/29115728/pexels-photo-29115728.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 12,
                 closeMonth: 2,
@@ -1925,6 +1978,9 @@
             },
             {
                 id: 14,
+                eligibility: { languageTest: "TOEFL/IELTS" },
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/7683887/pexels-photo-7683887.jpeg?auto=compress&cs=tinysrgb&w=800",
                 statusType: "rolling",
                 competitiveness: "تنافسية جداً",
@@ -1939,6 +1995,9 @@
             },
             {
                 id: 15,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/15839821/pexels-photo-15839821.jpeg?auto=compress&cs=tinysrgb&w=800",
                 statusType: "rolling",
                 competitiveness: "معتدلة",
@@ -1953,6 +2012,9 @@
             },
             {
                 id: 16,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/31255868/pexels-photo-31255868.jpeg?auto=compress&cs=tinysrgb&w=800",
                 statusType: "rolling",
                 competitiveness: "معتدلة",
@@ -1967,6 +2029,9 @@
             },
             {
                 id: 17,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/36246789/pexels-photo-36246789.jpeg?auto=compress&cs=tinysrgb&w=800",
                 statusType: "rolling",
                 competitiveness: "معتدلة",
@@ -1981,6 +2046,9 @@
             },
             {
                 id: 18,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/7899651/pexels-photo-7899651.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 3,
                 closeMonth: 9,
@@ -1996,6 +2064,9 @@
             },
             {
                 id: 19,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/26600254/pexels-photo-26600254.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 8,
                 closeMonth: 10,
@@ -2011,6 +2082,9 @@
             },
             {
                 id: 20,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/7899651/pexels-photo-7899651.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 1,
                 closeMonth: 4,
@@ -2026,6 +2100,9 @@
             },
             {
                 id: 21,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/33165661/pexels-photo-33165661.jpeg?auto=compress&cs=tinysrgb&w=800",
                 statusType: "rolling",
                 competitiveness: "تنافسية جداً",
@@ -2040,6 +2117,9 @@
             },
             {
                 id: 22,
+                eligibility: { minGPA: 80, maxAgeUndergrad: 25, maxAgeGraduate: 40 },
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/20748279/pexels-photo-20748279.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 8,
                 closeMonth: 10,
@@ -2055,6 +2135,9 @@
             },
             {
                 id: 23,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/7478012/pexels-photo-7478012.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 2,
                 closeMonth: 3,
@@ -2070,6 +2153,9 @@
             },
             {
                 id: 24,
+                eligibility: { minWorkExperienceYears: 1 },
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/8495952/pexels-photo-8495952.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 2,
                 closeMonth: 4,
@@ -2085,6 +2171,9 @@
             },
             {
                 id: 25,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/12026332/pexels-photo-12026332.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 9,
                 closeMonth: 11,
@@ -2100,6 +2189,9 @@
             },
             {
                 id: 26,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/12587123/pexels-photo-12587123.jpeg?auto=compress&cs=tinysrgb&w=800",
                 statusType: "rolling",
                 competitiveness: "معتدلة",
@@ -2114,6 +2206,9 @@
             },
             {
                 id: 27,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/18096357/pexels-photo-18096357.jpeg?auto=compress&cs=tinysrgb&w=800",
                 statusType: "rolling",
                 competitiveness: "معتدلة",
@@ -2128,6 +2223,9 @@
             },
             {
                 id: 28,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/18137345/pexels-photo-18137345.jpeg?auto=compress&cs=tinysrgb&w=800",
                 statusType: "rolling",
                 competitiveness: "تنافسية جداً",
@@ -2142,6 +2240,9 @@
             },
             {
                 id: 29,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/16361673/pexels-photo-16361673.jpeg?auto=compress&cs=tinysrgb&w=800",
                 statusType: "rolling",
                 competitiveness: "تنافسية جداً",
@@ -2156,6 +2257,9 @@
             },
             {
                 id: 30,
+                eligibility: { nationalityIncluded: "غزة أو فلسطين" },
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/16675721/pexels-photo-16675721.jpeg?auto=compress&cs=tinysrgb&w=800",
                 statusType: "rolling",
                 competitiveness: "معتدلة",
@@ -2170,6 +2274,9 @@
             },
             {
                 id: 31,
+                eligibility: { nationalityRestrictedNote: "الجنسية يجب أن تكون من إحدى دول الكومنولث" },
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/10510957/pexels-photo-10510957.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 8,
                 closeMonth: 12,
@@ -2185,6 +2292,9 @@
             },
             {
                 id: 32,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/4857651/pexels-photo-4857651.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 8,
                 closeMonth: 12,
@@ -2200,6 +2310,9 @@
             },
             {
                 id: 33,
+                eligibility: { nationalityRestrictedNote: "الجنسية يجب أن تكون من إحدى الدول المؤهلة ضمن شبكة آغا خان" },
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/8500625/pexels-photo-8500625.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 1,
                 closeMonth: 3,
@@ -2215,6 +2328,9 @@
             },
             {
                 id: 34,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/9774634/pexels-photo-9774634.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 1,
                 closeMonth: 3,
@@ -2230,6 +2346,9 @@
             },
             {
                 id: 35,
+                eligibility: { languageTest: "IELTS/TOEFL" },
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/18096357/pexels-photo-18096357.jpeg?auto=compress&cs=tinysrgb&w=800",
                 statusType: "rolling",
                 competitiveness: "تنافسية",
@@ -2244,6 +2363,9 @@
             },
             {
                 id: 36,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/29151451/pexels-photo-29151451.jpeg?auto=compress&cs=tinysrgb&w=800",
                 statusType: "rolling",
                 competitiveness: "معتدلة",
@@ -2258,6 +2380,9 @@
             },
             {
                 id: 37,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/4727408/pexels-photo-4727408.jpeg?auto=compress&cs=tinysrgb&w=800",
                 statusType: "rolling",
                 competitiveness: "معتدلة",
@@ -2272,6 +2397,9 @@
             },
             {
                 id: 38,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/30522277/pexels-photo-30522277.jpeg?auto=compress&cs=tinysrgb&w=800",
                 statusType: "rolling",
                 competitiveness: "معتدلة",
@@ -2286,6 +2414,9 @@
             },
             {
                 id: 39,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/29678689/pexels-photo-29678689.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 5,
                 closeMonth: 8,
@@ -2301,6 +2432,9 @@
             },
             {
                 id: 40,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/5054948/pexels-photo-5054948.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 11,
                 closeMonth: 2,
@@ -2316,6 +2450,9 @@
             },
             {
                 id: 41,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/8926887/pexels-photo-8926887.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 2,
                 closeMonth: 5,
@@ -2331,6 +2468,9 @@
             },
             {
                 id: 42,
+                eligibility: { nationalityExcluded: "دول الاتحاد الأوروبي والمنطقة الاقتصادية الأوروبية" },
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/16461478/pexels-photo-16461478.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 1,
                 closeMonth: 5,
@@ -2346,6 +2486,9 @@
             },
             {
                 id: 43,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/22799861/pexels-photo-22799861.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 6,
                 closeMonth: 9,
@@ -2361,6 +2504,9 @@
             },
             {
                 id: 44,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/33165661/pexels-photo-33165661.jpeg?auto=compress&cs=tinysrgb&w=800",
                 statusType: "rolling",
                 competitiveness: "تنافسية",
@@ -2375,6 +2521,9 @@
             },
             {
                 id: 45,
+                eligibility: {},
+                verificationStatus: "verified",
+                lastVerifiedDate: "أغسطس 2026",
                 image: "https://images.pexels.com/photos/11592408/pexels-photo-11592408.jpeg?auto=compress&cs=tinysrgb&w=800",
                 openMonth: 8,
                 closeMonth: 11,
@@ -2969,26 +3118,155 @@
             document.getElementById('scholarship-modal').classList.add('hidden');
         }
 
-        // دالة حاسبة القبول
-        // يحاول استنتاج مستوى اللغة المطلوب من نص متطلبات المنحة فقط، ويترك الشارة غائبة إن لم يوجد ذكر واضح
-        function getLanguageRequirementLabel(sch) {
-            const text = sch.requirements.join(' ');
-            const hasIELTS = /IELTS/i.test(text);
-            const hasTOEFL = /TOEFL/i.test(text);
-            if(hasIELTS && hasTOEFL) return 'IELTS/TOEFL';
-            if(hasIELTS) return 'IELTS';
-            if(hasTOEFL) return 'TOEFL';
-            if(/اللغة الإيطالية/.test(text)) return 'إيطالية أو إنجليزية حسب البرنامج';
-            if(/اللغة الألمانية|الألمانية/.test(text)) return 'إنجليزية أو ألمانية';
-            if(/اللغة الإنجليزية|لغة إنجليزية|للغة الإنجليزية/.test(text)) return 'إنجليزية (دون تحديد اختبار)';
-            if(/اختبار اللغة|متطلبات اللغة/.test(text)) return 'اختبار لغة (غير محدد بدقة)';
-            return null;
+        // ===== أداة التوافق الأولي مع المنح =====
+        // دول الاتحاد الأوروبي والمنطقة الاقتصادية الأوروبية (معرفة عامة حقيقية، تُستخدم فقط لتفعيل شرط
+        // nationalityExcluded الموثق صراحة بنص منحة هولندا نفسها - لا تُخترع بها أي بيانات خاصة بمنحة بعينها)
+        const EU_EEA_COUNTRIES_AR = ["ألمانيا", "فرنسا", "إيطاليا", "إسبانيا", "هولندا", "بلجيكا", "البرتغال", "اليونان", "بولندا", "السويد", "النمسا", "الدنمارك", "فنلندا", "أيرلندا", "التشيك", "المجر", "هنغاريا", "رومانيا", "بلغاريا", "كرواتيا", "سلوفاكيا", "سلوفينيا", "ليتوانيا", "لاتفيا", "إستونيا", "لوكسمبورغ", "مالطا", "قبرص", "آيسلندا", "النرويج", "ليختنشتاين"];
+
+        // يحسب أيام متبقية تقريبية حتى إغلاق منحة مفتوحة حالياً فقط (Infinity لغير المفتوحة الآن)، لاستخدامها كفاصل ترتيب ثانوي فقط
+        function getClosingUrgencyDays(sch) {
+            if(getScholarshipStatus(sch).type !== 'open') return Infinity;
+            const now = new Date();
+            let closeDate = new Date(now.getFullYear(), sch.closeMonth - 1, 28);
+            if(closeDate < now) closeDate = new Date(now.getFullYear() + 1, sch.closeMonth - 1, 28);
+            return Math.ceil((closeDate - now) / (1000 * 60 * 60 * 24));
+        }
+
+        // يقارن بيانات الطالب بحقل eligibility الموثق فعلياً لهذه المنحة تحديداً فقط، ولا يستخدم أي معيار غير موثق بالاستبعاد
+        function evaluateScholarshipEligibility(sch, student) {
+            const elig = sch.eligibility || {};
+            const reasons = [];
+            let hasFailure = false;
+            let needsVerificationCount = 0;
+            let passCount = 1; // الدرجة العلمية مطابقة دائماً هنا (فُلترت مسبقاً قبل استدعاء هذه الدالة)
+            reasons.push({ type: 'pass', text: 'الدرجة العلمية متوافقة' });
+
+            // المعدل الأكاديمي
+            let minGPA = null;
+            if(student.degree === 'بكالوريوس' && elig.minGPAUndergrad != null) minGPA = elig.minGPAUndergrad;
+            else if(student.degree !== 'بكالوريوس' && elig.minGPAGraduate != null) minGPA = elig.minGPAGraduate;
+            else if(elig.minGPA != null) minGPA = elig.minGPA;
+
+            if(minGPA != null) {
+                if(student.gpa >= minGPA) {
+                    reasons.push({ type: 'pass', text: `المعدل يحقق الحد الأدنى الموثق (${minGPA}%)` });
+                    passCount++;
+                } else {
+                    reasons.push({ type: 'fail', text: `المعدل أقل من الحد الأدنى الموثق لهذه المنحة (${minGPA}%)` });
+                    hasFailure = true;
+                }
+            }
+
+            // العمر
+            let maxAge = null;
+            if(student.degree === 'بكالوريوس' && elig.maxAgeUndergrad != null) maxAge = elig.maxAgeUndergrad;
+            else if(student.degree === 'ماجستير' && elig.maxAgeMaster != null) maxAge = elig.maxAgeMaster;
+            else if(student.degree === 'دكتوراه' && elig.maxAgeDoctorate != null) maxAge = elig.maxAgeDoctorate;
+            else if(elig.maxAge != null) maxAge = elig.maxAge;
+
+            if(maxAge != null) {
+                if(student.age != null && !isNaN(student.age)) {
+                    if(student.age <= maxAge) {
+                        reasons.push({ type: 'pass', text: `العمر ضمن الحد المعلن (${maxAge} سنة)` });
+                        passCount++;
+                    } else {
+                        reasons.push({ type: 'fail', text: `العمر يتجاوز الحد المعلن (${maxAge} سنة)` });
+                        hasFailure = true;
+                    }
+                } else {
+                    reasons.push({ type: 'verify', text: `يوجد حد عمري معلن (${maxAge} سنة) — أدخل عمرك للتحقق` });
+                    needsVerificationCount++;
+                }
+            }
+
+            // الجنسية
+            if(elig.nationalityIncluded) {
+                const keywords = elig.nationalityIncluded.split(/\s+أو\s+/).map(k => k.trim());
+                if(student.nationality) {
+                    const matches = keywords.some(k => student.nationality.includes(k) || k.includes(student.nationality));
+                    if(matches) {
+                        reasons.push({ type: 'pass', text: `الجنسية/الانتماء يطابق الشرط الموثق (${elig.nationalityIncluded})` });
+                        passCount++;
+                    } else {
+                        reasons.push({ type: 'fail', text: `هذه المنحة مخصصة صراحة لـ${elig.nationalityIncluded}` });
+                        hasFailure = true;
+                    }
+                } else {
+                    reasons.push({ type: 'verify', text: `هذه المنحة مخصصة صراحة لـ${elig.nationalityIncluded} — الجنسية بحاجة إلى تحقق` });
+                    needsVerificationCount++;
+                }
+            }
+            if(elig.nationalityExcluded) {
+                if(student.nationality) {
+                    const isEU = EU_EEA_COUNTRIES_AR.some(c => student.nationality.includes(c));
+                    if(isEU) {
+                        reasons.push({ type: 'fail', text: `هذه المنحة تستثني صراحة ${elig.nationalityExcluded}` });
+                        hasFailure = true;
+                    } else {
+                        reasons.push({ type: 'pass', text: `الجنسية خارج نطاق الاستثناء الموثق (${elig.nationalityExcluded})` });
+                        passCount++;
+                    }
+                } else {
+                    reasons.push({ type: 'verify', text: `هذه المنحة تستثني ${elig.nationalityExcluded} — الجنسية بحاجة إلى تحقق` });
+                    needsVerificationCount++;
+                }
+            }
+            if(elig.nationalityRestrictedNote) {
+                reasons.push({ type: 'verify', text: `${elig.nationalityRestrictedNote} — الجنسية بحاجة إلى تحقق` });
+                needsVerificationCount++;
+            }
+
+            // اللغة (لا يوجد لدينا حد أدنى رقمي موثق لأي منحة، لذا لا تُستخدم أبداً للاستبعاد، فقط للتنبيه بالتحقق)
+            if(elig.languageTest) {
+                reasons.push({ type: 'verify', text: `تتطلب شهادة لغة موثقة (${elig.languageTest})، دون تحديد صريح للحد الأدنى — شرط اللغة غير موثق بدقة كافية للحكم` });
+                needsVerificationCount++;
+            }
+
+            // خبرة العمل
+            if(elig.minWorkExperienceYears != null) {
+                reasons.push({ type: 'verify', text: `تتطلب خبرة عمل لا تقل عن ${elig.minWorkExperienceYears} سنة — بحاجة إلى تحقق` });
+                needsVerificationCount++;
+            }
+            if(elig.minWorkExperienceHours != null) {
+                reasons.push({ type: 'verify', text: `تتطلب خبرة عمل لا تقل عن ${elig.minWorkExperienceHours} ساعة — بحاجة إلى تحقق` });
+                needsVerificationCount++;
+            }
+
+            let category, score;
+            if(hasFailure) {
+                category = 'غير متوافق مع شرط واضح';
+                score = passCount - 100;
+            } else if(needsVerificationCount > 0 || passCount <= 1) {
+                // لا تُصنَّف "متوافقة مبدئياً" إلا إذا تأكد معيار موثق واحد على الأقل غير الدرجة العلمية فقط
+                category = 'بحاجة إلى تحقق';
+                score = passCount;
+            } else {
+                category = 'متوافق مبدئياً';
+                score = passCount + 10;
+            }
+
+            return { category, score, reasons };
+        }
+
+        // ترتيب ثابت 100%: score تنازلياً، ثم verificationStatus (verified أولاً)، ثم الأقرب إغلاقاً للمنح المفتوحة حالياً، ثم العنوان أبجدياً
+        function compareCalculatorResults(a, b) {
+            if(b.score !== a.score) return b.score - a.score;
+            const aVerified = a.sch.verificationStatus === 'verified' ? 0 : 1;
+            const bVerified = b.sch.verificationStatus === 'verified' ? 0 : 1;
+            if(aVerified !== bVerified) return aVerified - bVerified;
+            const aUrgency = getClosingUrgencyDays(a.sch);
+            const bUrgency = getClosingUrgencyDays(b.sch);
+            if(aUrgency !== bUrgency) return aUrgency - bUrgency;
+            return a.sch.title.localeCompare(b.sch.title, 'ar');
         }
 
         function runCalculator() {
             const gpa = parseFloat(document.getElementById('calc-gpa').value);
             const degree = document.getElementById('calc-degree').value;
             const english = document.getElementById('calc-english').value;
+            const nationality = document.getElementById('calc-nationality').value.trim();
+            const ageRaw = document.getElementById('calc-age').value;
+            const age = ageRaw ? parseInt(ageRaw, 10) : null;
             const outputDiv = document.getElementById('calc-results');
             const outputContent = document.getElementById('calc-output-content');
 
@@ -2998,93 +3276,56 @@
             }
 
             outputDiv.classList.remove('hidden');
-            outputContent.innerHTML = `<div class="text-center py-4"><i class="fa-solid fa-spinner fa-spin text-3xl text-gold-500 mb-2"></i><p class="text-sm text-slate-400">جاري تحليل البيانات ومطابقة المنح بذكاء اصطناعي...</p></div>`;
+            outputContent.innerHTML = `<div class="text-center py-4"><i class="fa-solid fa-spinner fa-spin text-3xl text-gold-500 mb-2"></i><p class="text-sm text-slate-400">جاري مقارنة بياناتك بالشروط المتاحة...</p></div>`;
 
-            // محاكاة تحميل المعالجة
             setTimeout(() => {
+                const student = { gpa, degree, english, nationality, age };
+
                 // فلترة إلزامية أولى: الدرجة العلمية المستهدفة يجب أن تطابق حقل degree
-                let eligible = scholarshipsData.filter(sch => sch.degree.includes(degree));
+                const eligibleByDegree = scholarshipsData.filter(sch => sch.degree.includes(degree));
 
-                // تحديد فئة قوة الملف بناء على المعدل ومستوى اللغة معاً
-                const englishAtLeastIntermediate = english === 'intermediate' || english === 'advanced';
-                let category, categoryColor, analysisText, majors;
+                const results = eligibleByDegree
+                    .map(sch => ({ sch, ...evaluateScholarshipEligibility(sch, student) }))
+                    .sort(compareCalculatorResults);
 
-                if(gpa >= 90 && english === 'advanced') {
-                    category = "قوي جداً (تنافسي)";
-                    categoryColor = "text-brandGreen-400";
-                    analysisText = "ملفك الأكاديمي بمستوى تنافسي قوي جداً — هذا يفتح لك المجال للتقديم على أعرق المنح والجامعات العالمية، بما فيها المنح الأكثر تنافسية بقائمتنا.";
-                    majors = ["الطب البشري", "هندسة الحاسوب والذكاء الاصطناعي", "القانون الدولي", "إدارة الأعمال (MBA)"];
-                } else if(gpa >= 80 && englishAtLeastIntermediate) {
-                    category = "قوي";
-                    categoryColor = "text-gold-400";
-                    analysisText = "ملفك الأكاديمي جيد جداً ويؤهلك لعدد كبير من المنح بقائمتنا. لو رفعت مستوى اللغة درجة إضافية، بتفتح لك خيارات أوسع بالمنح الأكثر تنافسية.";
-                    majors = ["الهندسة (عام)", "الصيدلة", "علوم البيانات", "العلاقات الدولية"];
-                } else if(gpa >= 70) {
-                    category = "متوسط";
-                    categoryColor = "text-amber-400";
-                    analysisText = "ملفك يؤهلك لعدد جيد من فرص القبول المباشر والمنح ذات الشروط المرنة. ننصحك بالتواصل مع مستشار أكاديمي لوضع خطة تقوية للملف قبل التقديم على المنح الأعلى تنافسية.";
-                    majors = ["تكنولوجيا المعلومات", "العلوم الإدارية", "العلوم الصحية المساندة", "التعليم"];
-                } else {
-                    category = "يحتاج تطوير";
-                    categoryColor = "text-orange-400";
-                    analysisText = "معدلك الحالي يناسب أكثر مسارات القبول المباشر ذات الشروط المرنة أو برامج السنة التحضيرية (Foundation Year)، وهي خطوة ممتازة لرفع معدلك قبل الانتقال لبرنامج أقوى. تواصل معنا لخطة مخصصة.";
-                    majors = ["برنامج سنة تحضيرية (Foundation)", "دبلوم متقدم", "إدارة الأعمال العامة", "دراسات عامة (Undeclared)"];
-                }
+                renderCalculatorResults(results);
+            }, 800);
+        }
 
-                // نظام تسجيل نقاط حقيقي: يقارن تنافسية كل منحة بفئة قوة ملف الطالب
-                const scoreTable = {
-                    "قوي جداً (تنافسي)": { "تنافسية جداً": 3, "تنافسية": 2, "معتدلة": 1 },
-                    "قوي": { "تنافسية جداً": 1, "تنافسية": 3, "معتدلة": 2 },
-                    "متوسط": { "تنافسية جداً": 0, "تنافسية": 2, "معتدلة": 3 },
-                    "يحتاج تطوير": { "تنافسية جداً": 0, "تنافسية": 1, "معتدلة": 3 }
-                };
-                const scoreMap = scoreTable[category];
+        function renderCalculatorResults(results) {
+            const outputContent = document.getElementById('calc-output-content');
+            if(results.length === 0) {
+                outputContent.innerHTML = `<p class="text-sm text-slate-400">لم نجد أي منحة بدرجة علمية مطابقة لاختيارك حالياً، يرجى تصفح الدليل الكامل.</p>`;
+                return;
+            }
 
-                let recommended = eligible
-                    .map(sch => ({ sch, score: (scoreMap[sch.competitiveness] != null ? scoreMap[sch.competitiveness] : 1), rand: Math.random() }))
-                    .filter(item => item.score > 0)
-                    .sort((a, b) => (b.score - a.score) || (b.rand - a.rand))
-                    .slice(0, 6)
-                    .map(item => item.sch);
+            const categoryStyles = {
+                'متوافق مبدئياً': 'bg-brandGreen-500/15 text-brandGreen-600',
+                'بحاجة إلى تحقق': 'bg-amber-500/15 text-amber-700',
+                'غير متوافق مع شرط واضح': 'bg-red-500/15 text-red-600'
+            };
+            const reasonStyles = {
+                pass: { color: 'text-brandGreen-600', icon: 'fa-circle-check' },
+                verify: { color: 'text-amber-600', icon: 'fa-circle-question' },
+                fail: { color: 'text-red-600', icon: 'fa-circle-xmark' }
+            };
 
-                let html = `
-                    <div class="bg-navy-800 border border-slate-700 p-4 rounded-xl mb-4">
-                        <h5 class="text-sm text-slate-300 font-bold mb-2">فئة قوة ملفك: <span class="${categoryColor} font-black text-lg">${category}</span></h5>
-                        <p class="text-sm text-slate-300 leading-relaxed">${analysisText}</p>
+            outputContent.innerHTML = results.map(r => `
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <div class="flex items-start justify-between gap-3 mb-2">
+                        <h6 class="font-bold text-navy-900 flex-1 cursor-pointer hover:text-gold-600 transition-colors" onclick="openScholarshipModal(${r.sch.id})">${r.sch.title}</h6>
+                        <span class="${categoryStyles[r.category]} text-[11px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap">${r.category}</span>
                     </div>
-                    <div class="mb-4">
-                        <h5 class="text-sm font-bold text-slate-300 mb-2">تخصصات مقترحة لملفك:</h5>
-                        <div class="flex flex-wrap gap-2">
-                            ${majors.map(m => `<span class="bg-gold-500/15 text-gold-400 border border-gold-500/30 text-xs font-bold px-3 py-1.5 rounded-full">${m}</span>`).join('')}
-                        </div>
+                    <span class="text-xs text-slate-500 font-bold block mb-2">${r.sch.country} • ${r.sch.coverage}</span>
+                    <ul class="space-y-1 mb-3">
+                        ${r.reasons.map(reason => `<li class="text-[11px] flex items-start gap-1.5 ${reasonStyles[reason.type].color}"><i class="fa-solid ${reasonStyles[reason.type].icon} mt-0.5"></i><span>${reason.text}</span></li>`).join('')}
+                    </ul>
+                    <div class="flex items-center justify-between text-[11px] text-slate-400 border-t border-slate-100 pt-2">
+                        <span>آخر تحقق: ${r.sch.lastVerifiedDate}</span>
+                        <a href="${r.sch.link}" target="_blank" class="text-gold-600 font-bold hover:underline">الرابط الرسمي <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
-                    <h5 class="font-bold text-white mb-2">أفضل المنح الموصى بها لك فوراً:</h5>
-                    <div class="space-y-3">
-                `;
-
-                if(recommended.length > 0) {
-                    recommended.forEach(sch => {
-                        const langLabel = getLanguageRequirementLabel(sch);
-                        html += `
-                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex justify-between items-center group hover:bg-white transition-colors cursor-pointer" onclick="openScholarshipModal(${sch.id})">
-                                <div>
-                                    <h6 class="font-bold text-navy-900 group-hover:text-gold-600 transition-colors">${sch.title}</h6>
-                                    <span class="text-xs text-slate-500 font-bold">${sch.country} • ${sch.coverage}</span>
-                                    ${langLabel ? `<span class="block text-[11px] text-sky-700 bg-sky-50 border border-sky-200 px-2 py-0.5 rounded-full font-bold mt-1.5 w-fit">يتطلب عادة مستوى لغة: ${langLabel}</span>` : ''}
-                                </div>
-                                <i class="fa-solid fa-chevron-left text-slate-400 group-hover:text-gold-500 transition-colors"></i>
-                            </div>
-                        `;
-                    });
-                } else {
-                    html += `<p class="text-sm text-slate-400">عذراً، لم نجد منحاً متطابقة في هذه اللحظة، يرجى تصفح الدليل الكامل.</p>`;
-                }
-
-                html += `</div>
-                <button onclick="switchView('contact')" class="w-full mt-4 py-3 bg-navy-800 hover:bg-navy-700 text-gold-400 border border-gold-500/30 font-bold rounded-xl transition text-sm">تواصل مع المستشار لتقييم دقيق لملفك</button>`;
-
-                outputContent.innerHTML = html;
-            }, 1200);
+                </div>
+            `).join('');
         }
 
         // دالة نسخ القالب
