@@ -1601,29 +1601,6 @@
 
     </main>
 
-    <!-- AI CHATBOT WIDGET -->
-    <div class="fixed bottom-6 left-6 z-40">
-        <button onclick="toggleChatWidget()" class="w-14 h-14 rounded-full bg-gradient-to-r from-gold-500 to-amber-600 text-navy-900 flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-transform">
-            <i class="fa-solid fa-robot"></i>
-        </button>
-        <div id="chat-widget" class="hidden absolute bottom-20 left-0 w-80 sm:w-96 bg-navy-900 border border-gold-500/30 rounded-3xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 transform origin-bottom-left">
-            <div class="bg-navy-800 p-4 border-b border-slate-700 flex items-center justify-between">
-                <div class="flex items-center gap-2.5">
-                    <div class="w-3 h-3 rounded-full bg-brandGreen-500 animate-pulse"></div>
-                    <span class="font-bold text-white text-sm">مستشار المجد الذكي (AI Advisor)</span>
-                </div>
-                <button onclick="toggleChatWidget()" class="text-slate-400 hover:text-white transition"><i class="fa-solid fa-xmark text-lg"></i></button>
-            </div>
-            <div id="chat-messages" class="p-4 space-y-3 h-64 overflow-y-auto text-xs text-slate-200 scroll-smooth">
-                <div class="bg-navy-800 p-3 rounded-2xl rounded-tr-none max-w-[85%] shadow border border-slate-700">مرحباً بك! أنا مستشارك الذكي في منصة المجد بإشراف م. مجد جميل. كيف يمكنني مساعدتك اليوم بخصوص المنح أو القبولات؟</div>
-            </div>
-            <div class="p-3 bg-navy-800 border-t border-slate-700 flex gap-2">
-                <input type="text" id="chat-input" onkeypress="handleChatKey(event)" placeholder="اسأل عن المنح والشروط..." class="flex-1 bg-navy-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-gold-500 transition-colors">
-                <button onclick="sendChatMessage()" class="bg-gold-500 hover:bg-gold-600 text-navy-900 font-bold px-3 py-2 rounded-xl text-xs transition-colors"><i class="fa-solid fa-paper-plane"></i></button>
-            </div>
-        </div>
-    </div>
-
     <!-- Scholarship Details Modal -->
     <div id="scholarship-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden p-4 transition-opacity">
         <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl border border-slate-200 max-h-[90vh] overflow-y-auto transform transition-transform scale-95" id="scholarship-modal-card">
@@ -3158,54 +3135,6 @@
 
         function closeSuccessModal() {
             document.getElementById('success-modal').classList.add('hidden');
-        }
-
-        // برمجة بوت المحادثة
-        function toggleChatWidget() {
-            const chatWidget = document.getElementById('chat-widget');
-            chatWidget.classList.toggle('hidden');
-        }
-
-        function handleChatKey(event) {
-            if(event.key === 'Enter') {
-                sendChatMessage();
-            }
-        }
-
-        function sendChatMessage() {
-            const input = document.getElementById('chat-input');
-            const message = input.value.trim();
-            if(!message) return;
-
-            const messagesDiv = document.getElementById('chat-messages');
-            
-            // رسالة المستخدم
-            messagesDiv.innerHTML += `
-                <div class="bg-gold-500/20 text-gold-100 p-3 rounded-2xl rounded-tl-none max-w-[85%] mr-auto text-right border border-gold-500/30 font-medium">
-                    ${message}
-                </div>
-            `;
-            
-            input.value = '';
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-
-            // محاكاة رد البوت الذكي
-            setTimeout(() => {
-                let reply = "مرحباً! فريق منصة المجد يرحب بك. يرجى ترك رسالتك بالكامل أو حجز استشارة عبر نموذج التواصل وسيقوم م. مجد جميل أو أحد المستشارين بالرد عليك بأقرب وقت لضمان تقديم أفضل خدمة لك.";
-                
-                if(message.includes("منحة") || message.includes("تركيا")) {
-                    reply = `لدينا في الدليل ${scholarshipsData.length} منحة رسمية معتمدة، والمنحة التركية من أبرزها. هل قمت بتجربة 'حاسبة القبول' لمعرفة فرصك التقريبية؟`;
-                } else if(message.includes("معدل") || message.includes("نسبة")) {
-                    reply = "المعدل مهم، لكن الأهم هو كيفية إبراز نقاط قوتك في 'رسالة الدوافع'. منصة المجد 360 توفر لك تقييماً شاملاً لملفك. أنصحك بحجز استشارة.";
-                }
-
-                messagesDiv.innerHTML += `
-                    <div class="bg-navy-800 p-3 rounded-2xl rounded-tr-none max-w-[85%] shadow border border-slate-700 font-medium">
-                        ${reply}
-                    </div>
-                `;
-                messagesDiv.scrollTop = messagesDiv.scrollHeight;
-            }, 1000);
         }
 
         // FAQ System: Categories, Data, and Accordion Logic
