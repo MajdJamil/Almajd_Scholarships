@@ -30,8 +30,8 @@
                 extend: {
                     colors: {
                         navy: { 900: '#150B33', 800: '#241454', 700: '#3A1E82', 600: '#4828B0' },
-                        gold: { 500: '#E0A808', 600: '#C08F06', 400: '#EDC04D', 300: '#F5D889' },
-                        brandGreen: { 500: '#00D078', 600: '#00A862', 400: '#33DB94', 100: '#D9FBEB' },
+                        gold: { 700: '#8A6500', 600: '#C08F06', 500: '#E0A808', 400: '#EDC04D', 300: '#F5D889' },
+                        brandGreen: { 600: '#007A46', 500: '#00D078', 400: '#33DB94', 100: '#D9FBEB' },
                         slateLight: '#F8FAFC'
                     },
                     fontFamily: { cairo: ['Cairo', 'sans-serif'] },
@@ -53,16 +53,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { font-family: 'Cairo', sans-serif; }
-        .hero-gradient { background: linear-gradient(135deg, #07111E 0%, #0F223A 50%, #193455 100%); }
-        .gold-glow { box-shadow: 0 0 35px rgba(212, 175, 55, 0.35); }
-        .glass-card { background: rgba(15, 34, 58, 0.88); backdrop-filter: blur(14px); border: 1px solid rgba(212, 175, 55, 0.25); }
+        .hero-gradient { background: linear-gradient(135deg, #150B33 0%, #241454 55%, #3A1E82 100%); }
+        .gold-glow { box-shadow: 0 0 35px rgba(224, 168, 8, 0.35); }
+        .glass-card { background: rgba(36, 20, 84, 0.88); backdrop-filter: blur(14px); border: 1px solid rgba(224, 168, 8, 0.25); }
         @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
         .floating { animation: float 4s ease-in-out infinite; }
         .view-section { display: none; opacity: 0; transition: opacity 0.4s ease-in-out; }
         .view-section.active { display: block; opacity: 1; }
         
         /* شريط التمرير للجامعات والقبولات */
-        .ticker-wrap { width: 100%; overflow: hidden; background-color: #0F223A; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+        .ticker-wrap { width: 100%; overflow: hidden; background-color: #150B33; border-bottom: 1px solid rgba(224, 168, 8, 0.2); }
         .ticker { display: inline-block; white-space: nowrap; padding-right: 100%; box-sizing: content-box; animation: ticker 40s linear infinite; }
         .ticker-item { display: inline-block; padding: 0 2rem; color: #FFF; font-size: 0.875rem; font-weight: 600; }
         @keyframes ticker { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(100%, 0, 0); } }
@@ -70,8 +70,8 @@
         /* تجميل سكرول بار */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #B89726; }
+        ::-webkit-scrollbar-thumb { background: #E0A808; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #C08F06; }
     </style>
 </head>
 <body class="bg-slateLight text-slate-800 antialiased min-h-screen flex flex-col justify-between selection:bg-gold-500 selection:text-navy-900">
@@ -79,12 +79,12 @@
     <!-- شريط الأخبار العاجلة / القبولات -->
     <div class="ticker-wrap py-2 hidden sm:block">
         <div class="ticker">
-            <span class="ticker-item"><i class="fa-solid fa-bell text-gold-500 ml-2"></i>عاجل: تم قبول الطالب أحمد محمود في المنحة التركية (تخصص هندسة برمجيات)</span>
-            <span class="ticker-item"><i class="fa-solid fa-bell text-gold-500 ml-2"></i>عاجل: قبول الطالبة سارة عبدالله في منحة Stipendium Hungaricum (طب بشري)</span>
-            <span class="ticker-item"><i class="fa-solid fa-bell text-gold-500 ml-2"></i>عاجل: إعلان نتائج منحة إيراسموس موندوس للعام الأكاديمي الجديد</span>
-            <span class="ticker-item"><i class="fa-solid fa-bell text-gold-500 ml-2"></i>عاجل: فتح باب التقديم المبكر لمنحة الحكومة الصينية CSC للعام 2026/2027</span>
-            <span class="ticker-item"><i class="fa-solid fa-bell text-gold-500 ml-2"></i>عاجل: تسجيل منحة الأبواب المفتوحة الروسية (Open Doors) فتح رسمياً الآن</span>
-            <span class="ticker-item"><i class="fa-solid fa-bell text-gold-500 ml-2"></i>عاجل: صدور نتائج المنحة التركية الرسمية (Türkiye Scholarships) النهائية</span>
+            <span class="ticker-item"><i class="fa-solid fa-bell text-gold-400 ml-2"></i>عاجل: تم قبول الطالب أحمد محمود في المنحة التركية (تخصص هندسة برمجيات)</span>
+            <span class="ticker-item"><i class="fa-solid fa-bell text-gold-400 ml-2"></i>عاجل: قبول الطالبة سارة عبدالله في منحة Stipendium Hungaricum (طب بشري)</span>
+            <span class="ticker-item"><i class="fa-solid fa-bell text-gold-400 ml-2"></i>عاجل: إعلان نتائج منحة إيراسموس موندوس للعام الأكاديمي الجديد</span>
+            <span class="ticker-item"><i class="fa-solid fa-bell text-gold-400 ml-2"></i>عاجل: فتح باب التقديم المبكر لمنحة الحكومة الصينية CSC للعام 2026/2027</span>
+            <span class="ticker-item"><i class="fa-solid fa-bell text-gold-400 ml-2"></i>عاجل: تسجيل منحة الأبواب المفتوحة الروسية (Open Doors) فتح رسمياً الآن</span>
+            <span class="ticker-item"><i class="fa-solid fa-bell text-gold-400 ml-2"></i>عاجل: صدور نتائج المنحة التركية الرسمية (Türkiye Scholarships) النهائية</span>
         </div>
     </div>
 
@@ -94,7 +94,7 @@
                 <a href="#" onclick="switchView('home')" class="flex items-center gap-3.5 group cursor-pointer">
                     <img src="logo-icon.png" alt="شعار منصة المجد" class="h-11 w-auto group-hover:scale-105 transition-transform duration-300">
                     <div>
-                        <span class="text-xl sm:text-2xl font-black text-white tracking-wide block">منصة المجد <span class="text-gold-500">التعليمية</span></span>
+                        <span class="text-xl sm:text-2xl font-black text-white tracking-wide block">منصة المجد <span class="text-gold-400">التعليمية</span></span>
                     </div>
                 </a>
 
@@ -104,8 +104,8 @@
                         <span class="bg-gold-500/20 text-gold-400 text-[10px] px-2 py-0.5 rounded-full border border-gold-500/30"><span class="sch-count">80</span> منحة</span>
                         دليل المنح
                     </button>
-                    <button onclick="switchView('testimonials')" id="nav-testimonials" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent text-brandGreen-400"><i class="fa-solid fa-certificate ml-1"></i>قصص طلابنا</button>
-                    <button onclick="switchView('calculator')" id="nav-calculator" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent text-amber-300"><i class="fa-solid fa-calculator ml-1"></i>حاسبة القبول</button>
+                    <button onclick="switchView('testimonials')" id="nav-testimonials" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent"><i class="fa-solid fa-certificate ml-1"></i>قصص طلابنا</button>
+                    <button onclick="switchView('calculator')" id="nav-calculator" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent"><i class="fa-solid fa-calculator ml-1"></i>حاسبة القبول</button>
                     <button onclick="switchView('countries')" id="nav-countries" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent">أدلة الدول</button>
                     <button onclick="switchView('tools')" id="nav-tools" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent">أدوات مخصصة</button>
                     <button onclick="switchView('guides')" id="nav-guides" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent">أسرار القبول</button>
@@ -122,7 +122,7 @@
                         <span class="hidden md:inline">المفضلة</span>
                         <span id="fav-counter" class="bg-gold-500 text-navy-900 text-xs font-black px-1.5 py-0.5 rounded-full">0</span>
                     </button>
-                    <button onclick="switchView('contact')" class="bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold px-4.5 py-2.5 rounded-xl shadow-lg hover:gold-glow transition-all duration-300 text-sm">
+                    <button onclick="switchView('contact')" class="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 text-navy-900 font-extrabold px-4.5 py-2.5 rounded-xl shadow-lg hover:gold-glow transition-all duration-300 text-sm">
                         <i class="fa-solid fa-calendar-check ml-1.5"></i>احجز استشارة
                     </button>
                     <div id="auth-nav-container"></div>
@@ -137,8 +137,8 @@
         <div id="mobile-menu" class="hidden xl:hidden bg-navy-900 border-t border-navy-800 px-6 py-5 space-y-3 shadow-2xl max-h-[85vh] overflow-y-auto">
             <button onclick="switchView('home'); toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 font-semibold py-2 w-full text-right">الرئيسية</button>
             <button onclick="switchView('scholarships'); toggleMobileMenu()" class="block text-gold-400 font-bold py-2 w-full text-right">دليل الـ <span class="sch-count">80</span> منحة الدراسية العالمية</button>
-            <button onclick="switchView('testimonials'); toggleMobileMenu()" class="block text-brandGreen-400 font-bold py-2 w-full text-right"><i class="fa-solid fa-certificate ml-1"></i>قصص طلابنا ونماذج توضيحية</button>
-            <button onclick="switchView('calculator'); toggleMobileMenu()" class="block text-amber-300 font-bold py-2 w-full text-right"><i class="fa-solid fa-calculator ml-1"></i>حاسبة القبول والمعدل</button>
+            <button onclick="switchView('testimonials'); toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 font-semibold py-2 w-full text-right"><i class="fa-solid fa-certificate ml-1"></i>قصص طلابنا ونماذج توضيحية</button>
+            <button onclick="switchView('calculator'); toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 font-semibold py-2 w-full text-right"><i class="fa-solid fa-calculator ml-1"></i>حاسبة القبول والمعدل</button>
             <button onclick="switchView('countries'); toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 font-semibold py-2 w-full text-right">أدلة الدول وشروط التأشيرات</button>
             <button onclick="switchView('tools'); toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 font-semibold py-2 w-full text-right">أدوات الطلبة المتقدمة ونماذج الدوافع</button>
             <button onclick="switchView('guides'); toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 font-semibold py-2 w-full text-right">نصائح القبول والدليل الشامل</button>
@@ -157,7 +157,7 @@
         <!-- HOME VIEW -->
         <section id="view-home" class="view-section active">
             <div class="relative hero-gradient text-white overflow-hidden py-24 lg:py-36">
-                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:28px_28px]"></div>
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#E0A808_1px,transparent_1px)] [background-size:28px_28px]"></div>
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                         <div class="lg:col-span-7 space-y-8 text-center lg:text-right">
@@ -171,7 +171,7 @@
                                 منصة المجد للمنح الدراسية والقبولات الجامعية — فرص موثوقة، أدوات ذكية، ودعم أكاديمي في رحلتك نحو الدراسة حول العالم.
                             </p>
                             <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                                <button onclick="switchView('scholarships')" class="w-full sm:w-auto bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold px-8 py-4 rounded-xl shadow-xl hover:gold-glow transition-all duration-300 text-center text-base">
+                                <button onclick="switchView('scholarships')" class="w-full sm:w-auto bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 text-navy-900 font-extrabold px-8 py-4 rounded-xl shadow-xl hover:gold-glow transition-all duration-300 text-center text-base">
                                     <i class="fa-solid fa-graduation-cap ml-2"></i> استعرض دليل الـ <span class="sch-count">80</span> منحة الرسمية
                                 </button>
                                 <button onclick="switchView('tools')" class="w-full sm:w-auto bg-navy-800/90 hover:bg-navy-800 text-gold-300 border border-gold-500/40 font-bold px-8 py-4 rounded-xl transition-all duration-300 text-center text-base shadow-md">
@@ -181,7 +181,7 @@
                         </div>
                         <div class="lg:col-span-5 flex justify-center">
                             <div class="relative w-full max-w-md">
-                                <div class="absolute -inset-2 bg-gradient-to-r from-gold-500 to-amber-600 rounded-3xl blur-xl opacity-40 animate-pulse"></div>
+                                <div class="absolute -inset-2 bg-gradient-to-r from-gold-500 to-gold-600 rounded-3xl blur-xl opacity-40 animate-pulse"></div>
                                 <div class="relative glass-card rounded-3xl p-8 shadow-2xl space-y-6 floating">
                                     <div class="flex items-center justify-between border-b border-slate-700/80 pb-4">
                                         <div class="flex items-center gap-3">
@@ -206,7 +206,7 @@
                                             <span class="text-xs text-slate-300">دولة حول العالم</span>
                                         </div>
                                     </div>
-                                    <button onclick="switchView('scholarships')" class="block w-full py-3.5 bg-gradient-to-r from-gold-500 to-amber-600 text-navy-900 text-center font-extrabold rounded-xl shadow-lg hover:opacity-95 transition">
+                                    <button onclick="switchView('scholarships')" class="block w-full py-3.5 bg-gradient-to-r from-gold-500 to-gold-600 text-navy-900 text-center font-extrabold rounded-xl shadow-lg hover:opacity-95 transition">
                                         تصفح المنح الآن بروابطها الأصلية
                                     </button>
                                 </div>
@@ -247,7 +247,7 @@
             </section>
 
             <section id="opendoors-spotlight" class="hero-gradient text-white py-14 relative overflow-hidden">
-                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:28px_28px]"></div>
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#E0A808_1px,transparent_1px)] [background-size:28px_28px]"></div>
                 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div class="glass-card rounded-3xl p-8 sm:p-10 shadow-2xl">
                         <span class="inline-flex items-center gap-1.5 bg-amber-500/20 text-amber-400 border border-amber-500/40 text-xs font-bold px-3 py-1.5 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.4)]">
@@ -278,7 +278,7 @@
                         </div>
 
                         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-                            <a href="https://od.globaluni.ru" target="_blank" class="w-full sm:w-auto bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold px-8 py-3.5 rounded-xl shadow-xl hover:gold-glow transition-all duration-300 text-center text-sm sm:text-base">
+                            <a href="https://od.globaluni.ru" target="_blank" class="w-full sm:w-auto bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 text-navy-900 font-extrabold px-8 py-3.5 rounded-xl shadow-xl hover:gold-glow transition-all duration-300 text-center text-sm sm:text-base">
                                 <i class="fa-solid fa-globe ml-2"></i> الموقع الرسمي
                             </a>
                             <a href="https://wa.me/970567892330?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A8%D8%AF%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D8%B0%D9%83%D9%8A%D8%B1%20%D9%84%D9%85%D8%A7%20%D8%AA%D9%81%D8%AA%D8%AD%20%D9%85%D9%86%D8%AD%D8%A9%20%D8%A7%D9%84%D8%A3%D9%88%D8%A8%D9%86%20%D8%AF%D9%88%D8%B1%D8%B2%20%D8%A7%D9%84%D8%B1%D9%88%D8%B3%D9%8A%D8%A9%20%28Open%20Doors%29%20%D8%A8%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%2020%2F8" target="_blank" class="w-full sm:w-auto bg-navy-800/90 hover:bg-navy-800 text-gold-300 border border-gold-500/40 font-bold px-8 py-3.5 rounded-xl transition-all duration-300 text-center text-sm sm:text-base shadow-md">
@@ -365,7 +365,7 @@
                                 <h4 class="font-black text-lg text-navy-900">طالب مستفيد</h4>
                                 <span class="text-xs font-bold bg-brandGreen-100 text-brandGreen-600 px-2 py-1 rounded">المنحة التركية - هندسة برمجيات</span>
                             </div>
-                            <div class="flex text-gold-500 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <div class="flex text-gold-700 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                             <p class="text-slate-600 text-sm leading-relaxed">
                                 "منصة المجد وبإشراف المهندس مجد كانت نقطة التحول في حياتي. تم تجهيز ملفي باحترافية عالية جداً، وتمت صياغة رسالة الدافع بشكل لامس لجان التحكيم. بفضل الله ثم جهودهم حصلت على قبول ممول بالكامل في جامعة إسطنبول التقنية."
                             </p>
@@ -385,7 +385,7 @@
                                 <h4 class="font-black text-lg text-navy-900">طالبة مستفيدة</h4>
                                 <span class="text-xs font-bold bg-brandGreen-100 text-brandGreen-600 px-2 py-1 rounded">منحة DAAD ألمانيا - دراسات عليا</span>
                             </div>
-                            <div class="flex text-gold-500 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <div class="flex text-gold-700 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                             <p class="text-slate-600 text-sm leading-relaxed">
                                 "لم أكن أعرف من أين أبدأ وسط الشروط المعقدة للمنح الألمانية. استشارة المجد 360 وضعت لي خارطة طريق دقيقة. الروابط الموثوقة والتدريب على المقابلة الشخصية كانا السبب الرئيسي لاجتيازي كافة المراحل بنجاح."
                             </p>
@@ -405,7 +405,7 @@
                                 <h4 class="font-black text-lg text-navy-900">طالب مستفيد</h4>
                                 <span class="text-xs font-bold bg-brandGreen-100 text-brandGreen-600 px-2 py-1 rounded">جامعة كامبريدج - المملكة المتحدة</span>
                             </div>
-                            <div class="flex text-gold-500 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <div class="flex text-gold-700 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                             <p class="text-slate-600 text-sm leading-relaxed">
                                 "منصة المجد هي المرجع العربي الأول بلا منازع. القالب المطور لرسالة الدوافع الموجود هنا في الموقع صنع فارقاً هائلاً في تقييم ملفي. الدقة والمصداقية التي يقدمونها جعلتني أثق بهم في كل خطوة."
                             </p>
@@ -414,7 +414,7 @@
                 </div>
 
                 <div class="text-center mt-4">
-                    <button onclick="switchView('contact')" class="bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold px-8 py-4 rounded-xl shadow-xl hover:gold-glow transition-all duration-300 text-center text-lg">
+                    <button onclick="switchView('contact')" class="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 text-navy-900 font-extrabold px-8 py-4 rounded-xl shadow-xl hover:gold-glow transition-all duration-300 text-center text-lg">
                         <i class="fa-solid fa-pen-to-square ml-2"></i> ابدأ رحلتك واحجز استشارتك الآن
                     </button>
                 </div>
@@ -505,7 +505,7 @@
                             <input type="number" id="calc-age" min="15" max="70" placeholder="مثال: 23" class="w-full bg-navy-800 border border-slate-700 rounded-2xl px-4 py-3.5 text-white focus:outline-none focus:border-gold-500 font-bold">
                         </div>
                     </div>
-                    <button onclick="runCalculator()" class="w-full py-4 bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold text-lg rounded-2xl shadow-xl transition transform active:scale-95">
+                    <button onclick="runCalculator()" class="w-full py-4 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 text-navy-900 font-extrabold text-lg rounded-2xl shadow-xl transition transform active:scale-95">
                         احسب التوافق الأولي مع المنح الآن
                     </button>
                     <div id="calc-results" class="hidden pt-6 border-t border-slate-800 space-y-4 transition-all duration-500">
@@ -534,9 +534,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">تجمع بين الثقافة الشرقية والغربية، مع جامعات متطورة وتكاليف معيشة اقتصادية للغاية مقارنة بأوروبا.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 300 - 500 دولار</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> تأشيرة دراسية تطلب عبر القنصلية بعد القبول</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> مسموح لطلبة الماجستير والدكتوراه</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 300 - 500 دولار</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> تأشيرة دراسية تطلب عبر القنصلية بعد القبول</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> مسموح لطلبة الماجستير والدكتوراه</li>
                         </ul>
                     </div>
 
@@ -547,9 +547,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">قلب أوروبا وعاصمة المنح الحكومية الشهيرة Stipendium Hungaricum مع شهادات معتمدة عالمياً.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 400 - 650 دولار</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> نوع D للدراسة في منطقة شنغن</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> مسموح حتى 30 ساعة أسبوعياً</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 400 - 650 دولار</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> نوع D للدراسة في منطقة شنغن</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> مسموح حتى 30 ساعة أسبوعياً</li>
                         </ul>
                     </div>
 
@@ -560,9 +560,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">موطن أعرق الجامعات العالمية (كامبريدج، أكسفورد، إمبريال) مع برامج ماجستير لمدة سنة واحدة فقط.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 900 - 1,400 دولار</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> Student Visa مع دفع تأمين الصحة IHS</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> مسموح 20 ساعة أسبوعياً</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 900 - 1,400 دولار</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> Student Visa مع دفع تأمين الصحة IHS</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> مسموح 20 ساعة أسبوعياً</li>
                         </ul>
                     </div>
 
@@ -573,9 +573,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">الجامعات الحكومية الألمانية لا تفرض رسوماً دراسية على معظم البرامج، ومنحة DAAD الشهيرة تفتح أبواب أعرق الجامعات الأوروبية في الهندسة والتقنية.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 900 - 1,200 يورو</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> تأشيرة إقامة للدراسة (National D)، تتطلب حساب مصرفي مجمّد</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> حتى 140 يوم عمل كامل أو 280 نصف يوم بالسنة (نحو 20 ساعة أسبوعياً بالفصل، 40 بالعطل)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 900 - 1,200 يورو</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> تأشيرة إقامة للدراسة (National D)، تتطلب حساب مصرفي مجمّد</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> حتى 140 يوم عمل كامل أو 280 نصف يوم بالسنة (نحو 20 ساعة أسبوعياً بالفصل، 40 بالعطل)</li>
                         </ul>
                     </div>
 
@@ -586,9 +586,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">وجهة آسيوية اقتصادية جداً ببيئة إسلامية داعمة، وبرامج معتمدة دولياً بتكلفة تعليم ومعيشة من الأقل عالمياً.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 350 - 600 دولار</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> تصريح طالب (Student Pass) عبر بوابة EMGS</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> مسموح فقط خلال العطل الرسمية بموافقة الجامعة، حتى 20 ساعة أسبوعياً</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 350 - 600 دولار</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> تصريح طالب (Student Pass) عبر بوابة EMGS</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> مسموح فقط خلال العطل الرسمية بموافقة الجامعة، حتى 20 ساعة أسبوعياً</li>
                         </ul>
                     </div>
 
@@ -599,9 +599,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">جامعات صينية متقدمة عالمياً في الهندسة والتقنية، مع منحة الحكومة الصينية (CSC) التي تغطي آلاف المقاعد سنوياً.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 400 - 600 دولار</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> تأشيرة X1 للدراسات الطويلة، تُحوّل لتصريح إقامة خلال 30 يوماً من الوصول</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> مقيّد جداً، يتطلب موافقة الجامعة وتصريح عمل رسمي من الجهات الأمنية</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 400 - 600 دولار</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> تأشيرة X1 للدراسات الطويلة، تُحوّل لتصريح إقامة خلال 30 يوماً من الوصول</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> مقيّد جداً، يتطلب موافقة الجامعة وتصريح عمل رسمي من الجهات الأمنية</li>
                         </ul>
                     </div>
 
@@ -612,9 +612,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">تعليم ياباني عالي الجودة في التقنية والهندسة، مع منحة MEXT الحكومية التي تغطي الرسوم والمعيشة بالكامل.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 700 - 1,000 دولار (طوكيو أعلى)</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> تأشيرة "طالب" (留学)</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> حتى 28 ساعة أسبوعياً بتصريح، وحتى 8 ساعات يومياً بالعطل الطويلة</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 700 - 1,000 دولار (طوكيو أعلى)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> تأشيرة "طالب" (留学)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> حتى 28 ساعة أسبوعياً بتصريح، وحتى 8 ساعات يومياً بالعطل الطويلة</li>
                         </ul>
                     </div>
 
@@ -625,9 +625,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">وجهة صاعدة بقوة بين الطلبة العرب، بجامعات متطورة تقنياً وحياة طلابية نشطة في سيول وغيرها.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 900 - 1,150 دولار (سيول أعلى من باقي المدن)</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> تأشيرة طالب (D-2)</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> حتى 30-35 ساعة أسبوعياً بتصريح (حسب مستوى اللغة والمؤسسة)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 900 - 1,150 دولار (سيول أعلى من باقي المدن)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> تأشيرة طالب (D-2)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> حتى 30-35 ساعة أسبوعياً بتصريح (حسب مستوى اللغة والمؤسسة)</li>
                         </ul>
                     </div>
 
@@ -638,9 +638,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">جامعات خليجية حديثة بمعايير عالمية وبيئة عربية مألوفة، مع خيارات ممتازة في الهندسة والذكاء الاصطناعي.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 950 - 1,500 دولار (دبي أعلى من أبوظبي والشارقة)</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> إقامة طالب برعاية الجامعة</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> حتى 20 ساعة أسبوعياً بتصريح من الجامعة ووزارة الموارد البشرية</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 950 - 1,500 دولار (دبي أعلى من أبوظبي والشارقة)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> إقامة طالب برعاية الجامعة</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> حتى 20 ساعة أسبوعياً بتصريح من الجامعة ووزارة الموارد البشرية</li>
                         </ul>
                     </div>
 
@@ -651,9 +651,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">مدينة التعليم في الدوحة تجمع فروعاً لجامعات عالمية مرموقة، إضافة إلى برامج دعم خاصة لطلبة غزة وفلسطين عبر برنامج الفاخورة.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 800 - 1,300 دولار تقريباً</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> إقامة طالب برعاية الجامعة المضيفة</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> مقيّد، يعتمد على موافقة الجامعة والجهة الراعية</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 800 - 1,300 دولار تقريباً</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> إقامة طالب برعاية الجامعة المضيفة</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> مقيّد، يعتمد على موافقة الجامعة والجهة الراعية</li>
                         </ul>
                     </div>
 
@@ -664,9 +664,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">بيئة عربية كاملة وتكلفة معيشة من الأقل عالمياً، مع جامعات عريقة كعين شمس والأزهر وجامعات خاصة كالألمانية بالقاهرة.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 200 - 400 دولار</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> تصريح إقامة دراسة عبر مصلحة الجوازات (المجمع)</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> لا يوجد نظام تصريح عمل رسمي للطلاب؛ العمل غير مضمون قانونياً</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 200 - 400 دولار</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> تصريح إقامة دراسة عبر مصلحة الجوازات (المجمع)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> لا يوجد نظام تصريح عمل رسمي للطلاب؛ العمل غير مضمون قانونياً</li>
                         </ul>
                     </div>
 
@@ -677,9 +677,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">الأقرب جغرافياً وثقافياً لفلسطين، بجامعات معروفة كالجامعة الأردنية وJUST، وتسهيلات قبول للطلبة الفلسطينيين.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 500 - 800 دولار (عمّان أعلى)</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> تصريح إقامة طالب عبر وزارة الداخلية</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> مقيّد، يتطلب تصريح عمل رسمي منفصل من وزارة العمل</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 500 - 800 دولار (عمّان أعلى)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> تصريح إقامة طالب عبر وزارة الداخلية</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> مقيّد، يتطلب تصريح عمل رسمي منفصل من وزارة العمل</li>
                         </ul>
                     </div>
 
@@ -690,9 +690,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">رسوم دراسية رمزية بالجامعات الحكومية، ومنحة إيفل المتميزة، مع نظام تأشيرة يمنح حق العمل تلقائياً دون تصريح إضافي.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 800 - 1,000 يورو (باريس أعلى، والحد الأدنى المطلوب للتأشيرة 615 يورو)</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> VLS-TS (تأشيرة إقامة طويلة بصفة طالب)</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> حتى 964 ساعة بالسنة (نحو 20 ساعة أسبوعياً) بدون تصريح عمل منفصل</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 800 - 1,000 يورو (باريس أعلى، والحد الأدنى المطلوب للتأشيرة 615 يورو)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> VLS-TS (تأشيرة إقامة طويلة بصفة طالب)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> حتى 964 ساعة بالسنة (نحو 20 ساعة أسبوعياً) بدون تصريح عمل منفصل</li>
                         </ul>
                     </div>
 
@@ -703,9 +703,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">موطن أكبر عدد من الجامعات المصنفة عالمياً، من هارفارد وMIT إلى مئات الجامعات الحكومية والخاصة، ببرامج بحثية لا مثيل لها.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 1,200 - 2,500 دولار (حسب المدينة)</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> تأشيرة طالب (F-1)</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> حتى 20 ساعة أسبوعياً داخل الحرم الجامعي فقط أثناء الدراسة؛ العمل خارجه يتطلب تصريح CPT أو OPT بعد إتمام سنة دراسية كاملة</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 1,200 - 2,500 دولار (حسب المدينة)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> تأشيرة طالب (F-1)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> حتى 20 ساعة أسبوعياً داخل الحرم الجامعي فقط أثناء الدراسة؛ العمل خارجه يتطلب تصريح CPT أو OPT بعد إتمام سنة دراسية كاملة</li>
                         </ul>
                     </div>
 
@@ -716,9 +716,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">تعليم عالي الجودة مع أوضح مسارات الهجرة والإقامة الدائمة بعد التخرج بين الوجهات الغربية، وتكلفة معيشة أقل نسبياً من الجارة أمريكا.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 1,200 - 1,400 دولار تقريباً</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> تصريح دراسة (Study Permit)</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> حتى 24 ساعة أسبوعياً خارج الحرم الجامعي، ودوام كامل بالعطل الرسمية</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 1,200 - 1,400 دولار تقريباً</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> تصريح دراسة (Study Permit)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> حتى 24 ساعة أسبوعياً خارج الحرم الجامعي، ودوام كامل بالعطل الرسمية</li>
                         </ul>
                     </div>
 
@@ -729,9 +729,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">جامعات مصنفة عالمياً وجودة حياة عالية، مع أجور عمل جزئي من الأعلى عالمياً تساعد الطالب يغطي جزءاً كبيراً من مصاريفه.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 1,500 - 1,700 دولار تقريباً</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> تأشيرة طالب (Subclass 500)</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> حتى 48 ساعة كل أسبوعين أثناء الدراسة، ودوام كامل بالعطل الرسمية</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 1,500 - 1,700 دولار تقريباً</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> تأشيرة طالب (Subclass 500)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> حتى 48 ساعة كل أسبوعين أثناء الدراسة، ودوام كامل بالعطل الرسمية</li>
                         </ul>
                     </div>
 
@@ -742,9 +742,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">جامعات خليجية متطورة مثل كاوست وجامعة الملك سعود، مع منح حكومية سخية تغطي الرسوم والسكن والراتب الشهري، وبيئة بلا ضريبة دخل على الإطلاق.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 650 - 1,330 دولار (أقل بكثير لطلبة المنح المشمولين بالسكن)</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> إقامة طالب برعاية الجامعة (تتحول لإقامة/Iqama عند الوصول)</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> مقيّد عموماً ويتطلب تصريحاً رسمياً؛ غالباً غير ضروري لطلبة المنح الكاملة</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 650 - 1,330 دولار (أقل بكثير لطلبة المنح المشمولين بالسكن)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> إقامة طالب برعاية الجامعة (تتحول لإقامة/Iqama عند الوصول)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> مقيّد عموماً ويتطلب تصريحاً رسمياً؛ غالباً غير ضروري لطلبة المنح الكاملة</li>
                         </ul>
                     </div>
 
@@ -755,9 +755,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">تعليم إسكندنافي عالي الجودة وبيئة اجتماعية منفتحة، مع تحديث مهم بمنتصف 2026 لقواعد العمل الطلابي.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 1,000 - 1,100 دولار تقريباً</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> تصريح إقامة للدراسة</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> حتى 15 ساعة أسبوعياً أثناء الفصل الدراسي (وفق التحديث الجديد منتصف 2026)، بلا حد أقصى خلال العطل</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 1,000 - 1,100 دولار تقريباً</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> تصريح إقامة للدراسة</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> حتى 15 ساعة أسبوعياً أثناء الفصل الدراسي (وفق التحديث الجديد منتصف 2026)، بلا حد أقصى خلال العطل</li>
                         </ul>
                     </div>
 
@@ -768,9 +768,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">جامعات تقنية وبحثية مرموقة عالمياً (مثل ETH Zurich)، ضمن بيئة آمنة ومستقرة، مقابل تكلفة معيشة من الأعلى عالمياً.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 2,000 - 2,800 دولار تقريباً</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> تصريح إقامة للدراسة (من المكتب الكانتوني للهجرة)</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> حتى 15 ساعة أسبوعياً، ويُسمح بالعمل بعد مرور أول 6 أشهر فقط من الوصول</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 2,000 - 2,800 دولار تقريباً</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> تصريح إقامة للدراسة (من المكتب الكانتوني للهجرة)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> حتى 15 ساعة أسبوعياً، ويُسمح بالعمل بعد مرور أول 6 أشهر فقط من الوصول</li>
                         </ul>
                     </div>
 
@@ -781,9 +781,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">برامج جامعية معروفة بطابعها العملي التطبيقي وتدريسها الواسع بالإنجليزية، مع شبكة نقل ممتازة وحياة طلابية نشطة.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 1,100 - 1,700 دولار (أمستردام أعلى بكثير)</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> تأشيرة دخول MVV وتصريح إقامة VVR</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> حتى 16 ساعة أسبوعياً على مدار العام، أو دوام كامل بأشهر الصيف فقط (يونيو-أغسطس) — أحد الخيارين وليس كليهما</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 1,100 - 1,700 دولار (أمستردام أعلى بكثير)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> تأشيرة دخول MVV وتصريح إقامة VVR</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> حتى 16 ساعة أسبوعياً على مدار العام، أو دوام كامل بأشهر الصيف فقط (يونيو-أغسطس) — أحد الخيارين وليس كليهما</li>
                         </ul>
                     </div>
 
@@ -794,9 +794,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">من أقدم الأنظمة الجامعية بالعالم (جامعة بولونيا تأسست 1088)، برسوم دراسية رمزية بالجامعات الحكومية وحياة أوروبية غنية ثقافياً.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 700 - 1,000 دولار تقريباً</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> تصريح إقامة (Permesso di Soggiorno)</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> حتى 20 ساعة أسبوعياً، بحد أقصى سنوي 1,040 ساعة</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 700 - 1,000 دولار تقريباً</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> تصريح إقامة (Permesso di Soggiorno)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> حتى 20 ساعة أسبوعياً، بحد أقصى سنوي 1,040 ساعة</li>
                         </ul>
                     </div>
 
@@ -807,9 +807,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">تعليم قوي بتخصصات الطب والهندسة والفضاء بتكلفة من الأقل عالمياً، مع منحة الأبواب المفتوحة الحكومية الشهيرة للطلبة الدوليين.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 300 - 700 دولار (حسب المدينة، موسكو أعلى بكثير من المدن الإقليمية)</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> تأشيرة طالب عبر دعوة رسمية من الجامعة</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> حتى 20 ساعة أسبوعياً بتصريح عمل منفصل (العمل داخل الجامعة نفسها لا يتطلب تصريحاً)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 300 - 700 دولار (حسب المدينة، موسكو أعلى بكثير من المدن الإقليمية)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> تأشيرة طالب عبر دعوة رسمية من الجامعة</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> حتى 20 ساعة أسبوعياً بتصريح عمل منفصل (العمل داخل الجامعة نفسها لا يتطلب تصريحاً)</li>
                         </ul>
                     </div>
 
@@ -820,9 +820,9 @@
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">بيئة عربية بامتياز مع جامعات مرموقة إقليمياً كالجامعة الأمريكية في بيروت، واقتصاد مدولر بالكامل يسهّل التخطيط المالي.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>المعيشة الشهرية:</strong> 1,000 - 1,500 دولار تقريباً (بيروت)</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>الفيزا:</strong> تأشيرة دخول (معفاة لبعض الجنسيات العربية) وإقامة طالب سنوية</li>
-                            <li><i class="fa-solid fa-check text-gold-500 ml-1"></i><strong>العمل للطلاب:</strong> غير منظم رسمياً لغير حاملي الجنسية اللبنانية؛ يُنصح بالتركيز على الدراسة والاعتماد على مصادر دخل أخرى</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>المعيشة الشهرية:</strong> 1,000 - 1,500 دولار تقريباً (بيروت)</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>الفيزا:</strong> تأشيرة دخول (معفاة لبعض الجنسيات العربية) وإقامة طالب سنوية</li>
+                            <li><i class="fa-solid fa-check text-gold-700 ml-1"></i><strong>العمل للطلاب:</strong> غير منظم رسمياً لغير حاملي الجنسية اللبنانية؛ يُنصح بالتركيز على الدراسة والاعتماد على مصادر دخل أخرى</li>
                         </ul>
                     </div>
                 </div>
@@ -844,7 +844,7 @@
                             <h3 class="text-2xl font-black text-navy-900">نموذج رسالة الدوافع الأكاديمية (The Master Motivation Letter)</h3>
                             <p class="text-xs text-slate-500 mt-1">نسخة مطورة تتضمن 5 أقسام رئيسية يطلبها كبار الخبراء ولجان التحكيم الدولية</p>
                         </div>
-                        <button onclick="copyAdvancedMotivationTemplate()" class="bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold text-sm px-6 py-3 rounded-xl shadow-md transition flex items-center gap-2 transform active:scale-95">
+                        <button onclick="copyAdvancedMotivationTemplate()" class="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 text-navy-900 font-extrabold text-sm px-6 py-3 rounded-xl shadow-md transition flex items-center gap-2 transform active:scale-95">
                             <i class="fa-solid fa-copy"></i> نسخ القالب المطور بالكامل
                         </button>
                     </div>
@@ -884,7 +884,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="bg-slateLight p-8 rounded-3xl border border-slate-200 space-y-4 shadow-sm hover:shadow-md transition">
-                        <h4 class="text-xl font-black text-navy-900 border-b border-slate-200 pb-3"><i class="fa-solid fa-calendar-days text-gold-500 ml-2"></i> الجدول الزمني المثالي للتقديم (Timeline)</h4>
+                        <h4 class="text-xl font-black text-navy-900 border-b border-slate-200 pb-3"><i class="fa-solid fa-calendar-days text-gold-700 ml-2"></i> الجدول الزمني المثالي للتقديم (Timeline)</h4>
                         <ul class="space-y-3 text-xs text-slate-700 font-medium pt-2">
                             <li><strong class="text-navy-900">شهر (6 - 8):</strong> الاستعداد وتجهيز شهادات اللغة (IELTS/TOEFL) وتحديد قائمة المنح والجامعات المستهدفة.</li>
                             <li><strong class="text-navy-900">شهر (9 - 11):</strong> كتابة وتطوير رسالة الدوافع (Motivation Letter) وتأمين خطابات التوصية من الأساتذة.</li>
@@ -893,7 +893,7 @@
                         </ul>
                     </div>
                     <div class="bg-slateLight p-8 rounded-3xl border border-slate-200 space-y-4 shadow-sm hover:shadow-md transition">
-                        <h4 class="text-xl font-black text-navy-900 border-b border-slate-200 pb-3"><i class="fa-solid fa-list-check text-gold-500 ml-2"></i> قائمة المستندات الذهبية (Checklist)</h4>
+                        <h4 class="text-xl font-black text-navy-900 border-b border-slate-200 pb-3"><i class="fa-solid fa-list-check text-gold-700 ml-2"></i> قائمة المستندات الذهبية (Checklist)</h4>
                         <ul class="space-y-3 text-xs text-slate-700 font-medium pt-2">
                             <li><i class="fa-solid fa-check text-brandGreen-600 ml-1"></i><strong>جواز السفر:</strong> ساري المفعول لمدة لا تقل عن سنة إلى سنتين.</li>
                             <li><i class="fa-solid fa-check text-brandGreen-600 ml-1"></i><strong>الشهادات الأكاديمية وكشوف المراتب:</strong> مترجمة ومصدقة أصولاً حسب متطلبات المنحة.</li>
@@ -920,15 +920,15 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 max-w-3xl mx-auto">
                     <div class="bg-white border border-gold-500/30 rounded-2xl p-5 text-center shadow-sm">
-                        <div class="text-2xl sm:text-3xl font-black text-gold-500 sch-count">45</div>
+                        <div class="text-2xl sm:text-3xl font-black text-gold-700 sch-count">45</div>
                         <div class="text-xs text-slate-500 font-bold mt-1">منحة موثقة</div>
                     </div>
                     <div class="bg-white border border-gold-500/30 rounded-2xl p-5 text-center shadow-sm">
-                        <div class="text-2xl sm:text-3xl font-black text-gold-500">95%</div>
+                        <div class="text-2xl sm:text-3xl font-black text-gold-700">95%</div>
                         <div class="text-xs text-slate-500 font-bold mt-1">نسبة نجاح بالقبولات</div>
                     </div>
                     <div class="bg-white border border-gold-500/30 rounded-2xl p-5 text-center shadow-sm">
-                        <div class="text-2xl sm:text-3xl font-black text-gold-500">+2,400</div>
+                        <div class="text-2xl sm:text-3xl font-black text-gold-700">+2,400</div>
                         <div class="text-xs text-slate-500 font-bold mt-1">طالب مستفيد</div>
                     </div>
                 </div>
@@ -941,11 +941,11 @@
                         <h3 class="text-2xl font-bold text-navy-900">كيف تكتب رسالة دوافع استثنائية؟</h3>
                         <p class="text-slate-600 text-sm leading-relaxed">رسالة الدوافع هي مفتاحك السحري للوصول إلى لجان القبول. تجنب المقدمات التقليدية وابدأ بقصة شغفك الحقيقي واستخدم القالب المطور أعلاه.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>ابدأ بقصة أو موقف شخصي حقيقي دفعك لهذا المجال، لا بجملة عامة مثل "منذ صغري وأنا أحب..."</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>اربط كل فقرة بالجامعة أو البرنامج تحديداً (اذكر أستاذاً أو مساقاً أو مختبراً بعينه)</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>وضّح بدقة كيف سيفيدك البرنامج في تحقيق هدف مهني محدد بعد التخرج</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>تجنب تكرار ما هو مذكور أصلاً بسيرتك الذاتية؛ رسالة الدوافع مكانها للسياق والدافع لا للحقائق</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>راجعها لغوياً مرتين على الأقل، وخصصها لكل جامعة (لا رسالة موحدة للجميع)</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>ابدأ بقصة أو موقف شخصي حقيقي دفعك لهذا المجال، لا بجملة عامة مثل "منذ صغري وأنا أحب..."</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>اربط كل فقرة بالجامعة أو البرنامج تحديداً (اذكر أستاذاً أو مساقاً أو مختبراً بعينه)</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>وضّح بدقة كيف سيفيدك البرنامج في تحقيق هدف مهني محدد بعد التخرج</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>تجنب تكرار ما هو مذكور أصلاً بسيرتك الذاتية؛ رسالة الدوافع مكانها للسياق والدافع لا للحقائق</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>راجعها لغوياً مرتين على الأقل، وخصصها لكل جامعة (لا رسالة موحدة للجميع)</span></li>
                         </ul>
                     </div>
 
@@ -956,11 +956,11 @@
                         <h3 class="text-2xl font-bold text-navy-900">أسرار إعداد السيرة الذاتية الأكاديمية</h3>
                         <p class="text-slate-600 text-sm leading-relaxed">السيرة الأكاديمية تختلف عن المهنية. ركز على التدرج التعليمي، الأبحاث المنشورة، والمهارات التقنية واللغوية بوضوح تام.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>رتّب سيرتك بترتيب زمني عكسي (الأحدث أولاً) لكل من التعليم والخبرات</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>خصص قسماً منفصلاً للأبحاث والمنشورات إن وجدت، حتى لو لم تُنشر بعد (اذكرها "قيد الإعداد")</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>لا تتجاوز صفحتين كحد أقصى للسيرة الأكاديمية لغير أصحاب الدكتوراه</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>استخدم أفعالاً قوية بصيغة الماضي عند وصف الإنجازات ("طوّرت"، "قدت"، "حللت") بدل الجمل الوصفية العامة</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>اطلب من أستاذ أو مستشار مراجعة السيرة قبل الإرسال بيومين على الأقل</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>رتّب سيرتك بترتيب زمني عكسي (الأحدث أولاً) لكل من التعليم والخبرات</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>خصص قسماً منفصلاً للأبحاث والمنشورات إن وجدت، حتى لو لم تُنشر بعد (اذكرها "قيد الإعداد")</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>لا تتجاوز صفحتين كحد أقصى للسيرة الأكاديمية لغير أصحاب الدكتوراه</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>استخدم أفعالاً قوية بصيغة الماضي عند وصف الإنجازات ("طوّرت"، "قدت"، "حللت") بدل الجمل الوصفية العامة</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>اطلب من أستاذ أو مستشار مراجعة السيرة قبل الإرسال بيومين على الأقل</span></li>
                         </ul>
                     </div>
 
@@ -971,11 +971,11 @@
                         <h3 class="text-2xl font-bold text-navy-900">الدليل الشامل لاجتياز المقابلات الشخصية</h3>
                         <p class="text-slate-600 text-sm leading-relaxed">تدرب على الإجابة على الأسئلة الشائعة مثل "لماذا اخترت هذا التخصص بالذات؟" مع الحفاظ على لغة جسد واثقة وأمثلة واقعية من إنجازاتك.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>تدرب على الإجابة بصوت مرتفع أمام مرآة أو شخص آخر، لا بالتفكير الصامت فقط</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>جهّز 3 أسئلة ذكية تسألها أنت للجنة في نهاية المقابلة، هذا يترك انطباعاً قوياً</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>استخدم أسلوب STAR (الموقف، المهمة، الإجراء، النتيجة) عند وصف أي إنجاز</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>تحقق من إعدادات الكاميرا والإنترنت قبل المقابلة بساعة على الأقل إن كانت عبر الإنترنت</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>أرسل رسالة شكر مختصرة للجنة خلال 24 ساعة من المقابلة</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>تدرب على الإجابة بصوت مرتفع أمام مرآة أو شخص آخر، لا بالتفكير الصامت فقط</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>جهّز 3 أسئلة ذكية تسألها أنت للجنة في نهاية المقابلة، هذا يترك انطباعاً قوياً</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>استخدم أسلوب STAR (الموقف، المهمة، الإجراء، النتيجة) عند وصف أي إنجاز</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>تحقق من إعدادات الكاميرا والإنترنت قبل المقابلة بساعة على الأقل إن كانت عبر الإنترنت</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>أرسل رسالة شكر مختصرة للجنة خلال 24 ساعة من المقابلة</span></li>
                         </ul>
                     </div>
 
@@ -986,11 +986,11 @@
                         <h3 class="text-2xl font-bold text-navy-900">الأخطاء الشائعة التي تؤدي لرفض المنحة</h3>
                         <p class="text-slate-600 text-sm leading-relaxed">تجاوز المواعيد النهائية، نقص الأوراق، أو إرسال نفس رسالة الدوافع لجميع الجامعات دون تخصيص هي أسباب رئيسية للرفض.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>تجاوز الموعد النهائي ولو بدقائق — معظم الأنظمة تغلق تلقائياً ولا تقبل استثناءات</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>إرسال نفس رسالة الدوافع لكل الجامعات دون تخصيص (لجان القبول تكتشف ذلك بسهولة)</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>نقص أو عدم اكتمال المستندات المطلوبة، خصوصاً الترجمات المعتمدة</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>ذكر معلومات مبالغ فيها أو غير دقيقة يمكن التحقق منها لاحقاً</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>إهمال متطلبات اللغة أو تقديم شهادة منتهية الصلاحية</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>تجاوز الموعد النهائي ولو بدقائق — معظم الأنظمة تغلق تلقائياً ولا تقبل استثناءات</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>إرسال نفس رسالة الدوافع لكل الجامعات دون تخصيص (لجان القبول تكتشف ذلك بسهولة)</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>نقص أو عدم اكتمال المستندات المطلوبة، خصوصاً الترجمات المعتمدة</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>ذكر معلومات مبالغ فيها أو غير دقيقة يمكن التحقق منها لاحقاً</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>إهمال متطلبات اللغة أو تقديم شهادة منتهية الصلاحية</span></li>
                         </ul>
                     </div>
 
@@ -1001,10 +1001,10 @@
                         <h3 class="text-2xl font-bold text-navy-900">كيف تختار التخصص والجامعة المناسبة؟</h3>
                         <p class="text-slate-600 text-sm leading-relaxed">القرار الأهم قبل أي تقديم؛ اختيار خاطئ للتخصص أو الجامعة يكلفك سنوات من الوقت والجهد. ابدأ دائماً من أهدافك المهنية بعد خمس سنوات، لا من "التخصص الأكثر طلباً" فقط.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>قارن بين أكثر من تصنيف عالمي واحد للجامعة، لا تصنيف واحد فقط</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>تحقق من سمعة القسم تحديداً وفرص التوظيف بعد التخرج، لا سمعة الجامعة ككل</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>اقرأ خطة المساقات (Curriculum) كاملة قبل التقديم، لا اسم التخصص فقط</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>تواصل مع طالب حالي أو خريج من نفس البرنامج إن أمكن قبل القرار النهائي</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>قارن بين أكثر من تصنيف عالمي واحد للجامعة، لا تصنيف واحد فقط</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>تحقق من سمعة القسم تحديداً وفرص التوظيف بعد التخرج، لا سمعة الجامعة ككل</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>اقرأ خطة المساقات (Curriculum) كاملة قبل التقديم، لا اسم التخصص فقط</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>تواصل مع طالب حالي أو خريج من نفس البرنامج إن أمكن قبل القرار النهائي</span></li>
                         </ul>
                     </div>
 
@@ -1015,10 +1015,10 @@
                         <h3 class="text-2xl font-bold text-navy-900">دليل التحضير لاختبارات اللغة الدولية</h3>
                         <p class="text-slate-600 text-sm leading-relaxed">كثير من المنح الكبرى تشترط درجة لغة محددة (IELTS أو TOEFL)؛ ابدأ التحضير قبل ثلاثة إلى أربعة أشهر من الموعد المستهدف على الأقل لتفادي الضغط والتقديم المتكرر.</p>
                         <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>حدد نوع الاختبار المطلوب تحديداً من الجهة المانحة (IELTS الأكاديمي وليس العام غالباً)</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>خصص وقتاً منفصلاً لكل مهارة (استماع، قراءة، كتابة، محادثة) بدل التركيز على واحدة فقط</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>سجّل نفسك أثناء التحدث واستمع لأخطائك بدل الاعتماد على شعورك فقط</span></li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-500 mt-0.5"></i><span>خذ اختباراً تجريبياً كاملاً بظروف حقيقية قبل الموعد الفعلي بأسبوعين</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>حدد نوع الاختبار المطلوب تحديداً من الجهة المانحة (IELTS الأكاديمي وليس العام غالباً)</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>خصص وقتاً منفصلاً لكل مهارة (استماع، قراءة، كتابة، محادثة) بدل التركيز على واحدة فقط</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>سجّل نفسك أثناء التحدث واستمع لأخطائك بدل الاعتماد على شعورك فقط</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i><span>خذ اختباراً تجريبياً كاملاً بظروف حقيقية قبل الموعد الفعلي بأسبوعين</span></li>
                         </ul>
                     </div>
                 </div>
@@ -1061,9 +1061,9 @@
                         <div class="p-8">
                             <p class="text-slate-600 text-sm leading-relaxed mb-4">دليل حي لـ <span class="sch-count">45</span> منحة دولية موثقة، نراجعها دورياً للتأكد من دقة شروطها ومواعيدها، مع مطابقة ذكية بين ملفك الأكاديمي وأنسب المنح المتاحة لك حسب تخصصك ومعدلك ووجهتك المفضلة.</p>
                             <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                                <li><i class="fa-solid fa-check text-gold-500 ml-1"></i>روابط تقديم رسمية مباشرة فقط</li>
-                                <li><i class="fa-solid fa-check text-gold-500 ml-1"></i>تحديث دوري للمواعيد والشروط</li>
-                                <li><i class="fa-solid fa-check text-gold-500 ml-1"></i>ترشيح شخصي حسب معدلك وتخصصك</li>
+                                <li><i class="fa-solid fa-check text-gold-700 ml-1"></i>روابط تقديم رسمية مباشرة فقط</li>
+                                <li><i class="fa-solid fa-check text-gold-700 ml-1"></i>تحديث دوري للمواعيد والشروط</li>
+                                <li><i class="fa-solid fa-check text-gold-700 ml-1"></i>ترشيح شخصي حسب معدلك وتخصصك</li>
                             </ul>
                         </div>
                     </div>
@@ -1079,9 +1079,9 @@
                         <div class="p-8">
                             <p class="text-slate-600 text-sm leading-relaxed mb-4">نتولى عنك تفاصيل التقديم المباشر للجامعات — من صياغة رسالة الدوافع بأسلوب احترافي يميزك عن آلاف المتقدمين، لترجمة وتصديق المستندات وفق متطلبات كل جامعة تحديداً، وصولاً لمتابعة الطلب مباشرة مع مكتب القبول حتى صدور القرار النهائي.</p>
                             <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                                <li><i class="fa-solid fa-check text-gold-500 ml-1"></i>مراجعة وصياغة رسالة الدوافع</li>
-                                <li><i class="fa-solid fa-check text-gold-500 ml-1"></i>تجهيز وترجمة المستندات الرسمية</li>
-                                <li><i class="fa-solid fa-check text-gold-500 ml-1"></i>متابعة مباشرة مع مكتب القبول بالجامعة</li>
+                                <li><i class="fa-solid fa-check text-gold-700 ml-1"></i>مراجعة وصياغة رسالة الدوافع</li>
+                                <li><i class="fa-solid fa-check text-gold-700 ml-1"></i>تجهيز وترجمة المستندات الرسمية</li>
+                                <li><i class="fa-solid fa-check text-gold-700 ml-1"></i>متابعة مباشرة مع مكتب القبول بالجامعة</li>
                             </ul>
                         </div>
                     </div>
@@ -1097,9 +1097,9 @@
                         <div class="p-8">
                             <p class="text-slate-600 text-sm leading-relaxed mb-4">جلسات استشارية فردية عمرها 60 دقيقة مع مستشارين متخصصين، نبني معك خطة أكاديمية كاملة تبدأ من تحديد التخصص الأنسب لقدراتك وطموحك، مروراً باختيار الدولة والجامعة المناسبة، وصولاً لجدول زمني واقعي للتقديم يراعي كل المواعيد النهائية المهمة.</p>
                             <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                                <li><i class="fa-solid fa-check text-gold-500 ml-1"></i>تحليل ملفك الأكاديمي والمالي</li>
-                                <li><i class="fa-solid fa-check text-gold-500 ml-1"></i>مقارنة بين 3 مسارات دراسية بديلة على الأقل</li>
-                                <li><i class="fa-solid fa-check text-gold-500 ml-1"></i>خطة زمنية مكتوبة تسلّمها بنفس الجلسة</li>
+                                <li><i class="fa-solid fa-check text-gold-700 ml-1"></i>تحليل ملفك الأكاديمي والمالي</li>
+                                <li><i class="fa-solid fa-check text-gold-700 ml-1"></i>مقارنة بين 3 مسارات دراسية بديلة على الأقل</li>
+                                <li><i class="fa-solid fa-check text-gold-700 ml-1"></i>خطة زمنية مكتوبة تسلّمها بنفس الجلسة</li>
                             </ul>
                         </div>
                     </div>
@@ -1141,19 +1141,19 @@
                 <!-- شريط الأرقام -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
                     <div class="bg-white border border-gold-500/30 rounded-2xl p-5 text-center shadow-sm">
-                        <div class="text-2xl sm:text-3xl font-black text-gold-500 sch-count">45</div>
+                        <div class="text-2xl sm:text-3xl font-black text-gold-700 sch-count">45</div>
                         <div class="text-xs text-slate-500 font-bold mt-1">منحة موثقة</div>
                     </div>
                     <div class="bg-white border border-gold-500/30 rounded-2xl p-5 text-center shadow-sm">
-                        <div class="text-2xl sm:text-3xl font-black text-gold-500">95%</div>
+                        <div class="text-2xl sm:text-3xl font-black text-gold-700">95%</div>
                         <div class="text-xs text-slate-500 font-bold mt-1">نسبة نجاح بالقبولات</div>
                     </div>
                     <div class="bg-white border border-gold-500/30 rounded-2xl p-5 text-center shadow-sm">
-                        <div class="text-2xl sm:text-3xl font-black text-gold-500">+2,400</div>
+                        <div class="text-2xl sm:text-3xl font-black text-gold-700">+2,400</div>
                         <div class="text-xs text-slate-500 font-bold mt-1">طالب مستفيد</div>
                     </div>
                     <div class="bg-white border border-gold-500/30 rounded-2xl p-5 text-center shadow-sm">
-                        <div class="text-2xl sm:text-3xl font-black text-gold-500">100%</div>
+                        <div class="text-2xl sm:text-3xl font-black text-gold-700">100%</div>
                         <div class="text-xs text-slate-500 font-bold mt-1">روابط رسمية مباشرة</div>
                     </div>
                 </div>
@@ -1297,7 +1297,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     <div class="lg:col-span-6 space-y-6">
                         <span class="bg-gold-500/20 text-gold-400 px-4 py-1.5 rounded-full text-sm font-semibold border border-gold-500/30 inline-block">
-                            <i class="fa-solid fa-star text-gold-500 ml-1"></i> برنامج حصري متقدم
+                            <i class="fa-solid fa-star text-gold-400 ml-1"></i> برنامج حصري متقدم
                         </span>
                         <h2 class="text-3xl sm:text-5xl font-black leading-tight">
                             نظام <span class="text-gold-400">"المجد 360"</span> للقبول الدولي والمتابعة الشاملة
@@ -1306,11 +1306,11 @@
                             نظام فريد صممناه بعناية فائقة لنبني معك ملفك الأكاديمي من الصفر بالكامل، لا نكتفي بتقديم النصائح فقط. نرافقك خطوة بخطوة من تحليل قدراتك واختيار التخصص والدولة الأنسب، مروراً بتجهيز الملف وتقديم المنحة، ووصولاً إلى متابعة مستمرة وفعلية حتى بعد القبول النهائي.
                         </p>
                         <ul class="space-y-3 text-sm text-slate-200 font-medium">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> نؤسس ملفك الأكاديمي بالكامل من الصفر: من تحديد التخصص والدولة الأنسب، لحد آخر توصية بالملف</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> مستشار أكاديمي مخصص يرافقك طوال فترة التقديم، لا فريق عام يتغيّر بكل مرة</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> متابعة دورية فعلية لحالة ملفك بكل مرحلة، مو بس رد على استفسارات متفرقة</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> أدلة إرشادية شاملة وحصرية (مثل دليل <span class="sch-count">80</span> منحة رسمية موثقة)</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> شراكات مع مؤسسات ومراكز دولية معتمدة</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-400"></i> نؤسس ملفك الأكاديمي بالكامل من الصفر: من تحديد التخصص والدولة الأنسب، لحد آخر توصية بالملف</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-400"></i> مستشار أكاديمي مخصص يرافقك طوال فترة التقديم، لا فريق عام يتغيّر بكل مرة</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-400"></i> متابعة دورية فعلية لحالة ملفك بكل مرحلة، مو بس رد على استفسارات متفرقة</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-400"></i> أدلة إرشادية شاملة وحصرية (مثل دليل <span class="sch-count">80</span> منحة رسمية موثقة)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-400"></i> شراكات مع مؤسسات ومراكز دولية معتمدة</li>
                         </ul>
                     </div>
                     <div class="lg:col-span-6 flex justify-center">
@@ -1318,7 +1318,7 @@
                             <div class="absolute -right-10 -top-10 w-32 h-32 bg-gold-500/10 rounded-full blur-2xl"></div>
                             <h3 class="text-2xl font-bold text-white relative z-10">ابدأ رحلتك مع المجد 360</h3>
                             <p class="text-sm text-slate-300 relative z-10">احصل على استشارة فورية لتقييم ملفك الأكاديمي وضمان ترشيحك لأقوى المنح والمقاعد الجامعية.</p>
-                            <button onclick="switchView('contact')" class="w-full py-4 bg-gradient-to-r from-gold-500 to-amber-600 text-navy-900 font-extrabold text-center rounded-xl shadow-lg hover:shadow-gold-glow transition-all relative z-10">
+                            <button onclick="switchView('contact')" class="w-full py-4 bg-gradient-to-r from-gold-500 to-gold-600 text-navy-900 font-extrabold text-center rounded-xl shadow-lg hover:shadow-gold-glow transition-all relative z-10">
                                 احجز استشارة المجد 360 الآن <i class="fa-solid fa-arrow-left ml-2"></i>
                             </button>
                         </div>
@@ -1403,7 +1403,7 @@
                             تأسست المنصة لتوفر حلولاً أكاديمية استثنائية للطلبة في غزة والمنطقة، واضعين نصب أعيننا تسهيل الوصول إلى أرقى فرص التعليم العالي والمنح الدولية عبر مصادر رسمية وموثوقة، معتمدين على أعلى المعايير التكنولوجية والأكاديمية.
                         </p>
                         <div class="bg-slateLight p-6 rounded-2xl border-r-4 border-gold-500 shadow-sm space-y-2 hover:bg-slate-50 transition">
-                            <h4 class="font-bold text-navy-900 text-lg flex items-center gap-2"><i class="fa-solid fa-user-tie text-gold-500"></i> المؤسس والمدير التنفيذي</h4>
+                            <h4 class="font-bold text-navy-900 text-lg flex items-center gap-2"><i class="fa-solid fa-user-tie text-gold-700"></i> المؤسس والمدير التنفيذي</h4>
                             <p class="text-navy-900 font-extrabold text-xl">م. مجد جميل صبحي عبد الهادي</p>
                             <span class="text-xs font-bold text-slate-500 block mb-2">(Majd Jamil Sobhi Abdalhadi)</span>
                             <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-200 pt-2">طالب هندسة برمجيات وذكاء اصطناعي، يجمع بين شغفه بالتكنولوجيا المتقدمة وبين حرصه على دعم وتمكين الطلبة عبر حلول رقمية مبتكرة ومنصات عالمية المستوى. يسعى دائماً لتوظيف البرمجيات لتسهيل حياة الطلاب وتحقيق طموحاتهم الأكاديمية.</p>
@@ -1507,7 +1507,7 @@
                                 </div>
                             </a>
                             <a href="mailto:almajd.admissions@gmail.com" class="flex items-center gap-4 p-4 bg-slateLight rounded-2xl border border-slate-200 hover:border-gold-500 hover:shadow-md transition group">
-                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-gold-500 to-amber-600 text-navy-900 flex items-center justify-center text-2xl shadow group-hover:scale-110 transition-transform">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-gold-500 to-gold-600 text-navy-900 flex items-center justify-center text-2xl shadow group-hover:scale-110 transition-transform">
                                     <i class="fa-solid fa-envelope"></i>
                                 </div>
                                 <div>
@@ -1553,7 +1553,7 @@
                                 <label class="block text-sm font-semibold text-slate-300 mb-2">التفاصيل أو اسم المنحة</label>
                                 <textarea id="message" rows="3" class="w-full bg-navy-800 border border-slate-700 rounded-2xl px-4 py-3.5 text-white focus:outline-none focus:border-gold-500 font-medium" placeholder="اكتب معدلك أو اسم المنحة التي تود التقديم عليها..."></textarea>
                             </div>
-                            <button type="submit" class="w-full py-4 bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold text-lg rounded-2xl shadow-lg transition transform active:scale-95">
+                            <button type="submit" class="w-full py-4 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 text-navy-900 font-extrabold text-lg rounded-2xl shadow-lg transition transform active:scale-95">
                                 إرسال الطلب وحجز الاستشارة
                             </button>
                         </form>
@@ -1573,7 +1573,7 @@
 
                 <!-- ملفي الأكاديمي -->
                 <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-lg space-y-5">
-                    <h3 class="text-xl font-black text-navy-900 flex items-center gap-2 border-b border-slate-100 pb-4"><i class="fa-solid fa-id-card text-gold-500"></i> ملفي الأكاديمي</h3>
+                    <h3 class="text-xl font-black text-navy-900 flex items-center gap-2 border-b border-slate-100 pb-4"><i class="fa-solid fa-id-card text-gold-700"></i> ملفي الأكاديمي</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>
                             <label class="block text-sm font-semibold text-slate-600 mb-2">المعدل الأكاديمي (%)</label>
@@ -1602,20 +1602,20 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-4 pt-2">
-                        <button onclick="saveAcademicProfile()" class="py-3.5 px-8 bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold rounded-xl shadow-lg transition">حفظ الملف</button>
+                        <button onclick="saveAcademicProfile()" class="py-3.5 px-8 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 text-navy-900 font-extrabold rounded-xl shadow-lg transition">حفظ الملف</button>
                         <p id="dash-save-msg" class="hidden text-brandGreen-600 text-sm font-bold"><i class="fa-solid fa-circle-check ml-1"></i>تم حفظ ملفك الأكاديمي بنجاح</p>
                     </div>
                 </div>
 
                 <!-- منحي المفضلة -->
                 <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-lg space-y-4">
-                    <h3 class="text-xl font-black text-navy-900 flex items-center gap-2 border-b border-slate-100 pb-4"><i class="fa-solid fa-bookmark text-gold-500"></i> منحي المفضلة</h3>
+                    <h3 class="text-xl font-black text-navy-900 flex items-center gap-2 border-b border-slate-100 pb-4"><i class="fa-solid fa-bookmark text-gold-700"></i> منحي المفضلة</h3>
                     <div id="dashboard-favorites-list" class="space-y-4"></div>
                 </div>
 
                 <!-- حالة طلبي -->
                 <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-lg space-y-4">
-                    <h3 class="text-xl font-black text-navy-900 flex items-center gap-2 border-b border-slate-100 pb-4"><i class="fa-solid fa-file-circle-check text-gold-500"></i> حالة طلبي</h3>
+                    <h3 class="text-xl font-black text-navy-900 flex items-center gap-2 border-b border-slate-100 pb-4"><i class="fa-solid fa-file-circle-check text-gold-700"></i> حالة طلبي</h3>
                     <div id="dashboard-status-card"></div>
                     <p class="text-xs text-slate-400">* يتم تحديث حالة الطلب من فريق منصة المجد مباشرة بعد مراجعة ملفك، ولا يمكن تعديلها من هذه الصفحة.</p>
                 </div>
@@ -1643,7 +1643,7 @@
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
             <h2 class="text-2xl font-black text-navy-900 mb-6 flex items-center gap-2 pt-2">
-                <i class="fa-solid fa-bookmark text-gold-500"></i> المنح المفضلة المحفوظة
+                <i class="fa-solid fa-bookmark text-gold-700"></i> المنح المفضلة المحفوظة
             </h2>
             <div id="favorites-list" class="space-y-4">
                 <!-- Injected dynamically via JS -->
@@ -1659,7 +1659,7 @@
             </div>
             <h3 id="success-modal-title" class="text-2xl font-black text-white">تم إرسال طلبك بنجاح!</h3>
             <p id="success-modal-text" class="text-slate-300 text-sm leading-relaxed">شكراً لتواصلك مع منصة المجد التعليمية. سيتم تقييم ملفك والتواصل معك من قبل الفريق المختص عبر الواتساب في أقرب وقت.</p>
-            <button onclick="closeSuccessModal()" class="w-full py-3 bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-bold rounded-xl transition-all shadow-md">
+            <button onclick="closeSuccessModal()" class="w-full py-3 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 text-navy-900 font-bold rounded-xl transition-all shadow-md">
                 حسناً، شكراً لكم
             </button>
         </div>
@@ -1696,7 +1696,7 @@
                     <input type="password" id="login-password" required minlength="6" class="w-full bg-slateLight border border-slate-300 rounded-2xl px-4 py-3.5 text-slate-800 focus:outline-none focus:border-gold-500 font-medium">
                 </div>
                 <button type="button" onclick="handleForgotPassword()" class="text-xs text-gold-600 font-bold hover:underline">نسيت كلمة المرور؟</button>
-                <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold rounded-xl shadow-lg transition">تسجيل الدخول</button>
+                <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 text-navy-900 font-extrabold rounded-xl shadow-lg transition">تسجيل الدخول</button>
             </form>
 
             <form id="signup-form" onsubmit="handleSignup(event)" class="space-y-4 hidden">
@@ -1712,7 +1712,7 @@
                     <label class="block text-sm font-semibold text-slate-600 mb-2">كلمة المرور (6 خانات على الأقل)</label>
                     <input type="password" id="signup-password" required minlength="6" class="w-full bg-slateLight border border-slate-300 rounded-2xl px-4 py-3.5 text-slate-800 focus:outline-none focus:border-gold-500 font-medium">
                 </div>
-                <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 font-extrabold rounded-xl shadow-lg transition">إنشاء الحساب</button>
+                <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 text-navy-900 font-extrabold rounded-xl shadow-lg transition">إنشاء الحساب</button>
             </form>
         </div>
     </div>
@@ -2632,7 +2632,7 @@
                             <div>
                                 <span class="text-xs font-bold text-navy-900 bg-navy-900/10 px-2.5 py-1 rounded-full">${sch.country}</span>
                                 <h4 class="font-bold text-navy-900 mt-2">${sch.title}</h4>
-                                <span class="text-xs text-slate-500 font-bold block mt-1"><i class="fa-solid fa-graduation-cap text-gold-500 ml-1"></i>${sch.degree} • <i class="fa-solid fa-sack-dollar text-gold-500 ml-1"></i>${sch.coverage}</span>
+                                <span class="text-xs text-slate-500 font-bold block mt-1"><i class="fa-solid fa-graduation-cap text-gold-700 ml-1"></i>${sch.degree} • <i class="fa-solid fa-sack-dollar text-gold-700 ml-1"></i>${sch.coverage}</span>
                             </div>
                             <div class="flex items-center gap-2 w-full sm:w-auto">
                                 <button onclick="openScholarshipModal(${sch.id}); closeFavoritesModal();" class="flex-1 sm:flex-none bg-navy-900 hover:bg-gold-500 hover:text-navy-900 text-white transition-colors text-xs font-bold px-4 py-2.5 rounded-xl">عرض التفاصيل</button>
@@ -2664,12 +2664,11 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
             document.querySelectorAll('nav button, #mobile-menu button').forEach(btn => {
-                btn.classList.remove('border-gold-500', 'text-gold-400', 'text-brandGreen-400');
+                btn.classList.remove('border-gold-500', 'text-gold-400');
             });
             const activeNav = document.getElementById('nav-' + viewId);
             if(activeNav) {
                 activeNav.classList.add('border-gold-500', 'text-gold-400');
-                if(viewId === 'testimonials') activeNav.classList.add('text-brandGreen-400'); // Keep specific styling
             }
             if(viewId === 'dashboard') renderDashboard();
         }
@@ -2827,7 +2826,7 @@
                             <i class="fa-solid fa-chevron-down text-xs text-slate-400"></i>
                         </button>
                         <div id="user-dropdown" class="hidden absolute left-0 top-full mt-2 w-48 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden z-50">
-                            <button onclick="switchView('dashboard'); closeUserDropdown();" class="w-full text-right px-4 py-3 text-sm font-bold text-navy-900 hover:bg-slateLight transition flex items-center gap-2"><i class="fa-solid fa-gauge text-gold-500"></i> لوحتي</button>
+                            <button onclick="switchView('dashboard'); closeUserDropdown();" class="w-full text-right px-4 py-3 text-sm font-bold text-navy-900 hover:bg-slateLight transition flex items-center gap-2"><i class="fa-solid fa-gauge text-gold-700"></i> لوحتي</button>
                             <button onclick="handleSignOut()" class="w-full text-right px-4 py-3 text-sm font-bold text-red-600 hover:bg-red-50 transition flex items-center gap-2"><i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج</button>
                         </div>
                     </div>
@@ -2905,7 +2904,7 @@
                     <div>
                         <span class="text-xs font-bold text-navy-900 bg-navy-900/10 px-2.5 py-1 rounded-full">${sch.country}</span>
                         <h4 class="font-bold text-navy-900 mt-2">${sch.title}</h4>
-                        <span class="text-xs text-slate-500 font-bold block mt-1"><i class="fa-solid fa-graduation-cap text-gold-500 ml-1"></i>${sch.degree} • <i class="fa-solid fa-sack-dollar text-gold-500 ml-1"></i>${sch.coverage}</span>
+                        <span class="text-xs text-slate-500 font-bold block mt-1"><i class="fa-solid fa-graduation-cap text-gold-700 ml-1"></i>${sch.degree} • <i class="fa-solid fa-sack-dollar text-gold-700 ml-1"></i>${sch.coverage}</span>
                     </div>
                     <div class="flex items-center gap-2 w-full sm:w-auto">
                         <button onclick="openScholarshipModal(${sch.id})" class="flex-1 sm:flex-none bg-navy-900 hover:bg-gold-500 hover:text-navy-900 text-white transition-colors text-xs font-bold px-4 py-2.5 rounded-xl">عرض التفاصيل</button>
@@ -3006,7 +3005,7 @@
                     <div class="relative h-[140px] overflow-hidden shrink-0">
                         <img src="${sch.image}" alt="${sch.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/30 to-transparent"></div>
-                        <button onclick="toggleFavorite(${sch.id}, event)" class="absolute top-3 left-3 text-2xl z-10 ${isFav ? 'text-gold-500' : 'text-white/80 hover:text-gold-400'} transition-all transform hover:scale-110 active:scale-95 drop-shadow-lg">
+                        <button onclick="toggleFavorite(${sch.id}, event)" class="absolute top-3 left-3 text-2xl z-10 ${isFav ? 'text-gold-400' : 'text-white/80 hover:text-gold-400'} transition-all transform hover:scale-110 active:scale-95 drop-shadow-lg">
                             <i class="fa-${isFav ? 'solid' : 'regular'} fa-bookmark"></i>
                         </button>
                     </div>
@@ -3014,7 +3013,7 @@
                         <div class="space-y-3">
                             <div class="flex items-center gap-2 flex-wrap">
                                 <span class="${status.badgeClass} font-bold text-xs px-2.5 py-1 rounded-full">${status.label}</span>
-                                <span class="bg-navy-900/10 text-navy-900 font-bold text-xs px-3 py-1 rounded-full"><i class="fa-solid fa-location-dot ml-1 text-gold-500"></i>${sch.country}</span>
+                                <span class="bg-navy-900/10 text-navy-900 font-bold text-xs px-3 py-1 rounded-full"><i class="fa-solid fa-location-dot ml-1 text-gold-700"></i>${sch.country}</span>
                                 <span class="bg-gold-500/20 text-gold-700 font-bold text-xs px-2.5 py-1 rounded-full">${sch.degree}</span>
                                 <span class="bg-brandGreen-500/10 text-brandGreen-600 font-bold text-xs px-2.5 py-1 rounded-full">${sch.coverage}</span>
                             </div>
@@ -3062,7 +3061,7 @@
             content.innerHTML = `
                 <div class="space-y-6">
                     <div class="border-b border-slate-200 pb-4">
-                        <span class="inline-block bg-navy-900/10 text-navy-900 font-bold px-3 py-1 rounded-full text-xs mb-3"><i class="fa-solid fa-location-dot ml-1 text-gold-500"></i>الدولة المستضيفة: ${sch.country}</span>
+                        <span class="inline-block bg-navy-900/10 text-navy-900 font-bold px-3 py-1 rounded-full text-xs mb-3"><i class="fa-solid fa-location-dot ml-1 text-gold-700"></i>الدولة المستضيفة: ${sch.country}</span>
                         <h2 class="text-2xl sm:text-3xl font-black text-navy-900 leading-tight">${sch.title}</h2>
                     </div>
                     
@@ -3085,16 +3084,16 @@
                     </div>
 
                     <div class="bg-slateLight p-5 rounded-2xl border-l-4 border-gold-500">
-                        <h4 class="font-bold text-navy-900 mb-2 flex items-center gap-2"><i class="fa-solid fa-circle-info text-gold-500"></i> نبذة عن المنحة</h4>
+                        <h4 class="font-bold text-navy-900 mb-2 flex items-center gap-2"><i class="fa-solid fa-circle-info text-gold-700"></i> نبذة عن المنحة</h4>
                         <p class="text-slate-600 text-sm leading-relaxed">${sch.description}</p>
                     </div>
 
                     <div>
-                        <h4 class="font-bold text-navy-900 mb-3 flex items-center gap-2"><i class="fa-solid fa-list-check text-gold-500"></i> أهم الشروط والمتطلبات الأساسية</h4>
+                        <h4 class="font-bold text-navy-900 mb-3 flex items-center gap-2"><i class="fa-solid fa-list-check text-gold-700"></i> أهم الشروط والمتطلبات الأساسية</h4>
                         <ul class="space-y-2">
                             ${sch.requirements.map(r => `
                                 <li class="flex items-start gap-2 bg-white border border-slate-100 p-3 rounded-xl shadow-sm">
-                                    <i class="fa-solid fa-check-circle text-brandGreen-500 mt-0.5"></i>
+                                    <i class="fa-solid fa-check-circle text-brandGreen-600 mt-0.5"></i>
                                     <span class="text-sm text-slate-700 font-medium">${r}</span>
                                 </li>
                             `).join('')}
@@ -3102,7 +3101,7 @@
                     </div>
 
                     <div class="pt-4 flex flex-col sm:flex-row gap-3">
-                        <a href="${sch.link}" target="_blank" class="flex-1 py-4 bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-600 text-navy-900 text-center font-extrabold text-lg rounded-xl shadow-lg transition-all transform active:scale-95 flex items-center justify-center gap-2">
+                        <a href="${sch.link}" target="_blank" class="flex-1 py-4 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 text-navy-900 text-center font-extrabold text-lg rounded-xl shadow-lg transition-all transform active:scale-95 flex items-center justify-center gap-2">
                             الذهاب للرابط الرسمي <i class="fa-solid fa-arrow-up-right-from-square"></i>
                         </a>
                         <button onclick="toggleFavorite(${sch.id})" class="py-4 px-6 bg-navy-900 hover:bg-navy-800 text-white font-bold rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
@@ -3276,7 +3275,7 @@
             }
 
             outputDiv.classList.remove('hidden');
-            outputContent.innerHTML = `<div class="text-center py-4"><i class="fa-solid fa-spinner fa-spin text-3xl text-gold-500 mb-2"></i><p class="text-sm text-slate-400">جاري مقارنة بياناتك بالشروط المتاحة...</p></div>`;
+            outputContent.innerHTML = `<div class="text-center py-4"><i class="fa-solid fa-spinner fa-spin text-3xl text-gold-700 mb-2"></i><p class="text-sm text-slate-400">جاري مقارنة بياناتك بالشروط المتاحة...</p></div>`;
 
             setTimeout(() => {
                 const student = { gpa, degree, english, nationality, age };
@@ -3442,7 +3441,7 @@
             if(!container) return;
             container.innerHTML = faqCategories.map(cat => {
                 const isActive = activeFaqCategory === cat.key;
-                const activeClasses = "bg-gradient-to-r from-gold-500 to-amber-600 text-navy-900 border-transparent shadow-md";
+                const activeClasses = "bg-gradient-to-r from-gold-500 to-gold-600 text-navy-900 border-transparent shadow-md";
                 const inactiveClasses = "bg-white text-navy-900 border-slate-200 hover:border-gold-500 hover:text-gold-600 shadow-sm";
                 return `
                     <button onclick="filterFaqs('${cat.key}')" class="flex items-center gap-2 whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-bold border transition-all duration-300 ${isActive ? activeClasses : inactiveClasses}">
@@ -3471,7 +3470,7 @@
                             </span>
                             <span class="font-bold text-navy-900 text-base">${item.question}</span>
                         </span>
-                        <i id="faq-icon-${idx}" class="fa-solid fa-chevron-down text-gold-500 shrink-0 transition-transform duration-300"></i>
+                        <i id="faq-icon-${idx}" class="fa-solid fa-chevron-down text-gold-700 shrink-0 transition-transform duration-300"></i>
                     </button>
                     <div id="faq-content-${idx}" class="faq-content px-6 overflow-hidden transition-all duration-300 ease-in-out" style="max-height:0px;">
                         <p class="text-slate-600 text-sm leading-relaxed pb-6 border-t border-slate-100 pt-4">${item.answer}</p>
