@@ -2672,6 +2672,8 @@
         // ===== Auth State & User Data =====
         let currentUser = null;
         let currentUserData = null;
+        let pendingHashView = null; // قسم بانتظار تأكيد حالة تسجيل الدخول (لوحة التحكم فقط) قبل عرضه من الرابط
+        let authResolved = false; // هل استلمنا أول تأكيد لحالة تسجيل الدخول من Firebase؟
 
         // Favorites Storage Logic (localStorage عند الزوار، Firestore عند تسجيل الدخول)
         function readLocalFavoritesSafe() {
@@ -2780,7 +2782,7 @@
             document.getElementById('favorites-modal').classList.add('hidden');
         }
 
-        function switchView(viewId) {
+        function switchView(viewId, options = {}) {
             if(viewId === 'dashboard' && !currentUser) {
                 openAuthModal('login');
                 return;
@@ -2801,7 +2803,32 @@
                 activeNav.classList.add('border-gold-500', 'text-gold-400');
             }
             if(viewId === 'dashboard') renderDashboard();
+
+            if(!options.skipHistory) {
+                history.pushState(null, '', '#' + viewId);
+            }
         }
+
+        // يعرض القسم المطابق لقيمة الـ hash الحالية بالرابط (يُستخدم عند فتح الصفحة أول مرة وعند الرجوع/التالي بالمتصفح)
+        function showViewFromHash() {
+            const hash = window.location.hash.replace('#', '');
+            if(hash === 'dashboard') {
+                if(authResolved) {
+                    switchView('dashboard', { skipHistory: true });
+                } else {
+                    // ننتظر تأكيد حالة تسجيل الدخول من Firebase قبل إظهار لوحة التحكم أو فتح نافذة الدخول
+                    pendingHashView = 'dashboard';
+                }
+                return;
+            }
+            if(hash && document.getElementById('view-' + hash)) {
+                switchView(hash, { skipHistory: true });
+            } else {
+                switchView('home', { skipHistory: true });
+            }
+        }
+
+        window.addEventListener('popstate', showViewFromHash);
 
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -3069,6 +3096,7 @@
         // مراقبة حالة تسجيل الدخول
         auth.onAuthStateChanged(async (user) => {
             currentUser = user;
+            authResolved = true;
             if(user) {
                 try {
                     await migrateFavoritesToFirestore(user.uid);
@@ -3089,6 +3117,11 @@
             const dashboardView = document.getElementById('view-dashboard');
             if(dashboardView && dashboardView.classList.contains('active')) {
                 if(!currentUser) { switchView('home'); } else { renderDashboard(); }
+            }
+            if(pendingHashView) {
+                const targetView = pendingHashView;
+                pendingHashView = null;
+                switchView(targetView, { skipHistory: true });
             }
         });
 
@@ -3667,6 +3700,7 @@
             renderScholarships(scholarshipsData);
             updateFavCounter();
             filterFaqs('all');
+            showViewFromHash();
 
             document.querySelectorAll('.sch-count').forEach(el => el.textContent = scholarshipsData.length);
             document.title = `منصة المجد التعليمية | الموسوعة الشاملة للـ ${scholarshipsData.length} منحة والخدمات الأكاديمية`;
