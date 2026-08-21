@@ -58,6 +58,8 @@
         .glass-card { background: rgba(36, 20, 84, 0.88); backdrop-filter: blur(14px); border: 1px solid rgba(224, 168, 8, 0.25); }
         @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
         .floating { animation: float 4s ease-in-out infinite; }
+        @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-slide-up { animation: fadeSlideUp 0.55s ease both; }
         .view-section { display: none; opacity: 0; transition: opacity 0.4s ease-in-out; }
         .view-section.active { display: block; opacity: 1; }
         
@@ -832,78 +834,199 @@
         <!-- TOOLS VIEW -->
         <section id="view-tools" class="view-section py-16 bg-white">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-                <div class="text-center max-w-3xl mx-auto space-y-4">
+                <div class="text-center max-w-3xl mx-auto space-y-4 fade-slide-up">
                     <span class="bg-amber-500/20 text-amber-800 font-bold px-4 py-1.5 rounded-full text-sm">أدوات إعداد الملفات الأكاديمية الاحترافية</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-navy-900">نموذج رسالة الدوافع المطور كلياً والأدلة الشاملة</h2>
-                    <p class="text-slate-600 text-base">تم تصميم هذا القالب الأكاديمي المتقدم خصيصاً ليخاطب لجان القبول في أضخم المنح العالمية بطريقة احترافية تعكس شخصيتك، إنجازاتك، وشغفك الأكاديمي.</p>
+                    <h2 class="text-3xl sm:text-4xl font-black text-navy-900">نموذج احترافي لرسالة الدوافع</h2>
+                    <p class="text-slate-600 text-base">دليل عملي لبناء رسالة دوافع قوية للمنح والقبولات الجامعية خطوة بخطوة.</p>
                 </div>
 
-                <div class="bg-slateLight p-8 sm:p-10 rounded-3xl border border-slate-200 space-y-6 shadow-xl">
-                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-slate-200 pb-6">
-                        <div>
-                            <h3 class="text-2xl font-black text-navy-900">نموذج رسالة الدوافع الأكاديمية (The Master Motivation Letter)</h3>
-                            <p class="text-xs text-slate-500 mt-1">نسخة مطورة تتضمن 5 أقسام رئيسية يطلبها كبار الخبراء ولجان التحكيم الدولية</p>
+                <!-- شريط مراحل رسالة الدوافع -->
+                <div class="fade-slide-up" style="animation-delay:.05s">
+                    <div class="flex items-center gap-2 sm:gap-2.5 overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:justify-center pb-1">
+                        <div class="flex items-center gap-2 shrink-0 bg-slateLight border border-slate-200 rounded-full pl-4 pr-2 py-1.5">
+                            <span class="w-6 h-6 rounded-full bg-navy-900 text-gold-400 text-[11px] font-black flex items-center justify-center shrink-0">01</span>
+                            <span class="text-xs sm:text-sm font-bold text-navy-900 whitespace-nowrap">المقدمة</span>
                         </div>
-                        <button onclick="copyAdvancedMotivationTemplate()" class="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 text-navy-900 font-extrabold text-sm px-6 py-3 rounded-xl shadow-md transition flex items-center gap-2 transform active:scale-95">
-                            <i class="fa-solid fa-copy"></i> نسخ القالب المطور بالكامل
+                        <div class="flex items-center gap-2 shrink-0 bg-slateLight border border-slate-200 rounded-full pl-4 pr-2 py-1.5">
+                            <span class="w-6 h-6 rounded-full bg-navy-900 text-gold-400 text-[11px] font-black flex items-center justify-center shrink-0">02</span>
+                            <span class="text-xs sm:text-sm font-bold text-navy-900 whitespace-nowrap">الخلفية الأكاديمية</span>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0 bg-slateLight border border-slate-200 rounded-full pl-4 pr-2 py-1.5">
+                            <span class="w-6 h-6 rounded-full bg-navy-900 text-gold-400 text-[11px] font-black flex items-center justify-center shrink-0">03</span>
+                            <span class="text-xs sm:text-sm font-bold text-navy-900 whitespace-nowrap">الإنجازات والخبرات</span>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0 bg-slateLight border border-slate-200 rounded-full pl-4 pr-2 py-1.5">
+                            <span class="w-6 h-6 rounded-full bg-navy-900 text-gold-400 text-[11px] font-black flex items-center justify-center shrink-0">04</span>
+                            <span class="text-xs sm:text-sm font-bold text-navy-900 whitespace-nowrap">لماذا هذا التخصص؟</span>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0 bg-slateLight border border-slate-200 rounded-full pl-4 pr-2 py-1.5">
+                            <span class="w-6 h-6 rounded-full bg-navy-900 text-gold-400 text-[11px] font-black flex items-center justify-center shrink-0">05</span>
+                            <span class="text-xs sm:text-sm font-bold text-navy-900 whitespace-nowrap">لماذا هذه المنحة/الجامعة؟</span>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0 bg-slateLight border border-slate-200 rounded-full pl-4 pr-2 py-1.5">
+                            <span class="w-6 h-6 rounded-full bg-navy-900 text-gold-400 text-[11px] font-black flex items-center justify-center shrink-0">06</span>
+                            <span class="text-xs sm:text-sm font-bold text-navy-900 whitespace-nowrap">الأهداف المستقبلية</span>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0 bg-slateLight border border-slate-200 rounded-full pl-4 pr-2 py-1.5">
+                            <span class="w-6 h-6 rounded-full bg-navy-900 text-gold-400 text-[11px] font-black flex items-center justify-center shrink-0">07</span>
+                            <span class="text-xs sm:text-sm font-bold text-navy-900 whitespace-nowrap">الخاتمة</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- نموذج رسالة الدوافع بشكل ورقة أكاديمية -->
+                <div class="fade-slide-up" style="animation-delay:.1s">
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
+                        <div>
+                            <h3 class="text-2xl font-black text-navy-900">نموذج رسالة الدوافع الأكاديمية</h3>
+                            <p class="text-xs text-slate-500 mt-1">نسخة احترافية تتضمن 7 أقسام رئيسية يطلبها كبار الخبراء ولجان التحكيم الدولية</p>
+                        </div>
+                        <button id="copy-motivation-btn" onclick="copyAdvancedMotivationTemplate()" class="w-full sm:w-auto justify-center bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 text-navy-900 font-extrabold text-sm px-6 py-3 rounded-xl shadow-md transition-all duration-300 flex items-center gap-2 transform active:scale-95">
+                            <i class="fa-solid fa-copy" id="copy-motivation-icon"></i> <span id="copy-motivation-label">نسخ نموذج رسالة الدوافع</span>
                         </button>
                     </div>
 
-                    <textarea id="advanced-motivation-text" rows="16" class="w-full bg-white border border-slate-300 rounded-2xl p-6 text-xs sm:text-sm text-slate-800 font-mono leading-relaxed focus:outline-none focus:border-gold-500" readonly>
-[اسمك الكامل / Your Full Name]
-[بريدك الإلكتروني الأكاديمي / Academic Email] | [رقم الهاتف مع الرمز الدولي / Phone Number]
-[تاريخ اليوم / Date]
+                    <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 md:p-12 max-w-3xl mx-auto" style="box-shadow: 0 12px 40px -14px rgba(21,11,51,0.15);">
+                        <div id="motivation-letter-content" dir="rtl" class="text-slate-800 text-sm sm:text-base leading-loose space-y-6">
+                            <div class="text-slate-500 text-xs sm:text-sm leading-relaxed border-b border-slate-100 pb-5 space-y-1">
+                                <p class="font-bold text-navy-900">[Full Name]</p>
+                                <p>[Academic Email] | [Phone Number]</p>
+                                <p>[Date]</p>
+                            </div>
 
-إلى لجنة التقييم والقبول الموقرة في [اسم المنحة الدولية أو الجامعة المستهدفة، مثال: Türkiye Scholarships Selection Committee]،
+                            <div class="space-y-1">
+                                <p>إلى لجنة القبول والتقييم الموقرة في [University Name]،</p>
+                                <p class="font-bold text-navy-900">الموضوع: طلب ترشّح للحصول على [Scholarship Name] لدراسة [Program Name] للعام الأكاديمي [Academic Year]</p>
+                            </div>
 
-الموضوع: طلب ترشيح للحصول على منحة [اسم المنحة] لدراسة درجة [التخصص / Program Name] للعام الأكاديمي [السنة، مثال: 2026/2027]
+                            <p>تحية طيبة وبعد،</p>
 
-تحية طيبة وبعد،
+                            <div class="flex items-start gap-3">
+                                <span class="shrink-0 w-8 h-8 rounded-full bg-navy-900 text-gold-400 text-xs font-black flex items-center justify-center mt-0.5">01</span>
+                                <div>
+                                    <h4 class="font-black text-navy-900 text-base sm:text-lg mb-1.5">المقدمة</h4>
+                                    <p>بصفتي خريجاً طموحاً في مجال [Program Name]، يسعدني ويشرفني أن أتقدم بطلبي للحصول على [Scholarship Name] لمتابعة دراستي في [University Name] بـ[Country]. لطالما شكّل شغفي بهذا المجال دافعي الأساسي لتطوير نفسي أكاديمياً ومهنياً، وأرى في هذه المنحة الفرصة المثالية لتحويل هذا الشغف إلى أثر حقيقي وملموس.</p>
+                                </div>
+                            </div>
 
-1. مقدمة استثنائية وجاذبة للانتباه (The Hook & Introduction):
-بصفتي خريجاً طموحاً بشهادة [اسم تخصصك السابق، مثال: بكالوريوس في هندسة البرمجيات] بتقدير [معدلك الأكاديمي، مثال: ممتاز / 91.5%] من [اسم جامعتي السابقة]، يشرفني أن أتقدم إليكم بطلبي الرسمي للحصول على منحة [اسم المنحة] لمتابعة دراسات العليا في برنامج [التخصص المستهدف]. لقد تشكلت رؤيتي الأكاديمية والمهنية عبر سنوات من الشغف العميق بفهم كيف يمكن للابتكار التقني والعلمي أن يساهم في إيجاد حلول جذرية للتحديات الملحة في مجتمعي والعالم.
+                            <div class="flex items-start gap-3">
+                                <span class="shrink-0 w-8 h-8 rounded-full bg-navy-900 text-gold-400 text-xs font-black flex items-center justify-center mt-0.5">02</span>
+                                <div>
+                                    <h4 class="font-black text-navy-900 text-base sm:text-lg mb-1.5">الخلفية الأكاديمية</h4>
+                                    <p>حصلت على شهادتي الجامعية بتقدير [Relevant Achievement]، حيث بنيت خلال سنوات دراستي أساساً معرفياً متيناً في تخصصي. لم يقتصر تحصيلي على الجانب النظري فحسب، بل حرصت على موازنته بتطبيق عملي مستمر عزز فهمي العميق لطبيعة التحديات الحقيقية في هذا المجال.</p>
+                                </div>
+                            </div>
 
-2. الخلفية الأكاديمية والمهنية والإنجازات البارزة (Academic & Professional Background):
-خلال مسيرتي الجامعية السابقة، لم أقتصر على التحصيل النظري فحسب، بل انخرطت بعمق في مشاريع بحثية وتطبيقية متعددة. من أبرز المحطات التي طورت مهاراتي كانت [اذكر مشروع تخرجك أو بحثاً قمت به، مثال: تطوير نظام ذكاء اصطناعي لتحليل البيانات الطبية]. هذا المشروع لم يعلمني الصرامة المنهجية والبحثية فحسب، بل حصد لي [اذكر أي جائزة أو تقدير إن وجد، أو اتركها لإنجازك]. بالإضافة إلى ذلك، ساهمت في [اذكر نشاطاً تطوعياً أو تدريباً عملياً ذو صلة], مما عزز لدي مهارات العمل الجماعي والقيادة تحت الضغط.
+                            <div class="flex items-start gap-3">
+                                <span class="shrink-0 w-8 h-8 rounded-full bg-navy-900 text-gold-400 text-xs font-black flex items-center justify-center mt-0.5">03</span>
+                                <div>
+                                    <h4 class="font-black text-navy-900 text-base sm:text-lg mb-1.5">الإنجازات والخبرات</h4>
+                                    <p>من أبرز محطاتي الأكاديمية والمهنية كان [Relevant Achievement]، والذي صقل مهاراتي العملية وعلّمني قيمة الالتزام والدقة في العمل. كما أسهمت هذه التجربة في تطوير قدرتي على العمل الجماعي وحل المشكلات، وهو ما أراه رصيداً حقيقياً سأحمله معي إلى [University Name].</p>
+                                </div>
+                            </div>
 
-3. لماذا اخترت هذه الجامعة وهذا البرنامج تحديداً؟ (Why This University & Program?):
-إن اختياري المتقدم لجامعة [اسم الجامعة المستهدفة] وبرنامج [اسم البرنامج] لم يأتِ من فراغ؛ بل جاء بناءً على السمعة الأكاديمية العالمية المرموقة للجامعة، وخاصة الإسهامات الرائدة لمختبراتكم وأعضاء هيئة التدريس في مجال [اذكر تخصص القسم أو أبحاث المشرفين]. أنا أؤمن أن الانضمام إلى بيئتكم الأكاديمية المتنوعة والمحفزة سيوفر لي الإطار الأمثل لتطوير قدراتي البحثية وتوسيع مداركي المعرفية بالتعاون مع نخبة من عقول العالم.
+                            <div class="flex items-start gap-3">
+                                <span class="shrink-0 w-8 h-8 rounded-full bg-navy-900 text-gold-400 text-xs font-black flex items-center justify-center mt-0.5">04</span>
+                                <div>
+                                    <h4 class="font-black text-navy-900 text-base sm:text-lg mb-1.5">لماذا هذا التخصص؟</h4>
+                                    <p>اخترت [Program Name] لأنه يمثل نقطة التقاء دقيقة بين شغفي الشخصي وطموحي المهني؛ فأنا أؤمن أن هذا المجال يحمل إمكانات هائلة لإحداث تأثير إيجابي، وأرغب في أن أكون جزءاً فاعلاً من هذا التأثير من خلال بناء معرفة عميقة ومهارات تطبيقية متقدمة فيه.</p>
+                                </div>
+                            </div>
 
-4. الأهداف المستقبلية ورؤية التأثير المجتمعي (Future Goals & Impact Vision):
-عقب إكمامي الناجح لهذه المنحة واستظهار المعارف المتقدمة من جامعة [اسم الجامعة]، أخطط للعودة إلى وطني ومجتمعي للمساهمة الفاعلة في تأسيس [اذكر هدفك المهني المستقبلي، مثال: شركة ناشئة تقنية / مركز بحثي / قيادة مشاريع التنمية المستدامة]. أطمح لأن أكون سفيراً للمعرفة والتبادل الثقافي، وجسراً يربط بين الابتكار العالمي والتطبيق المحلي الفعال.
+                            <div class="flex items-start gap-3">
+                                <span class="shrink-0 w-8 h-8 rounded-full bg-navy-900 text-gold-400 text-xs font-black flex items-center justify-center mt-0.5">05</span>
+                                <div>
+                                    <h4 class="font-black text-navy-900 text-base sm:text-lg mb-1.5">لماذا هذه المنحة/الجامعة؟</h4>
+                                    <p>لم يكن اختياري لـ[Scholarship Name] و[University Name] عشوائياً؛ فسمعة الجامعة الأكاديمية المرموقة، إلى جانب جودة برنامج [Program Name] الذي تقدمه، يجعلانها البيئة المثالية لتطوير قدراتي البحثية والعملية. كما أن قيم هذه المنحة ورؤيتها تتقاطع تماماً مع طموحي الشخصي في هذا المجال.</p>
+                                </div>
+                            </div>
 
-5. الخاتمة والشكر (Conclusion):
-أتقدم بجزيل الشكر والعرفان للجنة الموقرة على وقتكم الثمين في قراءة وتقييم ملفي الأكاديمي. أنا واثق تماماً أن منحة [اسم المنحة] ستكون نقطة التحول الكبرى والمحطة الأهم في تمكيني من تحقيق أحلامي الأكاديمية والمهنية.
+                            <div class="flex items-start gap-3">
+                                <span class="shrink-0 w-8 h-8 rounded-full bg-navy-900 text-gold-400 text-xs font-black flex items-center justify-center mt-0.5">06</span>
+                                <div>
+                                    <h4 class="font-black text-navy-900 text-base sm:text-lg mb-1.5">الأهداف المستقبلية</h4>
+                                    <p>عقب إتمامي لهذه المنحة بنجاح، أخطط لتوظيف ما اكتسبته من معرفة وخبرة في [Career Goal]، بما يخدم مجتمعي ويسهم في تطوير مجال تخصصي. أطمح لأن أكون نموذجاً يحتذى به لكل من يسعى لتحقيق التغيير من خلال العلم والمعرفة.</p>
+                                </div>
+                            </div>
 
-وتفضلوا بقبول فائق الاحترام والتقدير،
+                            <div class="flex items-start gap-3">
+                                <span class="shrink-0 w-8 h-8 rounded-full bg-navy-900 text-gold-400 text-xs font-black flex items-center justify-center mt-0.5">07</span>
+                                <div>
+                                    <h4 class="font-black text-navy-900 text-base sm:text-lg mb-1.5">الخاتمة</h4>
+                                    <p>أتقدم بجزيل الشكر والتقدير للجنة الموقرة على وقتكم في قراءة وتقييم طلبي. أنا على ثقة تامة بأن [Scholarship Name] ستكون نقطة تحول محورية في مسيرتي الأكاديمية والمهنية، وأتطلع بشغف لفرصة الانضمام إلى [University Name].</p>
+                                </div>
+                            </div>
 
-[اسمك الكامل]
-[التوقيع أو الاسم المعتمد]
-                    </textarea>
+                            <div class="pt-2 space-y-1">
+                                <p>وتفضلوا بقبول فائق الاحترام والتقدير،</p>
+                                <p class="font-bold text-navy-900">[Full Name]</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-slateLight p-8 rounded-3xl border border-slate-200 space-y-4 shadow-sm hover:shadow-md transition">
-                        <h4 class="text-xl font-black text-navy-900 border-b border-slate-200 pb-3"><i class="fa-solid fa-calendar-days text-gold-700 ml-2"></i> الجدول الزمني المثالي للتقديم (Timeline)</h4>
-                        <ul class="space-y-3 text-xs text-slate-700 font-medium pt-2">
-                            <li><strong class="text-navy-900">شهر (6 - 8):</strong> الاستعداد وتجهيز شهادات اللغة (IELTS/TOEFL) وتحديد قائمة المنح والجامعات المستهدفة.</li>
-                            <li><strong class="text-navy-900">شهر (9 - 11):</strong> كتابة وتطوير رسالة الدوافع (Motivation Letter) وتأمين خطابات التوصية من الأساتذة.</li>
-                            <li><strong class="text-navy-900">شهر (12 - 2):</strong> فتح باب التقديم لأكبر المنح العالمية (التركية، الهنغارية، إراسموس، تشيفنينغ) وإرسال الطلبات مبكراً.</li>
-                            <li><strong class="text-navy-900">شهر (3 - 6):</strong> انتظار النتائج، التحضير للمقابلات الشخصية (Interviews)، وإجراء الاختبارات الطبية.</li>
+                <!-- نصيحة مهمة -->
+                <div class="bg-gold-500/10 border border-gold-500/30 rounded-3xl p-6 sm:p-8 flex items-start gap-4 fade-slide-up max-w-3xl mx-auto" style="animation-delay:.15s">
+                    <div class="w-12 h-12 rounded-2xl bg-gold-500/20 text-gold-700 flex items-center justify-center text-2xl shrink-0">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-black text-navy-900 text-lg mb-1">نصيحة مهمة قبل إرسال رسالتك</h4>
+                        <p class="text-slate-700 text-sm leading-relaxed">لا تنسخ النموذج حرفياً. خصّص رسالة الدوافع لكل منحة أو جامعة، واربط أهدافك الأكاديمية وخبراتك وإنجازاتك بأسباب اختيار البرنامج، حتى تعكس الرسالة شخصيتك الحقيقية.</p>
+                    </div>
+                </div>
+
+                <!-- ما الذي يجعل رسالة الدوافع قوية -->
+                <div class="fade-slide-up" style="animation-delay:.2s">
+                    <h3 class="text-xl sm:text-2xl font-black text-navy-900 text-center mb-6">ما الذي يجعل رسالة الدوافع قوية؟</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="bg-slateLight border border-slate-200 rounded-2xl p-5 flex items-start gap-3 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                            <div class="w-10 h-10 rounded-xl bg-navy-900/10 text-gold-700 flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-bullseye"></i></div>
+                            <p class="text-sm text-slate-700 font-medium">بداية تجذب لجنة القبول</p>
+                        </div>
+                        <div class="bg-slateLight border border-slate-200 rounded-2xl p-5 flex items-start gap-3 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                            <div class="w-10 h-10 rounded-xl bg-navy-900/10 text-gold-700 flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-trophy"></i></div>
+                            <p class="text-sm text-slate-700 font-medium">إنجازات مدعومة بأمثلة حقيقية</p>
+                        </div>
+                        <div class="bg-slateLight border border-slate-200 rounded-2xl p-5 flex items-start gap-3 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                            <div class="w-10 h-10 rounded-xl bg-navy-900/10 text-gold-700 flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-compass"></i></div>
+                            <p class="text-sm text-slate-700 font-medium">أسباب واضحة لاختيار التخصص والمنحة</p>
+                        </div>
+                        <div class="bg-slateLight border border-slate-200 rounded-2xl p-5 flex items-start gap-3 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                            <div class="w-10 h-10 rounded-xl bg-navy-900/10 text-gold-700 flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-rocket"></i></div>
+                            <p class="text-sm text-slate-700 font-medium">أهداف مستقبلية واقعية ومقنعة</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch fade-slide-up" style="animation-delay:.25s">
+                    <div class="bg-slateLight p-8 rounded-3xl border border-slate-200 flex flex-col gap-4 shadow-sm hover:shadow-md transition">
+                        <h4 class="text-xl font-black text-navy-900 border-b border-slate-200 pb-3"><i class="fa-solid fa-list-check text-gold-700 ml-2"></i> قائمة المستندات الأساسية</h4>
+                        <ul class="space-y-4 text-sm text-slate-700 font-medium pt-2">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brandGreen-600 mt-1"></i><span><strong class="text-navy-900">جواز السفر:</strong> ساري المفعول لمدة لا تقل عن سنة إلى سنتين.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brandGreen-600 mt-1"></i><span><strong class="text-navy-900">الشهادات الأكاديمية وكشوف المراتب:</strong> مترجمة ومصدقة أصولاً حسب متطلبات المنحة.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brandGreen-600 mt-1"></i><span><strong class="text-navy-900">خطابات التوصية:</strong> عدد 2 إلى 3 خطابات من أساتذة أكاديميين عرفوا أداءك.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brandGreen-600 mt-1"></i><span><strong class="text-navy-900">السيرة الذاتية الأكاديمية:</strong> بتصميم أنيق ومنظم.</span></li>
                         </ul>
                     </div>
-                    <div class="bg-slateLight p-8 rounded-3xl border border-slate-200 space-y-4 shadow-sm hover:shadow-md transition">
-                        <h4 class="text-xl font-black text-navy-900 border-b border-slate-200 pb-3"><i class="fa-solid fa-list-check text-gold-700 ml-2"></i> قائمة المستندات الذهبية (Checklist)</h4>
-                        <ul class="space-y-3 text-xs text-slate-700 font-medium pt-2">
-                            <li><i class="fa-solid fa-check text-brandGreen-600 ml-1"></i><strong>جواز السفر:</strong> ساري المفعول لمدة لا تقل عن سنة إلى سنتين.</li>
-                            <li><i class="fa-solid fa-check text-brandGreen-600 ml-1"></i><strong>الشهادات الأكاديمية وكشوف المراتب:</strong> مترجمة ومصدقة أصولاً حسب متطلبات المنحة.</li>
-                            <li><i class="fa-solid fa-check text-brandGreen-600 ml-1"></i><strong>خطابات التوصية (Recommendation Letters):</strong> عدد 2 إلى 3 خطابات من أساتذة أكاديميين عرفوا أداءك.</li>
-                            <li><i class="fa-solid fa-check text-brandGreen-600 ml-1"></i><strong>السيرة الذاتية الأكاديمية (Academic CV):</strong> بتصميم أنيق ومنظم.</li>
+                    <div class="bg-slateLight p-8 rounded-3xl border border-slate-200 flex flex-col gap-4 shadow-sm hover:shadow-md transition">
+                        <h4 class="text-xl font-black text-navy-900 border-b border-slate-200 pb-3"><i class="fa-solid fa-calendar-days text-gold-700 ml-2"></i> الجدول الزمني المثالي للتقديم</h4>
+                        <ul class="space-y-4 text-sm text-slate-700 font-medium pt-2">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brandGreen-600 mt-1"></i><span><strong class="text-navy-900">قبل 6-8 أشهر من الموعد النهائي:</strong> الاستعداد وتجهيز شهادات اللغة (IELTS/TOEFL) وتحديد قائمة المنح والجامعات المستهدفة.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brandGreen-600 mt-1"></i><span><strong class="text-navy-900">قبل 4-6 أشهر من الموعد النهائي:</strong> كتابة وتطوير رسالة الدوافع وتأمين خطابات التوصية من الأساتذة.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brandGreen-600 mt-1"></i><span><strong class="text-navy-900">قبل 2-4 أشهر من الموعد النهائي:</strong> استكمال الطلب وإرساله مبكراً قدر الإمكان قبل إغلاق باب التقديم.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brandGreen-600 mt-1"></i><span><strong class="text-navy-900">بعد الموعد النهائي:</strong> انتظار الرد، التحضير للمقابلات الشخصية، وإجراء الفحوصات الطبية إن طُلبت.</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Toast تأكيد نسخ نموذج رسالة الدوافع -->
+        <div id="copy-toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] bg-navy-900 text-white border border-gold-500/40 shadow-2xl rounded-2xl px-5 py-3 flex items-center gap-2 text-sm font-bold opacity-0 pointer-events-none translate-y-4 transition-all duration-300">
+            <i class="fa-solid fa-circle-check text-gold-400"></i>
+            <span>تم نسخ نموذج رسالة الدوافع بنجاح</span>
+        </div>
 
         <!-- GUIDES VIEW -->
         <section id="view-guides" class="view-section py-16 bg-slateLight">
@@ -3496,16 +3619,78 @@
             `).join('');
         }
 
-        // دالة نسخ القالب
+        // نص نموذج رسالة الدوافع الكامل (نسخة عامة صالحة لأي منحة أو جامعة)
+        const MOTIVATION_LETTER_TEXT = `[Full Name]
+[Academic Email] | [Phone Number]
+[Date]
+
+إلى لجنة القبول والتقييم الموقرة في [University Name]،
+الموضوع: طلب ترشّح للحصول على [Scholarship Name] لدراسة [Program Name] للعام الأكاديمي [Academic Year]
+
+تحية طيبة وبعد،
+
+01. المقدمة
+بصفتي خريجاً طموحاً في مجال [Program Name]، يسعدني ويشرفني أن أتقدم بطلبي للحصول على [Scholarship Name] لمتابعة دراستي في [University Name] بـ[Country]. لطالما شكّل شغفي بهذا المجال دافعي الأساسي لتطوير نفسي أكاديمياً ومهنياً، وأرى في هذه المنحة الفرصة المثالية لتحويل هذا الشغف إلى أثر حقيقي وملموس.
+
+02. الخلفية الأكاديمية
+حصلت على شهادتي الجامعية بتقدير [Relevant Achievement]، حيث بنيت خلال سنوات دراستي أساساً معرفياً متيناً في تخصصي. لم يقتصر تحصيلي على الجانب النظري فحسب، بل حرصت على موازنته بتطبيق عملي مستمر عزز فهمي العميق لطبيعة التحديات الحقيقية في هذا المجال.
+
+03. الإنجازات والخبرات
+من أبرز محطاتي الأكاديمية والمهنية كان [Relevant Achievement]، والذي صقل مهاراتي العملية وعلّمني قيمة الالتزام والدقة في العمل. كما أسهمت هذه التجربة في تطوير قدرتي على العمل الجماعي وحل المشكلات، وهو ما أراه رصيداً حقيقياً سأحمله معي إلى [University Name].
+
+04. لماذا هذا التخصص؟
+اخترت [Program Name] لأنه يمثل نقطة التقاء دقيقة بين شغفي الشخصي وطموحي المهني؛ فأنا أؤمن أن هذا المجال يحمل إمكانات هائلة لإحداث تأثير إيجابي، وأرغب في أن أكون جزءاً فاعلاً من هذا التأثير من خلال بناء معرفة عميقة ومهارات تطبيقية متقدمة فيه.
+
+05. لماذا هذه المنحة/الجامعة؟
+لم يكن اختياري لـ[Scholarship Name] و[University Name] عشوائياً؛ فسمعة الجامعة الأكاديمية المرموقة، إلى جانب جودة برنامج [Program Name] الذي تقدمه، يجعلانها البيئة المثالية لتطوير قدراتي البحثية والعملية. كما أن قيم هذه المنحة ورؤيتها تتقاطع تماماً مع طموحي الشخصي في هذا المجال.
+
+06. الأهداف المستقبلية
+عقب إتمامي لهذه المنحة بنجاح، أخطط لتوظيف ما اكتسبته من معرفة وخبرة في [Career Goal]، بما يخدم مجتمعي ويسهم في تطوير مجال تخصصي. أطمح لأن أكون نموذجاً يحتذى به لكل من يسعى لتحقيق التغيير من خلال العلم والمعرفة.
+
+07. الخاتمة
+أتقدم بجزيل الشكر والتقدير للجنة الموقرة على وقتكم في قراءة وتقييم طلبي. أنا على ثقة تامة بأن [Scholarship Name] ستكون نقطة تحول محورية في مسيرتي الأكاديمية والمهنية، وأتطلع بشغف لفرصة الانضمام إلى [University Name].
+
+وتفضلوا بقبول فائق الاحترام والتقدير،
+
+[Full Name]`;
+
+        // دالة نسخ نموذج رسالة الدوافع
         function copyAdvancedMotivationTemplate() {
-            const copyText = document.getElementById("advanced-motivation-text");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); // للهواتف المحمولة
-            navigator.clipboard.writeText(copyText.value).then(() => {
-                alert("تم نسخ القالب الاحترافي بنجاح! يمكنك الآن التعديل عليه ليتناسب مع بياناتك الشخصية.");
-            }).catch(err => {
-                alert("حدث خطأ أثناء النسخ. يرجى التحديد والنسخ يدوياً.");
-            });
+            const btn = document.getElementById('copy-motivation-btn');
+            const icon = document.getElementById('copy-motivation-icon');
+            const label = document.getElementById('copy-motivation-label');
+            const toast = document.getElementById('copy-toast');
+
+            const onCopySuccess = () => {
+                icon.className = 'fa-solid fa-check';
+                label.textContent = 'تم النسخ بنجاح ✓';
+                toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+                setTimeout(() => {
+                    icon.className = 'fa-solid fa-copy';
+                    label.textContent = 'نسخ نموذج رسالة الدوافع';
+                    toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+                }, 2200);
+            };
+
+            if(navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(MOTIVATION_LETTER_TEXT).then(onCopySuccess).catch(() => {
+                    alert("حدث خطأ أثناء النسخ. يرجى التحديد والنسخ يدوياً.");
+                });
+            } else {
+                const tempArea = document.createElement('textarea');
+                tempArea.value = MOTIVATION_LETTER_TEXT;
+                tempArea.style.position = 'fixed';
+                tempArea.style.opacity = '0';
+                document.body.appendChild(tempArea);
+                tempArea.select();
+                try {
+                    document.execCommand('copy');
+                    onCopySuccess();
+                } catch(err) {
+                    alert("حدث خطأ أثناء النسخ. يرجى التحديد والنسخ يدوياً.");
+                }
+                document.body.removeChild(tempArea);
+            }
         }
 
         // معالجة نموذج التواصل
