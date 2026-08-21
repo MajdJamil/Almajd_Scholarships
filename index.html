@@ -155,7 +155,7 @@
     <main class="flex-grow">
 
         <!-- HOME VIEW -->
-        <section id="view-home" class="view-section active">
+        <section id="view-home" class="view-section">
             <div class="relative hero-gradient text-white overflow-hidden py-24 lg:py-36">
                 <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#E0A808_1px,transparent_1px)] [background-size:28px_28px]"></div>
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -1735,6 +1735,16 @@
         </section>
 
     </main>
+
+    <!-- يُظهر فوراً القسم المطابق لرابط الصفحة (hash) قبل أي رسم للمتصفح، لمنع ومضة ظهور الرئيسية عند فتح الموقع مباشرة على قسم آخر -->
+    <script>
+        (function() {
+            var hash = window.location.hash.replace('#', '');
+            var targetId = (hash && hash !== 'dashboard' && document.getElementById('view-' + hash)) ? ('view-' + hash) : 'view-home';
+            var target = document.getElementById(targetId);
+            if(target) target.classList.add('active');
+        })();
+    </script>
 
     <!-- Scholarship Details Modal -->
     <div id="scholarship-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden p-4 transition-opacity">
