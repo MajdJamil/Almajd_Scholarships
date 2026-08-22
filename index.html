@@ -7,6 +7,14 @@
     <link rel="icon" type="image/png" href="logo-icon.png">
     <link rel="apple-touch-icon" href="logo-icon.png">
     <title id="page-title">منصة المجد التعليمية | الموسوعة الشاملة للـ 45 منحة والخدمات الأكاديمية</title>
+    <meta name="description" content="منصة المجد التعليمية تساعد الطلبة في الوصول إلى المنح الدراسية والقبولات الجامعية الدولية، مع أدلة موثقة، أدوات ذكية، وإرشاد أكاديمي منظم.">
+    <link rel="canonical" href="https://majdjamil.github.io/Almajd_Scholarships/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="منصة المجد التعليمية">
+    <meta property="og:description" content="منصة المجد التعليمية تساعد الطلبة في الوصول إلى المنح الدراسية والقبولات الجامعية الدولية، مع أدلة موثقة، أدوات ذكية، وإرشاد أكاديمي منظم.">
+    <meta property="og:url" content="https://majdjamil.github.io/Almajd_Scholarships/">
+    <meta property="og:image" content="https://majdjamil.github.io/Almajd_Scholarships/logo-full.png">
+    <meta property="og:site_name" content="منصة المجد التعليمية">
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
@@ -1040,18 +1048,41 @@
         </section>
 
         <!-- FAQS VIEW -->
-        <section id="view-faqs" class="view-section py-16 bg-white">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-                <div class="text-center max-w-2xl mx-auto space-y-4">
-                    <span class="bg-navy-900/10 text-navy-900 font-bold px-4 py-1.5 rounded-full text-sm">الأسئلة الشائعة الموسعة</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-navy-900">كل ما ترغب بمعرفته حول المنح والقبولات</h2>
-                    <p class="text-slate-600 text-base">اختر التصنيف الذي يهمك، واضغط على أي سؤال لعرض إجابته التفصيلية.</p>
+        <section id="view-faqs" class="view-section">
+
+            <section class="bg-white py-16">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                    <div class="text-center max-w-2xl mx-auto space-y-3 fade-slide-up">
+                        <span class="bg-navy-900/10 text-navy-900 font-bold px-4 py-1.5 rounded-full text-sm">الأسئلة الشائعة الموسعة</span>
+                        <h2 class="text-3xl sm:text-4xl font-black text-navy-900">كل ما ترغب بمعرفته حول المنح والقبولات</h2>
+                        <p class="text-slate-600 text-base leading-relaxed">تصفح إجاباتنا على أكثر الأسئلة شيوعاً حول المنح والقبولات الجامعية.</p>
+                        <p id="faqs-count-line" class="text-gold-700 font-bold text-sm"></p>
+                    </div>
+
+                    <div class="max-w-xl mx-auto fade-slide-up" style="animation-delay:.05s">
+                        <div class="relative">
+                            <i class="fa-solid fa-magnifying-glass absolute top-1/2 -translate-y-1/2 right-5 text-slate-400 pointer-events-none"></i>
+                            <input type="text" id="faqs-search" oninput="handleFaqSearch()" placeholder="ابحث عن سؤال..." aria-label="ابحث عن سؤال" class="w-full bg-white border border-slate-200 rounded-2xl pr-12 pl-5 py-3.5 text-sm sm:text-base text-slate-800 shadow-sm focus:outline-none focus:border-gold-500 transition-colors duration-300">
+                        </div>
+                    </div>
+
+                    <div id="faq-tabs" class="flex items-center gap-3 overflow-x-auto pb-2 fade-slide-up" style="animation-delay:.1s"></div>
+
+                    <div id="faqs-list" class="space-y-4 fade-slide-up" style="animation-delay:.15s"></div>
                 </div>
+            </section>
 
-                <div id="faq-tabs" class="flex items-center gap-3 overflow-x-auto pb-2"></div>
-
-                <div id="faqs-list" class="space-y-4"></div>
-            </div>
+            <!-- CTA -->
+            <section class="hero-gradient text-white py-14 sm:py-16">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5 fade-slide-up">
+                    <h3 class="text-2xl sm:text-4xl font-black text-white">ما زلت لم تجد الإجابة التي تبحث عنها؟</h3>
+                    <p class="text-slate-300 max-w-xl mx-auto leading-relaxed">تواصل مع فريق منصة المجد وسنساعدك في استفسارك حول المنح والقبولات الجامعية.</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+                        <button onclick="switchView('contact')" class="w-full sm:w-auto bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 text-navy-900 font-extrabold px-8 py-3.5 rounded-xl shadow-lg transition-all duration-300 transform active:scale-95">اسأل فريق المجد</button>
+                        <a href="https://wa.me/970567892330?text=مرحباً،%20لدي%20سؤال%20حول%20المنح%20والقبولات" target="_blank" class="w-full sm:w-auto bg-white hover:bg-slate-50 text-navy-900 border border-navy-900/20 font-bold px-8 py-3.5 rounded-xl transition-all duration-300 text-center">تواصل عبر واتساب</a>
+                    </div>
+                </div>
+            </section>
         </section>
 
         <!-- SERVICES VIEW -->
@@ -2044,7 +2075,14 @@
     <script>
         (function() {
             var hash = window.location.hash.replace('#', '');
-            var targetId = (hash && hash !== 'dashboard' && document.getElementById('view-' + hash)) ? ('view-' + hash) : 'view-home';
+            var targetId = 'view-home';
+            if(hash && hash !== 'dashboard') {
+                if(hash.indexOf('faqs-') === 0) {
+                    targetId = 'view-faqs';
+                } else if(document.getElementById('view-' + hash)) {
+                    targetId = 'view-' + hash;
+                }
+            }
             var target = document.getElementById(targetId);
             if(target) target.classList.add('active');
         })();
@@ -3147,6 +3185,12 @@
                 }
                 return;
             }
+            // رابط سؤال فرعي داخل صفحة الأسئلة الشائعة (مثل #faqs-ielts-toefl-required): يعرض قسم الأسئلة الشائعة ثم يفتح ذلك السؤال تحديداً
+            if(hash.indexOf('faqs-') === 0) {
+                switchView('faqs', { skipHistory: true });
+                openFaqBySlug(hash.slice('faqs-'.length), { scroll: true, highlight: true });
+                return;
+            }
             if(hash && document.getElementById('view-' + hash)) {
                 switchView(hash, { skipHistory: true });
             } else {
@@ -3949,35 +3993,35 @@
         ];
 
         const faqsData = [
-            { category: "general", question: `س: هل جميع الـ ${scholarshipsData.length} منحة ممولة بالكامل؟`, answer: "ج: تشمل القائمة منحاً ممولة بالكامل (تغطي الرسوم، السكن، الراتب الشهري، وتذاكر السفر) ومنحاً جزئية أو إعفاءات رسوم دراسية، وكل منحة موضحة بالتفصيل في دليلنا." },
-            { category: "general", question: "س: هل أحتاج لشهادة لغة إنجليزية (IELTS/TOEFL) إلزامي للتقديم؟", answer: "ج: يختلف ذلك حسب المنحة والجامعة؛ بعض المنح الكبرى (مثل المنحة التركية أو الرومانية أو الصينية) لا تشترط شهادة دولية للتقديم المبدئي ويمكن التعويض بسنة تحضيرية للغة، بينما تتطلب أخرى شهادة معتمدة فوراً." },
-            { category: "general", question: "س: معدلي متوسط، هل في فرصة أصلاً؟", answer: "ج: أكيد. مو كل المنح بتشترط معدل مرتفع جداً؛ في منح ومسارات قبول مباشر تناسب معدلات متوسطة، وحاسبة القبول بالموقع بتساعدك تعرف خياراتك الواقعية فوراً." },
-            { category: "general", question: "س: بدي أدرس تخصص مش متوفر ضمن المنح المذكورة، شو أعمل؟", answer: "ج: دليل المنح بالموقع نماذج من أبرز الفرص، مو كل الفرص المتاحة عالمياً. تواصل معنا وحدد تخصصك، وفريقنا بيدورلك على المنح والجامعات الأنسب لتخصصك تحديداً." },
+            { slug: "all-scholarships-fully-funded", category: "general", question: `س: هل جميع الـ ${scholarshipsData.length} منحة ممولة بالكامل؟`, answer: "ج: تشمل القائمة منحاً ممولة بالكامل (تغطي الرسوم، السكن، الراتب الشهري، وتذاكر السفر) ومنحاً جزئية أو إعفاءات رسوم دراسية، وكل منحة موضحة بالتفصيل في دليلنا.", keywords: ["تمويل كامل", "منحة جزئية", "إعفاء رسوم"] },
+            { slug: "ielts-toefl-required", category: "general", question: "س: هل أحتاج لشهادة لغة إنجليزية (IELTS/TOEFL) إلزامي للتقديم؟", answer: "ج: يختلف ذلك حسب المنحة والجامعة؛ بعض المنح الكبرى (مثل المنحة التركية أو الرومانية أو الصينية) لا تشترط شهادة دولية للتقديم المبدئي ويمكن التعويض بسنة تحضيرية للغة، بينما تتطلب أخرى شهادة معتمدة فوراً.", keywords: ["IELTS", "TOEFL", "شهادة لغة"] },
+            { slug: "average-gpa-chance", category: "general", question: "س: معدلي متوسط، هل في فرصة أصلاً؟", answer: "ج: أكيد. مو كل المنح بتشترط معدل مرتفع جداً؛ في منح ومسارات قبول مباشر تناسب معدلات متوسطة، وحاسبة القبول بالموقع بتساعدك تعرف خياراتك الواقعية فوراً.", keywords: ["معدل متوسط", "حاسبة القبول"] },
+            { slug: "major-not-listed", category: "general", question: "س: بدي أدرس تخصص مش متوفر ضمن المنح المذكورة، شو أعمل؟", answer: "ج: دليل المنح بالموقع نماذج من أبرز الفرص، مو كل الفرص المتاحة عالمياً. تواصل معنا وحدد تخصصك، وفريقنا بيدورلك على المنح والجامعات الأنسب لتخصصك تحديداً.", keywords: ["تخصص غير مذكور"] },
 
-            { category: "direct-admission", question: "س: شو الفرق بين \"المنحة الدراسية\" و\"القبول الجامعي المباشر\"؟", answer: "ج: المنحة الدراسية تشمل تمويلاً جزئياً أو كاملاً من جهة مانحة (حكومة، مؤسسة، جامعة)، أما القبول الجامعي المباشر فهو التحاق بجامعة بتمويل ذاتي أو بمنحة جزئية تقدمها الجامعة نفسها، دون المرور بمسابقة منحة خارجية منفصلة." },
-            { category: "direct-admission", question: "س: هل أقدر أتقدم لمنحة وقبول مباشر بنفس الوقت؟", answer: "ج: نعم، وننصح فعلياً بهيك — قدّم لمنحة أو أكثر، وبالتوازي اطلب قبولاً مباشراً كخطة بديلة، هيك ما تضيع فرصة الدراسة حتى لو تأخرت نتيجة المنحة." },
-            { category: "direct-admission", question: "س: هل جامعات القبول المباشر المذكورة بالموقع هي الوحيدة المتاحة؟", answer: "ج: لأ، هي نماذج من جامعات معروفة باستقبال الطلبة العرب. فريق المجد 360 يقدر يساعدك تتقدم لأي جامعة حول العالم غير المذكورة، حسب تخصصك ووجهتك المفضّلة." },
+            { slug: "scholarship-vs-direct-admission", category: "direct-admission", question: "س: شو الفرق بين \"المنحة الدراسية\" و\"القبول الجامعي المباشر\"؟", answer: "ج: المنحة الدراسية تشمل تمويلاً جزئياً أو كاملاً من جهة مانحة (حكومة، مؤسسة، جامعة)، أما القبول الجامعي المباشر فهو التحاق بجامعة بتمويل ذاتي أو بمنحة جزئية تقدمها الجامعة نفسها، دون المرور بمسابقة منحة خارجية منفصلة.", keywords: ["فرق", "منحة", "قبول مباشر"] },
+            { slug: "apply-scholarship-and-direct-together", category: "direct-admission", question: "س: هل أقدر أتقدم لمنحة وقبول مباشر بنفس الوقت؟", answer: "ج: نعم، وننصح فعلياً بهيك — قدّم لمنحة أو أكثر، وبالتوازي اطلب قبولاً مباشراً كخطة بديلة، هيك ما تضيع فرصة الدراسة حتى لو تأخرت نتيجة المنحة.", keywords: ["تقديم متزامن"] },
+            { slug: "direct-admission-not-limited", category: "direct-admission", question: "س: هل جامعات القبول المباشر المذكورة بالموقع هي الوحيدة المتاحة؟", answer: "ج: لأ، هي نماذج من جامعات معروفة باستقبال الطلبة العرب. فريق المجد 360 يقدر يساعدك تتقدم لأي جامعة حول العالم غير المذكورة، حسب تخصصك ووجهتك المفضّلة.", keywords: ["جامعات أخرى", "المجد 360"] },
 
-            { category: "documents", question: "س: شو أهم المستندات المطلوبة بمعظم المنح؟", answer: "ج: بشكل عام: جواز سفر ساري، الشهادات الأكاديمية وكشف العلامات مترجمة ومصدقة، خطابا توصية، رسالة دوافع، والسيرة الذاتية الأكاديمية. كل منحة قد تضيف مستندات إضافية موضحة ببطاقتها." },
-            { category: "documents", question: "س: هل لازم أترجم وثائقي بمكتب ترجمة معتمد؟", answer: "ج: غالباً نعم، خصوصاً للمنح الحكومية — الترجمة لازم تكون معتمدة (وأحياناً مصدقة من الخارجية أو السفارة). نوضحلك بالضبط المطلوب حسب المنحة أو الجامعة أثناء الاستشارة." },
-            { category: "documents", question: "س: كم مدة صلاحية الشهادات والمستندات المطلوبة للتقديم؟", answer: "ج: بيختلف حسب الجهة؛ بعض المنح بتطلب مستندات صادرة خلال آخر 6 أشهر، بينما الشهادات الأكاديمية عادة إلها صلاحية أطول. تأكد دائماً من التاريخ المطلوب بصفحة المنحة الرسمية." },
-            { category: "documents", question: "س: جهزت أوراقي بس مش عارف أرتبها، شو أعمل؟", answer: "ج: هاد بالضبط دور نظام المجد 360 — بيرافقك خطوة خطوة بترتيب وتجهيز كل مستند بالتسلسل الصحيح المطلوب من الجهة يلي بتقدم إلها." },
+            { slug: "required-documents", category: "documents", question: "س: شو أهم المستندات المطلوبة بمعظم المنح؟", answer: "ج: بشكل عام: جواز سفر ساري، الشهادات الأكاديمية وكشف العلامات مترجمة ومصدقة، خطابا توصية، رسالة دوافع، والسيرة الذاتية الأكاديمية. كل منحة قد تضيف مستندات إضافية موضحة ببطاقتها.", keywords: ["مستندات", "جواز سفر", "خطاب توصية"] },
+            { slug: "certified-translation-required", category: "documents", question: "س: هل لازم أترجم وثائقي بمكتب ترجمة معتمد؟", answer: "ج: غالباً نعم، خصوصاً للمنح الحكومية — الترجمة لازم تكون معتمدة (وأحياناً مصدقة من الخارجية أو السفارة). نوضحلك بالضبط المطلوب حسب المنحة أو الجامعة أثناء الاستشارة.", keywords: ["ترجمة معتمدة", "تصديق"] },
+            { slug: "documents-validity-period", category: "documents", question: "س: كم مدة صلاحية الشهادات والمستندات المطلوبة للتقديم؟", answer: "ج: بيختلف حسب الجهة؛ بعض المنح بتطلب مستندات صادرة خلال آخر 6 أشهر، بينما الشهادات الأكاديمية عادة إلها صلاحية أطول. تأكد دائماً من التاريخ المطلوب بصفحة المنحة الرسمية.", keywords: ["صلاحية المستندات"] },
+            { slug: "organize-documents-help", category: "documents", question: "س: جهزت أوراقي بس مش عارف أرتبها، شو أعمل؟", answer: "ج: هاد بالضبط دور نظام المجد 360 — بيرافقك خطوة خطوة بترتيب وتجهيز كل مستند بالتسلسل الصحيح المطلوب من الجهة يلي بتقدم إلها.", keywords: ["ترتيب المستندات", "المجد 360"] },
 
-            { category: "costs", question: "س: هل خدمات منصة المجد مجانية؟", answer: "ج: الاستشارة الأولية والتصفح الكامل لدليل المنح والجامعات مجاني بالكامل. تفاصيل أي خدمة مرافقة موسعة (مثل نظام المجد 360) بتنوضح مباشرة خلال جلستك الاستشارية." },
-            { category: "costs", question: "س: هل في رسوم للتقديم على المنح نفسها؟", answer: "ج: معظم المنح الحكومية والمؤسساتية المذكورة بالدليل ما إلها رسوم تقديم. بعض الجامعات الخاصة قد تطلب رسم تقديم رمزي، موضح دائماً بصفحتها الرسمية." },
-            { category: "costs", question: "س: هل تقدروا تساعدوني أدفع رسوم الجامعة أو المنحة؟", answer: "ج: منصة المجد جهة استشارية وإرشادية، ما بندفع نيابة عن الطالب أي رسوم مالية. دورنا نوجهك بالضبط لطرق الدفع الرسمية المعتمدة من الجامعة أو الجهة المانحة." },
+            { slug: "are-services-free", category: "costs", question: "س: هل خدمات منصة المجد مجانية؟", answer: "ج: الاستشارة الأولية والتصفح الكامل لدليل المنح والجامعات مجاني بالكامل. تفاصيل أي خدمة مرافقة موسعة (مثل نظام المجد 360) بتنوضح مباشرة خلال جلستك الاستشارية.", keywords: ["مجاني", "استشارة أولية"] },
+            { slug: "scholarship-application-fees", category: "costs", question: "س: هل في رسوم للتقديم على المنح نفسها؟", answer: "ج: معظم المنح الحكومية والمؤسساتية المذكورة بالدليل ما إلها رسوم تقديم. بعض الجامعات الخاصة قد تطلب رسم تقديم رمزي، موضح دائماً بصفحتها الرسمية.", keywords: ["رسوم تقديم"] },
+            { slug: "pay-fees-on-behalf", category: "costs", question: "س: هل تقدروا تساعدوني أدفع رسوم الجامعة أو المنحة؟", answer: "ج: منصة المجد جهة استشارية وإرشادية، ما بندفع نيابة عن الطالب أي رسوم مالية. دورنا نوجهك بالضبط لطرق الدفع الرسمية المعتمدة من الجامعة أو الجهة المانحة.", keywords: ["دفع الرسوم"] },
 
-            { category: "almadj360", question: "س: كيف يمكنني الاستفادة من نظام \"المجد 360\"؟", answer: "ج: يمكنك حجز استشارة مباشرة عبر نموذج التواصل أو الواتساب، وسيقوم مستشارنا بمتابعة ملفك خطوة بخطوة من إعداد الأوراق وحتى الحصول على القبول النهائي." },
-            { category: "almadj360", question: "س: كم بتاخد مدة نظام المجد 360 من البداية للنهاية؟", answer: "ج: بيختلف حسب المنحة أو الجامعة المستهدفة وموعد فتح التقديم؛ بالعادة بين شهرين لستة أشهر من أول جلسة تقييمية لحد استلام نتيجة القبول." },
-            { category: "almadj360", question: "س: هل نظام المجد 360 بيضمنلي القبول؟", answer: "ج: ما في جهة استشارية بالعالم تقدر تضمن قبولاً 100%، لأن القرار النهائي دائماً بإيد الجامعة أو الجهة المانحة. اللي بنضمنه إحنا هو تجهيز ملف قوي واحترافي يرفع فرصك الحقيقية للقبول." },
-            { category: "almadj360", question: "س: شو بيصير بعد ما احصل على القبول؟ هل بتوقف متابعتكم؟", answer: "ج: لأ، هاد بالضبط اللي بيميز المجد 360 — المتابعة بتستمر بعد القبول لإجراءات التأشيرة، السكن، والاستقرار الأولي بالبلد المضيفة." },
+            { slug: "how-to-use-almadj-360", category: "almadj360", question: "س: كيف يمكنني الاستفادة من نظام \"المجد 360\"؟", answer: "ج: يمكنك حجز استشارة مباشرة عبر نموذج التواصل أو الواتساب، وسيقوم مستشارنا بمتابعة ملفك خطوة بخطوة من إعداد الأوراق وحتى الحصول على القبول النهائي.", keywords: ["المجد 360", "استشارة"] },
+            { slug: "almadj-360-duration", category: "almadj360", question: "س: كم بتاخد مدة نظام المجد 360 من البداية للنهاية؟", answer: "ج: بيختلف حسب المنحة أو الجامعة المستهدفة وموعد فتح التقديم؛ بالعادة بين شهرين لستة أشهر من أول جلسة تقييمية لحد استلام نتيجة القبول.", keywords: ["مدة المتابعة"] },
+            { slug: "almadj-360-guarantee", category: "almadj360", question: "س: هل نظام المجد 360 بيضمنلي القبول؟", answer: "ج: ما في جهة استشارية بالعالم تقدر تضمن قبولاً 100%، لأن القرار النهائي دائماً بإيد الجامعة أو الجهة المانحة. اللي بنضمنه إحنا هو تجهيز ملف قوي واحترافي يرفع فرصك الحقيقية للقبول.", keywords: ["ضمان القبول"] },
+            { slug: "after-acceptance-support", category: "almadj360", question: "س: شو بيصير بعد ما احصل على القبول؟ هل بتوقف متابعتكم؟", answer: "ج: لأ، هاد بالضبط اللي بيميز المجد 360 — المتابعة بتستمر بعد القبول لإجراءات التأشيرة، السكن، والاستقرار الأولي بالبلد المضيفة.", keywords: ["ما بعد القبول", "تأشيرة"] },
 
-            { category: "trust", question: "س: كيف أضمن صحة روابط التقديم للمنح؟", answer: "ج: منصة المجد تضمن لك بنسبة 100% أن جميع الروابط المدرجة هي المواقع الرسمية الحكومية أو الجامعية الأصلية دون أي روابط وسيطة أو مضللة." },
-            { category: "trust", question: "س: مين اللي بيراجع ويحدّث بيانات المنح على الموقع؟", answer: "ج: فريق المجد بيراجع دورياً كل منحة (الشروط، المواعيد، الرابط الرسمي)، لكن مواعيد المنح ممكن تتغير من سنة لسنة من الجهة المانحة نفسها، فننصح دائماً تتأكد من الموعد النهائي عبر الرابط الرسمي قبل التقديم." },
-            { category: "trust", question: "س: هل منصة المجد جهة رسمية تابعة لجامعة أو حكومة؟", answer: "ج: لأ، منصة المجد جهة استشارية أكاديمية مستقلة، مش تابعة رسمياً لأي جامعة أو حكومة أو جهة مانحة مذكورة بالموقع. دورنا الإرشاد والمتابعة، والقرار النهائي دائماً بإيد الجهة المانحة نفسها." },
-            { category: "trust", question: "س: كيف بقدر أتواصل مباشرة مع فريق المجد؟", answer: "ج: من قسم \"تواصل معنا\" — عبر النموذج، أو مباشرة على واتساب أو تليجرام المجد للمنح." },
-            { category: "trust", question: "س: هل ممكن غيّر تخصصي بعد ما ابدأ التقديم؟", answer: "ج: قبل تقديم الطلب النهائي، إي، ممكن تعدل بالتنسيق مع مستشارك. بعد إرسال الطلب الرسمي للجهة المانحة، التعديل صعب أو غير ممكن غالباً، فمهم توضح تخصصك بدقة من البداية." },
-            { category: "trust", question: "س: بتقدروا تساعدوني اختار بين منحتين وصلتلي قبول فيهم؟", answer: "ج: أكيد، هاد بالضبط دور الاستشارة الأكاديمية — نقارن معك التمويل، سمعة البرنامج، وفرص ما بعد التخرج بكل منحة، وتاخد القرار الأنسب لأهدافك." }
+            { slug: "verify-official-links", category: "trust", question: "س: كيف أضمن صحة روابط التقديم للمنح؟", answer: "ج: منصة المجد تضمن لك بنسبة 100% أن جميع الروابط المدرجة هي المواقع الرسمية الحكومية أو الجامعية الأصلية دون أي روابط وسيطة أو مضللة.", keywords: ["روابط رسمية"] },
+            { slug: "who-updates-data", category: "trust", question: "س: مين اللي بيراجع ويحدّث بيانات المنح على الموقع؟", answer: "ج: فريق المجد بيراجع دورياً كل منحة (الشروط، المواعيد، الرابط الرسمي)، لكن مواعيد المنح ممكن تتغير من سنة لسنة من الجهة المانحة نفسها، فننصح دائماً تتأكد من الموعد النهائي عبر الرابط الرسمي قبل التقديم.", keywords: ["تحديث البيانات"] },
+            { slug: "not-official-government-entity", category: "trust", question: "س: هل منصة المجد جهة رسمية تابعة لجامعة أو حكومة؟", answer: "ج: لأ، منصة المجد جهة استشارية أكاديمية مستقلة، مش تابعة رسمياً لأي جامعة أو حكومة أو جهة مانحة مذكورة بالموقع. دورنا الإرشاد والمتابعة، والقرار النهائي دائماً بإيد الجهة المانحة نفسها.", keywords: ["جهة مستقلة"] },
+            { slug: "contact-team-directly", category: "trust", question: "س: كيف بقدر أتواصل مباشرة مع فريق المجد؟", answer: "ج: من قسم \"تواصل معنا\" — عبر النموذج، أو مباشرة على واتساب أو تليجرام المجد للمنح.", keywords: ["تواصل معنا"] },
+            { slug: "change-major-after-starting", category: "trust", question: "س: هل ممكن غيّر تخصصي بعد ما ابدأ التقديم؟", answer: "ج: قبل تقديم الطلب النهائي، إي، ممكن تعدل بالتنسيق مع مستشارك. بعد إرسال الطلب الرسمي للجهة المانحة، التعديل صعب أو غير ممكن غالباً، فمهم توضح تخصصك بدقة من البداية.", keywords: ["تغيير التخصص"] },
+            { slug: "choose-between-offers", category: "trust", question: "س: بتقدروا تساعدوني اختار بين منحتين وصلتلي قبول فيهم؟", answer: "ج: أكيد، هاد بالضبط دور الاستشارة الأكاديمية — نقارن معك التمويل، سمعة البرنامج، وفرص ما بعد التخرج بكل منحة، وتاخد القرار الأنسب لأهدافك.", keywords: ["مقارنة عروض"] }
         ];
 
         let activeFaqCategory = "all";
@@ -4002,29 +4046,61 @@
             }).join('');
         }
 
+        function faqMatchesSearch(item, query) {
+            if(!query) return true;
+            const catLabel = (faqCategories.find(c => c.key === item.category) || {}).label || '';
+            const haystack = [item.question, item.answer, catLabel, (item.keywords || []).join(' ')].join(' ').toLowerCase();
+            return haystack.includes(query);
+        }
+
         function renderFaqsList() {
             const container = document.getElementById('faqs-list');
             if(!container) return;
-            const list = activeFaqCategory === 'all' ? faqsData : faqsData.filter(f => f.category === activeFaqCategory);
+            const searchInput = document.getElementById('faqs-search');
+            const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+
+            const byCategory = activeFaqCategory === 'all' ? faqsData : faqsData.filter(f => f.category === activeFaqCategory);
+            const list = byCategory.filter(f => faqMatchesSearch(f, query));
 
             if(list.length === 0) {
-                container.innerHTML = `<div class="text-center py-12 bg-slateLight rounded-2xl border border-slate-200"><span class="text-slate-500 font-bold">لا توجد أسئلة ضمن هذا التصنيف حالياً.</span></div>`;
+                if(query) {
+                    container.innerHTML = `
+                        <div class="text-center py-12 bg-slateLight rounded-2xl border border-slate-200 space-y-4">
+                            <p class="text-slate-500 font-bold">لم نجد سؤالاً مطابقاً لبحثك.</p>
+                            <button onclick="switchView('contact')" class="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 text-navy-900 font-extrabold px-6 py-2.5 rounded-xl shadow-md transition-all duration-300">اسأل فريق المجد</button>
+                        </div>
+                    `;
+                } else {
+                    container.innerHTML = `<div class="text-center py-12 bg-slateLight rounded-2xl border border-slate-200"><span class="text-slate-500 font-bold">لا توجد أسئلة ضمن هذا التصنيف حالياً.</span></div>`;
+                }
                 return;
             }
 
-            container.innerHTML = list.map((item, idx) => `
-                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
-                    <button onclick="toggleFaqItem(${idx})" class="w-full flex items-center justify-between gap-4 p-6 text-right">
+            container.innerHTML = list.map(item => `
+                <div id="faqs-${item.slug}" class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                    <button onclick="toggleFaqItem('${item.slug}')" id="faq-btn-${item.slug}" aria-expanded="false" aria-controls="faq-content-${item.slug}" class="w-full flex items-center justify-between gap-4 p-6 text-right transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500">
                         <span class="flex items-center gap-3">
                             <span class="w-9 h-9 shrink-0 rounded-xl bg-navy-900/10 text-navy-900 flex items-center justify-center text-sm">
                                 <i class="fa-solid ${getFaqCategoryIcon(item.category)}"></i>
                             </span>
                             <span class="font-bold text-navy-900 text-base">${item.question}</span>
                         </span>
-                        <i id="faq-icon-${idx}" class="fa-solid fa-chevron-down text-gold-700 shrink-0 transition-transform duration-300"></i>
+                        <i id="faq-icon-${item.slug}" class="fa-solid fa-chevron-down text-gold-700 shrink-0 transition-transform duration-300"></i>
                     </button>
-                    <div id="faq-content-${idx}" class="faq-content px-6 overflow-hidden transition-all duration-300 ease-in-out" style="max-height:0px;">
-                        <p class="text-slate-600 text-sm leading-relaxed pb-6 border-t border-slate-100 pt-4">${item.answer}</p>
+                    <div id="faq-content-${item.slug}" role="region" aria-labelledby="faq-btn-${item.slug}" class="faq-content px-6 overflow-hidden opacity-0 transition-all duration-300 ease-in-out" style="max-height:0px;">
+                        <div class="border-t border-slate-100 pt-4 pb-6 space-y-3">
+                            <p class="text-slate-600 text-sm leading-relaxed">${item.answer}</p>
+                            ${item.source ? `<p class="text-xs text-slate-400">المصدر: ${item.sourceUrl ? `<a href="${item.sourceUrl}" target="_blank" rel="noopener" class="text-gold-700 hover:underline font-bold">${item.source}</a>` : item.source}</p>` : ''}
+                            ${item.updated ? `<p class="text-xs text-slate-400">آخر تحديث: ${item.updated}</p>` : ''}
+                            <div class="flex items-center gap-4 pt-1">
+                                <button onclick="copyFaqLink('${item.slug}')" class="text-xs font-bold text-gold-700 hover:text-gold-600 flex items-center gap-1.5 transition-colors duration-300">
+                                    <i class="fa-solid fa-link"></i> نسخ رابط السؤال
+                                </button>
+                                <button onclick="shareFaqLink('${item.slug}')" class="text-xs font-bold text-navy-900 hover:text-gold-700 flex items-center gap-1.5 transition-colors duration-300">
+                                    <i class="fa-solid fa-share-nodes"></i> مشاركة
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             `).join('');
@@ -4036,20 +4112,110 @@
             renderFaqsList();
         }
 
-        function toggleFaqItem(idx) {
-            const content = document.getElementById(`faq-content-${idx}`);
-            const icon = document.getElementById(`faq-icon-${idx}`);
+        function handleFaqSearch() {
+            renderFaqsList();
+        }
+
+        function toggleFaqItem(slug) {
+            const content = document.getElementById(`faq-content-${slug}`);
+            const icon = document.getElementById(`faq-icon-${slug}`);
+            const button = document.getElementById(`faq-btn-${slug}`);
             if(!content) return;
             const isOpen = content.classList.contains('faq-open');
             if(isOpen) {
                 content.style.maxHeight = '0px';
-                content.classList.remove('faq-open');
-                icon.classList.remove('rotate-180');
+                content.classList.remove('faq-open', 'opacity-100');
+                content.classList.add('opacity-0');
+                if(icon) icon.classList.remove('rotate-180');
+                if(button) { button.classList.remove('bg-navy-900/5'); button.setAttribute('aria-expanded', 'false'); }
             } else {
-                content.style.maxHeight = content.scrollHeight + 'px';
                 content.classList.add('faq-open');
-                icon.classList.add('rotate-180');
+                content.style.maxHeight = content.scrollHeight + 'px';
+                content.classList.remove('opacity-0');
+                content.classList.add('opacity-100');
+                if(icon) icon.classList.add('rotate-180');
+                if(button) { button.classList.add('bg-navy-900/5'); button.setAttribute('aria-expanded', 'true'); }
             }
+        }
+
+        function updateFaqsCountLine() {
+            const el = document.getElementById('faqs-count-line');
+            if(!el) return;
+            const total = faqsData.length;
+            const rounded = Math.floor(total / 5) * 5;
+            el.textContent = rounded > 0 ? `أكثر من ${rounded} سؤال وإجابة` : `${total} سؤال وإجابة`;
+        }
+
+        // فتح سؤال محدد عبر رابط مباشر (#faqs-<slug>): يمرّر إليه، يفتحه، ويبرزه لحظياً
+        function openFaqBySlug(slug, opts = {}) {
+            const item = faqsData.find(f => f.slug === slug);
+            if(!item) return;
+            if(activeFaqCategory !== 'all' && activeFaqCategory !== item.category) {
+                activeFaqCategory = 'all';
+            }
+            const searchInput = document.getElementById('faqs-search');
+            if(searchInput) searchInput.value = '';
+            renderFaqTabs();
+            renderFaqsList();
+            const container = document.getElementById(`faqs-${slug}`);
+            const content = document.getElementById(`faq-content-${slug}`);
+            if(!container || !content) return;
+            if(!content.classList.contains('faq-open')) toggleFaqItem(slug);
+            if(opts.scroll) container.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if(opts.highlight) {
+                container.classList.add('faq-highlight');
+                setTimeout(() => container.classList.remove('faq-highlight'), 2000);
+            }
+        }
+
+        function faqShareUrl(slug) {
+            return window.location.origin + window.location.pathname + '#faqs-' + slug;
+        }
+
+        function copyFaqLink(slug) {
+            const url = faqShareUrl(slug);
+            if(navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('تم نسخ رابط السؤال بنجاح!');
+                }).catch(() => {
+                    alert(url);
+                });
+            } else {
+                alert(url);
+            }
+        }
+
+        function shareFaqLink(slug) {
+            const item = faqsData.find(f => f.slug === slug);
+            if(!item) return;
+            const url = faqShareUrl(slug);
+            if(navigator.share) {
+                navigator.share({ title: item.question, text: item.question, url }).catch(() => {});
+            } else {
+                copyFaqLink(slug);
+            }
+        }
+
+        // بيانات منظمة FAQPage (Schema.org) مطابقة تماماً للأسئلة والإجابات الظاهرة فعلياً بالصفحة
+        function injectFaqSchema() {
+            if(document.getElementById('faq-schema')) return;
+            const schema = {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": faqsData.map(item => ({
+                    "@type": "Question",
+                    "name": item.question.replace(/^س:\s*/, ''),
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": item.answer.replace(/^ج:\s*/, '')
+                    }
+                }))
+            };
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.id = 'faq-schema';
+            script.textContent = JSON.stringify(schema);
+            document.head.appendChild(script);
         }
 
         // أكورديون الأسئلة الشائعة الخاص بصفحة المجد 360 (مستقل عن نظام الأسئلة الشائعة العام)
@@ -4414,6 +4580,8 @@
             renderScholarships(scholarshipsData);
             updateFavCounter();
             filterFaqs('all');
+            updateFaqsCountLine();
+            injectFaqSchema();
             renderGuideCategories();
             filterGuides();
             renderMostReadGuides();
