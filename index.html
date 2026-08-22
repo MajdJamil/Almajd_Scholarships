@@ -1621,86 +1621,123 @@
         </section>
 
         <!-- ABOUT VIEW -->
-        <section id="view-about" class="view-section py-16 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <div class="lg:col-span-6 space-y-6">
-                        <div class="flex justify-center mb-6">
-                            <img src="logo-full.png" alt="شعار منصة المجد التعليمية" class="h-36 sm:h-40 w-auto">
+        <section id="view-about" class="view-section">
+
+            <!-- تعريف المنصة + الرؤية + المؤسس -->
+            <section class="bg-white py-14 sm:py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                        <div class="lg:col-span-6 space-y-4 fade-slide-up">
+                            <div class="flex justify-center lg:justify-start mb-2">
+                                <img src="logo-full.png" alt="شعار منصة المجد التعليمية" class="h-28 sm:h-32 w-auto">
+                            </div>
+                            <span class="bg-navy-900/10 text-navy-900 font-bold px-4 py-1.5 rounded-full text-sm">من نحن؟</span>
+                            <h2 class="text-3xl sm:text-5xl font-black text-navy-900">منصة المجد التعليمية</h2>
+                            <p class="text-gold-700 text-lg sm:text-xl font-bold">نحو تعليم أكثر وصولًا وذكاءً</p>
+                            <p class="text-slate-600 text-base sm:text-lg leading-loose">
+                                منصة تعليمية تهدف إلى تسهيل وصول الطلبة إلى المنح والقبولات والفرص الأكاديمية، عبر أدوات رقمية ومصادر موثوقة وإرشاد أكاديمي منظم.
+                            </p>
+                            <div class="bg-slateLight p-6 rounded-2xl border-r-4 border-gold-500 shadow-sm space-y-2 hover:bg-slate-50 transition-colors duration-300">
+                                <h4 class="font-bold text-navy-900 text-lg flex items-center gap-2"><i class="fa-solid fa-user-tie text-gold-700"></i> المؤسس والمدير التنفيذي</h4>
+                                <p class="text-navy-900 font-extrabold text-xl">م. مجد جميل صبحي عبد الهادي</p>
+                                <span class="text-xs font-bold text-slate-500 block mb-2">Majd Jamil Sobhi Abdelhadi</span>
+                                <p class="text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-200 pt-2">طالب هندسة برمجيات وذكاء اصطناعي، يجمع بين خلفيته التقنية واهتمامه بالتعليم. يعمل على تطوير حلول رقمية تسهّل على الطلبة الوصول إلى فرصهم الأكاديمية بثقة ووضوح.</p>
+                            </div>
                         </div>
-                        <span class="bg-navy-900/10 text-navy-900 font-bold px-4 py-1.5 rounded-full text-sm">من نحن؟</span>
-                        <h2 class="text-3xl sm:text-5xl font-black text-navy-900">
-                            منصة المجد التعليمية... تسخير التكنولوجيا لخدمة التعليم العالي
-                        </h2>
-                        <p class="text-slate-600 text-base leading-relaxed">
-                            تأسست المنصة لتوفر حلولاً أكاديمية استثنائية للطلبة في غزة والمنطقة، واضعين نصب أعيننا تسهيل الوصول إلى أرقى فرص التعليم العالي والمنح الدولية عبر مصادر رسمية وموثوقة، معتمدين على أعلى المعايير التكنولوجية والأكاديمية.
-                        </p>
-                        <div class="bg-slateLight p-6 rounded-2xl border-r-4 border-gold-500 shadow-sm space-y-2 hover:bg-slate-50 transition">
-                            <h4 class="font-bold text-navy-900 text-lg flex items-center gap-2"><i class="fa-solid fa-user-tie text-gold-700"></i> المؤسس والمدير التنفيذي</h4>
-                            <p class="text-navy-900 font-extrabold text-xl">م. مجد جميل صبحي عبد الهادي</p>
-                            <span class="text-xs font-bold text-slate-500 block mb-2">(Majd Jamil Sobhi Abdalhadi)</span>
-                            <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-200 pt-2">طالب هندسة برمجيات وذكاء اصطناعي، يجمع بين شغفه بالتكنولوجيا المتقدمة وبين حرصه على دعم وتمكين الطلبة عبر حلول رقمية مبتكرة ومنصات عالمية المستوى. يسعى دائماً لتوظيف البرمجيات لتسهيل حياة الطلاب وتحقيق طموحاتهم الأكاديمية.</p>
+                        <div class="lg:col-span-6 fade-slide-up" style="animation-delay:.05s">
+                            <div class="bg-navy-900 text-white p-8 sm:p-10 rounded-3xl shadow-2xl space-y-4 border border-gold-500/25 relative overflow-hidden">
+                                <i class="fa-solid fa-graduation-cap text-gold-400 text-5xl absolute -left-4 -top-4 opacity-20"></i>
+                                <div class="w-16 h-16 bg-gold-500 rounded-2xl flex items-center justify-center text-navy-900 text-3xl shadow-lg mb-2">
+                                    <i class="fa-solid fa-eye"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold">رؤيتنا ورسالتنا</h3>
+                                <p class="text-slate-300 text-base leading-loose">نطمح لأن نكون الجسر الأكاديمي الأكثر ثقة بين الطالب العربي والجامعات العالمية، عبر التزام تام بالشفافية والمصداقية وروابط تقديم أصلية تخدم مصلحة الطالب أولاً.</p>
+                                <div id="vision-extra-content" class="overflow-hidden transition-all duration-300 ease-in-out" style="max-height:0px;">
+                                    <p class="text-slate-300 text-base leading-loose pt-2">منصة المجد ليست مجرد جهة استشارية، بل شريك في رحلة الطالب من اختيار التخصص وحتى استلام القبول. نؤمن أن كل طالب يستحق فرصة عادلة للوصول لأفضل الفرص الأكاديمية، ولذلك نبني خدماتنا على بيانات دقيقة وروابط رسمية فقط.</p>
+                                </div>
+                                <button id="vision-toggle-btn" onclick="toggleVisionExpand()" class="text-gold-400 hover:text-gold-300 font-bold text-sm flex items-center gap-1.5 pt-1 transition-colors duration-300">
+                                    اقرأ رؤيتنا كاملة <i class="fa-solid fa-chevron-down text-xs"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <div class="lg:col-span-6 space-y-6">
-                        <div class="bg-navy-900 text-white p-8 sm:p-10 rounded-3xl shadow-2xl space-y-6 border border-gold-500/25 relative overflow-hidden">
-                            <i class="fa-solid fa-graduation-cap text-gold-400 text-5xl absolute -left-4 -top-4 opacity-20"></i>
-                            <div class="w-16 h-16 bg-gold-500 rounded-2xl flex items-center justify-center text-navy-900 text-3xl shadow-lg mb-4">
+                </div>
+            </section>
+
+            <!-- مبادرة يد الخير -->
+            <section class="bg-slateLight py-14 sm:py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="bg-gradient-to-br from-brandGreen-500/90 to-brandGreen-600/90 rounded-3xl shadow-2xl p-8 sm:p-10 relative overflow-hidden border border-gold-500/25 fade-slide-up">
+                        <i class="fa-solid fa-hand-holding-heart text-white/10 text-[180px] absolute -left-6 -bottom-10 pointer-events-none"></i>
+                        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-8 space-y-3">
+                                <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full border border-white/30 inline-block">المسؤولية المجتمعية</span>
+                                <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg border border-white/30">
+                                    <i class="fa-solid fa-hand-holding-heart"></i>
+                                </div>
+                                <h3 class="text-2xl sm:text-3xl font-black text-white">مبادرة يد الخير</h3>
+                                <p class="text-white/90 text-sm sm:text-base leading-loose">انطلاقاً من إيماننا بأن التعليم حق للجميع بغض النظر عن الإمكانيات المادية، أطلقت منصة المجد مبادرة "يد الخير" الخيرية، وقدّمنا من خلالها استشارات أكاديمية مجانية بالكامل لطلاب وطالبات في غزة والمنطقة — إيماناً منّا بأن دعم الطالب المستحق لا يجب أن يتوقف عند حاجز التكلفة.</p>
+                            </div>
+                            <div class="lg:col-span-4 flex flex-col items-center justify-center bg-white/15 rounded-2xl p-6 border border-white/25 text-center">
+                                <span class="text-4xl sm:text-5xl font-black text-white">+150 طالبًا وطالبة</span>
+                                <span class="text-xs sm:text-sm text-white/90 font-bold mt-3">استفادوا من خدمات واستشارات مجانية ضمن مبادرة يد الخير</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- قيمنا -->
+            <section class="bg-white py-14 sm:py-16">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-2xl mx-auto mb-10 space-y-3 fade-slide-up">
+                        <span class="bg-navy-900/10 text-navy-900 font-bold px-4 py-1.5 rounded-full text-sm">ما نؤمن به</span>
+                        <h3 class="text-2xl sm:text-4xl font-black text-navy-900">قيمنا</h3>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 fade-slide-up" style="animation-delay:.05s">
+                        <div class="bg-slateLight rounded-2xl border border-slate-200 shadow-sm p-6 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                            <div class="w-14 h-14 mx-auto rounded-full bg-navy-900/10 text-navy-900 flex items-center justify-center text-xl mb-3">
                                 <i class="fa-solid fa-eye"></i>
                             </div>
-                            <h3 class="text-2xl font-bold">رؤيتنا ورسالتنا</h3>
-                            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">الريادة العالمية في الخدمات الأكاديمية والمنح الدولية، مع الالتزام التام بالشفافية، المصداقية، وروابط التقديم الأصلية لمصلحة الطالب أولاً وأخيراً. نطمح لأن نكون الجسر الآمن والأوثق بين الطالب العربي والجامعات العالمية.</p>
-                            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">منصة المجد للمنح الدراسية والقبولات الجامعية ليست مجرد جهة استشارية، بل شريك حقيقي في رحلة كل طالب من أول سؤال بخصوص التخصص وحتى استلام القبول والاستقرار بالجامعة. نؤمن أن كل طالب يستحق فرصة عادلة للوصول لأفضل الجامعات والمنح العالمية، بغض النظر عن ظروفه، ولهذا صممنا خدماتنا لتكون شاملة وشفافة ومبنية على بيانات دقيقة وروابط رسمية فقط.</p>
+                            <h4 class="font-bold text-navy-900 mb-1.5">الشفافية</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed">نقدم المعلومات والشروط بوضوح ونتجنب الوعود غير الواقعية.</p>
                         </div>
-                    </div>
-                </div>
-
-                <!-- مبادرة يد الخير -->
-                <div class="mt-12 bg-gradient-to-br from-brandGreen-500 to-brandGreen-600 rounded-3xl shadow-2xl p-8 sm:p-10 relative overflow-hidden">
-                    <i class="fa-solid fa-hand-holding-heart text-white/10 text-[180px] absolute -left-6 -bottom-10 pointer-events-none"></i>
-                    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                        <div class="lg:col-span-8 space-y-4">
-                            <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg border border-white/30">
-                                <i class="fa-solid fa-hand-holding-heart"></i>
+                        <div class="bg-slateLight rounded-2xl border border-slate-200 shadow-sm p-6 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                            <div class="w-14 h-14 mx-auto rounded-full bg-gold-500/15 text-gold-700 flex items-center justify-center text-xl mb-3">
+                                <i class="fa-solid fa-shield-halved"></i>
                             </div>
-                            <h3 class="text-2xl sm:text-3xl font-black text-white">مبادرة يد الخير</h3>
-                            <p class="text-white/90 text-sm sm:text-base leading-relaxed">انطلاقاً من إيماننا بأن التعليم حق للجميع بغض النظر عن الإمكانيات المادية، أطلقت منصة المجد مبادرة "يد الخير" الخيرية، وقدّمنا من خلالها استشارات أكاديمية مجانية بالكامل لأكثر من 150 طالباً وطالبة في غزة والمنطقة — إيماناً منّا بأن دعم الطالب المستحق لا يجب أن يتوقف عند حاجز التكلفة.</p>
+                            <h4 class="font-bold text-navy-900 mb-1.5">الموثوقية</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed">نعتمد على المصادر الرسمية والمعلومات المحدثة قدر الإمكان.</p>
                         </div>
-                        <div class="lg:col-span-4 flex flex-col items-center justify-center bg-white/15 rounded-2xl p-6 border border-white/25 text-center">
-                            <span class="text-5xl font-black text-white">+150</span>
-                            <span class="text-xs sm:text-sm text-white/90 font-bold mt-2">طالب وطالبة استفادوا مجاناً من استشارات يد الخير</span>
+                        <div class="bg-slateLight rounded-2xl border border-slate-200 shadow-sm p-6 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                            <div class="w-14 h-14 mx-auto rounded-full bg-navy-900/10 text-navy-900 flex items-center justify-center text-xl mb-3">
+                                <i class="fa-solid fa-user-graduate"></i>
+                            </div>
+                            <h4 class="font-bold text-navy-900 mb-1.5">الطالب أولًا</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed">نبني خدماتنا حول احتياجات الطالب ورحلته الأكاديمية.</p>
+                        </div>
+                        <div class="bg-slateLight rounded-2xl border border-slate-200 shadow-sm p-6 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                            <div class="w-14 h-14 mx-auto rounded-full bg-gold-500/15 text-gold-700 flex items-center justify-center text-xl mb-3">
+                                <i class="fa-solid fa-arrows-rotate"></i>
+                            </div>
+                            <h4 class="font-bold text-navy-900 mb-1.5">التطوير المستمر</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed">نستخدم التكنولوجيا لتطوير تجربة البحث والتقديم والمتابعة.</p>
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <!-- شارات إنجاز تصميمية -->
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
-                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 text-center flex flex-col items-center gap-3 hover:shadow-md transition">
-                        <div class="w-14 h-14 rounded-full bg-navy-900/10 text-navy-900 flex items-center justify-center text-xl">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </div>
-                        <span class="text-sm font-bold text-navy-900">قبول جامعي مؤكد</span>
-                    </div>
-                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 text-center flex flex-col items-center gap-3 hover:shadow-md transition">
-                        <div class="w-14 h-14 rounded-full bg-gold-500/15 text-gold-600 flex items-center justify-center text-xl">
-                            <i class="fa-solid fa-certificate"></i>
-                        </div>
-                        <span class="text-sm font-bold text-navy-900">منحة دراسية مضمونة</span>
-                    </div>
-                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 text-center flex flex-col items-center gap-3 hover:shadow-md transition">
-                        <div class="w-14 h-14 rounded-full bg-brandGreen-500/15 text-brandGreen-600 flex items-center justify-center text-xl">
-                            <i class="fa-solid fa-passport"></i>
-                        </div>
-                        <span class="text-sm font-bold text-navy-900">تأشيرة صادرة</span>
-                    </div>
-                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 text-center flex flex-col items-center gap-3 hover:shadow-md transition">
-                        <div class="w-14 h-14 rounded-full bg-navy-900/10 text-navy-900 flex items-center justify-center text-xl">
-                            <i class="fa-solid fa-handshake-angle"></i>
-                        </div>
-                        <span class="text-sm font-bold text-navy-900">استشارة مكتملة بنجاح</span>
+            <!-- CTA -->
+            <section class="hero-gradient text-white py-14 sm:py-16">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5 fade-slide-up">
+                    <h3 class="text-2xl sm:text-4xl font-black text-white">ابدأ رحلتك الأكاديمية مع المجد</h3>
+                    <p class="text-slate-300 max-w-xl mx-auto leading-relaxed">اكتشف الفرص المناسبة لك وابدأ بخطوات أكثر وضوحًا وتنظيمًا نحو مستقبلك الأكاديمي.</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+                        <button onclick="switchView('scholarships')" class="w-full sm:w-auto bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 text-navy-900 font-extrabold px-8 py-3.5 rounded-xl shadow-lg transition-all duration-300 transform active:scale-95">استكشف المنح</button>
+                        <button onclick="switchView('contact')" class="w-full sm:w-auto bg-navy-800/90 hover:bg-navy-800 text-gold-300 border border-gold-500/40 font-bold px-8 py-3.5 rounded-xl transition-all duration-300">تواصل معنا</button>
                     </div>
                 </div>
-            </div>
+            </section>
         </section>
 
         <!-- CONTACT VIEW -->
@@ -3979,6 +4016,23 @@
                 content.style.maxHeight = content.scrollHeight + 'px';
                 content.classList.add('faq-open');
                 icon.classList.add('rotate-180');
+            }
+        }
+
+        // زر "اقرأ رؤيتنا كاملة" بصفحة من نحن
+        function toggleVisionExpand() {
+            const content = document.getElementById('vision-extra-content');
+            const btn = document.getElementById('vision-toggle-btn');
+            if(!content || !btn) return;
+            const isOpen = content.classList.contains('vision-open');
+            if(isOpen) {
+                content.style.maxHeight = '0px';
+                content.classList.remove('vision-open');
+                btn.innerHTML = 'اقرأ رؤيتنا كاملة <i class="fa-solid fa-chevron-down text-xs"></i>';
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                content.classList.add('vision-open');
+                btn.innerHTML = 'إخفاء النص <i class="fa-solid fa-chevron-up text-xs"></i>';
             }
         }
 
