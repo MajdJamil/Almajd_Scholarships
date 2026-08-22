@@ -1055,254 +1055,292 @@
         </section>
 
         <!-- SERVICES VIEW -->
-        <section id="view-services" class="view-section py-16 bg-slateLight">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                    <span class="bg-navy-900/10 text-navy-900 font-bold px-4 py-1.5 rounded-full text-sm border border-navy-900/20">خدماتنا المعتمدة</span>
-                    <h2 class="text-3xl sm:text-5xl font-black text-navy-900">خدماتنا التعليمية والمنح الاحترافية</h2>
-                    <p class="text-slate-600 text-lg">نصنع لك مساراً أكاديمياً متكاملاً يتناسب مع طموحاتك ومعدلك ومستقبلك.</p>
+        <section id="view-services" class="view-section">
+
+            <section class="bg-slateLight py-14 sm:py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-12 space-y-3 fade-slide-up">
+                        <span class="bg-navy-900/10 text-navy-900 font-bold px-4 py-1.5 rounded-full text-sm border border-navy-900/20">خدماتنا المعتمدة</span>
+                        <h2 class="text-3xl sm:text-5xl font-black text-navy-900">خدماتنا التعليمية والمنح المتكاملة</h2>
+                        <p class="text-slate-600 text-lg">من اختيار الفرصة المناسبة إلى تجهيز ملفك ومتابعة طلبك خطوة بخطوة.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch fade-slide-up" style="animation-delay:.05s">
+                        <div class="bg-white rounded-3xl shadow-md border border-slate-200 hover:border-gold-500 hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full">
+                            <div class="relative h-48 overflow-hidden shrink-0">
+                                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=70" alt="منح دراسية دولية" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/50 to-transparent"></div>
+                                <div class="absolute top-4 right-4 w-14 h-14 bg-navy-900/90 text-gold-400 rounded-2xl flex items-center justify-center text-2xl shadow-md border border-gold-500/30">
+                                    <i class="fa-solid fa-globe"></i>
+                                </div>
+                                <h3 class="absolute bottom-4 right-4 left-4 text-xl font-bold text-white drop-shadow-lg">المنح الدراسية الدولية (<span class="sch-count">45</span> منحة)</h3>
+                            </div>
+                            <div class="p-8 flex flex-col flex-1">
+                                <p class="text-slate-600 text-base leading-loose mb-4">دليل حي بمنح دولية موثقة، مع مطابقة ذكية بين ملفك الأكاديمي وأنسب الفرص المتاحة لك.</p>
+                                <ul class="space-y-2.5 text-sm text-slate-700 font-medium border-t border-slate-100 pt-4 mb-6">
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i>روابط تقديم رسمية مباشرة فقط</li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i>تحديث دوري للمواعيد والشروط</li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i>ترشيح شخصي حسب معدلك وتخصصك</li>
+                                </ul>
+                                <button onclick="switchView('scholarships')" class="mt-auto w-full bg-navy-900 hover:bg-gold-500 hover:text-navy-900 text-white font-bold py-3 rounded-xl transition-all duration-300 text-sm">اعرف المزيد</button>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-3xl shadow-md border border-slate-200 hover:border-gold-500 hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full">
+                            <div class="relative h-48 overflow-hidden shrink-0">
+                                <img src="https://images.pexels.com/photos/159775/library-la-trobe-study-students-159775.jpeg?auto=compress&cs=tinysrgb&w=800" alt="القبول الجامعي المباشر" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/50 to-transparent"></div>
+                                <div class="absolute top-4 right-4 w-14 h-14 bg-navy-900/90 text-gold-400 rounded-2xl flex items-center justify-center text-2xl shadow-md border border-gold-500/30">
+                                    <i class="fa-solid fa-user-graduate"></i>
+                                </div>
+                                <h3 class="absolute bottom-4 right-4 left-4 text-xl font-bold text-white drop-shadow-lg">القبول الجامعي المباشر</h3>
+                            </div>
+                            <div class="p-8 flex flex-col flex-1">
+                                <p class="text-slate-600 text-base leading-loose mb-4">نساعدك في التقديم المباشر للجامعات، من صياغة رسالة الدوافع وحتى متابعة القرار النهائي.</p>
+                                <ul class="space-y-2.5 text-sm text-slate-700 font-medium border-t border-slate-100 pt-4 mb-6">
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i>مراجعة وصياغة رسالة الدوافع</li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i>تجهيز وترجمة المستندات الرسمية</li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i>متابعة مباشرة مع مكتب القبول بالجامعة</li>
+                                </ul>
+                                <button onclick="switchView('contact')" class="mt-auto w-full bg-navy-900 hover:bg-gold-500 hover:text-navy-900 text-white font-bold py-3 rounded-xl transition-all duration-300 text-sm">اعرف المزيد</button>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-3xl shadow-md border border-slate-200 hover:border-gold-500 hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full">
+                            <div class="relative h-48 overflow-hidden shrink-0">
+                                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=70" alt="الاستشارات الأكاديمية" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/50 to-transparent"></div>
+                                <div class="absolute top-4 right-4 w-14 h-14 bg-navy-900/90 text-gold-400 rounded-2xl flex items-center justify-center text-2xl shadow-md border border-gold-500/30">
+                                    <i class="fa-solid fa-comments"></i>
+                                </div>
+                                <h3 class="absolute bottom-4 right-4 left-4 text-xl font-bold text-white drop-shadow-lg">الاستشارات الأكاديمية</h3>
+                            </div>
+                            <div class="p-8 flex flex-col flex-1">
+                                <p class="text-slate-600 text-base leading-loose mb-4">جلسات استشارية فردية تبني معك خطة أكاديمية واقعية من اختيار التخصص وحتى جدول التقديم.</p>
+                                <ul class="space-y-2.5 text-sm text-slate-700 font-medium border-t border-slate-100 pt-4 mb-6">
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i>تحليل ملفك الأكاديمي والمالي</li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i>مقارنة بين 3 مسارات دراسية بديلة على الأقل</li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold-700 mt-0.5"></i>خطة زمنية مكتوبة تسلّمها بنفس الجلسة</li>
+                                </ul>
+                                <button onclick="switchView('contact')" class="mt-auto w-full bg-navy-900 hover:bg-gold-500 hover:text-navy-900 text-white font-bold py-3 rounded-xl transition-all duration-300 text-sm">اعرف المزيد</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- بطاقة حالة قبول (نموذج توضيحي) -->
+                    <div class="mt-12 bg-navy-900 rounded-3xl border border-gold-500/30 shadow-2xl p-8 sm:p-10 relative overflow-hidden fade-slide-up" style="animation-delay:.1s">
+                        <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-gold-500/10 rounded-full blur-3xl"></div>
+                        <div class="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mb-8">
+                            <div>
+                                <span class="bg-gold-500/20 text-gold-400 text-xs font-bold px-3 py-1 rounded-full border border-gold-500/30">نموذج توضيحي</span>
+                                <h3 class="text-2xl font-black text-white mt-3">نموذج: حالة ملف الطالب</h3>
+                                <p class="text-slate-400 text-sm mt-1">مثال مبسط يوضح مراحل متابعة طلب الطالب داخل المنصة.</p>
+                            </div>
+                            <div class="w-14 h-14 bg-gold-500 text-navy-900 rounded-2xl flex items-center justify-center text-2xl shadow-lg shrink-0">
+                                <i class="fa-solid fa-clipboard-list"></i>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <div class="hidden md:block absolute top-9 right-[12.5%] left-[12.5%] h-0.5 bg-gradient-to-r from-brandGreen-400 via-gold-400 to-slate-600/40 z-0"></div>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 relative z-10">
+                                <div class="bg-navy-800 border border-brandGreen-500/30 rounded-2xl p-5 text-center">
+                                    <i class="fa-solid fa-circle-check text-brandGreen-400 text-2xl mb-2"></i>
+                                    <div class="text-sm font-bold text-white">تم إعداد الملف</div>
+                                </div>
+                                <div class="bg-navy-800 border border-brandGreen-500/30 rounded-2xl p-5 text-center">
+                                    <i class="fa-solid fa-circle-check text-brandGreen-400 text-2xl mb-2"></i>
+                                    <div class="text-sm font-bold text-white">تم إرسال الطلب</div>
+                                </div>
+                                <div class="bg-navy-800 border border-gold-500/30 rounded-2xl p-5 text-center">
+                                    <i class="fa-solid fa-hourglass-half text-gold-400 text-2xl mb-2"></i>
+                                    <div class="text-sm font-bold text-white">قيد المراجعة</div>
+                                </div>
+                                <div class="bg-navy-800/50 border border-slate-700 rounded-2xl p-5 text-center opacity-70">
+                                    <i class="fa-regular fa-circle text-slate-500 text-2xl mb-2"></i>
+                                    <div class="text-sm font-bold text-slate-400">تم القبول</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-6 relative z-10">* نموذج توضيحي لمراحل المتابعة، وليس وثيقة رسمية.</p>
+                    </div>
+
+                    <!-- شريط الأرقام -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-5 mt-8 fade-slide-up" style="animation-delay:.15s">
+                        <div class="bg-white border border-gold-500/30 rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-300">
+                            <div class="text-3xl sm:text-4xl font-black text-gold-700 sch-count">45</div>
+                            <div class="text-sm text-slate-500 font-bold mt-1.5">منحة موثقة</div>
+                        </div>
+                        <div class="bg-white border border-gold-500/30 rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-300">
+                            <div class="text-3xl sm:text-4xl font-black text-gold-700">95%</div>
+                            <div class="text-sm text-slate-500 font-bold mt-1.5">نسبة نجاح بالقبولات</div>
+                        </div>
+                        <div class="bg-white border border-gold-500/30 rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-300">
+                            <div class="text-3xl sm:text-4xl font-black text-gold-700">+2,400</div>
+                            <div class="text-sm text-slate-500 font-bold mt-1.5">طالب مستفيد</div>
+                        </div>
+                        <div class="bg-white border border-gold-500/30 rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-300">
+                            <div class="text-3xl sm:text-4xl font-black text-gold-700">100%</div>
+                            <div class="text-sm text-slate-500 font-bold mt-1.5">روابط رسمية مباشرة</div>
+                        </div>
+                    </div>
+
+                    <!-- تصديق الأوراق والشهادات الرسمية -->
+                    <div class="mt-14 fade-slide-up" style="animation-delay:.2s">
+                        <div class="text-center max-w-2xl mx-auto mb-8 space-y-3">
+                            <span class="bg-navy-900/10 text-navy-900 font-bold px-4 py-1.5 rounded-full text-sm">خدمة إضافية</span>
+                            <h3 class="text-2xl sm:text-3xl font-black text-navy-900">تصديق الأوراق والشهادات الرسمية</h3>
+                            <p class="text-slate-600 text-base leading-relaxed">نساعدك في معرفة الوثائق المطلوبة وإجراءات التصديق حسب الدولة والمنحة أو الجامعة المستهدفة.</p>
+                        </div>
+
+                        <div class="max-w-3xl mx-auto mb-8 bg-gold-500/10 border border-gold-500/30 rounded-2xl p-4 sm:p-5 flex items-start gap-3">
+                            <i class="fa-solid fa-circle-info text-gold-700 text-lg mt-0.5 shrink-0"></i>
+                            <p class="text-navy-900 text-sm sm:text-base leading-relaxed">متطلبات التصديق تختلف حسب الدولة والمنحة والجامعة، ويتم تحديد المطلوب وفق حالة كل طالب.</p>
+                        </div>
+
+                        <h4 class="text-lg font-bold text-navy-900 mb-6 text-center">أبرز المستندات التي نتولى تصديقها</h4>
+                        <div class="grid grid-cols-2 lg:grid-cols-5 gap-6">
+                            <div class="flex flex-col items-center gap-2.5">
+                                <div class="relative w-full max-w-[170px] aspect-[3/4] bg-white border border-slate-200 rounded-xl shadow-md p-4 flex flex-col items-center">
+                                    <div class="w-11 h-11 rounded-full bg-gradient-to-br from-navy-700 to-navy-600 border-2 border-gold-400 flex items-center justify-center text-gold-400 text-base shadow-inner mb-3 shrink-0">
+                                        <i class="fa-solid fa-shield-halved"></i>
+                                    </div>
+                                    <div class="w-full space-y-1.5">
+                                        <div class="h-1.5 bg-slate-200 rounded-full w-4/5 mx-auto"></div>
+                                        <div class="h-1.5 bg-slate-200 rounded-full w-3/5 mx-auto"></div>
+                                        <div class="h-1.5 bg-slate-100 rounded-full w-full"></div>
+                                        <div class="h-1.5 bg-slate-100 rounded-full w-2/3 mx-auto"></div>
+                                    </div>
+                                    <div class="w-full border-t border-dashed border-slate-200 my-2"></div>
+                                    <div class="w-full space-y-1 mt-auto">
+                                        <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">الاسم: نموذج توضيحي</p>
+                                        <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">الرقم: XXXXXXXX</p>
+                                        <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">التاريخ: ٠٠/٠٠/٢٠٢٦</p>
+                                    </div>
+                                    <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-brandGreen-500 text-white flex items-center justify-center text-xs shadow-md border-2 border-white">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                </div>
+                                <h5 class="text-sm font-bold text-navy-900 text-center mt-1">شهادة عدم محكومية</h5>
+                                <button onclick="openDocumentModal(0)" class="text-xs font-bold text-gold-700 hover:text-gold-600 flex items-center gap-1 transition-colors duration-300">التفاصيل <i class="fa-solid fa-arrow-left text-[10px]"></i></button>
+                            </div>
+
+                            <div class="flex flex-col items-center gap-2.5">
+                                <div class="relative w-full max-w-[170px] aspect-[3/4] bg-white border border-slate-200 rounded-xl shadow-md p-4 flex flex-col items-center">
+                                    <div class="w-11 h-11 rounded-full bg-gradient-to-br from-navy-700 to-navy-600 border-2 border-gold-400 flex items-center justify-center text-gold-400 text-base shadow-inner mb-3 shrink-0">
+                                        <i class="fa-solid fa-table-list"></i>
+                                    </div>
+                                    <div class="w-full space-y-1.5">
+                                        <div class="h-1.5 bg-slate-200 rounded-full w-4/5 mx-auto"></div>
+                                        <div class="h-1.5 bg-slate-200 rounded-full w-3/5 mx-auto"></div>
+                                        <div class="h-1.5 bg-slate-100 rounded-full w-full"></div>
+                                        <div class="h-1.5 bg-slate-100 rounded-full w-2/3 mx-auto"></div>
+                                    </div>
+                                    <div class="w-full border-t border-dashed border-slate-200 my-2"></div>
+                                    <div class="w-full space-y-1 mt-auto">
+                                        <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">الاسم: نموذج توضيحي</p>
+                                        <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">الرقم: XXXXXXXX</p>
+                                        <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">التاريخ: ٠٠/٠٠/٢٠٢٦</p>
+                                    </div>
+                                    <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-brandGreen-500 text-white flex items-center justify-center text-xs shadow-md border-2 border-white">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                </div>
+                                <h5 class="text-sm font-bold text-navy-900 text-center mt-1">كشف علامات التوجيهي</h5>
+                                <button onclick="openDocumentModal(1)" class="text-xs font-bold text-gold-700 hover:text-gold-600 flex items-center gap-1 transition-colors duration-300">التفاصيل <i class="fa-solid fa-arrow-left text-[10px]"></i></button>
+                            </div>
+
+                            <div class="flex flex-col items-center gap-2.5">
+                                <div class="relative w-full max-w-[170px] aspect-[3/4] bg-white border border-slate-200 rounded-xl shadow-md p-4 flex flex-col items-center">
+                                    <div class="w-11 h-11 rounded-full bg-gradient-to-br from-navy-700 to-navy-600 border-2 border-gold-400 flex items-center justify-center text-gold-400 text-base shadow-inner mb-3 shrink-0">
+                                        <i class="fa-solid fa-certificate"></i>
+                                    </div>
+                                    <div class="w-full space-y-1.5">
+                                        <div class="h-1.5 bg-slate-200 rounded-full w-4/5 mx-auto"></div>
+                                        <div class="h-1.5 bg-slate-200 rounded-full w-3/5 mx-auto"></div>
+                                        <div class="h-1.5 bg-slate-100 rounded-full w-full"></div>
+                                        <div class="h-1.5 bg-slate-100 rounded-full w-2/3 mx-auto"></div>
+                                    </div>
+                                    <div class="w-full border-t border-dashed border-slate-200 my-2"></div>
+                                    <div class="w-full space-y-1 mt-auto">
+                                        <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">الاسم: نموذج توضيحي</p>
+                                        <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">الرقم: XXXXXXXX</p>
+                                        <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">التاريخ: ٠٠/٠٠/٢٠٢٦</p>
+                                    </div>
+                                    <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-brandGreen-500 text-white flex items-center justify-center text-xs shadow-md border-2 border-white">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                </div>
+                                <h5 class="text-sm font-bold text-navy-900 text-center mt-1">شهادة التوجيهي</h5>
+                                <button onclick="openDocumentModal(2)" class="text-xs font-bold text-gold-700 hover:text-gold-600 flex items-center gap-1 transition-colors duration-300">التفاصيل <i class="fa-solid fa-arrow-left text-[10px]"></i></button>
+                            </div>
+
+                            <div class="flex flex-col items-center gap-2.5">
+                                <div class="relative w-full max-w-[170px] aspect-[3/4] bg-white border border-slate-200 rounded-xl shadow-md p-4 flex flex-col items-center">
+                                    <div class="w-11 h-11 rounded-full bg-gradient-to-br from-navy-700 to-navy-600 border-2 border-gold-400 flex items-center justify-center text-gold-400 text-base shadow-inner mb-3 shrink-0">
+                                        <i class="fa-solid fa-heart-pulse"></i>
+                                    </div>
+                                    <div class="w-full space-y-1.5">
+                                        <div class="h-1.5 bg-slate-200 rounded-full w-4/5 mx-auto"></div>
+                                        <div class="h-1.5 bg-slate-200 rounded-full w-3/5 mx-auto"></div>
+                                        <div class="h-1.5 bg-slate-100 rounded-full w-full"></div>
+                                        <div class="h-1.5 bg-slate-100 rounded-full w-2/3 mx-auto"></div>
+                                    </div>
+                                    <div class="w-full border-t border-dashed border-slate-200 my-2"></div>
+                                    <div class="w-full space-y-1 mt-auto">
+                                        <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">الاسم: نموذج توضيحي</p>
+                                        <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">الرقم: XXXXXXXX</p>
+                                        <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">التاريخ: ٠٠/٠٠/٢٠٢٦</p>
+                                    </div>
+                                    <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-brandGreen-500 text-white flex items-center justify-center text-xs shadow-md border-2 border-white">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                </div>
+                                <h5 class="text-sm font-bold text-navy-900 text-center mt-1">شهادة خلو أمراض</h5>
+                                <button onclick="openDocumentModal(3)" class="text-xs font-bold text-gold-700 hover:text-gold-600 flex items-center gap-1 transition-colors duration-300">التفاصيل <i class="fa-solid fa-arrow-left text-[10px]"></i></button>
+                            </div>
+
+                            <div class="flex flex-col items-center gap-2.5 col-span-2 lg:col-span-1 mx-auto lg:mx-0">
+                                <div class="relative w-full max-w-[170px] aspect-[3/4] bg-white border border-slate-200 rounded-xl shadow-md p-4 flex flex-col items-center">
+                                    <div class="w-11 h-11 rounded-full bg-gradient-to-br from-navy-700 to-navy-600 border-2 border-gold-400 flex items-center justify-center text-gold-400 text-base shadow-inner mb-3 shrink-0">
+                                        <i class="fa-solid fa-graduation-cap"></i>
+                                    </div>
+                                    <div class="w-full space-y-1.5">
+                                        <div class="h-1.5 bg-slate-200 rounded-full w-4/5 mx-auto"></div>
+                                        <div class="h-1.5 bg-slate-200 rounded-full w-3/5 mx-auto"></div>
+                                        <div class="h-1.5 bg-slate-100 rounded-full w-full"></div>
+                                        <div class="h-1.5 bg-slate-100 rounded-full w-2/3 mx-auto"></div>
+                                    </div>
+                                    <div class="w-full border-t border-dashed border-slate-200 my-2"></div>
+                                    <div class="w-full space-y-1 mt-auto">
+                                        <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">الاسم: نموذج توضيحي</p>
+                                        <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">الرقم: XXXXXXXX</p>
+                                        <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">التاريخ: ٠٠/٠٠/٢٠٢٦</p>
+                                    </div>
+                                    <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-brandGreen-500 text-white flex items-center justify-center text-xs shadow-md border-2 border-white">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                </div>
+                                <h5 class="text-sm font-bold text-navy-900 text-center mt-1">تصديق الشهادات الجامعية</h5>
+                                <button onclick="openDocumentModal(4)" class="text-xs font-bold text-gold-700 hover:text-gold-600 flex items-center gap-1 transition-colors duration-300">التفاصيل <i class="fa-solid fa-arrow-left text-[10px]"></i></button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-3xl shadow-md border border-slate-200 hover:border-gold-500 hover:shadow-xl transition-all duration-300 overflow-hidden group">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=70" alt="منح دراسية دولية" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/50 to-transparent"></div>
-                            <div class="absolute top-4 right-4 w-14 h-14 bg-navy-900/90 text-gold-400 rounded-2xl flex items-center justify-center text-2xl shadow-md border border-gold-500/30">
-                                <i class="fa-solid fa-globe"></i>
-                            </div>
-                            <h3 class="absolute bottom-4 right-4 left-4 text-xl font-bold text-white drop-shadow-lg">المنح الدراسية الدولية (<span class="sch-count">45</span> منحة)</h3>
-                        </div>
-                        <div class="p-8">
-                            <p class="text-slate-600 text-sm leading-relaxed mb-4">دليل حي لـ <span class="sch-count">45</span> منحة دولية موثقة، نراجعها دورياً للتأكد من دقة شروطها ومواعيدها، مع مطابقة ذكية بين ملفك الأكاديمي وأنسب المنح المتاحة لك حسب تخصصك ومعدلك ووجهتك المفضلة.</p>
-                            <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                                <li><i class="fa-solid fa-check text-gold-700 ml-1"></i>روابط تقديم رسمية مباشرة فقط</li>
-                                <li><i class="fa-solid fa-check text-gold-700 ml-1"></i>تحديث دوري للمواعيد والشروط</li>
-                                <li><i class="fa-solid fa-check text-gold-700 ml-1"></i>ترشيح شخصي حسب معدلك وتخصصك</li>
-                            </ul>
-                        </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="hero-gradient text-white py-14 sm:py-16">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 fade-slide-up">
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8 text-sm font-semibold text-slate-200">
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> مراجعة الملف قبل التقديم</span>
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> الاعتماد على المصادر الرسمية</span>
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> متابعة مراحل الطلب</span>
                     </div>
-                    <div class="bg-white rounded-3xl shadow-md border border-slate-200 hover:border-gold-500 hover:shadow-xl transition-all duration-300 overflow-hidden group">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.pexels.com/photos/159775/library-la-trobe-study-students-159775.jpeg?auto=compress&cs=tinysrgb&w=800" alt="القبول الجامعي المباشر" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/50 to-transparent"></div>
-                            <div class="absolute top-4 right-4 w-14 h-14 bg-navy-900/90 text-gold-400 rounded-2xl flex items-center justify-center text-2xl shadow-md border border-gold-500/30">
-                                <i class="fa-solid fa-user-graduate"></i>
-                            </div>
-                            <h3 class="absolute bottom-4 right-4 left-4 text-xl font-bold text-white drop-shadow-lg">القبول الجامعي المباشر</h3>
-                        </div>
-                        <div class="p-8">
-                            <p class="text-slate-600 text-sm leading-relaxed mb-4">نتولى عنك تفاصيل التقديم المباشر للجامعات — من صياغة رسالة الدوافع بأسلوب احترافي يميزك عن آلاف المتقدمين، لترجمة وتصديق المستندات وفق متطلبات كل جامعة تحديداً، وصولاً لمتابعة الطلب مباشرة مع مكتب القبول حتى صدور القرار النهائي.</p>
-                            <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                                <li><i class="fa-solid fa-check text-gold-700 ml-1"></i>مراجعة وصياغة رسالة الدوافع</li>
-                                <li><i class="fa-solid fa-check text-gold-700 ml-1"></i>تجهيز وترجمة المستندات الرسمية</li>
-                                <li><i class="fa-solid fa-check text-gold-700 ml-1"></i>متابعة مباشرة مع مكتب القبول بالجامعة</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-3xl shadow-md border border-slate-200 hover:border-gold-500 hover:shadow-xl transition-all duration-300 overflow-hidden group">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=70" alt="الاستشارات الأكاديمية" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/50 to-transparent"></div>
-                            <div class="absolute top-4 right-4 w-14 h-14 bg-navy-900/90 text-gold-400 rounded-2xl flex items-center justify-center text-2xl shadow-md border border-gold-500/30">
-                                <i class="fa-solid fa-comments"></i>
-                            </div>
-                            <h3 class="absolute bottom-4 right-4 left-4 text-xl font-bold text-white drop-shadow-lg">الاستشارات الأكاديمية</h3>
-                        </div>
-                        <div class="p-8">
-                            <p class="text-slate-600 text-sm leading-relaxed mb-4">جلسات استشارية فردية عمرها 60 دقيقة مع مستشارين متخصصين، نبني معك خطة أكاديمية كاملة تبدأ من تحديد التخصص الأنسب لقدراتك وطموحك، مروراً باختيار الدولة والجامعة المناسبة، وصولاً لجدول زمني واقعي للتقديم يراعي كل المواعيد النهائية المهمة.</p>
-                            <ul class="space-y-2 text-xs text-slate-700 font-medium border-t border-slate-100 pt-4">
-                                <li><i class="fa-solid fa-check text-gold-700 ml-1"></i>تحليل ملفك الأكاديمي والمالي</li>
-                                <li><i class="fa-solid fa-check text-gold-700 ml-1"></i>مقارنة بين 3 مسارات دراسية بديلة على الأقل</li>
-                                <li><i class="fa-solid fa-check text-gold-700 ml-1"></i>خطة زمنية مكتوبة تسلّمها بنفس الجلسة</li>
-                            </ul>
-                        </div>
+                    <h3 class="text-2xl sm:text-4xl font-black text-white">هل تريد تجهيز ملفك كاملًا؟</h3>
+                    <p class="text-slate-300 max-w-xl mx-auto leading-relaxed">أرسل بياناتك لفريق المجد، وسنساعدك في تحديد الوثائق والخدمات المطلوبة حسب المنحة والدولة التي تستهدفها.</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+                        <button onclick="switchView('contact')" class="w-full sm:w-auto bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 text-navy-900 font-extrabold px-8 py-3.5 rounded-xl shadow-lg transition-all duration-300 transform active:scale-95">ابدأ تجهيز ملفك</button>
+                        <button onclick="switchView('contact')" class="w-full sm:w-auto bg-white hover:bg-slate-50 text-navy-900 border border-navy-900/20 font-bold px-8 py-3.5 rounded-xl transition-all duration-300">تواصل معنا</button>
                     </div>
                 </div>
-
-                <!-- بطاقة حالة قبول (نموذج توضيحي) -->
-                <div class="mt-12 bg-navy-900 rounded-3xl border border-gold-500/30 shadow-2xl p-8 sm:p-10 relative overflow-hidden">
-                    <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-gold-500/10 rounded-full blur-3xl"></div>
-                    <div class="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mb-8">
-                        <div>
-                            <span class="bg-gold-500/20 text-gold-400 text-xs font-bold px-3 py-1 rounded-full border border-gold-500/30">نموذج توضيحي</span>
-                            <h3 class="text-2xl font-black text-white mt-3">نموذج: حالة ملف الطالب</h3>
-                        </div>
-                        <div class="w-14 h-14 bg-gold-500 text-navy-900 rounded-2xl flex items-center justify-center text-2xl shadow-lg">
-                            <i class="fa-solid fa-clipboard-list"></i>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 relative z-10">
-                        <div class="bg-navy-800 border border-brandGreen-500/30 rounded-2xl p-5 text-center">
-                            <i class="fa-solid fa-circle-check text-brandGreen-400 text-2xl mb-2"></i>
-                            <div class="text-sm font-bold text-white">تم إعداد الملف</div>
-                        </div>
-                        <div class="bg-navy-800 border border-brandGreen-500/30 rounded-2xl p-5 text-center">
-                            <i class="fa-solid fa-circle-check text-brandGreen-400 text-2xl mb-2"></i>
-                            <div class="text-sm font-bold text-white">تم إرسال الطلب</div>
-                        </div>
-                        <div class="bg-navy-800 border border-gold-500/30 rounded-2xl p-5 text-center">
-                            <i class="fa-solid fa-hourglass-half text-gold-400 text-2xl mb-2"></i>
-                            <div class="text-sm font-bold text-white">قيد المراجعة</div>
-                        </div>
-                        <div class="bg-navy-800 border border-brandGreen-500/30 rounded-2xl p-5 text-center">
-                            <i class="fa-solid fa-circle-check text-brandGreen-400 text-2xl mb-2"></i>
-                            <div class="text-sm font-bold text-white">تم القبول</div>
-                        </div>
-                    </div>
-                    <p class="text-xs text-slate-400 mt-6 relative z-10">* نموذج توضيحي لمراحل المتابعة، وليس وثيقة رسمية.</p>
-                </div>
-
-                <!-- شريط الأرقام -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-                    <div class="bg-white border border-gold-500/30 rounded-2xl p-5 text-center shadow-sm">
-                        <div class="text-2xl sm:text-3xl font-black text-gold-700 sch-count">45</div>
-                        <div class="text-xs text-slate-500 font-bold mt-1">منحة موثقة</div>
-                    </div>
-                    <div class="bg-white border border-gold-500/30 rounded-2xl p-5 text-center shadow-sm">
-                        <div class="text-2xl sm:text-3xl font-black text-gold-700">95%</div>
-                        <div class="text-xs text-slate-500 font-bold mt-1">نسبة نجاح بالقبولات</div>
-                    </div>
-                    <div class="bg-white border border-gold-500/30 rounded-2xl p-5 text-center shadow-sm">
-                        <div class="text-2xl sm:text-3xl font-black text-gold-700">+2,400</div>
-                        <div class="text-xs text-slate-500 font-bold mt-1">طالب مستفيد</div>
-                    </div>
-                    <div class="bg-white border border-gold-500/30 rounded-2xl p-5 text-center shadow-sm">
-                        <div class="text-2xl sm:text-3xl font-black text-gold-700">100%</div>
-                        <div class="text-xs text-slate-500 font-bold mt-1">روابط رسمية مباشرة</div>
-                    </div>
-                </div>
-
-                <!-- تصديق الأوراق والشهادات الرسمية -->
-                <div class="mt-16">
-                    <div class="text-center max-w-2xl mx-auto mb-10 space-y-3">
-                        <span class="bg-navy-900/10 text-navy-900 font-bold px-4 py-1.5 rounded-full text-sm">خدمة إضافية</span>
-                        <h3 class="text-2xl sm:text-3xl font-black text-navy-900">تصديق الأوراق والشهادات الرسمية</h3>
-                        <p class="text-slate-600 text-base">نتولى عنك إجراءات تصديق أهم مستنداتك الرسمية المطلوبة للتقديم، بدقة وسرعة، ووفق المتطلبات الرسمية لكل جهة مانحة أو جامعة.</p>
-                    </div>
-                    <h4 class="text-lg font-bold text-navy-900 mb-6 text-center">أبرز المستندات التي نتولى تصديقها</h4>
-                    <div class="grid grid-cols-2 lg:grid-cols-5 gap-6">
-                        <div class="flex flex-col items-center gap-3">
-                            <div class="relative w-full max-w-[150px] aspect-[3/4] bg-white border border-slate-200 rounded-xl shadow-md p-4 flex flex-col items-center">
-                                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-navy-700 to-navy-600 border-2 border-gold-400 flex items-center justify-center text-gold-400 text-sm shadow-inner mb-3 shrink-0">
-                                    <i class="fa-solid fa-shield-halved"></i>
-                                </div>
-                                <div class="w-full space-y-1.5">
-                                    <div class="h-1.5 bg-slate-200 rounded-full w-4/5 mx-auto"></div>
-                                    <div class="h-1.5 bg-slate-200 rounded-full w-3/5 mx-auto"></div>
-                                    <div class="h-1.5 bg-slate-100 rounded-full w-full"></div>
-                                    <div class="h-1.5 bg-slate-100 rounded-full w-2/3 mx-auto"></div>
-                                </div>
-                                <div class="w-full border-t border-dashed border-slate-200 my-2"></div>
-                                <div class="w-full space-y-1 mt-auto">
-                                    <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">الاسم: نموذج توضيحي</p>
-                                    <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">الرقم: XXXXXXXX</p>
-                                    <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">التاريخ: ٠٠/٠٠/٢٠٢٦</p>
-                                </div>
-                                <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-brandGreen-500 text-white flex items-center justify-center text-xs shadow-md border-2 border-white">
-                                    <i class="fa-solid fa-check"></i>
-                                </div>
-                            </div>
-                            <h5 class="text-xs sm:text-sm font-bold text-navy-900 text-center mt-1">شهادة عدم محكومية</h5>
-                        </div>
-
-                        <div class="flex flex-col items-center gap-3">
-                            <div class="relative w-full max-w-[150px] aspect-[3/4] bg-white border border-slate-200 rounded-xl shadow-md p-4 flex flex-col items-center">
-                                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-navy-700 to-navy-600 border-2 border-gold-400 flex items-center justify-center text-gold-400 text-sm shadow-inner mb-3 shrink-0">
-                                    <i class="fa-solid fa-table-list"></i>
-                                </div>
-                                <div class="w-full space-y-1.5">
-                                    <div class="h-1.5 bg-slate-200 rounded-full w-4/5 mx-auto"></div>
-                                    <div class="h-1.5 bg-slate-200 rounded-full w-3/5 mx-auto"></div>
-                                    <div class="h-1.5 bg-slate-100 rounded-full w-full"></div>
-                                    <div class="h-1.5 bg-slate-100 rounded-full w-2/3 mx-auto"></div>
-                                </div>
-                                <div class="w-full border-t border-dashed border-slate-200 my-2"></div>
-                                <div class="w-full space-y-1 mt-auto">
-                                    <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">الاسم: نموذج توضيحي</p>
-                                    <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">الرقم: XXXXXXXX</p>
-                                    <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">التاريخ: ٠٠/٠٠/٢٠٢٦</p>
-                                </div>
-                                <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-brandGreen-500 text-white flex items-center justify-center text-xs shadow-md border-2 border-white">
-                                    <i class="fa-solid fa-check"></i>
-                                </div>
-                            </div>
-                            <h5 class="text-xs sm:text-sm font-bold text-navy-900 text-center mt-1">كشف علامات التوجيهي</h5>
-                        </div>
-
-                        <div class="flex flex-col items-center gap-3">
-                            <div class="relative w-full max-w-[150px] aspect-[3/4] bg-white border border-slate-200 rounded-xl shadow-md p-4 flex flex-col items-center">
-                                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-navy-700 to-navy-600 border-2 border-gold-400 flex items-center justify-center text-gold-400 text-sm shadow-inner mb-3 shrink-0">
-                                    <i class="fa-solid fa-certificate"></i>
-                                </div>
-                                <div class="w-full space-y-1.5">
-                                    <div class="h-1.5 bg-slate-200 rounded-full w-4/5 mx-auto"></div>
-                                    <div class="h-1.5 bg-slate-200 rounded-full w-3/5 mx-auto"></div>
-                                    <div class="h-1.5 bg-slate-100 rounded-full w-full"></div>
-                                    <div class="h-1.5 bg-slate-100 rounded-full w-2/3 mx-auto"></div>
-                                </div>
-                                <div class="w-full border-t border-dashed border-slate-200 my-2"></div>
-                                <div class="w-full space-y-1 mt-auto">
-                                    <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">الاسم: نموذج توضيحي</p>
-                                    <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">الرقم: XXXXXXXX</p>
-                                    <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">التاريخ: ٠٠/٠٠/٢٠٢٦</p>
-                                </div>
-                                <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-brandGreen-500 text-white flex items-center justify-center text-xs shadow-md border-2 border-white">
-                                    <i class="fa-solid fa-check"></i>
-                                </div>
-                            </div>
-                            <h5 class="text-xs sm:text-sm font-bold text-navy-900 text-center mt-1">شهادة التوجيهي</h5>
-                        </div>
-
-                        <div class="flex flex-col items-center gap-3">
-                            <div class="relative w-full max-w-[150px] aspect-[3/4] bg-white border border-slate-200 rounded-xl shadow-md p-4 flex flex-col items-center">
-                                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-navy-700 to-navy-600 border-2 border-gold-400 flex items-center justify-center text-gold-400 text-sm shadow-inner mb-3 shrink-0">
-                                    <i class="fa-solid fa-heart-pulse"></i>
-                                </div>
-                                <div class="w-full space-y-1.5">
-                                    <div class="h-1.5 bg-slate-200 rounded-full w-4/5 mx-auto"></div>
-                                    <div class="h-1.5 bg-slate-200 rounded-full w-3/5 mx-auto"></div>
-                                    <div class="h-1.5 bg-slate-100 rounded-full w-full"></div>
-                                    <div class="h-1.5 bg-slate-100 rounded-full w-2/3 mx-auto"></div>
-                                </div>
-                                <div class="w-full border-t border-dashed border-slate-200 my-2"></div>
-                                <div class="w-full space-y-1 mt-auto">
-                                    <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">الاسم: نموذج توضيحي</p>
-                                    <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">الرقم: XXXXXXXX</p>
-                                    <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">التاريخ: ٠٠/٠٠/٢٠٢٦</p>
-                                </div>
-                                <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-brandGreen-500 text-white flex items-center justify-center text-xs shadow-md border-2 border-white">
-                                    <i class="fa-solid fa-check"></i>
-                                </div>
-                            </div>
-                            <h5 class="text-xs sm:text-sm font-bold text-navy-900 text-center mt-1">شهادة خلو أمراض</h5>
-                        </div>
-
-                        <div class="flex flex-col items-center gap-3 col-span-2 lg:col-span-1 mx-auto lg:mx-0">
-                            <div class="relative w-full max-w-[150px] aspect-[3/4] bg-white border border-slate-200 rounded-xl shadow-md p-4 flex flex-col items-center">
-                                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-navy-700 to-navy-600 border-2 border-gold-400 flex items-center justify-center text-gold-400 text-sm shadow-inner mb-3 shrink-0">
-                                    <i class="fa-solid fa-graduation-cap"></i>
-                                </div>
-                                <div class="w-full space-y-1.5">
-                                    <div class="h-1.5 bg-slate-200 rounded-full w-4/5 mx-auto"></div>
-                                    <div class="h-1.5 bg-slate-200 rounded-full w-3/5 mx-auto"></div>
-                                    <div class="h-1.5 bg-slate-100 rounded-full w-full"></div>
-                                    <div class="h-1.5 bg-slate-100 rounded-full w-2/3 mx-auto"></div>
-                                </div>
-                                <div class="w-full border-t border-dashed border-slate-200 my-2"></div>
-                                <div class="w-full space-y-1 mt-auto">
-                                    <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">الاسم: نموذج توضيحي</p>
-                                    <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">الرقم: XXXXXXXX</p>
-                                    <p class="text-[7px] sm:text-[8px] text-slate-400 font-bold truncate">التاريخ: ٠٠/٠٠/٢٠٢٦</p>
-                                </div>
-                                <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-brandGreen-500 text-white flex items-center justify-center text-xs shadow-md border-2 border-white">
-                                    <i class="fa-solid fa-check"></i>
-                                </div>
-                            </div>
-                            <h5 class="text-xs sm:text-sm font-bold text-navy-900 text-center mt-1">تصديق الشهادات الجامعية</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </section>
         </section>
 
         <!-- ALMADJ 360 VIEW -->
@@ -2019,6 +2057,18 @@
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
             <div id="modal-content" class="space-y-6 pt-4">
+                <!-- Injected dynamically via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Document Details Modal -->
+    <div id="document-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden p-4 transition-opacity">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl border border-slate-200 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeDocumentModal()" class="absolute top-4 left-4 w-10 h-10 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center justify-center font-bold transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div id="document-modal-content" class="space-y-5 pt-4">
                 <!-- Injected dynamically via JS -->
             </div>
         </div>
@@ -4036,6 +4086,94 @@
             }
         }
 
+        // ===== بطاقات تصديق الوثائق بصفحة خدماتنا =====
+        const documentsData = [
+            {
+                name: 'شهادة عدم محكومية',
+                icon: 'fa-shield-halved',
+                when: 'عادة تُطلب ضمن إجراءات التأشيرة أو التسجيل في بعض الدول والجامعات.',
+                translation: 'يُحدَّد حسب الدولة والجهة المانحة.',
+                certification: 'يُحدَّد حسب الدولة والجهة المانحة.',
+                requestedBy: 'قد تطلبها السفارة أو الجامعة حسب حالة الطالب.',
+                notes: 'تحقق من مدة صلاحيتها قبل التقديم، فمعظم الجهات تشترط حداثة إصدارها.'
+            },
+            {
+                name: 'كشف علامات التوجيهي',
+                icon: 'fa-table-list',
+                when: 'يُطلب عادة عند التقديم لأي برنامج بكالوريوس يعتمد شهادة الثانوية العامة.',
+                translation: 'نعم، عادة تحتاج ترجمة معتمدة.',
+                certification: 'غالباً تحتاج تصديقاً رسمياً حسب الجهة المانحة.',
+                requestedBy: 'الجامعة أو الجهة المانحة للمنحة.',
+                notes: 'تأكد من مطابقة الترجمة للنسخة الأصلية بدقة تامة.'
+            },
+            {
+                name: 'شهادة التوجيهي',
+                icon: 'fa-certificate',
+                when: 'للتقديم على برامج البكالوريوس التي تشترط شهادة الثانوية العامة.',
+                translation: 'نعم، عادة تحتاج ترجمة معتمدة.',
+                certification: 'غالباً تحتاج تصديقاً رسمياً حسب الجهة المانحة.',
+                requestedBy: 'الجامعة أو الجهة المانحة.',
+                notes: 'احتفظ بنسخة أصلية إضافية غير النسخة المقدمة للتصديق.'
+            },
+            {
+                name: 'شهادة خلو أمراض',
+                icon: 'fa-heart-pulse',
+                when: 'تُطلب غالباً ضمن إجراءات التأشيرة أو قبل السفر لبعض الدول.',
+                translation: 'يُحدَّد حسب الدولة والجهة المانحة.',
+                certification: 'يُحدَّد حسب الدولة والجهة المانحة.',
+                requestedBy: 'قد تطلبها السفارة أو الجامعة حسب حالة الطالب.',
+                notes: 'تحقق من الجهة الطبية المعتمدة المطلوبة لإصدارها قبل الموعد.'
+            },
+            {
+                name: 'تصديق الشهادات الجامعية',
+                icon: 'fa-graduation-cap',
+                when: 'يُطلب عادة عند استكمال إجراءات القبول النهائي أو التقديم لدرجة أعلى.',
+                translation: 'يُحدَّد حسب الدولة والجهة المانحة.',
+                certification: 'نعم، هذا الإجراء بحد ذاته تصديق رسمي للشهادة الجامعية.',
+                requestedBy: 'الجامعة المستهدفة أو الجهات الرسمية المعنية بالتصديق.',
+                notes: 'تحقق من الجهات المعتمدة للتصديق (وزارة الخارجية أو السفارات) حسب بلدك.'
+            }
+        ];
+
+        function openDocumentModal(idx) {
+            const doc = documentsData[idx];
+            if(!doc) return;
+            const content = document.getElementById('document-modal-content');
+            content.innerHTML = `
+                <div class="flex items-center gap-3 border-b border-slate-200 pb-4">
+                    <div class="w-12 h-12 rounded-2xl bg-navy-900 text-gold-400 flex items-center justify-center text-xl shrink-0"><i class="fa-solid ${doc.icon}"></i></div>
+                    <h3 class="text-xl font-black text-navy-900">${doc.name}</h3>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold text-gold-700 mb-1">متى تحتاج هذه الوثيقة؟</h4>
+                    <p class="text-slate-700 text-sm leading-relaxed">${doc.when}</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-slateLight rounded-xl p-4">
+                        <h4 class="text-sm font-bold text-gold-700 mb-1">هل تحتاج ترجمة؟</h4>
+                        <p class="text-slate-700 text-sm leading-relaxed">${doc.translation}</p>
+                    </div>
+                    <div class="bg-slateLight rounded-xl p-4">
+                        <h4 class="text-sm font-bold text-gold-700 mb-1">هل تحتاج تصديقاً؟</h4>
+                        <p class="text-slate-700 text-sm leading-relaxed">${doc.certification}</p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold text-gold-700 mb-1">الجهة التي قد تطلبها</h4>
+                    <p class="text-slate-700 text-sm leading-relaxed">${doc.requestedBy}</p>
+                </div>
+                <div class="bg-gold-500/10 border border-gold-500/30 rounded-xl p-4">
+                    <h4 class="text-sm font-bold text-navy-900 mb-1"><i class="fa-solid fa-lightbulb text-gold-700 ml-1"></i>ملاحظات مهمة</h4>
+                    <p class="text-slate-700 text-sm leading-relaxed">${doc.notes}</p>
+                </div>
+            `;
+            document.getElementById('document-modal').classList.remove('hidden');
+        }
+
+        function closeDocumentModal() {
+            document.getElementById('document-modal').classList.add('hidden');
+        }
+
         // ===== مركز الأدلة والنصائح (Guides Hub) =====
         const guideCategories = [
             { key: 'admission', emoji: '🎓', label: 'القبول الجامعي' },
@@ -4294,10 +4432,12 @@
                 const favModal = document.getElementById('favorites-modal');
                 const sucModal = document.getElementById('success-modal');
                 const authModal = document.getElementById('auth-modal');
+                const docModal = document.getElementById('document-modal');
                 if (event.target == schModal) closeScholarshipModal();
                 if (event.target == favModal) closeFavoritesModal();
                 if (event.target == sucModal) closeSuccessModal();
                 if (event.target == authModal) closeAuthModal();
+                if (event.target == docModal) closeDocumentModal();
 
                 const userDropdown = document.getElementById('user-dropdown');
                 if(userDropdown && !userDropdown.classList.contains('hidden')) {
