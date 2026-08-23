@@ -4382,6 +4382,9 @@
             { key: 'language', emoji: '🌐', label: 'اختبارات اللغة' }
         ];
 
+        // ملاحظة: قيمة updated بكل مقال يجب أن تعكس تاريخ آخر تعديل حقيقي لملف guides/<slug>.html المقابل.
+        // تحقّق من التاريخ الفعلي دائماً عبر: git log -1 --format=%ad --date=format:'%B %Y' -- guides/<slug>.html
+        // ولا تكتب تاريخاً يدوياً غير مطابق لسجل Git الفعلي لذلك الملف تحديداً.
         const guidesData = [
             {
                 slug: 'complete-scholarship-guide',
