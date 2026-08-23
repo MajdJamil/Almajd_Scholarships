@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="logo-icon.png">
     <link rel="apple-touch-icon" href="logo-icon.png">
+    <!-- ملاحظة: هذا الرقم ثابت يدوياً لأسباب SEO، يجب تحديثه يدوياً هنا كل مرة يتغير فيها SITE_STATS.totalScholarships -->
     <title id="page-title">منصة المجد التعليمية | الموسوعة الشاملة للـ 45 منحة والخدمات الأكاديمية</title>
     <meta name="description" content="منصة المجد التعليمية تساعد الطلبة في الوصول إلى المنح الدراسية والقبولات الجامعية الدولية، مع أدلة موثقة، أدوات ذكية، وإرشاد أكاديمي منظم.">
     <link rel="canonical" href="https://majdjamil.github.io/Almajd_Scholarships/">
@@ -165,7 +166,7 @@
                                             <span class="text-xs text-slate-300">منحة دولية رسمية</span>
                                         </div>
                                         <div class="bg-navy-900/80 p-3 rounded-2xl border border-gold-500/20 text-center">
-                                            <span class="block text-2xl font-black text-gold-400">20+</span>
+                                            <span class="block text-2xl font-black text-gold-400 country-count">20+</span>
                                             <span class="text-xs text-slate-300">دولة حول العالم</span>
                                         </div>
                                     </div>
@@ -264,11 +265,11 @@
                             <div class="text-slate-300 font-medium text-sm sm:text-base">روابط تقديم أصلية ومباشرة</div>
                         </div>
                         <div class="space-y-2">
-                            <div class="text-3xl sm:text-5xl font-black text-gold-400">2,400+</div>
+                            <div class="text-3xl sm:text-5xl font-black text-gold-400 student-count" data-format="suffix">2,400+</div>
                             <div class="text-slate-300 font-medium text-sm sm:text-base">طالب مستفيد وموجه سنوياً</div>
                         </div>
                         <div class="space-y-2">
-                            <div class="text-3xl sm:text-5xl font-black text-gold-400">95%</div>
+                            <div class="text-3xl sm:text-5xl font-black text-gold-400 success-rate-count">95%</div>
                             <div class="text-slate-300 font-medium text-sm sm:text-base">نسبة نجاح القبولات الجامعية</div>
                         </div>
                     </div>
@@ -1199,11 +1200,11 @@
                             <div class="text-sm text-slate-500 font-bold mt-1.5">منحة موثقة</div>
                         </div>
                         <div class="bg-white border border-gold-500/30 rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-300">
-                            <div class="text-3xl sm:text-4xl font-black text-gold-700">95%</div>
+                            <div class="text-3xl sm:text-4xl font-black text-gold-700 success-rate-count">95%</div>
                             <div class="text-sm text-slate-500 font-bold mt-1.5">نسبة نجاح بالقبولات</div>
                         </div>
                         <div class="bg-white border border-gold-500/30 rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-300">
-                            <div class="text-3xl sm:text-4xl font-black text-gold-700">+2,400</div>
+                            <div class="text-3xl sm:text-4xl font-black text-gold-700 student-count" data-format="prefix">+2,400</div>
                             <div class="text-sm text-slate-500 font-bold mt-1.5">طالب مستفيد</div>
                         </div>
                         <div class="bg-white border border-gold-500/30 rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-300">
@@ -2234,7 +2235,7 @@
     </footer>
 
     <script>
-        // Full 80 Comprehensive Scholarships Dataset with Verified Official URLs
+        // Comprehensive Scholarships Dataset with Verified Official URLs (count is dynamic — see SITE_STATS.totalScholarships below, never hardcode this number in a comment or elsewhere)
         const scholarshipsData = [
             {
                 id: 1,
@@ -3032,6 +3033,14 @@
                 link: "https://od.globaluni.ru"
             }
         ];
+
+        // مصدر الحقيقة الوحيد لكل الأرقام الإحصائية بالموقع. أي محتوى جديد يذكر عدد المنح أو الدول أو الطلاب يجب أن يشير لهذا الكائن، ولا يكتب رقماً ثابتاً يدوياً أبداً.
+        const SITE_STATS = {
+            totalScholarships: scholarshipsData.length, // ديناميكي دائماً من المصفوفة الفعلية أعلاه
+            totalCountries: document.querySelectorAll('#view-countries .grid.grid-cols-1.md\\:grid-cols-3.gap-8 > div').length, // ديناميكي دائماً: يُحسب من بطاقات الدول الفعلية بقسم view-countries
+            studentsHelped: 2400, // الرقم الموثق المؤكد سابقاً من إدارة المنصة
+            successRate: 95 // الرقم الموثق المؤكد سابقاً من إدارة المنصة
+        };
 
         // ===== Auth State & User Data =====
         let currentUser = null;
@@ -3993,7 +4002,7 @@
         ];
 
         const faqsData = [
-            { slug: "all-scholarships-fully-funded", category: "general", question: `س: هل جميع الـ ${scholarshipsData.length} منحة ممولة بالكامل؟`, answer: "ج: تشمل القائمة منحاً ممولة بالكامل (تغطي الرسوم، السكن، الراتب الشهري، وتذاكر السفر) ومنحاً جزئية أو إعفاءات رسوم دراسية، وكل منحة موضحة بالتفصيل في دليلنا.", keywords: ["تمويل كامل", "منحة جزئية", "إعفاء رسوم"] },
+            { slug: "all-scholarships-fully-funded", category: "general", question: `س: هل جميع الـ ${SITE_STATS.totalScholarships} منحة ممولة بالكامل؟`, answer: "ج: تشمل القائمة منحاً ممولة بالكامل (تغطي الرسوم، السكن، الراتب الشهري، وتذاكر السفر) ومنحاً جزئية أو إعفاءات رسوم دراسية، وكل منحة موضحة بالتفصيل في دليلنا.", keywords: ["تمويل كامل", "منحة جزئية", "إعفاء رسوم"] },
             { slug: "ielts-toefl-required", category: "general", question: "س: هل أحتاج لشهادة لغة إنجليزية (IELTS/TOEFL) إلزامي للتقديم؟", answer: "ج: يختلف ذلك حسب المنحة والجامعة؛ بعض المنح الكبرى (مثل المنحة التركية أو الرومانية أو الصينية) لا تشترط شهادة دولية للتقديم المبدئي ويمكن التعويض بسنة تحضيرية للغة، بينما تتطلب أخرى شهادة معتمدة فوراً.", keywords: ["IELTS", "TOEFL", "شهادة لغة"] },
             { slug: "average-gpa-chance", category: "general", question: "س: معدلي متوسط، هل في فرصة أصلاً؟", answer: "ج: أكيد. مو كل المنح بتشترط معدل مرتفع جداً؛ في منح ومسارات قبول مباشر تناسب معدلات متوسطة، وحاسبة القبول بالموقع بتساعدك تعرف خياراتك الواقعية فوراً.", keywords: ["معدل متوسط", "حاسبة القبول"] },
             { slug: "major-not-listed", category: "general", question: "س: بدي أدرس تخصص مش متوفر ضمن المنح المذكورة، شو أعمل؟", answer: "ج: دليل المنح بالموقع نماذج من أبرز الفرص، مو كل الفرص المتاحة عالمياً. تواصل معنا وحدد تخصصك، وفريقنا بيدورلك على المنح والجامعات الأنسب لتخصصك تحديداً.", keywords: ["تخصص غير مذكور"] },
@@ -4587,10 +4596,16 @@
             renderMostReadGuides();
             showViewFromHash();
 
-            document.querySelectorAll('.sch-count').forEach(el => el.textContent = scholarshipsData.length);
-            document.title = `منصة المجد التعليمية | الموسوعة الشاملة للـ ${scholarshipsData.length} منحة والخدمات الأكاديمية`;
+            document.querySelectorAll('.sch-count').forEach(el => el.textContent = SITE_STATS.totalScholarships);
+            document.querySelectorAll('.country-count').forEach(el => el.textContent = SITE_STATS.totalCountries + '+');
+            document.querySelectorAll('.student-count').forEach(el => {
+                const formatted = SITE_STATS.studentsHelped.toLocaleString('en-US');
+                el.textContent = el.dataset.format === 'prefix' ? '+' + formatted : formatted + '+';
+            });
+            document.querySelectorAll('.success-rate-count').forEach(el => el.textContent = SITE_STATS.successRate + '%');
+            document.title = `منصة المجد التعليمية | الموسوعة الشاملة للـ ${SITE_STATS.totalScholarships} منحة والخدمات الأكاديمية`;
             const scholarshipCountOption = document.getElementById('scholarship-count-option');
-            if(scholarshipCountOption) scholarshipCountOption.textContent = `منحة دراسية من الدليل (${scholarshipsData.length} منحة رسمية)`;
+            if(scholarshipCountOption) scholarshipCountOption.textContent = `منحة دراسية من الدليل (${SITE_STATS.totalScholarships} منحة رسمية)`;
 
             renderAuthNav();
 
