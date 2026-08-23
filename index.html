@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="logo-icon.png">
     <link rel="apple-touch-icon" href="logo-icon.png">
-    <!-- ملاحظة: هذا الرقم ثابت يدوياً لأسباب SEO، يجب تحديثه يدوياً هنا كل مرة يتغير فيها SITE_STATS.totalScholarships -->
-    <title id="page-title">منصة المجد التعليمية | الموسوعة الشاملة للـ 45 منحة والخدمات الأكاديمية</title>
+    <title id="page-title">منصة المجد التعليمية | الموسوعة الشاملة للمنح الدراسية والخدمات الأكاديمية</title>
     <meta name="description" content="منصة المجد التعليمية تساعد الطلبة في الوصول إلى المنح الدراسية والقبولات الجامعية الدولية، مع أدلة موثقة، أدوات ذكية، وإرشاد أكاديمي منظم.">
     <link rel="canonical" href="https://majdjamil.github.io/Almajd_Scholarships/">
     <meta property="og:type" content="website">
@@ -65,7 +64,6 @@
                 <nav class="hidden xl:flex items-center gap-3 font-semibold text-slate-200 text-xs sm:text-sm">
                     <button onclick="switchView('home')" id="nav-home" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-gold-500">الرئيسية</button>
                     <button onclick="switchView('scholarships')" id="nav-scholarships" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent flex items-center gap-1">
-                        <span class="bg-gold-500/20 text-gold-400 text-[10px] px-2 py-0.5 rounded-full border border-gold-500/30"><span class="sch-count">80</span> منحة</span>
                         دليل المنح
                     </button>
                     <button onclick="switchView('testimonials')" id="nav-testimonials" class="nav-link hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent"><i class="fa-solid fa-certificate ml-1"></i>قصص طلابنا</button>
@@ -100,7 +98,7 @@
 
         <div id="mobile-menu" class="hidden xl:hidden bg-navy-900 border-t border-navy-800 px-6 py-5 space-y-3 shadow-2xl max-h-[85vh] overflow-y-auto">
             <button onclick="switchView('home'); toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 font-semibold py-2 w-full text-right">الرئيسية</button>
-            <button onclick="switchView('scholarships'); toggleMobileMenu()" class="block text-gold-400 font-bold py-2 w-full text-right">دليل الـ <span class="sch-count">80</span> منحة الدراسية العالمية</button>
+            <button onclick="switchView('scholarships'); toggleMobileMenu()" class="block text-gold-400 font-bold py-2 w-full text-right">دليل المنح الدراسية العالمية</button>
             <button onclick="switchView('testimonials'); toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 font-semibold py-2 w-full text-right"><i class="fa-solid fa-certificate ml-1"></i>قصص طلابنا ونماذج توضيحية</button>
             <button onclick="switchView('calculator'); toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 font-semibold py-2 w-full text-right"><i class="fa-solid fa-calculator ml-1"></i>حاسبة القبول والمعدل</button>
             <button onclick="switchView('countries'); toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 font-semibold py-2 w-full text-right">أدلة الدول وشروط التأشيرات</button>
@@ -136,7 +134,7 @@
                             </p>
                             <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                                 <button onclick="switchView('scholarships')" class="w-full sm:w-auto bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 text-navy-900 font-extrabold px-8 py-4 rounded-xl shadow-xl hover:gold-glow transition-all duration-300 text-center text-base">
-                                    <i class="fa-solid fa-graduation-cap ml-2"></i> استعرض دليل الـ <span class="sch-count">80</span> منحة الرسمية
+                                    <i class="fa-solid fa-graduation-cap ml-2"></i> استعرض دليل المنح الرسمية
                                 </button>
                                 <button onclick="switchView('tools')" class="w-full sm:w-auto bg-navy-800/90 hover:bg-navy-800 text-gold-300 border border-gold-500/40 font-bold px-8 py-4 rounded-xl transition-all duration-300 text-center text-base shadow-md">
                                     <i class="fa-solid fa-file-pen ml-2"></i> نموذج رسالة الدوافع المطور
@@ -162,8 +160,8 @@
                                     <p class="text-sm text-slate-300 leading-relaxed">المرجع الأكاديمي الرقمي الأول للطلبة العرب الراغبين بالدراسة في الخارج عبر روابط تقديم أصلية ومباشرة.</p>
                                     <div class="grid grid-cols-2 gap-3 pt-2">
                                         <div class="bg-navy-900/80 p-3 rounded-2xl border border-gold-500/20 text-center">
-                                            <span class="block text-2xl font-black text-gold-400 sch-count">80</span>
-                                            <span class="text-xs text-slate-300">منحة دولية رسمية</span>
+                                            <span class="block text-2xl font-black text-gold-400"><i class="fa-solid fa-circle-check"></i></span>
+                                            <span class="text-xs text-slate-300">منح دولية رسمية</span>
                                         </div>
                                         <div class="bg-navy-900/80 p-3 rounded-2xl border border-gold-500/20 text-center">
                                             <span class="block text-2xl font-black text-gold-400 country-count">20+</span>
@@ -257,8 +255,8 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                         <div class="space-y-2">
-                            <div class="text-3xl sm:text-5xl font-black text-gold-400"><span class="sch-count">80</span></div>
-                            <div class="text-slate-300 font-medium text-sm sm:text-base">منحة دولية موثقة بروابط رسمية</div>
+                            <div class="text-3xl sm:text-5xl font-black text-gold-400"><i class="fa-solid fa-circle-check"></i></div>
+                            <div class="text-slate-300 font-medium text-sm sm:text-base">منح دولية موثقة بروابط رسمية</div>
                         </div>
                         <div class="space-y-2">
                             <div class="text-3xl sm:text-5xl font-black text-gold-400">100%</div>
@@ -389,8 +387,8 @@
         <section id="view-scholarships" class="view-section py-16 bg-slateLight">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
-                    <span class="bg-navy-900/10 text-navy-900 font-bold px-4 py-1.5 rounded-full text-sm border border-navy-900/20">الدليل الشامل للـ <span class="sch-count">80</span> منحة رسمية</span>
-                    <h2 class="text-3xl sm:text-5xl font-black text-navy-900">موسوعة الـ <span class="sch-count">80</span> منحة دراسية الدولية</h2>
+                    <span class="bg-navy-900/10 text-navy-900 font-bold px-4 py-1.5 rounded-full text-sm border border-navy-900/20">الدليل الشامل للمنح الرسمية</span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-navy-900">موسوعة المنح الدراسية الدولية</h2>
                     <p class="text-slate-600 text-base sm:text-lg">جميع المنح أدناه تحتوي على تفاصيل دقيقة، شروط، ومصادر وروابط تقديم رسمية 100%. استخدم الفلاتر للبحث الدقيق.</p>
                     
                     <div class="bg-white p-4 sm:p-6 rounded-3xl shadow-lg border border-slate-200 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
@@ -429,7 +427,7 @@
                 <div class="text-center max-w-2xl mx-auto mb-12 space-y-4">
                     <span class="bg-amber-500/20 text-amber-800 font-bold px-4 py-1.5 rounded-full text-sm border border-amber-500/30">أداة تفاعلية</span>
                     <h2 class="text-3xl sm:text-4xl font-black text-navy-900">أداة التوافق الأولي مع المنح</h2>
-                    <p class="text-slate-600 text-base">أدخل بياناتك لنقارنها فوراً بالشروط الموثقة لكل منحة من قائمة الـ <span class="sch-count">80</span> منحة، ونوضح لك أين تتوافق ملفياً وأين تحتاج تحققاً إضافياً.</p>
+                    <p class="text-slate-600 text-base">أدخل بياناتك لنقارنها فوراً بالشروط الموثقة لكل منحة من قائمة المنح، ونوضح لك أين تتوافق ملفياً وأين تحتاج تحققاً إضافياً.</p>
                 </div>
 
                 <div class="bg-navy-900 text-white p-8 sm:p-10 rounded-3xl shadow-2xl border border-gold-500/30 space-y-6">
@@ -1104,7 +1102,7 @@
                                 <div class="absolute top-4 right-4 w-14 h-14 bg-navy-900/90 text-gold-400 rounded-2xl flex items-center justify-center text-2xl shadow-md border border-gold-500/30">
                                     <i class="fa-solid fa-globe"></i>
                                 </div>
-                                <h3 class="absolute bottom-4 right-4 left-4 text-xl font-bold text-white drop-shadow-lg">المنح الدراسية الدولية (<span class="sch-count">45</span> منحة)</h3>
+                                <h3 class="absolute bottom-4 right-4 left-4 text-xl font-bold text-white drop-shadow-lg">المنح الدراسية الدولية</h3>
                             </div>
                             <div class="p-8 flex flex-col flex-1">
                                 <p class="text-slate-600 text-base leading-loose mb-4">دليل حي بمنح دولية موثقة، مع مطابقة ذكية بين ملفك الأكاديمي وأنسب الفرص المتاحة لك.</p>
@@ -1196,8 +1194,8 @@
                     <!-- شريط الأرقام -->
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-5 mt-8 fade-slide-up" style="animation-delay:.15s">
                         <div class="bg-white border border-gold-500/30 rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-300">
-                            <div class="text-3xl sm:text-4xl font-black text-gold-700 sch-count">45</div>
-                            <div class="text-sm text-slate-500 font-bold mt-1.5">منحة موثقة</div>
+                            <div class="text-3xl sm:text-4xl font-black text-gold-700"><i class="fa-solid fa-circle-check"></i></div>
+                            <div class="text-sm text-slate-500 font-bold mt-1.5">منح موثقة</div>
                         </div>
                         <div class="bg-white border border-gold-500/30 rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-300">
                             <div class="text-3xl sm:text-4xl font-black text-gold-700 success-rate-count">95%</div>
@@ -1884,7 +1882,7 @@
                                     <label class="block text-sm font-semibold text-slate-300 mb-2">الخدمة المطلوبة</label>
                                     <select id="service-type" class="w-full bg-navy-800 border border-slate-700 rounded-2xl px-4 py-3.5 text-white focus:outline-none focus:border-gold-500 font-medium">
                                         <option value="نظام المجد 360">نظام المجد 360</option>
-                                        <option value="منحة دراسية من الدليل" id="scholarship-count-option">منحة دراسية من الدليل (80 منحة رسمية)</option>
+                                        <option value="منحة دراسية من الدليل">منحة دراسية من الدليل</option>
                                         <option value="قبول جامعي مباشر">قبول جامعي مباشر</option>
                                     </select>
                                 </div>
@@ -4002,7 +4000,7 @@
         ];
 
         const faqsData = [
-            { slug: "all-scholarships-fully-funded", category: "general", question: `س: هل جميع الـ ${SITE_STATS.totalScholarships} منحة ممولة بالكامل؟`, answer: "ج: تشمل القائمة منحاً ممولة بالكامل (تغطي الرسوم، السكن، الراتب الشهري، وتذاكر السفر) ومنحاً جزئية أو إعفاءات رسوم دراسية، وكل منحة موضحة بالتفصيل في دليلنا.", keywords: ["تمويل كامل", "منحة جزئية", "إعفاء رسوم"] },
+            { slug: "all-scholarships-fully-funded", category: "general", question: "س: هل جميع المنح الموجودة بالدليل ممولة بالكامل؟", answer: "ج: تشمل القائمة منحاً ممولة بالكامل (تغطي الرسوم، السكن، الراتب الشهري، وتذاكر السفر) ومنحاً جزئية أو إعفاءات رسوم دراسية، وكل منحة موضحة بالتفصيل في دليلنا.", keywords: ["تمويل كامل", "منحة جزئية", "إعفاء رسوم"] },
             { slug: "ielts-toefl-required", category: "general", question: "س: هل أحتاج لشهادة لغة إنجليزية (IELTS/TOEFL) إلزامي للتقديم؟", answer: "ج: يختلف ذلك حسب المنحة والجامعة؛ بعض المنح الكبرى (مثل المنحة التركية أو الرومانية أو الصينية) لا تشترط شهادة دولية للتقديم المبدئي ويمكن التعويض بسنة تحضيرية للغة، بينما تتطلب أخرى شهادة معتمدة فوراً.", keywords: ["IELTS", "TOEFL", "شهادة لغة"] },
             { slug: "average-gpa-chance", category: "general", question: "س: معدلي متوسط، هل في فرصة أصلاً؟", answer: "ج: أكيد. مو كل المنح بتشترط معدل مرتفع جداً؛ في منح ومسارات قبول مباشر تناسب معدلات متوسطة، وحاسبة القبول بالموقع بتساعدك تعرف خياراتك الواقعية فوراً.", keywords: ["معدل متوسط", "حاسبة القبول"] },
             { slug: "major-not-listed", category: "general", question: "س: بدي أدرس تخصص مش متوفر ضمن المنح المذكورة، شو أعمل؟", answer: "ج: دليل المنح بالموقع نماذج من أبرز الفرص، مو كل الفرص المتاحة عالمياً. تواصل معنا وحدد تخصصك، وفريقنا بيدورلك على المنح والجامعات الأنسب لتخصصك تحديداً.", keywords: ["تخصص غير مذكور"] },
@@ -4596,16 +4594,12 @@
             renderMostReadGuides();
             showViewFromHash();
 
-            document.querySelectorAll('.sch-count').forEach(el => el.textContent = SITE_STATS.totalScholarships);
             document.querySelectorAll('.country-count').forEach(el => el.textContent = SITE_STATS.totalCountries + '+');
             document.querySelectorAll('.student-count').forEach(el => {
                 const formatted = SITE_STATS.studentsHelped.toLocaleString('en-US');
                 el.textContent = el.dataset.format === 'prefix' ? '+' + formatted : formatted + '+';
             });
             document.querySelectorAll('.success-rate-count').forEach(el => el.textContent = SITE_STATS.successRate + '%');
-            document.title = `منصة المجد التعليمية | الموسوعة الشاملة للـ ${SITE_STATS.totalScholarships} منحة والخدمات الأكاديمية`;
-            const scholarshipCountOption = document.getElementById('scholarship-count-option');
-            if(scholarshipCountOption) scholarshipCountOption.textContent = `منحة دراسية من الدليل (${SITE_STATS.totalScholarships} منحة رسمية)`;
 
             renderAuthNav();
 
