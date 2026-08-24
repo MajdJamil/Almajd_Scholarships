@@ -1,0 +1,11 @@
+{
+  "name": "almajd-scholarships",
+  "private": true,
+  "description": "منصة المجد التعليمية - build tooling (Tailwind CSS only; the site itself is static HTML/JS)",
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/input.css -o ./assets/tailwind-output.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}

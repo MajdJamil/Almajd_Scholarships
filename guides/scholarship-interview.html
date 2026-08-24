@@ -50,13 +50,19 @@
     }
     </script>
 
-    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="../assets/tailwind-config.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://www.gstatic.com">
+    <link rel="preconnect" href="https://firestore.googleapis.com">
+
+    <link rel="stylesheet" href="../assets/tailwind-output.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/site-theme.css">
+
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 </head>
 <body class="bg-slateLight text-slate-800 antialiased min-h-screen flex flex-col justify-between selection:bg-gold-500 selection:text-navy-900">
 
@@ -215,7 +221,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-slate-800 pb-10">
                 <div class="space-y-4">
-                    <img src="../logo-full.png" alt="شعار منصة المجد التعليمية" class="h-16 w-auto">
+                    <img src="../logo-full.png" alt="شعار منصة المجد التعليمية" loading="lazy" class="h-16 w-auto">
                     <p class="text-slate-300 text-base leading-relaxed">منصة المجد التعليمية تساعد الطلبة في الوصول إلى المنح والقبولات الجامعية، وتجهيز الملفات الأكاديمية باحترافية.</p>
                 </div>
                 <div class="space-y-4 md:text-center">

@@ -15,6 +15,18 @@
     <meta property="og:url" content="https://majdjamil.github.io/Almajd_Scholarships/">
     <meta property="og:image" content="https://majdjamil.github.io/Almajd_Scholarships/logo-full.png">
     <meta property="og:site_name" content="منصة المجد التعليمية">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://www.gstatic.com">
+    <link rel="preconnect" href="https://firestore.googleapis.com">
+
+    <link rel="stylesheet" href="assets/tailwind-output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- ملاحظة: لا تجعل هذه السكربتات defer — سكربت تهيئة Firebase أدناه سطر inline (بلا src)، وattribute الـdefer لا يُطبَّق على السكربتات الـinline إطلاقاً حسب مواصفات HTML، فسيُنفَّذ فوراً قبل انتهاء تحميل مكتبات Firebase المؤجلة ويسبب خطأ "firebase is not defined". جُرِّب هذا فعلياً وتم التراجع عنه لهذا السبب تحديداً. -->
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
@@ -31,10 +43,6 @@
         const auth = firebase.auth();
         const db = firebase.firestore();
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="assets/tailwind-config.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/site-theme.css">
 </head>
 <body class="bg-slateLight text-slate-800 antialiased min-h-screen flex flex-col justify-between selection:bg-gold-500 selection:text-navy-900">
@@ -1702,7 +1710,7 @@
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                         <div class="lg:col-span-6 space-y-4 fade-slide-up">
                             <div class="flex justify-center lg:justify-start mb-2">
-                                <img src="logo-full.png" alt="شعار منصة المجد التعليمية" class="h-28 sm:h-32 w-auto">
+                                <img src="logo-full.png" alt="شعار منصة المجد التعليمية" loading="lazy" class="h-28 sm:h-32 w-auto">
                             </div>
                             <span class="bg-navy-900/10 text-navy-900 font-bold px-4 py-1.5 rounded-full text-sm">من نحن؟</span>
                             <h2 class="text-3xl sm:text-5xl font-black text-navy-900">منصة المجد التعليمية</h2>
@@ -2203,7 +2211,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-slate-800 pb-10">
                 <div class="space-y-4">
-                    <img src="logo-full.png" alt="شعار منصة المجد التعليمية" class="h-16 w-auto">
+                    <img src="logo-full.png" alt="شعار منصة المجد التعليمية" loading="lazy" class="h-16 w-auto">
                     <p class="text-slate-300 text-base leading-relaxed">منصة المجد التعليمية تساعد الطلبة في الوصول إلى المنح والقبولات الجامعية، وتجهيز الملفات الأكاديمية باحترافية.</p>
                 </div>
                 <div class="space-y-4 md:text-center">
