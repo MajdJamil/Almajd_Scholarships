@@ -234,7 +234,7 @@
                             <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">منحة حكومية روسية بنظام الأولمبياد — بكالوريوس، ماجستير، دكتوراه، دكتوراه ما بعد. تمويل كامل وقبول مباشر بأكثر من 500 جامعة روسية.</p>
                         </div>
 
-                        <p class="text-center text-xs sm:text-sm text-gold-300 font-bold mt-8">الوقت المتبقي لإغلاق التسجيل (منتصف نوفمبر)</p>
+                        <p class="text-center text-xs sm:text-sm text-gold-300 font-bold mt-8">الوقت المتبقي لإغلاق التسجيل (1 نوفمبر)</p>
                         <div class="flex items-center justify-center gap-3 sm:gap-4 mt-3">
                             <div class="bg-navy-900/80 border border-gold-500/30 rounded-2xl w-16 sm:w-20 py-3 text-center shadow-inner">
                                 <span id="opendoors-days" class="block text-2xl sm:text-3xl font-black text-gold-400">00</span>
@@ -4601,8 +4601,8 @@
             }).catch(() => {});
         }
 
-        // عداد Open Doors التنازلي لإغلاق التسجيل. الموقع يذكر "منتصف نوفمبر" دون يوم محدد، فعدّل التاريخ هنا عند معرفة الموعد الرسمي.
-        const OPENDOORS_CLOSE_DATE = '2026-11-15T23:59:59';
+        // عداد Open Doors التنازلي لإغلاق التسجيل. آخر موعد للتسجيل 1 نوفمبر، عدّل التاريخ هنا إذا تغيّر.
+        const OPENDOORS_CLOSE_DATE = '2026-11-01T23:59:59';
         function updateOpenDoorsCountdown() {
             const targetDate = new Date(OPENDOORS_CLOSE_DATE).getTime();
             const now = new Date().getTime();
