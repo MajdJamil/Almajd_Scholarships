@@ -54,7 +54,7 @@
             <span class="ticker-item"><i class="fa-solid fa-bell text-gold-400 ml-2"></i>عاجل: قبول الطالبة سارة عبدالله في منحة Stipendium Hungaricum (طب بشري)</span>
             <span class="ticker-item"><i class="fa-solid fa-bell text-gold-400 ml-2"></i>عاجل: إعلان نتائج منحة إيراسموس موندوس للعام الأكاديمي الجديد</span>
             <span class="ticker-item"><i class="fa-solid fa-bell text-gold-400 ml-2"></i>عاجل: فتح باب التقديم المبكر لمنحة الحكومة الصينية CSC للعام 2026/2027</span>
-            <span class="ticker-item"><i class="fa-solid fa-bell text-gold-400 ml-2"></i>عاجل: تسجيل منحة الأبواب المفتوحة الروسية (Open Doors) فتح رسمياً الآن</span>
+            <span class="ticker-item"><i class="fa-solid fa-bell text-gold-400 ml-2"></i>عاجل: ظهور نتائج منحة الأبواب المفتوحة الروسية (Open Doors) وقبول +35 طالب وطالبة من منصة المجد</span>
             <span class="ticker-item"><i class="fa-solid fa-bell text-gold-400 ml-2"></i>عاجل: صدور نتائج المنحة التركية الرسمية (Türkiye Scholarships) النهائية</span>
         </div>
     </div>
@@ -227,14 +227,14 @@
                             <span class="text-[10px] sm:text-xs font-extrabold leading-none mt-0.5">خصم</span>
                         </div>
                         <span class="inline-flex items-center gap-1.5 bg-amber-500/20 text-amber-400 border border-amber-500/40 text-xs font-bold px-3 py-1.5 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.4)]">
-                            <i class="fa-solid fa-hourglass-half"></i> التسجيل مفتوح — ينتهي قريباً
+                            <i class="fa-solid fa-hourglass-half"></i> فتح موقع المنحة قريباً
                         </span>
                         <div class="mt-6 space-y-3 text-center lg:text-right">
                             <h2 class="text-2xl sm:text-4xl font-black text-white tracking-tight">Open Doors: Russian Scholarship Project</h2>
                             <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">منحة حكومية روسية بنظام الأولمبياد — بكالوريوس، ماجستير، دكتوراه، دكتوراه ما بعد. تمويل كامل وقبول مباشر بأكثر من 500 جامعة روسية.</p>
                         </div>
 
-                        <p class="text-center text-xs sm:text-sm text-gold-300 font-bold mt-8">الوقت المتبقي لإغلاق التسجيل (1 نوفمبر)</p>
+                        <p class="text-center text-xs sm:text-sm text-gold-300 font-bold mt-8">الوقت المتبقي لفتح موقع المنحة (المتوقع بداية ديسمبر)</p>
                         <div class="flex items-center justify-center gap-3 sm:gap-4 mt-3">
                             <div class="bg-navy-900/80 border border-gold-500/30 rounded-2xl w-16 sm:w-20 py-3 text-center shadow-inner">
                                 <span id="opendoors-days" class="block text-2xl sm:text-3xl font-black text-gold-400">00</span>
@@ -4601,10 +4601,10 @@
             }).catch(() => {});
         }
 
-        // عداد Open Doors التنازلي لإغلاق التسجيل. آخر موعد للتسجيل 1 نوفمبر، عدّل التاريخ هنا إذا تغيّر.
-        const OPENDOORS_CLOSE_DATE = '2026-11-01T23:59:59';
+        // عداد Open Doors التنازلي لفتح موقع المنحة. الموعد متوقع (بداية ديسمبر بعد صيانة الموقع الرسمي)، عدّل التاريخ هنا عند تأكيده.
+        const OPENDOORS_OPEN_DATE = '2026-12-01T00:00:00';
         function updateOpenDoorsCountdown() {
-            const targetDate = new Date(OPENDOORS_CLOSE_DATE).getTime();
+            const targetDate = new Date(OPENDOORS_OPEN_DATE).getTime();
             const now = new Date().getTime();
             const diff = targetDate - now;
 
